@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kapsul4D — Jadwal & Prediksi SepakBola</title>
+  <link rel="icon" href="https://favx.link/i/ms7jfx0t/favicon1.png" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            sans: ["Inter", "sans-serif"] 
+          } 
+        } 
+      },
+    };
+  </script>
+
+  <style>
+    /* ── Reset ─────────────────────────────────────────────── */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: "Inter", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* ── Animated Background Scene ─────────────────────────── */
+    .bg-scene {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(
+        135deg,
+        #0a0a12 0%,
+        #0e0f1e 25%,
+        #0d1025 55%,
+        #0a0a12 100%
+      );
+    }
+    .bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(130px);
+      opacity: 0.3;
+      animation: blobFloat 14s ease-in-out infinite alternate;
+    }
+    .bg-blob-1 { 
+      width: 600px; 
+      height: 600px; 
+      background: #3730a3; 
+      top: -15%; 
+      left: -10%; 
+    }
+    .bg-blob-2 { 
+      width: 500px; 
+      height: 500px; 
+      background: #4f46e5; 
+      bottom: -15%; 
+      right: -8%; 
+      animation-delay: -5s; 
+    }
+    .bg-blob-3 { 
+      width: 400px; 
+      height: 400px; 
+      background: #312e81; 
+      top: 35%; 
+      left: 45%; 
+      animation-delay: -9s; 
+    }
+    .bg-blob-4 { 
+      width: 300px; 
+      height: 300px; 
+      background: #6366f1; 
+      top: 5%; 
+      right: 15%; 
+      animation-delay: -3s; 
+      opacity: 0.15; 
+    }
+
+    @keyframes blobFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      33%  { transform: translate(30px, -50px) scale(1.06); }
+      66%  { transform: translate(-25px, 25px) scale(0.94); }
+      100% { transform: translate(15px, -15px) scale(1.02); }
+    }
+
+    /* ── Grid Overlay ───────────────────────────────────────── */
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    /* ── Glassmorphism Utilities ────────────────────────────── */
+    .glass {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass:hover {
+      background: rgba(255, 255, 255, 0.06);
+      border-color: rgba(255, 255, 255, 0.14);
+      transform: translateY(-2px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+    .glass-static {
+      background: rgba(255, 255, 255, 0.035);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: 16px;
+    }
+    .glass-sidebar {
+      background: rgba(255, 255, 255, 0.025);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* ── Sidebar Navigation Items ───────────────────────────── */
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 16px;
+      border-radius: 10px;
+      color: rgba(255, 255, 255, 0.45);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s;
+      cursor: pointer;
+      user-select: none;
+      background: none;
+      border: none;
+      width: 100%;
+      text-align: left;
+      font-family: inherit;
+    }
+    .nav-item:hover {
+      color: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .nav-item:focus-visible {
+      outline: none;
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6);
+    }
+    .nav-item.active {
+      color: #fff;
+      background: rgba(79, 70, 229, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
+    }
+    .nav-item.active i { 
+      color: #818cf8; 
+    }
+
+    /* ── Stat Card Accent Borders ───────────────────────────── */
+    .accent-green { border-top: 2px solid #4ade80; }
+    .accent-cyan  { border-top: 2px solid #22d3ee; }
+
+    /* ── Match Row ──────────────────────────────────────────── */
+    .match-row {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      transition: all 0.3s;
+    }
+    .match-row:hover {
+      background: rgba(255, 255, 255, 0.055);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(2px);
+    }
+
+    /* ── Handicap Badge ─────────────────────────────────────── */
+    .handicap-badge {
+      background: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.2);
+      color: #fbbf24;
+      border-radius: 8px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+    .handicap-zero {
+      background: rgba(99, 102, 241, 0.08);
+      border-color: rgba(99, 102, 241, 0.18);
+      color: rgba(129, 140, 248, 0.7);
+    }
+
+    /* ── League Tag & Date Separator ────────────────────────── */
+    .league-tag {
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.3);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .date-sep {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin: 8px 0 6px;
+      padding-left: 2px;
+    }
+    .date-sep-line {
+      flex: 1;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .date-sep-text {
+      font-size: 9px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.18);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── Fade In Up Animation ───────────────────────────────── */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .anim-in { 
+      animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
+      opacity: 0; 
+    }
+    .d1 { animation-delay: 0.06s; }
+    .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.18s; }
+    .d4 { animation-delay: 0.24s; }
+    .d5 { animation-delay: 0.30s; }
+    .d6 { animation-delay: 0.36s; }
+    .d7 { animation-delay: 0.42s; }
+    .d8 { animation-delay: 0.48s; }
+
+    /* ── Hero / Spotlight Card ──────────────────────────────── */
+    .hero-card {
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(30px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s;
+    }
+    .hero-card:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 40px rgba(99, 102, 241, 0.08);
+      transform: translateY(-3px);
+    }
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #818cf8, transparent);
+    }
+
+    /* ── Team Badges ────────────────────────────────────────── */
+    .team-badge {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 11px;
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .team-badge-sm {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      font-size: 10px;
+    }
+    .team-crest {
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 6.5px;
+      font-weight: 800;
+      color: white;
+      flex-shrink: 0;
+    }
+    @media (min-width: 1024px) {
+      .team-crest { 
+        width: 20px; 
+        height: 20px; 
+        border-radius: 5px; 
+        font-size: 7px; 
+      }
+    }
+
+    /* ── Flag Icons ─────────────────────────────────────────── */
+    .flag-icon { 
+      height: 14px; 
+      width: auto; 
+      border-radius: 1.5px; 
+      object-fit: cover; 
+      flex-shrink: 0; 
+    }
+    .flag-icon-lg { 
+      height: 16px; 
+      width: auto; 
+      border-radius: 2px; 
+      object-fit: cover; 
+    }
+
+    /* ── Score Color Classes ────────────────────────────────── */
+    .score-home  { color: #4ade80; }
+    .score-away  { color: #f87171; }
+    .score-draw  { color: #fbbf24; }
+
+    /* ── Result Tags ────────────────────────────────────────── */
+    .result-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+    .result-home { 
+      background: rgba(74, 222, 128, 0.08); 
+      color: #4ade80; 
+      border: 1px solid rgba(74, 222, 128, 0.15); 
+    }
+    .result-away { 
+      background: rgba(248, 113, 113, 0.08); 
+      color: #f87171; 
+      border: 1px solid rgba(248, 113, 113, 0.15); 
+    }
+    .result-draw { 
+      background: rgba(251, 191, 36, 0.08);  
+      color: #fbbf24; 
+      border: 1px solid rgba(251, 191, 36, 0.15); 
+    }
+
+    /* ── Form Indicator Dots ────────────────────────────────── */
+    .form-dot { 
+      width: 7px; 
+      height: 7px; 
+      border-radius: 50%; 
+      display: inline-block; 
+      flex-shrink: 0; 
+    }
+    .form-w { 
+      background: #4ade80; 
+      box-shadow: 0 0 4px rgba(74, 222, 128, 0.25); 
+    }
+    .form-d { 
+      background: rgba(255, 255, 255, 0.18); 
+    }
+    .form-l { 
+      background: #f87171; 
+      box-shadow: 0 0 4px rgba(248, 113, 113, 0.25); 
+    }
+    .form-gap { 
+      width: 3px; 
+      flex-shrink: 0; 
+    }
+
+    /* ── League Card & Header ───────────────────────────────── */
+    .league-card { 
+      margin-bottom: 1rem; 
+    }
+    .league-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* ── Distribution Bar ───────────────────────────────────── */
+    .league-bar {
+      height: 6px;
+      border-radius: 3px;
+      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    /* ── Klasemen Tabs ──────────────────────────────────────── */
+    .klasemen-tab {
+      padding: 8px 16px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid transparent;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .klasemen-tab:hover { 
+      color: rgba(255, 255, 255, 0.7); 
+      background: rgba(255, 255, 255, 0.06); 
+    }
+    .klasemen-tab.active { 
+      color: #fff; 
+      background: rgba(99, 102, 241, 0.15); 
+      border-color: rgba(99, 102, 241, 0.25); 
+    }
+
+    /* ── Standing Table Row (FIXED GRID LAYOUT) ─────────────── */
+    .stand-row {
+      display: grid;
+      gap: 2px;
+      align-items: center;
+      padding: 6px 10px;
+      border-radius: 6px;
+      transition: background 0.2s;
+      cursor: default;
+      font-size: 11px;
+      /* Memaksa layout dengan 12 Kolom yang pas */
+      grid-template-columns: 24px 22px 1fr 26px 26px 26px 26px 26px 26px 30px 30px 65px;
+    }
+    .stand-row:hover { 
+      background: rgba(255, 255, 255, 0.03); 
+    }
+
+    /* Mencegah kolom disembunyikan saat layar kecil / zoom */
+    .cell-crest, 
+    .cell-mp, 
+    .cell-w, 
+    .cell-d, 
+    .cell-l, 
+    .cell-gf, 
+    .cell-ga {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stand-header {
+      color: rgb(255, 255, 255);
+      font-size: 9px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .stand-header > div { 
+      text-align: center; 
+    }
+    .stand-header > div:nth-child(3) { 
+      text-align: left; 
+    }
+    .stand-header > div:last-child { 
+      text-align: center; 
+    }
+
+    /* ── Zone Color Coding ────────────────────────────────────── */
+    .ucl           { border-left: 3px solid #818CF8; }
+    .uel           { border-left: 3px solid #F97316; }
+    .uecl          { border-left: 3px solid #22C55E; }
+    .ucl-qualifier { border-left: 3px solid #A855F7; }
+    .relegation    { border-left: 3px solid #EF4444; }
+    .relegation-playoff { border-left: 4px solid orange; }
+
+    .zone-legend {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 12px;
+      padding: 8px 12px;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      flex-wrap: wrap;
+    }
+    .zone-legend span { 
+      display: flex; 
+      align-items: center; 
+      gap: 5px; 
+      font-size: 10px; 
+      color: rgba(255, 255, 255, 0.6); 
+    }
+    .zone-legend .dot { 
+      width: 8px; 
+      height: 8px; 
+      border-radius: 2px; 
+      flex-shrink: 0; 
+    }
+
+    /* ── Toast Notification ─────────────────────────────────── */
+    .toast-container {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 200;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      max-width: 320px;
+      pointer-events: none;
+    }
+    @keyframes toastIn {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+    .toast-item {
+      animation: toastIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      pointer-events: auto;
+    }
+
+    /* ── Mobile Sidebar Overlay ─────────────────────────────── */
+    .sidebar-overlay { 
+      display: none; 
+      position: fixed; 
+      inset: 0; 
+      background: rgba(0, 0, 0, 0.5); 
+      z-index: 40; 
+    }
+    .sidebar-overlay.show { 
+      display: block; 
+    }
+
+    @media (max-width: 1023px) {
+      .sidebar {
+        transform: translateX(-100%);
+        position: fixed !important;
+        z-index: 50;
+        transition: transform 0.3s;
+      }
+      .sidebar.open { 
+        transform: translateX(0); 
+      }
+    }
+
+    /* ── Custom Scrollbar ───────────────────────────────────── */
+    ::-webkit-scrollbar { 
+      width: 5px; 
+      height: 5px; 
+    }
+    ::-webkit-scrollbar-track { 
+      background: transparent; 
+    }
+    ::-webkit-scrollbar-thumb { 
+      background: rgba(255, 255, 255, 0.08); 
+      border-radius: 3px; 
+    }
+  </style>
+</head>
+
+<body class="min-h-screen text-white">
+
+  <div class="bg-scene">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-blob bg-blob-4"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="relative z-10 flex min-h-screen">
+    
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <aside class="sidebar glass-sidebar w-60 flex-shrink-0 flex flex-col p-5 lg:sticky lg:top-0 lg:h-screen" id="sidebar">
+      <div class="flex items-center gap-3 mb-8 anim-in">
+        <img src="https://favx.link/i/eecprr_0/favicon.png" class="w-9 h-9 rounded-xl object-cover" alt="Kapsul4D Logo" />
+        <span class="text-lg font-bold tracking-tight">KAPSUL4D</span>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <div class="text-[10px] font-semibold uppercase tracking-widest text-white/20 px-4 mb-3">Menu</div>
+        
+        <button class="nav-item active anim-in d1" data-section="dashboard">
+          <i data-lucide="layout-dashboard" class="w-[18px] h-[18px]"></i> 
+          Dashboard
+        </button>
+        <button class="nav-item anim-in d2" data-section="jadwal">
+          <i data-lucide="calendar-days" class="w-[18px] h-[18px]"></i> 
+          Jadwal
+        </button>
+        <button class="nav-item anim-in d3" data-section="prediksi">
+          <i data-lucide="brain" class="w-[18px] h-[18px]"></i> 
+          Prediksi
+        </button>
+        <button class="nav-item anim-in d4" data-section="klasemen">
+          <i data-lucide="medal" class="w-[18px] h-[18px]"></i> 
+          Klasemen
+        </button>
+        <button class="nav-item anim-in d5" data-action="favorit">
+          <i data-lucide="star" class="w-[18px] h-[18px]"></i> 
+          Favorit
+        </button>
+      </nav>
+
+      <div class="glass-static p-3 flex items-center gap-2 mt-4 anim-in d8">
+        <img src="https://favx.link/i/cmijscll/logokapsul.jpg" class="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/30" alt="Profile" />
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-medium truncate">Bola Kapsul4D</div>
+          <div class="text-[12px] text-white/35 truncate">By : Claire</div>
+        </div>
+        <i data-lucide="chevrons-up-down" class="w-4 h-4 text-white/25"></i>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-4 lg:p-8 overflow-y-auto w-full">
+      <header class="flex items-center justify-between mb-6 anim-in">
+        <div class="flex items-center gap-4">
+          <button class="lg:hidden p-2 rounded-xl hover:bg-white/5 transition" onclick="toggleSidebar()">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+          <div>
+            <h1 class="text-2xl lg:text-3xl font-bold tracking-tight" id="headerTitle">Dashboard</h1>
+            <p class="text-sm text-white/35 mt-1" id="headerDesc">Ringkasan Pertandingan &amp; Spotlight Liga Top</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3" id="searchWrapper" style="display:none">
+          <div class="hidden md:flex items-center gap-2 glass-static px-4 py-2.5 rounded-xl">
+            <i data-lucide="search" class="w-4 h-4 text-white/25"></i>
+            <input type="text" placeholder="Cari tim atau liga..." class="bg-transparent border-none outline-none text-sm text-white placeholder-white/25 w-40" id="searchInput" oninput="filterMatches()" />
+          </div>
+        </div>
+      </header>
+
+      <div id="secDashboard">
+        <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+          <div class="glass accent-green p-5 anim-in d1">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
+                <i data-lucide="calendar-check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">Total</span>
+            </div>
+            <div class="text-2xl font-bold" id="statTotal">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+          <div class="glass accent-cyan p-5 anim-in d2">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
+                <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+            </div>
+            <div class="text-2xl font-bold" id="statLeagues">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Liga</div>
+          </div>
+          <div class="glass accent-green p-5 anim-in d3">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
+                <i data-lucide="sun" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full" id="statDate1Label">-</span>
+            </div>
+            <div class="text-2xl font-bold" id="statDate1">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+          <div class="glass accent-cyan p-5 anim-in d4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
+                <i data-lucide="moon" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded-full" id="statDate2Label">-</span>
+            </div>
+            <div class="text-2xl font-bold" id="statDate2">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+        </div>
+
+        <div class="mb-6 anim-in d5">
+          <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+            <h2 class="text-sm font-bold text-indigo-400 uppercase tracking-wider">Spotlight Pertandingan</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="spotlightCards"></div>
+        </div>
+      </div>
+
+      <div id="secJadwal" style="display:none">
+        <div class="anim-in d6">
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="font-bold text-base">Jadwal &amp; Handicap 22 - 23 April 2026</h2>
+            <span class="text-[11px] text-white/25" id="matchCountLabel">0 pertandingan</span>
+          </div>
+          <div id="scheduleContainer"></div>
+        </div>
+        <div class="glass-static p-5 lg:p-6 mt-4 anim-in d7">
+          <h3 class="font-bold text-sm mb-4">Distribusi Pertandingan per Liga</h3>
+          <div class="space-y-2.5" id="leagueBars"></div>
+        </div>
+      </div>
+
+      <div id="secPrediksi" style="display:none">
+        <div class="flex items-center gap-2 mb-5 anim-in d1">
+          <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+          <h2 class="font-bold text-base">Hasil Pertandingan 22 - 23 April 2026</h2>
+        </div>
+        <div id="prediksiList"></div>
+      </div>
+
+      <div id="secKlasemen" style="display:none">
+        <div class="flex items-center gap-2 mb-5">
+          <i data-lucide="medal" class="w-4 h-4 text-indigo-400"></i>
+          <h2 class="font-bold text-base">Klasemen 5 Liga Besar</h2>
+          <span class="text-[10px] text-white/50 ml-2 hidden sm:inline">Musim 2025/2026</span>
+        </div>
+
+        <div class="flex gap-2 mb-4 overflow-x-auto" style="scrollbar-width:none" id="klasemenTabs">
+          <div class="klasemen-tab active flex items-center gap-2" data-league="PL">
+            <img src="https://flagcdn.com/w20/gb-eng.png" class="w-4 h-4 object-contain" alt="England" />
+            <span>Premier League</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="PD">
+            <img src="https://flagcdn.com/w20/es.png" class="w-4 h-4 object-contain" alt="Spain" />
+            <span>La Liga</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="BL1">
+            <img src="https://flagcdn.com/w20/de.png" class="w-4 h-4 object-contain" alt="Germany" />
+            <span>Bundesliga</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="SA">
+            <img src="https://flagcdn.com/w20/it.png" class="w-4 h-4 object-contain" alt="Italy" />
+            <span>Serie A</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="FL1">
+            <img src="https://flagcdn.com/w20/fr.png" class="w-4 h-4 object-contain" alt="France" />
+            <span>Ligue 1</span>
+          </div>
+        </div>
+
+        <div id="klasemenContent" class="glass-static p-3 lg:p-4"></div>
+      </div>
+
+      <footer class="text-center text-[11px] text-white/55 pb-4 mt-6">
+        &copy; 2026 KAPSUL4D. All right reserved.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    
+    // Init Lucide Icons
+    lucide.createIcons();
+
+    // Map of country codes for flag CDN
+    var flagMap = {
+      'gb-eng':'gb-eng','es':'es','it':'it','de':'de','fr':'fr','au':'au','jp':'jp',
+      'no':'no','se':'se','fi':'fi','pt':'pt','ch':'ch','be':'be','tr':'tr','ru':'ru',
+      'ar':'ar','id':'id','th':'th','cn':'cn','kr':'kr','pl':'pl','ie':'ie','dk':'dk',
+      'ro':'ro','gr':'gr','nl':'nl','gb-sct':'gb-sct','ua':'ua','sk':'sk','hu':'hu',
+      'rs':'rs','by':'by','am':'am','kz':'kz','si':'si','lt':'lt','cy':'cy','ee':'ee',
+      'cl':'cl','co':'co','py':'py','uy':'uy','br':'br','ve':'ve','at':'at','hr':'hr',
+      'ge':'ge','az':'az','bg':'bg','lv':'lv','mx':'mx','ec':'ec','bo':'bo','cr':'cr',
+      'us':'us','cz':'cz'
+    };
+
+    function flagImg(code, cls) {
+      cls = cls || 'flag-icon';
+      if (!code) return '<div class="cl-badge" style="width:14px;height:14px;border-radius:2px"></div>';
+      var c = flagMap[code] || code;
+      if (c && /^[a-z]/.test(c)) {
+        return '<img src="https://flagcdn.com/w20/' + c + '.png" class="' + cls + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+      }
+      return '<div class="cl-badge" style="width:14px;height:14px;border-radius:2px"></div>';
+    }
+
+    function showToast(msg, icon) {
+      icon = icon || 'info';
+      var c = document.getElementById('toastContainer');
+      var t = document.createElement('div');
+      t.className = 'toast-item glass-static p-4 flex items-center gap-3';
+      t.innerHTML = '<i data-lucide="' + icon + '" class="w-4 h-4 text-indigo-400 flex-shrink-0"></i><span class="text-[13px] text-white/80">' + msg + '</span>';
+      c.appendChild(t); 
+      lucide.createIcons();
+      setTimeout(function () { 
+        t.style.opacity = '0'; 
+        t.style.transform = 'translateX(30px)'; 
+        t.style.transition = 'all .3s'; 
+        setTimeout(function () { t.remove(); }, 300); 
+      }, 2800);
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('show');
+    }
+
+    function fmtHC(v) { 
+      v = v.trim(); 
+      if (v === '0') return '0'; 
+      return v.replace(/3\s*\/\s*4/g, '\u00be').replace(/1\s*\/\s*2/g, '\u00bd').replace(/1\s*\/\s*4/g, '\u00bc'); 
+    }
+    
+    function parseHC(s) { 
+      var p = s.split(':'); 
+      return { home: fmtHC(p[0]), away: fmtHC(p[1]) }; 
+    }
+    
+    function isZeroHC(v) { 
+      return v.home === '0' && v.away === '0'; 
+    }
+    
+    function getAbbr(n) { 
+      var p = n.split(' '); 
+      if (p.length >= 2 && p[0].length <= 3) return p[0].toUpperCase(); 
+      if (p.length >= 2) return (p[0][0] + p[1][0]).toUpperCase(); 
+      return n.substring(0, 3).toUpperCase(); 
+    }
+
+    var pal = [
+      ['from-red-600','to-red-800'], ['from-blue-600','to-blue-800'], 
+      ['from-emerald-600','to-emerald-800'], ['from-amber-500','to-amber-700'], 
+      ['from-purple-600','to-purple-800'], ['from-cyan-600','to-cyan-800'], 
+      ['from-indigo-600','to-indigo-800'], ['from-pink-600','to-pink-800'], 
+      ['from-teal-600','to-teal-800'], ['from-orange-500','to-orange-700'], 
+      ['from-lime-600','to-lime-800'], ['from-rose-600','to-rose-800']
+    ];
+    
+    function gc(n) { 
+      var h = 0; 
+      for (var i = 0; i < n.length; i++) h = n.charCodeAt(i) + ((h << 5) - h); 
+      return pal[Math.abs(h) % pal.length]; 
+    }
+
+    function dateShort(d) { 
+      var p = d.split('/'); 
+      return parseInt(p[0]) + '/' + parseInt(p[1]); 
+    }
+    
+    function dateLabel(d) { 
+      var p = d.split('/'); 
+      var m = ['','Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des']; 
+      return parseInt(p[0]) + ' ' + m[parseInt(p[1])] + ' 2026'; 
+    }
+    
+    function scoreClass(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      return h > a ? 'score-home' : h < a ? 'score-away' : 'score-draw'; 
+    }
+    
+    function resultTag(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      if (h > a) return 'Home Win'; 
+      if (h < a) return 'Away Win'; 
+      return 'Draw'; 
+    }
+    
+    function resultTagClass(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      if (h > a) return 'result-home'; 
+      if (h < a) return 'result-away'; 
+      return 'result-draw'; 
+    }
+    
+    function formDots(f) { 
+      return f.split('').map(function (r) { 
+        return '<span class="form-dot form-' + r.toLowerCase() + '"></span><span class="form-gap"></span>'; 
+      }).join(''); 
+    }
+
+    var sectionMeta = {
+      dashboard: { title: 'Dashboard', desc: 'Ringkasan Pertandingan & Spotlight Liga Top' },
+      jadwal: { title: 'Jadwal Pertandingan', desc: 'Jadwal Lengkap Beserta Handicap Untuk Semua Liga' },
+      prediksi: { title: 'Hasil Pertandingan', desc: 'Semua Hasil Pertandingan 21-22 April 2026' },
+      klasemen: { title: 'Klasemen Liga', desc: '' }
+    };
+    
+    var currentSection = 'dashboard';
+
+    // Navigation Click Handlers
+    document.querySelectorAll('.nav-item[data-section]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        document.querySelectorAll('.nav-item').forEach(function (n) { 
+          n.classList.remove('active'); 
+        });
+        
+        this.classList.add('active');
+        var sec = this.dataset.section; 
+        currentSection = sec;
+        
+        ['secDashboard', 'secJadwal', 'secPrediksi', 'secKlasemen'].forEach(function (id) { 
+          document.getElementById(id).style.display = 'none'; 
+        });
+        
+        document.getElementById('sec' + sec.charAt(0).toUpperCase() + sec.slice(1)).style.display = '';
+        document.getElementById('headerTitle').textContent = sectionMeta[sec].title;
+        document.getElementById('headerDesc').textContent = sectionMeta[sec].desc;
+        document.getElementById('searchWrapper').style.display = sec === 'jadwal' ? '' : 'none';
+        
+        if (window.innerWidth < 1024) toggleSidebar();
+        if (sec === 'klasemen') renderManualTable(currentLeague);
+      });
+    });
+
+    document.querySelectorAll('.nav-item[data-action]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var a = this.dataset.action; 
+        if (a === 'favorit') showToast('Fitur favorit segera hadir!', 'star');
+        if (window.innerWidth < 1023) toggleSidebar();
+      });
+    });
+
+
+    /* ================================================================
+       DATA KLASEMEN (Update 21 April 2026)
+       ================================================================ */
+    var ST = {
+      PL: [
+        [1, 'Arsenal', 33, 21, 7, 5, 63, 26, 37, 70, 'WWWLL'],
+        [2, 'Manchester City', 32, 20, 7, 5, 65, 29, 36, 67, 'WDDWW'],
+        [3, 'Manchester United', 33, 16, 10, 7, 58, 45, 13, 58, 'LWDLW'],
+        [4, 'Aston Villa', 33, 17, 7, 9, 47, 41, 6, 58, 'LLWDW'],
+        [5, 'Liverpool', 33, 16, 7, 10, 54, 43, 11, 55, 'LDLWW'],
+        [6, 'Chelsea', 33, 13, 9, 11, 53, 42, 11, 48, 'WLLLL'],
+        [7, 'Brentford', 33, 13, 9, 11, 48, 44, 4, 48, 'DDDDD'],
+        [8, 'Bournemouth', 33, 11, 15, 7, 50, 50, 0, 48, 'DDDWW'],
+        [9, 'Brighton', 33, 12, 11, 10, 45, 39, 6, 47, 'LWWWD'],
+        [10, 'Everton', 33, 13, 8, 12, 40, 39, 1, 47, 'WLWDL'],
+        [11, 'Sunderland', 33, 12, 10, 11, 36, 40, -4, 46, 'WLWWL'],
+        [12, 'Fulham', 33, 13, 6, 14, 43, 46, -3, 45, 'LDWLD'],
+        [13, 'Crystal Palace', 31, 11, 9, 11, 35, 36, -1, 42, 'WLWDW'],
+        [14, 'Newcastle United', 33, 12, 6, 15, 46, 49, -3, 42, 'WWLLL'],
+        [15, 'Leeds United', 33, 9, 12, 12, 42, 49, -7, 39, 'LDDWW'],
+        [16, 'Nottingham Forest', 33, 9, 9, 15, 36, 45, -9, 36, 'DDWDW'],
+        [17, 'West Ham United', 32, 8, 8, 16, 40, 57, -17, 32, 'LWDLW'],
+        [18, 'Tottenham Hotspur', 33, 7, 10, 16, 42, 53, -11, 31, 'LDLLD'],
+        [19, 'Burnley', 33, 4, 8, 21, 34, 67, -33, 20, 'LDLLL'],
+        [20, 'Wolverhampton', 33, 3, 8, 22, 24, 61, -37, 17, 'WWDLL']
+      ],
+      PD: [
+        [1, 'Barcelona', 31, 26, 1, 4, 84, 30, 54, 79, 'WWWWW'],
+        [2, 'Real Madrid', 31, 22, 4, 5, 65, 29, 36, 70, 'WWWLD'],
+        [3, 'Villarreal', 31, 19, 4, 8, 56, 36, 20, 61, 'WDWLW'],
+        [4, 'Atletico Madrid', 31, 17, 6, 8, 51, 32, 19, 57, 'WWLLL'],
+        [5, 'Real Betis', 31, 11, 13, 7, 45, 38, 7, 46, 'LDLDD'],
+        [6, 'Celta Vigo', 31, 11, 11, 9, 44, 40, 4, 44, 'LDLWL'],
+        [7, 'Real Sociedad', 31, 11, 9, 11, 49, 48, 1, 42, 'LWLWD'],
+        [8, 'Getafe', 31, 12, 5, 14, 27, 32, -5, 41, 'WLWWL'],
+        [9, 'Osasuna', 31, 10, 9, 12, 37, 38, -1, 39, 'DLWDD'],
+        [10, 'Espanyol', 31, 10, 8, 13, 37, 48, -11, 38, 'DLLDL'],
+        [11, 'Girona', 31, 9, 11, 11, 33, 45, -12, 38, 'DWLWD'],
+        [12, 'Athletic Club', 31, 11, 5, 15, 33, 45, -12, 38, 'LLWLL'],
+        [13, 'Rayo Vallecano', 31, 8, 11, 12, 29, 38, -9, 35, 'DDLWL'],
+        [14, 'Valencia', 31, 9, 8, 14, 34, 46, -12, 35, 'WLWLL'],
+        [15, 'Mallorca', 31, 9, 7, 15, 39, 48, -9, 34, 'DWLWW'],
+        [16, 'Sevilla', 31, 9, 7, 15, 39, 51, -12, 34, 'DLLLW'],
+        [17, 'Alaves', 31, 8, 9, 14, 35, 46, -11, 33, 'LDWDD'],
+        [18, 'Elche', 31, 7, 11, 13, 39, 47, -8, 32, 'LLWLW'],
+        [19, 'Levante', 31, 7, 8, 16, 35, 50, -15, 29, 'DDWLW'],
+        [20, 'Real Oviedo', 31, 6, 9, 16, 24, 48, -24, 27, 'DWLWW']
+      ],
+      BL1: [
+        [1, 'Bayern Munich', 30, 25, 4, 1, 109, 29, 80, 79, 'DWWWW'],
+        [2, 'Borussia Dortmund', 30, 19, 7, 4, 61, 31, 30, 64, 'WWWLL'],
+        [3, 'RB Leipzig', 30, 18, 5, 7, 59, 37, 22, 59, 'LWWWW'],
+        [4, 'VfB Stuttgart', 30, 17, 5, 8, 62, 42, 20, 56, 'WWLWL'],
+        [5, 'TSG Hoffenheim', 30, 16, 6, 8, 59, 44, 15, 54, 'DLLDW'],
+        [6, 'Bayer Leverkusen', 30, 15, 7, 8, 60, 41, 19, 52, 'DDWWL'],
+        [7, 'SC Freiburg', 30, 12, 7, 11, 44, 48, -4, 43, 'LWLWW'],
+        [8, 'Eintracht Frankfurt', 30, 11, 9, 10, 55, 57, -2, 42, 'WLDWL'],
+        [9, 'FC Augsburg', 30, 10, 6, 14, 38, 54, -16, 36, 'LLDDW'],
+        [10, 'Mainz 05', 30, 8, 10, 12, 36, 45, -9, 34, 'WWWLD'],
+        [11, 'Union Berlin', 30, 8, 8, 14, 34, 52, -18, 32, 'WLDLL'],
+        [12, 'FC Koln', 30, 7, 10, 13, 44, 51, -7, 31, 'DDDWD'],
+        [13, 'Borussia Mgladbach', 30, 7, 10, 13, 36, 50, -14, 31, 'WDDLD'],
+        [14, 'Hamburger SV', 30, 7, 10, 13, 33, 48, -15, 31, 'DLDLL'],
+        [15, 'Werder Bremen', 30, 8, 7, 15, 35, 53, -18, 31, 'LWLLW'],
+        [16, 'St. Pauli', 30, 6, 8, 16, 26, 51, -25, 26, 'LLDLD'],
+        [17, 'VfL Wolfsburg', 30, 6, 6, 18, 41, 66, -25, 24, 'DLLLW'],
+        [18, 'FC Heidenheim', 30, 4, 7, 19, 33, 66, -33, 19, 'LDDWL']
+      ],
+      SA: [
+        [1, 'Inter Milan', 33, 25, 3, 5, 78, 29, 49, 78, 'DDWWW'],
+        [2, 'AC Milan', 33, 19, 9, 5, 48, 27, 21, 66, 'LWLLW'],
+        [3, 'Napoli', 33, 20, 6, 7, 48, 33, 15, 66, 'WWWDL'],
+        [4, 'Juventus', 33, 18, 9, 6, 57, 29, 28, 63, 'WDWWW'],
+        [5, 'Como', 33, 16, 10, 7, 57, 28, 29, 58, 'WWDLL'],
+        [6, 'AS Roma', 33, 18, 4, 11, 46, 29, 17, 58, 'LWLWD'],
+        [7, 'Atalanta', 33, 14, 12, 7, 45, 29, 16, 54, 'DWWLD'],
+        [8, 'Bologna', 33, 14, 6, 13, 42, 39, 3, 48, 'WLWWL'],
+        [9, 'Lazio', 33, 12, 11, 10, 34, 30, 4, 47, 'WWDLW'],
+        [10, 'Sassuolo', 33, 13, 6, 14, 41, 44, -3, 45, 'LDWLW'],
+        [11, 'Udinese', 33, 12, 7, 14, 38, 43, -5, 43, 'LWDWL'],
+        [12, 'Torino', 33, 11, 7, 15, 37, 54, -17, 40, 'WLWWD'],
+        [13, 'Genoa', 33, 10, 9, 14, 40, 48, -8, 39, 'WLLWW'],
+        [14, 'Parma', 33, 9, 12, 12, 24, 40, -16, 39, 'LLDDW'],
+        [15, 'Fiorentina', 32, 8, 11, 13, 37, 44, -7, 35, 'DWDWW'],
+        [16, 'Cagliari', 33, 8, 9, 16, 33, 47, -14, 33, 'LLLWL'],
+        [17, 'Cremonese', 33, 6, 10, 17, 28, 47, -21, 28, 'LWLLD'],
+        [18, 'Lecce', 32, 7, 6, 19, 21, 45, -24, 27, 'WLLLL'],
+        [19, 'Hellas Verona', 33, 3, 9, 21, 23, 56, -33, 18, 'LLLLL'],
+        [20, 'Pisa', 33, 2, 12, 19, 24, 60, -36, 18, 'WLLLL']
+      ],
+      FL1: [
+        [1, 'Paris Saint-Germain', 28, 20, 3, 5, 62, 25, 37, 63, 'WLWWL'],
+        [2, 'RC Lens', 29, 20, 2, 7, 57, 29, 28, 62, 'WLWLW'],
+        [3, 'Lille OSC', 30, 16, 6, 8, 49, 34, 15, 54, 'WWWWD'],
+        [4, 'Olympique Lyon', 30, 16, 6, 8, 45, 30, 15, 54, 'DLDWW'],
+        [5, 'Stade Rennais', 30, 15, 8, 7, 52, 41, 11, 53, 'LDWWW'],
+        [6, 'Olympique Marseille', 30, 16, 4, 10, 58, 40, 18, 52, 'WLLWL'],
+        [7, 'AS Monaco', 30, 15, 5, 10, 52, 45, 7, 50, 'WWWLD'],
+        [8, 'RC Strasbourg', 29, 12, 7, 10, 46, 37, 9, 43, 'DDWWL'],
+        [9, 'Lorient', 30, 10, 11, 9, 40, 44, -4, 41, 'WLDLW'],
+        [10, 'Paris FC', 30, 9, 11, 10, 40, 46, -6, 38, 'DWDWW'],
+        [11, 'Toulouse FC', 30, 10, 7, 13, 41, 42, -1, 37, 'WWLLL'],
+        [12, 'Stade Brestois', 29, 10, 7, 12, 38, 44, -6, 37, 'WLLLD'],
+        [13, 'Angers SCO', 30, 9, 7, 14, 28, 40, -14, 34, 'LLDLD'],
+        [14, 'Le Havre AC', 30, 6, 12, 12, 25, 38, -13, 30, 'DLDDD'],
+        [15, 'OGC Nice', 30, 7, 8, 15, 34, 56, -22, 29, 'WLLDD'],
+        [16, 'AJ Auxerre', 30, 5, 10, 15, 25, 39, -14, 25, 'LWDDD'],
+        [17, 'FC Nantes', 29, 4, 8, 17, 25, 46, -21, 20, 'LLDDD'],
+        [18, 'Metz', 30, 3, 6, 21, 27, 66, -39, 15, 'LDDLL']
+      ]
+    };
+
+    var zones = {
+      PL:  { ucl: 5,  uel: 5,  uecl: 6,  rel: 17 },
+      PD:  { ucl: 5,  uel: 5,  uecl: 6,  rel: 17 },
+      BL1: { ucl: 4,  uel: 4,  uecl: 5,  relPlayoff: 15, rel: 16 },
+      SA:  { ucl: 4,  uel: 4,  uecl: 5,  rel: 17 },
+      FL1: { ucl: 3,  uclQ: 3, uel: 4,  uecl: 5,  relPlayoff: 15, rel: 16 }
+    };
+
+    function getZoneClass(i, z) {
+      if (i >= z.rel) return 'relegation';
+      if (z.relPlayoff !== undefined && i === z.relPlayoff) return 'relegation-playoff';
+      if (i === z.uecl) return 'uecl';
+      if (i === z.uel) return 'uel';
+      if (z.uclQ !== undefined && i === z.uclQ) return 'ucl-qualifier';
+      if (i < z.ucl) return 'ucl';
+      return '';
+    }
+
+    function getPosColor(zone) {
+      if (zone === 'ucl') return 'text-indigo-400';
+      if (zone === 'ucl-qualifier') return 'text-violet-400';
+      if (zone === 'uel') return 'text-orange-400';
+      if (zone === 'uecl') return 'text-green-400';
+      if (zone === 'relegation') return 'text-red-400';
+      if (zone === 'relegation-playoff') return 'text-orange-400';
+      return 'text-white/30';
+    }
+
+    var currentLeague = 'PL';
+
+    document.querySelectorAll('.klasemen-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.klasemen-tab').forEach(function (t) { 
+          t.classList.remove('active'); 
+        });
+        this.classList.add('active');
+        currentLeague = this.dataset.league;
+        renderManualTable(currentLeague);
+      });
+    });
+
+    function renderManualTable(code) {
+      var el = document.getElementById('klasemenContent');
+      var data = ST[code];
+
+      if (!data) {
+        el.innerHTML = '<p class="text-center text-white/30 py-12">Data tidak tersedia.</p>';
+        return;
+      }
+
+      var z = zones[code] || { ucl: 4, uel: 4, uecl: 5, rel: 17 };
+      var rows = '';
+
+      data.forEach(function (t, i) {
+        var zone = getZoneClass(i, z);
+        var posC = getPosColor(zone);
+        var gd   = t[8] > 0 ? '+' + t[8] : t[8];
+        var gdC  = t[8] > 0 ? 'text-green-400' : t[8] < 0 ? 'text-red-400' : 'text-white/40';
+        var c    = gc(t[1]);
+        var ab   = getAbbr(t[1]);
+
+        var htmlComment = (zone === 'relegation-playoff') ? '\n          \n          ' : '';
+
+        rows += htmlComment +
+          '<div class="stand-row ' + zone + '" style="animation:fadeInUp .3s ' + (i * 0.02) + 's cubic-bezier(.4,0,.2,1) forwards;opacity:0">' +
+            '<div class="text-[11px] font-bold ' + posC + '">' + t[0] + '</div>' +
+            '<div class="cell-crest"><div class="team-crest bg-gradient-to-br ' + c[0] + ' ' + c[1] + '">' + ab + '</div></div>' +
+            '<div class="text-[11px] sm:text-[12px] font-semibold truncate pl-0.5">' + t[1] + '</div>' +
+            '<div class="cell-mp text-[10px] text-white">' + t[2] + '</div>' +
+            '<div class="cell-w  text-[10px] text-white">' + t[3] + '</div>' +
+            '<div class="cell-d  text-[10px] text-white">' + t[4] + '</div>' +
+            '<div class="cell-l  text-[10px] text-white">' + t[5] + '</div>' +
+            '<div class="cell-gf text-[10px] text-white/">' + t[6] + '</div>' +
+            '<div class="cell-ga text-[10px] text-white/">' + t[7] + '</div>' +
+            '<div class="text-[10px] sm:text-[11px] ' + gdC + ' font-medium text-center">' + gd + '</div>' +
+            '<div class="text-[11px] sm:text-[12px] font-bold text-center">' + t[9] + '</div>' +
+            '<div class="flex items-center justify-center">' + formDots(t[10]) + '</div>' +
+          '</div>';
+      });
+
+      /* Logika Dinamis Legend Keterangan (Hanya muncul jika ada) */
+      var uclQLegend = z.uclQ !== undefined
+        ? '<span><div class="dot" style="background:#A855F7"></div>UCL Qualifier</span>'
+        : '';
+        
+      var playoffLegend = z.relPlayoff !== undefined
+        ? '<span><div class="dot" style="background:orange"></div>Playoff Degradasi</span>'
+        : '';
+
+      el.innerHTML =
+        '<div class="zone-legend" style="justify-content:space-between">' +
+          '<div class="flex gap-3 flex-wrap">' +
+            '<span><div class="dot" style="background:#818CF8"></div>Champions League</span>' + 
+            uclQLegend +
+            '<span><div class="dot" style="background:#F97316"></div>Europa League</span>' +
+            '<span><div class="dot" style="background:#22C55E"></div>Conference League</span>' +
+            playoffLegend + 
+            '<span><div class="dot" style="background:#EF4444"></div>Relegation</span>' +
+          '</div>' +
+          
+          /* BAGIAN LEGEND WIN / DRAW / LOSE DI KANAN ATAS */
+          '<div class="flex items-center gap-2.5 flex-shrink-0">' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-w" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Win</span></span>' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-d" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Draw</span></span>' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-l" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Lose</span></span>' +
+          '</div>' +
+        '</div>' +
+        
+        /* WRAPPER SCROLL UNTUK MOBILE & PEMBATAS LEBAR UNTUK DESKTOP */
+        '<div class="w-full overflow-x-auto pb-2">' +
+          '<div class="mx-auto" style="min-width: 650px; max-width: 800px;">' +
+            '<div class="stand-row stand-header mb-1" style="opacity:1">' +
+              '<div>#</div><div class="cell-crest"></div><div>TIM</div>' +
+              '<div class="cell-mp text-white">MP</div>' +
+              '<div class="cell-w text-white">W</div>' +
+              '<div class="cell-d text-white">D</div>' +
+              '<div class="cell-l text-white">L</div>' +
+              '<div class="cell-gf">GF</div>' +
+              '<div class="cell-ga">GA</div>' +
+              '<div class="text-center">GD</div>' +
+              '<div class="text-center">PTS</div>' +
+              '<div class="text-center text-white">LAST 5</div>' +
+            '</div>' +
+            rows +
+          '</div>' +
+        '</div>';
+    }
+
+    var leagueOrder = [
+      'ENGLISH PREMIER LEAGUE', 'SPAIN LA LIGA', 'ITALY CUP',
+      'ENGLISH CHAMPIONSHIP', 'FRANCE CUP', 'AFC CHAMPIONS LEAGUE ELITE',
+      'BELGIUM FIRST DIVISION A PLAYOFF', 'RUSSIA PREMIER LEAGUE',
+      'SWEDEN SUPERETTAN', 'AUSTRIA BUNDESLIGA PLAYOFF',
+      'CHINA FOOTBALL SUPER LEAGUE', 'KOREA K-LEAGUE 1',
+      'ENGLISH LEAGUE ONE', 'ENGLISH LEAGUE TWO', 'TURKIYE CUP',
+      'FINLAND YKKOSLIIGA', 'DENMARK 1ST DIV PLAYOFF', 'CROATIA SUPERLIGA',
+      'ROMANIA CUP', 'SCOTLAND CHAMPIONSHIP', 'GEORGIA EROVNULI LIGA',
+      'AZERBAIJAN CUP', 'HUNGARY CUP', 'CZECHIA CUP', 'UKRAINE CUP',
+      'BULGARIA CUP', 'LATVIA VIRSLIGA', 'ENGLISH NATIONAL LEAGUE',
+      'ENGLISH NATIONAL LEAGUE NORTH', 'ESTONIA PREMIUM LIGA',
+      'MEXICO PRIMERA DIVISION', 'ECUADOR LIGA PRO SERIE A',
+      'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', 'COSTA RICA PRIMERA DIVISION',
+      'USL CHAMPIONSHIP', 'ARGENTINA PRIMERA B', 'VENEZUELA PRIMERA DIVISION'
+    ];
+
+/* ================================================================
+       MATCH DATA
+       ================================================================ */
+    var matches = [
+      // ── English Premier League ───────────────────────────────────
+      { date: '23/04', time: '02:00', league: 'ENGLISH PREMIER LEAGUE', flag: 'gb-eng', home: 'Burnley', away: 'Manchester City', handicap: '2 1/4 : 0' },
+      { date: '23/04', time: '02:00', league: 'ENGLISH PREMIER LEAGUE', flag: 'gb-eng', home: 'Bournemouth AFC', away: 'Leeds United', handicap: '0 : 1/2' },
+
+      // ── Spain La Liga ────────────────────────────────────────────
+      { date: '23/04', time: '00:00', league: 'SPAIN LA LIGA', flag: 'es', home: 'Elche CF', away: 'Atletico Madrid', handicap: '0 : 0' },
+      { date: '23/04', time: '00:00', league: 'SPAIN LA LIGA', flag: 'es', home: 'Elche CF', away: 'Atletico Madrid', handicap: '0 : 1/4' },
+      { date: '23/04', time: '01:00', league: 'SPAIN LA LIGA', flag: 'es', home: 'Real Sociedad', away: 'Getafe', handicap: '0 : 1/4' },
+      { date: '23/04', time: '02:30', league: 'SPAIN LA LIGA', flag: 'es', home: 'Barcelona', away: 'Celta Vigo', handicap: '0 : 2' },
+
+      // ── Italy Cup ────────────────────────────────────────────────
+      { date: '23/04', time: '02:00', league: 'ITALY CUP', flag: 'it', home: 'Atalanta', away: 'Lazio', handicap: '0 : 3/4' },
+
+      // ── Germany Cup ──────────────────────────────────────────────
+      { date: '23/04', time: '01:45', league: 'GERMANY CUP', flag: 'de', home: 'Bayer Leverkusen', away: 'Bayern Munchen', handicap: '1 : 0' },
+
+      // ── France Ligue 1 ───────────────────────────────────────────
+      { date: '23/04', time: '00:00', league: 'FRANCE LIGUE 1', flag: 'fr', home: 'Paris Saint Germain', away: 'Nantes', handicap: '0 : 2' },
+
+      // ── English Championship ─────────────────────────────────────
+      { date: '23/04', time: '01:45', league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng', home: 'Birmingham City', away: 'Preston North End', handicap: '0 : 3/4' },
+      { date: '23/04', time: '01:45', league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng', home: 'Sheffield United', away: 'Blackburn Rovers', handicap: '0 : 3/4' },
+      { date: '23/04', time: '01:45', league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng', home: 'Charlton Athletic', away: 'Ipswich Town', handicap: '3/4 : 0' },
+      { date: '23/04', time: '01:45', league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng', home: 'Middlesbrough', away: 'Sheffield Wednesday', handicap: '0 : 2' },
+
+      // ── Japan J1 100 Year Vision League ──────────────────────────
+      { date: '22/04', time: '17:00', league: 'JAPAN J1 100 YEAR VISION LEAGUE', flag: 'jp', home: 'Gamba Osaka', away: 'Avispa Fukuoka', handicap: '0 : 3/4' },
+
+      // ── Netherlands Eredivisie ───────────────────────────────────
+      { date: '23/04', time: '01:00', league: 'NETHERLANDS EREDIVISIE', flag: 'nl', home: 'Telstar', away: 'Sparta Rotterdam', handicap: '0 : 0' },
+      { date: '23/04', time: '01:00', league: 'NETHERLANDS EREDIVISIE', flag: 'nl', home: 'Telstar', away: 'Sparta Rotterdam', handicap: '1/4 : 0' },
+
+      // ── Sweden Allsvenskan ───────────────────────────────────────
+      { date: '23/04', time: '00:00', league: 'SWEDEN ALLSVENSKAN', flag: 'se', home: 'Hammarby', away: 'Halmstads', handicap: '0 : 2' },
+      { date: '23/04', time: '00:00', league: 'SWEDEN ALLSVENSKAN', flag: 'se', home: 'Vasteras SK', away: 'BK Hacken', handicap: '1/4 : 0' },
+      { date: '23/04', time: '00:00', league: 'SWEDEN ALLSVENSKAN', flag: 'se', home: 'Orgryte', away: 'Brommapojkarna', handicap: '1/4 : 0' },
+      { date: '23/04', time: '00:00', league: 'SWEDEN ALLSVENSKAN', flag: 'se', home: 'Orgryte', away: 'Brommapojkarna', handicap: '0 : 1/4' },
+      { date: '23/04', time: '00:00', league: 'SWEDEN ALLSVENSKAN', flag: 'se', home: 'Elfsborg', away: 'Djurgardens', handicap: '1/4 : 0' },
+
+      // ── France Cup ───────────────────────────────────────────────
+      { date: '23/04', time: '02:00', league: 'FRANCE CUP', flag: 'fr', home: 'Strasbourg', away: 'Nice', handicap: '0 : 3/4' },
+
+      // ── Portugal Cup ─────────────────────────────────────────────
+      { date: '23/04', time: '02:45', league: 'PORTUGAL CUP', flag: 'pt', home: 'Porto', away: 'Sporting Lisbon', handicap: '0 : 1/4' },
+
+      // ── Finland Veikkausliiga ────────────────────────────────────
+      { date: '22/04', time: '22:00', league: 'FINLAND VEIKKAUSLIIGA', flag: 'fi', home: 'KuPS', away: 'AC Oulu', handicap: '0 : 3/4' },
+
+      // ── Denmark Super League Playoff ─────────────────────────────
+      { date: '22/04', time: '23:00', league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk', home: 'FC Copenhagen', away: 'Odense BK', handicap: '0 : 3/4' },
+      { date: '22/04', time: '23:00', league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk', home: 'Vejle', away: 'Silkeborg', handicap: '0 : 0' },
+      { date: '22/04', time: '23:00', league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk', home: 'Vejle', away: 'Silkeborg', handicap: '1/4 : 0' },
+      { date: '23/04', time: '01:00', league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk', home: 'Viborg', away: 'Brondby IF', handicap: '0 : 1/4' },
+
+      // ── Norway Cup ───────────────────────────────────────────────
+      { date: '22/04', time: '23:00', league: 'NORWAY CUP', flag: 'no', home: 'Bodo Glimt', away: 'KFUM Oslo', handicap: '0 : 2' },
+      { date: '23/04', time: '01:00', league: 'NORWAY CUP', flag: 'no', home: 'Brann', away: 'Aalesund FK', handicap: '0 : 1 1/4' },
+      { date: '23/04', time: '01:00', league: 'NORWAY CUP', flag: 'no', home: 'Brann', away: 'Aalesund FK', handicap: '0 : 0' },
+
+      // ── Belgium First Division A Playoff ─────────────────────────
+      { date: '23/04', time: '01:30', league: 'BELGIUM FIRST DIVISION A PLAYOFF', flag: 'be', home: 'Club Brugge', away: 'KV Mechelen', handicap: '0 : 1 3/4' },
+      { date: '23/04', time: '01:30', league: 'BELGIUM FIRST DIVISION A PLAYOFF', flag: 'be', home: 'Union Saint-Gilloise', away: 'KAA Gent', handicap: '0 : 1 1/4' },
+
+      // ── Russia Premier League ────────────────────────────────────
+      { date: '22/04', time: '21:30', league: 'RUSSIA PREMIER LEAGUE', flag: 'ru', home: 'FC Orenburg', away: 'Nizhny Novgorod FC', handicap: '0 : 1/2' },
+      { date: '22/04', time: '23:45', league: 'RUSSIA PREMIER LEAGUE', flag: 'ru', home: 'Lokomotiv Moscow', away: 'Zenit St. Petersburg', handicap: '1/4 : 0' },
+      { date: '22/04', time: '23:45', league: 'RUSSIA PREMIER LEAGUE', flag: 'ru', home: 'Dynamo Moscow', away: 'Rubin Kazan', handicap: '0 : 1' },
+
+      // ── Austria Bundesliga Playoff ───────────────────────────────
+      { date: '22/04', time: '23:30', league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at', home: 'Red Bull Salzburg', away: 'FK Austria Wien', handicap: '0 : 3/4' },
+      { date: '22/04', time: '23:30', league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at', home: 'SK Rapid Wien', away: 'TSV Hartberg', handicap: '0 : 3/4' },
+      { date: '22/04', time: '23:30', league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at', home: 'SK Rapid Wien', away: 'TSV Hartberg', handicap: '0 : 1' },
+      { date: '23/04', time: '01:30', league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at', home: 'SK Sturm Graz', away: 'LASK Linz', handicap: '0 : 0' },
+      { date: '23/04', time: '01:30', league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at', home: 'SK Sturm Graz', away: 'LASK Linz', handicap: '0 : 1/4' },
+
+      // ── Indonesia Super League ───────────────────────────────────
+      { date: '22/04', time: '15:30', league: 'INDONESIA SUPER LEAGUE', flag: 'id', home: 'Persis Solo', away: 'Bhayangkara Presisi Lampung', handicap: '0 : 1/4' },
+      { date: '22/04', time: '15:30', league: 'INDONESIA SUPER LEAGUE', flag: 'id', home: 'PSIM Yogyakarta', away: 'Persija Jakarta', handicap: '1/2 : 0' },
+
+      // ── China Football Super League ──────────────────────────────
+      { date: '22/04', time: '18:35', league: 'CHINA FOOTBALL SUPER LEAGUE', flag: 'cn', home: 'Liaoning Tieren', away: 'Dalian Yingbo', handicap: '0 : 1/4' },
+      { date: '22/04', time: '18:35', league: 'CHINA FOOTBALL SUPER LEAGUE', flag: 'cn', home: 'Qingdao West Coast FC', away: 'Henan FC', handicap: '0 : 0' },
+      { date: '22/04', time: '18:35', league: 'CHINA FOOTBALL SUPER LEAGUE', flag: 'cn', home: 'Qingdao West Coast FC', away: 'Henan FC', handicap: '1/4 : 0' },
+      { date: '22/04', time: '19:00', league: 'CHINA FOOTBALL SUPER LEAGUE', flag: 'cn', home: 'Shanghai Shenhua', away: 'Qingdao Hainiu', handicap: '0 : 1 1/2' },
+
+      // ── Korea K-League 1 ─────────────────────────────────────────
+      { date: '22/04', time: '17:30', league: 'KOREA K-LEAGUE 1', flag: 'kr', home: 'Pohang Steelers', away: 'Gwangju FC', handicap: '0 : 3/4' },
+      { date: '22/04', time: '17:30', league: 'KOREA K-LEAGUE 1', flag: 'kr', home: 'Daejeon Hana Citizen', away: 'Jeju SK FC', handicap: '0 : 3/4' },
+      { date: '22/04', time: '17:30', league: 'KOREA K-LEAGUE 1', flag: 'kr', home: 'FC Anyang', away: 'Ulsan HD FC', handicap: '1/4 : 0' },
+
+      // ── English League One ───────────────────────────────────────
+      { date: '23/04', time: '01:45', league: 'ENGLISH LEAGUE ONE', flag: 'gb-eng', home: 'Cardiff City', away: 'Port Vale', handicap: '0 : 1 1/2' },
+
+      // ── Iceland Premier League ───────────────────────────────────
+      { date: '23/04', time: '00:30', league: 'ICELAND PREMIER LEAGUE', flag: 'is', home: 'Keflavik', away: 'Breidablik', handicap: '3/4 : 0' },
+      { date: '23/04', time: '01:00', league: 'ICELAND PREMIER LEAGUE', flag: 'is', home: 'IA Akranes', away: 'KA Akureyri', handicap: '0 : 1/4' },
+
+      // ── Egypt Premier League Playoff ─────────────────────────────
+      { date: '22/04', time: '22:00', league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg', home: 'Al Masry', away: 'Enppi', handicap: '0 : 1/4' },
+      { date: '23/04', time: '01:00', league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg', home: 'Smouha SC', away: 'Ceramica Cleopatra FC', handicap: '1/4 : 0' },
+
+      // ── Turkiye Cup ──────────────────────────────────────────────
+      { date: '23/04', time: '00:30', league: 'TURKIYE CUP', flag: 'tr', home: 'Galatasaray', away: 'Genclerbirligi', handicap: '0 : 2' },
+      { date: '23/04', time: '00:30', league: 'TURKIYE CUP', flag: 'tr', home: 'Galatasaray', away: 'Genclerbirligi', handicap: '0 : 0' },
+
+      // ── Denmark 1st Div Playoff ──────────────────────────────────
+      { date: '22/04', time: '23:00', league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk', home: 'Aarhus Fremad', away: 'Middelfart Boldklub', handicap: '0 : 1 1/2' },
+      { date: '22/04', time: '23:00', league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk', home: 'Hobro', away: 'Herfolge Koge', handicap: '0 : 1/2' },
+
+      // ── Liga Portugal 2 ──────────────────────────────────────────
+      { date: '23/04', time: '00:00', league: 'LIGA PORTUGAL 2', flag: 'pt', home: 'UD Oliveirense', away: 'Benfica B', handicap: '1/4 : 0' },
+
+      // ── Greece Super League Playoff ──────────────────────────────
+      { date: '22/04', time: '20:00', league: 'GREECE SUPER LEAGUE PLAYOFF', flag: 'gr', home: 'Panserraikos FC', away: 'Atromitos', handicap: '0 : 0' },
+      { date: '22/04', time: '21:00', league: 'GREECE SUPER LEAGUE PLAYOFF', flag: 'gr', home: 'AE Larissa', away: 'AE Kifisia FC', handicap: '0 : 0' },
+      { date: '23/04', time: '00:00', league: 'GREECE SUPER LEAGUE PLAYOFF', flag: 'gr', home: 'Asteras Tripolis', away: 'Panetolikos', handicap: '0 : 1/4' },
+
+      // ── Croatia Superliga ────────────────────────────────────────
+      { date: '22/04', time: '20:30', league: 'CROATIA SUPERLIGA', flag: 'hr', home: 'HNK Vukovar 1991', away: 'HNK Gorica', handicap: '0 : 0' },
+      { date: '22/04', time: '22:45', league: 'CROATIA SUPERLIGA', flag: 'hr', home: 'NK Varazdin', away: 'Rijeka', handicap: '0 : 0' },
+      { date: '23/04', time: '01:15', league: 'CROATIA SUPERLIGA', flag: 'hr', home: 'Istra 1961 Pula', away: 'Dinamo Zagreb', handicap: '1 3/4 : 0' },
+
+      // ── Slovakia Super League Playoff ────────────────────────────
+      { date: '22/04', time: '23:00', league: 'SLOVAKIA SUPER LEAGUE PLAYOFF', flag: 'sk', home: 'Spartak Trnava', away: 'DAC Dunajska Streda', handicap: '0 : 1/4' },
+
+      // ── Swiss Challenge League ───────────────────────────────────
+      { date: '23/04', time: '00:30', league: 'SWISS CHALLENGE LEAGUE', flag: 'ch', home: 'Yverdon Sport FC', away: 'Neuchatel Xamax', handicap: '0 : 3/4' },
+      { date: '23/04', time: '00:30', league: 'SWISS CHALLENGE LEAGUE', flag: 'ch', home: 'Aarau', away: 'Stade Lausanne Ouchy', handicap: '0 : 3/4' },
+
+      // ── Georgia Erovnuli Liga ────────────────────────────────────
+      { date: '22/04', time: '19:00', league: 'GEORGIA EROVNULI LIGA', flag: 'ge', home: 'FC Meshakhte Tkibuli', away: 'FC Rustavi', handicap: '0 : 1/4' },
+      { date: '22/04', time: '22:00', league: 'GEORGIA EROVNULI LIGA', flag: 'ge', home: 'FC Spaeri', away: 'FC Iberia 1999', handicap: '3/4 : 0' },
+      { date: '23/04', time: '00:00', league: 'GEORGIA EROVNULI LIGA', flag: 'ge', home: 'FC Dila Gori', away: 'FC Dinamo Batumi', handicap: '0 : 1' },
+
+      // ── Serbia Superliga Playoff ─────────────────────────────────
+      { date: '22/04', time: '22:00', league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs', home: 'Radnik Surdulica', away: 'FK Novi Pazar', handicap: '0 : 1/4' },
+      { date: '22/04', time: '22:00', league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs', home: 'Vojvodina Novi Sad', away: 'Partizan Belgrade', handicap: '0 : 1/4' },
+      { date: '22/04', time: '23:30', league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs', home: 'OFK Beograd', away: 'FK Cukaricki', handicap: '0 : 1/4' },
+      { date: '23/04', time: '00:00', league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs', home: 'FK Zeleznicar Pancevo', away: 'Crvena Zvezda', handicap: '2 : 0' },
+
+      // ── Russia First League ──────────────────────────────────────
+      { date: '22/04', time: '20:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'FK Spartak Kostroma', away: 'SKA-Khabarovsk', handicap: '0 : 1/2' },
+      { date: '22/04', time: '21:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'Volga Ulyanovsk', away: 'Chayka Peschanokopskoye', handicap: '0 : 1' },
+      { date: '22/04', time: '21:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'Ural Yekaterinburg', away: 'Torpedo Moscow', handicap: '0 : 1/2' },
+      { date: '22/04', time: '21:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'FC Ufa', away: 'KAMAZ Naberezhnye Chelny', handicap: '0 : 1/4' },
+      { date: '22/04', time: '21:30', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'Sokol Saratov', away: 'Yenisey Krasnoyarsk', handicap: '1/2 : 0' },
+      { date: '22/04', time: '21:30', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'FC Neftekhimik Nizhnekamsk', away: 'Chernomorets Novorossiysk', handicap: '0 : 1/2' },
+      { date: '22/04', time: '23:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'Arsenal Tula', away: 'FC Chelyabinsk', handicap: '0 : 1/2' },
+      { date: '22/04', time: '23:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'Fakel Voronezh', away: 'Shinnik Yaroslavl', handicap: '0 : 1' },
+      { date: '22/04', time: '23:00', league: 'RUSSIA FIRST LEAGUE', flag: 'ru', home: 'FC Rotor', away: 'Rodina Moscow', handicap: '0 : 0' },
+
+      // ── Cyprus Cup ───────────────────────────────────────────────
+      { date: '22/04', time: '21:00', league: 'CYPRUS CUP', flag: 'cy', home: 'Pafos FC', away: 'AEL Limassol', handicap: '0 : 1' },
+      { date: '22/04', time: '23:00', league: 'CYPRUS CUP', flag: 'cy', home: 'Apollon Limassol', away: 'APOEL Nicosia', handicap: '0 : 0' },
+
+      // ── Hungary Cup ──────────────────────────────────────────────
+      { date: '23/04', time: '01:00', league: 'HUNGARY CUP', flag: 'hu', home: 'Ferencvarosi', away: 'ETO FC Gyor', handicap: '0 : 1/2' },
+
+      // ── Ukraine Cup ──────────────────────────────────────────────
+      { date: '22/04', time: '22:00', league: 'UKRAINE CUP', flag: 'ua', home: 'FC Metalist 1925 Kharkiv', away: 'FC Chernihiv', handicap: '0 : 1 1/2' },
+
+      // ── Slovenia Cup ─────────────────────────────────────────────
+      { date: '22/04', time: '21:45', league: 'SLOVENIA CUP', flag: 'si', home: 'NK Kalcer Radomlje', away: 'NK Brinje Grosuplje', handicap: '0 : 1/4' },
+
+      // ── Bulgaria Cup ─────────────────────────────────────────────
+      { date: '22/04', time: '23:00', league: 'BULGARIA CUP', flag: 'bg', home: 'Arda Kardzhali', away: 'Lokomotiv Plovdiv', handicap: '0 : 3/4' },
+
+      // ── Latvia Virsliga ──────────────────────────────────────────
+      { date: '22/04', time: '22:00', league: 'LATVIA VIRSLIGA', flag: 'lv', home: 'FK Grobina', away: 'Rigas Futbola Skola', handicap: '1 1/2 : 0' },
+
+      // ── Estonia Premium Liga ─────────────────────────────────────
+      { date: '22/04', time: '22:45', league: 'ESTONIA PREMIUM LIGA', flag: 'ee', home: 'JK Nomme Kalju', away: 'Nomme United', handicap: '0 : 1 1/4' },
+      { date: '22/04', time: '23:00', league: 'ESTONIA PREMIUM LIGA', flag: 'ee', home: 'Flora Tallinn', away: 'Trans Narva', handicap: '0 : 1' },
+      { date: '22/04', time: '23:00', league: 'ESTONIA PREMIUM LIGA', flag: 'ee', home: 'Harju JK Laagri', away: 'Paide Linnameeskond', handicap: '3/4 : 0' },
+      { date: '22/04', time: '23:00', league: 'ESTONIA PREMIUM LIGA', flag: 'ee', home: 'Tammeka Tartu', away: 'FCI Levadia Tallinn', handicap: '1 1/2 : 0' },
+
+      // ── South Africa Premiership ─────────────────────────────────
+      { date: '23/04', time: '00:30', league: 'SOUTH AFRICA PREMIERSHIP', flag: 'za', home: 'Mamelodi Sundowns', away: 'Stellenbosch FC', handicap: '0 : 1 1/4' },
+
+      // ── Germany Women Bundesliga ─────────────────────────────────
+      { date: '22/04', time: '23:00', league: 'GERMANY WOMEN BUNDESLIGA', flag: 'de', home: 'Union Berlin', away: 'Bayern Munchen', handicap: '2 1/2 : 0' },
+      { date: '22/04', time: '23:00', league: 'GERMANY WOMEN BUNDESLIGA', flag: 'de', home: 'Werder Bremen', away: 'VfL Wolfsburg', handicap: '1 1/4 : 0' },
+
+      // ── USA Major League Soccer ──────────────────────────────────
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'New York Red Bulls', away: 'D.C. United', handicap: '0 : 1/2' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Toronto FC', away: 'Philadelphia Union', handicap: '0 : 1/4' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Toronto FC', away: 'Philadelphia Union', handicap: '1/4 : 0' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Orlando City SC', away: 'Charlotte FC', handicap: '0 : 0' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Orlando City SC', away: 'Charlotte FC', handicap: '1/4 : 0' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Columbus Crew', away: 'L.A Galaxy', handicap: '0 : 3/4' },
+      { date: '23/04', time: '06:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'New York City FC', away: 'FC Cincinnati', handicap: '0 : 1/2' },
+      { date: '23/04', time: '06:45', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Atlanta United FC', away: 'New England Revolution', handicap: '0 : 1/2' },
+      { date: '23/04', time: '07:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Houston Dynamo', away: 'San Diego FC', handicap: '0 : 1/2' },
+      { date: '23/04', time: '07:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'FC Dallas', away: 'Minnesota United FC', handicap: '0 : 1/4' },
+      { date: '23/04', time: '07:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'FC Dallas', away: 'Minnesota United FC', handicap: '0 : 1/2' },
+      { date: '23/04', time: '08:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Real Salt Lake', away: 'Inter Miami CF', handicap: '0 : 1/4' },
+      { date: '23/04', time: '09:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'Los Angeles FC', away: 'Colorado Rapids', handicap: '0 : 1 1/4' },
+      { date: '23/04', time: '09:30', league: 'USA MAJOR LEAGUE SOCCER', flag: 'us', home: 'San Jose Earthquakes', away: 'Austin FC', handicap: '0 : 1' },
+
+      // ── Mexico Primera Division ──────────────────────────────────
+      { date: '23/04', time: '08:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Atlas', away: 'Tigres UANL', handicap: '1/2 : 0' },
+      { date: '23/04', time: '08:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Atletico San Luis', away: 'Santos Laguna', handicap: '0 : 3/4' },
+      { date: '23/04', time: '08:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Mazatlan FC', away: 'Deportivo Toluca', handicap: '1 1/4 : 0' },
+      { date: '23/04', time: '10:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Necaxa', away: 'Guadalajara Chivas', handicap: '3/4 : 0' },
+      { date: '23/04', time: '10:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Tijuana', away: 'Pachuca', handicap: '0 : 0' },
+      { date: '23/04', time: '10:00', league: 'MEXICO PRIMERA DIVISION', flag: 'mx', home: 'Tijuana', away: 'Pachuca', handicap: '0 : 1/4' },
+
+      // ── Argentina Cup ────────────────────────────────────────────
+      { date: '23/04', time: '05:00', league: 'ARGENTINA CUP', flag: 'ar', home: 'Acassuso San Isidro', away: 'Gimnasia La Plata', handicap: '1/2 : 0' },
+      { date: '23/04', time: '07:15', league: 'ARGENTINA CUP', flag: 'ar', home: 'Deportivo Moron', away: 'CA Ferrocarril Midland', handicap: '0 : 1/4' },
+
+      // ── Brazil Serie B ───────────────────────────────────────────
+      { date: '23/04', time: '07:30', league: 'BRAZIL SERIE B', flag: 'br', home: 'Cuiaba MT', away: 'Botafogo SP', handicap: '0 : 1/4' },
+
+      // ── Mexico Liga de Expansion Playoff ─────────────────────────
+      { date: '23/04', time: '08:00', league: 'MEXICO LIGA DE EXPANSION PLAYOFF', flag: 'mx', home: 'Mineros de Zacatecas', away: 'Atletico Morelia', handicap: '0 : 1/2' },
+      { date: '23/04', time: '10:00', league: 'MEXICO LIGA DE EXPANSION PLAYOFF', flag: 'mx', home: 'Jaiba Brava', away: 'CA La Paz', handicap: '0 : 1' },
+
+      // ── Colombia Primera A ───────────────────────────────────────
+      { date: '23/04', time: '06:20', league: 'COLOMBIA PRIMERA A', flag: 'co', home: 'Independiente Medellin', away: 'Boyaca Chico', handicap: '0 : 1 1/2' },
+      { date: '23/04', time: '08:30', league: 'COLOMBIA PRIMERA A', flag: 'co', home: 'Fortaleza CEIF', away: 'America de Cali', handicap: '0 : 0' },
+
+      // ── Ecuador Liga Pro Serie A ─────────────────────────────────
+      { date: '22/04', time: '23:00', league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec', home: 'Leones FC Quito', away: 'Manta FC', handicap: '0 : 1/2' },
+      { date: '23/04', time: '01:00', league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec', home: 'Delfin SC', away: 'Independiente del Valle', handicap: '1/2 : 0' },
+      { date: '23/04', time: '03:30', league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec', home: 'Deportivo Cuenca', away: 'Orense SC', handicap: '0 : 1/2' },
+      { date: '23/04', time: '08:00', league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec', home: 'LDU Quito', away: 'SD Aucas', handicap: '0 : 3/4' },
+      { date: '23/04', time: '06:00', league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec', home: 'Barcelona SC', away: 'Mushuc Runa SC', handicap: '0 : 3/4' },
+
+      // ── Bolivia Professional Football League ─────────────────────
+      { date: '23/04', time: '02:00', league: 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag: 'bo', home: 'Club Always Ready', away: 'Oriente Petrolero', handicap: '0 : 2 1/2' },
+      { date: '23/04', time: '05:00', league: 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag: 'bo', home: 'Real Potosi', away: 'Club Deportivo Guabira', handicap: '0 : 1/2' },
+      { date: '23/04', time: '07:00', league: 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag: 'bo', home: 'Blooming Santa Cruz', away: 'Nacional Potosi', handicap: '0 : 1' },
+
+      // ── Peru Liga 1 ──────────────────────────────────────────────
+      { date: '23/04', time: '01:00', league: 'PERU LIGA 1', flag: 'pe', home: 'Comerciantes Unidos', away: 'Alianza Atletico', handicap: '0 : 1/4' },
+      { date: '23/04', time: '03:00', league: 'PERU LIGA 1', flag: 'pe', home: 'Atletico Grau', away: 'Sporting Cristal', handicap: '1/4 : 0' },
+      { date: '23/04', time: '06:00', league: 'PERU LIGA 1', flag: 'pe', home: 'Cusco FC', away: 'FC Cajamarca', handicap: '0 : 1 1/4' },
+      { date: '23/04', time: '08:30', league: 'PERU LIGA 1', flag: 'pe', home: 'Universitario Deportes', away: 'Deportivo Garcilaso', handicap: '0 : 1 1/2' },
+
+      // ── Costa Rica Primera Division ──────────────────────────────
+      { date: '23/04', time: '07:00', league: 'COSTA RICA PRIMERA DIVISION', flag: 'cr', home: 'Perez Zeledon', away: 'Herediano', handicap: '1/2 : 0' },
+
+      // ── USL Championship ─────────────────────────────────────────
+      { date: '23/04', time: '06:30', league: 'USL CHAMPIONSHIP', flag: 'us', home: 'Rhode Island FC', away: 'Charleston Battery', handicap: '0 : 0' },
+      { date: '23/04', time: '09:00', league: 'USL CHAMPIONSHIP', flag: 'us', home: 'Oakland Roots SC', away: 'Las Vegas Lights FC', handicap: '0 : 1/2' }
+    ];
+
+    /* ================================================================
+       PREDICTIONS DATA
+       ================================================================ */
+    var predictions = [
+      {
+        league: 'ENGLISH PREMIER LEAGUE', flag: 'gb-eng',
+        m: [
+          ['Burnley', 'BUR', 'Manchester City', 'MCI', '1-3'],
+          ['Bournemouth AFC', 'BOU', 'Leeds United', 'LEE', '2-1']
+        ]
+      },
+      {
+        league: 'SPAIN LA LIGA', flag: 'es',
+        m: [
+          ['Elche CF', 'ELC', 'Atletico Madrid', 'ATM', '0-0'],
+          ['Elche CF', 'ELC', 'Atletico Madrid', 'ATM', '1-1'],
+          ['Real Sociedad', 'RSO', 'Getafe', 'GET', '2-0'],
+          ['Barcelona', 'BAR', 'Celta Vigo', 'CEL', '3-1']
+        ]
+      },
+      {
+        league: 'ITALY CUP', flag: 'it',
+        m: [
+          ['Atalanta', 'ATA', 'Lazio', 'LAZ', '2-2']
+        ]
+      },
+      {
+        league: 'GERMANY CUP', flag: 'de',
+        m: [
+          ['Bayer Leverkusen', 'B04', 'Bayern Munchen', 'FCB', '1-2']
+        ]
+      },
+      {
+        league: 'FRANCE LIGUE 1', flag: 'fr',
+        m: [
+          ['Paris Saint Germain', 'PSG', 'Nantes', 'NAN', '4-0']
+        ]
+      },
+      {
+        league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng',
+        m: [
+          ['Birmingham City', 'BIR', 'Preston North End', 'PNE', '0-1'],
+          ['Sheffield United', 'SHU', 'Blackburn Rovers', 'BLA', '3-2'],
+          ['Charlton Athletic', 'CHA', 'Ipswich Town', 'IPS', '1-4'],
+          ['Middlesbrough', 'MID', 'Sheffield Wednesday', 'SHW', '2-0']
+        ]
+      },
+      {
+        league: 'JAPAN J1 100 YEAR VISION LEAGUE', flag: 'jp',
+        m: [
+          ['Gamba Osaka', 'GAM', 'Avispa Fukuoka', 'AVI', '1-1']
+        ]
+      },
+      {
+        league: 'NETHERLANDS EREDIVISIE', flag: 'nl',
+        m: [
+          ['Telstar', 'TEL', 'Sparta Rotterdam', 'SPA', '0-0'],
+          ['Telstar', 'TEL', 'Sparta Rotterdam', 'SPA', '2-1']
+        ]
+      },
+      {
+        league: 'SWEDEN ALLSVENSKAN', flag: 'se',
+        m: [
+          ['Hammarby', 'HAM', 'Halmstads', 'HAL', '3-0'],
+          ['Vasteras SK', 'VAS', 'BK Hacken', 'HAC', '1-2'],
+          ['Orgryte', 'ORG', 'Brommapojkarna', 'BRO', '2-2'],
+          ['Orgryte', 'ORG', 'Brommapojkarna', 'BRO', '0-1'],
+          ['Elfsborg', 'ELF', 'Djurgardens', 'DJU', '2-0']
+        ]
+      },
+      {
+        league: 'FRANCE CUP', flag: 'fr',
+        m: [
+          ['Strasbourg', 'STR', 'Nice', 'NIC', '1-3']
+        ]
+      },
+      {
+        league: 'PORTUGAL CUP', flag: 'pt',
+        m: [
+          ['Porto', 'POR', 'Sporting Lisbon', 'SPO', '2-2']
+        ]
+      },
+      {
+        league: 'FINLAND VEIKKAUSLIIGA', flag: 'fi',
+        m: [
+          ['KuPS', 'KUP', 'AC Oulu', 'OUL', '1-0']
+        ]
+      },
+      {
+        league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk',
+        m: [
+          ['FC Copenhagen', 'COP', 'Odense BK', 'ODE', '2-1'],
+          ['Vejle', 'VEJ', 'Silkeborg', 'SIL', '0-0'],
+          ['Vejle', 'VEJ', 'Silkeborg', 'SIL', '1-1'],
+          ['Viborg', 'VIB', 'Brondby IF', 'BRO', '0-2']
+        ]
+      },
+      {
+        league: 'NORWAY CUP', flag: 'no',
+        m: [
+          ['Bodo Glimt', 'BOD', 'KFUM Oslo', 'KFU', '4-0'],
+          ['Brann', 'BRA', 'Aalesund FK', 'AAL', '3-1'],
+          ['Brann', 'BRA', 'Aalesund FK', 'AAL', '0-0']
+        ]
+      },
+      {
+        league: 'BELGIUM FIRST DIVISION A PLAYOFF', flag: 'be',
+        m: [
+          ['Club Brugge', 'BRU', 'KV Mechelen', 'MEC', '3-0'],
+          ['Union Saint-Gilloise', 'USG', 'KAA Gent', 'GEN', '2-2']
+        ]
+      },
+      {
+        league: 'RUSSIA PREMIER LEAGUE', flag: 'ru',
+        m: [
+          ['FC Orenburg', 'ORE', 'Nizhny Novgorod FC', 'NIZ', '1-1'],
+          ['Lokomotiv Moscow', 'LOK', 'Zenit St. Petersburg', 'ZEN', '2-3'],
+          ['Dynamo Moscow', 'DYN', 'Rubin Kazan', 'RUB', '0-0']
+        ]
+      },
+      {
+        league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at',
+        m: [
+          ['Red Bull Salzburg', 'RBS', 'FK Austria Wien', 'AUS', '3-1'],
+          ['SK Rapid Wien', 'RAP', 'TSV Hartberg', 'HAR', '2-0'],
+          ['SK Rapid Wien', 'RAP', 'TSV Hartberg', 'HAR', '1-1'],
+          ['SK Sturm Graz', 'STU', 'LASK Linz', 'LAS', '0-0'],
+          ['SK Sturm Graz', 'STU', 'LASK Linz', 'LAS', '2-2']
+        ]
+      },
+      {
+        league: 'INDONESIA SUPER LEAGUE', flag: 'id',
+        m: [
+          ['Persis Solo', 'PER', 'Bhayangkara Presisi Lampung', 'BHA', '1-2'],
+          ['PSIM Yogyakarta', 'PSI', 'Persija Jakarta', 'PER', '0-3']
+        ]
+      },
+      {
+        league: 'CHINA FOOTBALL SUPER LEAGUE', flag: 'cn',
+        m: [
+          ['Liaoning Tieren', 'LIA', 'Dalian Yingbo', 'DAL', '1-1'],
+          ['Qingdao West Coast FC', 'QIN', 'Henan FC', 'HEN', '0-0'],
+          ['Qingdao West Coast FC', 'QIN', 'Henan FC', 'HEN', '2-0'],
+          ['Shanghai Shenhua', 'SHA', 'Qingdao Hainiu', 'QIN', '4-1']
+        ]
+      },
+      {
+        league: 'KOREA K-LEAGUE 1', flag: 'kr',
+        m: [
+          ['Pohang Steelers', 'POH', 'Gwangju FC', 'GWA', '2-0'],
+          ['Daejeon Hana Citizen', 'DAE', 'Jeju SK FC', 'JEJ', '1-1'],
+          ['FC Anyang', 'ANY', 'Ulsan HD FC', 'ULS', '0-2']
+        ]
+      },
+      {
+        league: 'ENGLISH LEAGUE ONE', flag: 'gb-eng',
+        m: [
+          ['Cardiff City', 'CAR', 'Port Vale', 'POR', '3-0']
+        ]
+      },
+      {
+        league: 'ICELAND PREMIER LEAGUE', flag: 'is',
+        m: [
+          ['Keflavik', 'KEF', 'Breidablik', 'BRE', '1-2'],
+          ['IA Akranes', 'IAA', 'KA Akureyri', 'KAA', '0-0']
+        ]
+      },
+      {
+        league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg',
+        m: [
+          ['Al Masry', 'MAS', 'Enppi', 'ENP', '2-1'],
+          ['Smouha SC', 'SMO', 'Ceramica Cleopatra FC', 'CER', '1-1']
+        ]
+      },
+      {
+        league: 'TURKIYE CUP', flag: 'tr',
+        m: [
+          ['Galatasaray', 'GAL', 'Genclerbirligi', 'GEN', '3-0'],
+          ['Galatasaray', 'GAL', 'Genclerbirligi', 'GEN', '2-0']
+        ]
+      },
+      {
+        league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk',
+        m: [
+          ['Aarhus Fremad', 'AAR', 'Middelfart Boldklub', 'MID', '3-1'],
+          ['Hobro', 'HOB', 'Herfolge Koge', 'HER', '2-0']
+        ]
+      },
+      {
+        league: 'LIGA PORTUGAL 2', flag: 'pt',
+        m: [
+          ['UD Oliveirense', 'UDO', 'Benfica B', 'BEN', '1-3']
+        ]
+      },
+      {
+        league: 'GREECE SUPER LEAGUE PLAYOFF', flag: 'gr',
+        m: [
+          ['Panserraikos FC', 'PAN', 'Atromitos', 'ATR', '0-0'],
+          ['AE Larissa', 'AEL', 'AE Kifisia FC', 'KIF', '1-1'],
+          ['Asteras Tripolis', 'AST', 'Panetolikos', 'PAN', '2-0']
+        ]
+      },
+      {
+        league: 'CROATIA SUPERLIGA', flag: 'hr',
+        m: [
+          ['HNK Vukovar 1991', 'VUK', 'HNK Gorica', 'GOR', '0-0'],
+          ['NK Varazdin', 'VAR', 'Rijeka', 'RIJ', '1-1'],
+          ['Istra 1961 Pula', 'IST', 'Dinamo Zagreb', 'DIN', '0-4']
+        ]
+      },
+      {
+        league: 'SLOVAKIA SUPER LEAGUE PLAYOFF', flag: 'sk',
+        m: [
+          ['Spartak Trnava', 'SPA', 'DAC Dunajska Streda', 'DAC', '1-1']
+        ]
+      },
+      {
+        league: 'SWISS CHALLENGE LEAGUE', flag: 'ch',
+        m: [
+          ['Yverdon Sport FC', 'YVE', 'Neuchatel Xamax', 'NEU', '2-1'],
+          ['Aarau', 'AAR', 'Stade Lausanne Ouchy', 'STA', '3-2']
+        ]
+      },
+      {
+        league: 'GEORGIA EROVNULI LIGA', flag: 'ge',
+        m: [
+          ['FC Meshakhte Tkibuli', 'MES', 'FC Rustavi', 'RUS', '1-0'],
+          ['FC Spaeri', 'SPA', 'FC Iberia 1999', 'IBE', '2-2'],
+          ['FC Dila Gori', 'DIL', 'FC Dinamo Batumi', 'DIN', '0-1']
+        ]
+      },
+      {
+        league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs',
+        m: [
+          ['Radnik Surdulica', 'RAD', 'FK Novi Pazar', 'NOV', '1-2'],
+          ['Vojvodina Novi Sad', 'VOJ', 'Partizan Belgrade', 'PAR', '0-1'],
+          ['OFK Beograd', 'OFK', 'FK Cukaricki', 'CUK', '1-1'],
+          ['FK Zeleznicar Pancevo', 'ZEL', 'Crvena Zvezda', 'CRV', '0-3']
+        ]
+      },
+      {
+        league: 'RUSSIA FIRST LEAGUE', flag: 'ru',
+        m: [
+          ['FK Spartak Kostroma', 'SPA', 'SKA-Khabarovsk', 'SKA', '2-0'],
+          ['Volga Ulyanovsk', 'VOL', 'Chayka Peschanokopskoye', 'CHA', '1-1'],
+          ['Ural Yekaterinburg', 'URA', 'Torpedo Moscow', 'TOR', '3-1'],
+          ['FC Ufa', 'UFA', 'KAMAZ Naberezhnye Chelny', 'KAM', '0-2'],
+          ['Sokol Saratov', 'SOK', 'Yenisey Krasnoyarsk', 'YEN', '1-0'],
+          ['FC Neftekhimik Nizhnekamsk', 'NEF', 'Chernomorets Novorossiysk', 'CHE', '2-2'],
+          ['Arsenal Tula', 'ARS', 'FC Chelyabinsk', 'CHE', '1-1'],
+          ['Fakel Voronezh', 'FAK', 'Shinnik Yaroslavl', 'SHI', '2-0'],
+          ['FC Rotor', 'ROT', 'Rodina Moscow', 'ROD', '0-0']
+        ]
+      },
+      {
+        league: 'CYPRUS CUP', flag: 'cy',
+        m: [
+          ['Pafos FC', 'PAF', 'AEL Limassol', 'AEL', '2-1'],
+          ['Apollon Limassol', 'APO', 'APOEL Nicosia', 'APO', '1-1']
+        ]
+      },
+      {
+        league: 'HUNGARY CUP', flag: 'hu',
+        m: [
+          ['Ferencvarosi', 'FER', 'ETO FC Gyor', 'ETO', '2-0']
+        ]
+      },
+      {
+        league: 'UKRAINE CUP', flag: 'ua',
+        m: [
+          ['FC Metalist 1925 Kharkiv', 'MET', 'FC Chernihiv', 'CHE', '3-0']
+        ]
+      },
+      {
+        league: 'SLOVENIA CUP', flag: 'si',
+        m: [
+          ['NK Kalcer Radomlje', 'KAL', 'NK Brinje Grosuplje', 'BRI', '1-1']
+        ]
+      },
+      {
+        league: 'BULGARIA CUP', flag: 'bg',
+        m: [
+          ['Arda Kardzhali', 'ARD', 'Lokomotiv Plovdiv', 'LOK', '2-1']
+        ]
+      },
+      {
+        league: 'LATVIA VIRSLIGA', flag: 'lv',
+        m: [
+          ['FK Grobina', 'GRO', 'Rigas Futbola Skola', 'RIG', '0-4']
+        ]
+      },
+      {
+        league: 'ESTONIA PREMIUM LIGA', flag: 'ee',
+        m: [
+          ['JK Nomme Kalju', 'NOM', 'Nomme United', 'NOM', '3-1'],
+          ['Flora Tallinn', 'FLO', 'Trans Narva', 'TRA', '2-0'],
+          ['Harju JK Laagri', 'HAR', 'Paide Linnameeskond', 'PAI', '1-2'],
+          ['Tammeka Tartu', 'TAM', 'FCI Levadia Tallinn', 'LEV', '0-3']
+        ]
+      },
+      {
+        league: 'SOUTH AFRICA PREMIERSHIP', flag: 'za',
+        m: [
+          ['Mamelodi Sundowns', 'MAM', 'Stellenbosch FC', 'STE', '3-0']
+        ]
+      },
+      {
+        league: 'GERMANY WOMEN BUNDESLIGA', flag: 'de',
+        m: [
+          ['Union Berlin', 'UNI', 'Bayern Munchen', 'BAY', '0-5'],
+          ['Werder Bremen', 'WER', 'VfL Wolfsburg', 'WOL', '1-3']
+        ]
+      },
+      {
+        league: 'USA MAJOR LEAGUE SOCCER', flag: 'us',
+        m: [
+          ['New York Red Bulls', 'NYR', 'D.C. United', 'DCU', '2-1'],
+          ['Toronto FC', 'TOR', 'Philadelphia Union', 'PHI', '1-1'],
+          ['Toronto FC', 'TOR', 'Philadelphia Union', 'PHI', '0-0'],
+          ['Orlando City SC', 'ORL', 'Charlotte FC', 'CHA', '2-0'],
+          ['Orlando City SC', 'ORL', 'Charlotte FC', 'CHA', '1-1'],
+          ['Columbus Crew', 'COL', 'L.A Galaxy', 'LAG', '3-2'],
+          ['New York City FC', 'NYC', 'FC Cincinnati', 'CIN', '1-1'],
+          ['Atlanta United FC', 'ATL', 'New England Revolution', 'NEW', '2-2'],
+          ['Houston Dynamo', 'HOU', 'San Diego FC', 'SAN', '1-0'],
+          ['FC Dallas', 'FCD', 'Minnesota United FC', 'MIN', '0-0'],
+          ['FC Dallas', 'FCD', 'Minnesota United FC', 'MIN', '2-1'],
+          ['Real Salt Lake', 'RSL', 'Inter Miami CF', 'INT', '1-2'],
+          ['Los Angeles FC', 'LAF', 'Colorado Rapids', 'COL', '3-1'],
+          ['San Jose Earthquakes', 'SAN', 'Austin FC', 'AUS', '0-2']
+        ]
+      },
+      {
+        league: 'MEXICO PRIMERA DIVISION', flag: 'mx',
+        m: [
+          ['Atlas', 'ATL', 'Tigres UANL', 'TIG', '1-1'],
+          ['Atletico San Luis', 'ATL', 'Santos Laguna', 'SAN', '2-0'],
+          ['Mazatlan FC', 'MAZ', 'Deportivo Toluca', 'TOL', '1-3'],
+          ['Necaxa', 'NEC', 'Guadalajara Chivas', 'GUA', '0-2'],
+          ['Tijuana', 'TIJ', 'Pachuca', 'PAC', '2-2'],
+          ['Tijuana', 'TIJ', 'Pachuca', 'PAC', '1-2']
+        ]
+      },
+      {
+        league: 'ARGENTINA CUP', flag: 'ar',
+        m: [
+          ['Acassuso San Isidro', 'ACA', 'Gimnasia La Plata', 'GIM', '0-2'],
+          ['Deportivo Moron', 'DEP', 'CA Ferrocarril Midland', 'FER', '1-1']
+        ]
+      },
+      {
+        league: 'BRAZIL SERIE B', flag: 'br',
+        m: [
+          ['Cuiaba MT', 'CUI', 'Botafogo SP', 'BOT', '1-2']
+        ]
+      },
+      {
+        league: 'MEXICO LIGA DE EXPANSION PLAYOFF', flag: 'mx',
+        m: [
+          ['Mineros de Zacatecas', 'MIN', 'Atletico Morelia', 'ATL', '2-1'],
+          ['Jaiba Brava', 'JAI', 'CA La Paz', 'LAP', '3-0']
+        ]
+      },
+      {
+        league: 'COLOMBIA PRIMERA A', flag: 'co',
+        m: [
+          ['Independiente Medellin', 'IND', 'Boyaca Chico', 'BOY', '2-0'],
+          ['Fortaleza CEIF', 'FOR', 'America de Cali', 'AME', '1-1']
+        ]
+      },
+      {
+        league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec',
+        m: [
+          ['Leones FC Quito', 'LEO', 'Manta FC', 'MAN', '1-1'],
+          ['Delfin SC', 'DEL', 'Independiente del Valle', 'IND', '0-2'],
+          ['Deportivo Cuenca', 'CUE', 'Orense SC', 'ORE', '2-0'],
+          ['LDU Quito', 'LDU', 'SD Aucas', 'AUC', '1-1'],
+          ['Barcelona SC', 'BAR', 'Mushuc Runa SC', 'MUS', '2-0']
+        ]
+      },
+      {
+        league: 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag: 'bo',
+        m: [
+          ['Club Always Ready', 'ALW', 'Oriente Petrolero', 'ORI', '4-0'],
+          ['Real Potosi', 'POT', 'Club Deportivo Guabira', 'GUA', '2-1'],
+          ['Blooming Santa Cruz', 'BLO', 'Nacional Potosi', 'NAC', '1-1']
+        ]
+      },
+      {
+        league: 'PERU LIGA 1', flag: 'pe',
+        m: [
+          ['Comerciantes Unidos', 'COM', 'Alianza Atletico', 'ALI', '2-0'],
+          ['Atletico Grau', 'GRA', 'Sporting Cristal', 'SPO', '1-1'],
+          ['Cusco FC', 'CUS', 'FC Cajamarca', 'CAJ', '3-1'],
+          ['Universitario Deportes', 'UNI', 'Deportivo Garcilaso', 'DEP', '2-0']
+        ]
+      },
+      {
+        league: 'COSTA RICA PRIMERA DIVISION', flag: 'cr',
+        m: [
+          ['Perez Zeledon', 'PER', 'Herediano', 'HER', '0-2']
+        ]
+      },
+      {
+        league: 'USL CHAMPIONSHIP', flag: 'us',
+        m: [
+          ['Rhode Island FC', 'RHO', 'Charleston Battery', 'CHA', '1-1'],
+          ['Oakland Roots SC', 'OAK', 'Las Vegas Lights FC', 'LAS', '2-1']
+        ]
+      }
+    ];
+
+    function renderSpotlight() {
+      var el = document.getElementById('spotlightCards');
+      var sp = [
+        { lg:'SPAIN LA LIGA',           fl:'es',     h:'Barcelona',               ha:'BAR', a:'Celta Vigo',      aa:'CEL', dt:'23 April 2026 \u2022 02:30 WIB', hc:'0 : 2',       sc:'3-1' },
+        { lg:'ENGLISH PREMIER LEAGUE',  fl:'gb-eng', h:'Burnley',                 ha:'BUR', a:'Manchester City', aa:'MCI', dt:'23 April 2026 \u2022 02:00 WIB', hc:'2 \u00bc : 0', sc:'1-3' }
+      ];
+      var h = '';
+      
+      sp.forEach(function (s) {
+        var c1 = gc(s.h), c2 = gc(s.a);
+        var scC = scoreClass(s.sc);
+        var rt = resultTag(s.sc), rtC = resultTagClass(s.sc);
+        
+        h +=
+          '<div class="hero-card p-6">' +
+            '<div class="flex items-center justify-between mb-5">' +
+              '<div class="text-[10px] font-semibold text-white/25 uppercase tracking-wider">' + s.dt + '</div>' +
+              '<span class="text-[9px] font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 px-2 py-0.5 rounded-full">handicap ' + s.hc + '</span>' +
+            '</div>' +
+            '<div class="flex items-center justify-between">' +
+              '<div class="flex items-center gap-3 flex-1">' +
+                '<div class="team-badge bg-gradient-to-br ' + c1[0] + ' ' + c1[1] + '">' + s.ha + '</div>' +
+                '<div><div class="text-base font-bold">' + s.h + '</div><div class="text-[10px] text-white/30">Home</div></div>' +
+              '</div>' +
+              '<div class="flex flex-col items-center px-4">' +
+                '<div class="text-2xl font-black tracking-tight ' + scC + '">' + s.sc + '</div>' +
+                '<span class="result-tag ' + rtC + ' mt-1">' + rt + '</span>' +
+              '</div>' +
+              '<div class="flex items-center gap-3 flex-1 justify-end">' +
+                '<div class="text-right"><div class="text-base font-bold">' + s.a + '</div><div class="text-[10px] text-white/30">Away</div></div>' +
+                '<div class="team-badge bg-gradient-to-br ' + c2[0] + ' ' + c2[1] + '">' + s.aa + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<div class="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">' + 
+              flagImg(s.fl, 'flag-icon') + 
+              '<span class="text-[11px] text-white/30">' + s.lg + '</span>' +
+            '</div>' +
+          '</div>';
+      });
+      el.innerHTML = h;
+    }
+
+    function updateStats() {
+      var t  = matches.length;
+      var l  = new Set(matches.map(function (m) { return m.league; })).size;
+      var ds = Array.from(new Set(matches.map(function (m) { return m.date; }))).sort();
+
+      document.getElementById('statTotal').textContent   = t;
+      document.getElementById('statLeagues').textContent = l;
+      document.getElementById('statDate1').textContent      = matches.filter(function (m) { return m.date === ds[0]; }).length;
+      document.getElementById('statDate1Label').textContent = dateLabel(ds[0]).replace(' 2026', '');
+      document.getElementById('statDate2').textContent      = ds[1] ? matches.filter(function (m) { return m.date === ds[1]; }).length : 0;
+      document.getElementById('statDate2Label').textContent = ds[1] ? dateLabel(ds[1]).replace(' 2026', '') : '\u2014';
+    }
+
+    function renderSchedule(data) {
+      var c = document.getElementById('scheduleContainer');
+      c.innerHTML = '';
+      
+      if (!data || !data.length) {
+        c.innerHTML = 
+          '<div class="flex flex-col items-center gap-3 py-16 anim-in d1">' +
+            '<i data-lucide="search-x" class="w-10 h-10 text-white/10"></i>' +
+            '<span class="text-sm text-white/30">Tidak ditemukan pertandingan</span>' +
+          '</div>';
+        lucide.createIcons();
+        document.getElementById('matchCountLabel').textContent = '0 pertandingan';
+        return;
+      }
+      
+      var leagueGroups = {};
+      data.forEach(function (m) {
+        if (!leagueGroups[m.league]) leagueGroups[m.league] = [];
+        leagueGroups[m.league].push(m);
+      });
+      
+      var orderMap = {};
+      leagueOrder.forEach(function (lg, i) { orderMap[lg] = i; });
+      var orderedLeagues = Object.keys(leagueGroups).sort(function (a, b) {
+        return (orderMap[a] !== undefined ? orderMap[a] : 999) - (orderMap[b] !== undefined ? orderMap[b] : 999);
+      });
+
+      var total = 0;
+      orderedLeagues.forEach(function (league, li) {
+        var ms = leagueGroups[league].sort(function (a, b) {
+          return a.date !== b.date ? a.date.localeCompare(b.date) : a.time.localeCompare(b.time);
+        });
+        total += ms.length;
+
+        var w = document.createElement('div');
+        w.className = 'glass-static p-5 mb-4 league-card';
+        w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+        w.style.opacity = '0';
+
+        var fl = ms[0].flag;
+        var headerHTML = 
+          '<div class="league-card-header">' +
+            '<div class="flex items-center gap-2">' + 
+              flagImg(fl, 'flag-icon-lg') + 
+              '<span class="league-tag">' + league + '</span>' +
+            '</div>' +
+            '<span class="text-[10px] text-white/15">' + ms.length + ' match</span>' +
+          '</div>';
+        var rows = '';
+        var prevDate = '';
+
+        ms.forEach(function (m) {
+          var v  = parseHC(m.handicap);
+          var z  = isZeroHC(v);
+          var hc = gc(m.home);
+          var ac = gc(m.away);
+          var ha = getAbbr(m.home);
+          var aa = getAbbr(m.away);
+          var ds = dateShort(m.date);
+          
+          if (ds !== prevDate) { 
+            rows += 
+              '<div class="date-sep">' +
+                '<span class="date-sep-text">' + dateLabel(m.date) + '</span>' +
+                '<div class="date-sep-line"></div>' +
+              '</div>'; 
+            prevDate = ds; 
+          }
+          
+          rows +=
+            '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5">' +
+              '<div class="flex-shrink-0 w-[64px]">' +
+                '<div class="text-xs font-bold text-white/70">' + m.time + '</div>' +
+                '<div class="text-[9px] text-white/20 font-medium">WIB</div>' +
+              '</div>' +
+              '<div class="flex items-center gap-2.5 flex-1 min-w-0">' +
+                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + ha + '</div>' +
+                '<span class="text-[13px] font-semibold truncate">' + m.home + '</span>' +
+              '</div>' +
+              '<div class="handicap-badge ' + (z ? 'handicap-zero' : '') + ' flex-shrink-0 text-center">' + v.home + ' : ' + v.away + '</div>' +
+              '<div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end">' +
+                '<span class="text-[13px] font-semibold truncate text-right">' + m.away + '</span>' +
+                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + aa + '</div>' +
+              '</div>' +
+            '</div>';
+        });
+        w.innerHTML = headerHTML + rows;
+        c.appendChild(w);
+      });
+      document.getElementById('matchCountLabel').textContent = total + ' pertandingan';
+    }
+
+    function renderPrediksi() {
+      var c = document.getElementById('prediksiList');
+      c.innerHTML = '';
+      
+      if (!predictions.length) {
+        c.innerHTML = 
+          '<div class="flex flex-col items-center gap-3 py-16 anim-in d1">' +
+            '<i data-lucide="clock" class="w-10 h-10 text-white/10"></i>' +
+            '<span class="text-sm text-white/30">Belum ada hasil pertandingan</span>' +
+          '</div>';
+        lucide.createIcons();
+        return;
+      }
+      
+      predictions.forEach(function (lg, li) {
+        var w = document.createElement('div');
+        w.className = 'glass-static p-5 mb-4';
+        w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+        w.style.opacity = '0';
+        var rows = '';
+        
+        lg.m.forEach(function (m) {
+          var sc = scoreClass(m[4]);
+          var hc = gc(m[0]);
+          var ac = gc(m[2]);
+          var rt = resultTag(m[4]);
+          var rc = resultTagClass(m[4]);
+          
+          rows +=
+            '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5">' +
+              '<div class="flex items-center gap-2.5 flex-1 min-w-0">' +
+                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + m[1] + '</div>' +
+                '<span class="text-[13px] font-semibold truncate">' + m[0] + '</span>' +
+              '</div>' +
+              '<div class="flex-shrink-0 flex flex-col items-center gap-1">' +
+                '<div class="text-lg font-black ' + sc + '">' + m[4] + '</div>' +
+                '<span class="result-tag ' + rc + '">' + rt + '</span>' +
+              '</div>' +
+              '<div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end">' +
+                '<span class="text-[13px] font-semibold truncate text-right">' + m[2] + '</span>' +
+                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + m[3] + '</div>' +
+              '</div>' +
+            '</div>';
+        });
+        
+        w.innerHTML = 
+          '<div class="league-card-header">' +
+            '<div class="flex items-center gap-2">' + 
+              flagImg(lg.flag, 'flag-icon-lg') + 
+              '<span class="league-tag">' + lg.league + '</span>' +
+            '</div>' +
+            '<span class="text-[10px] text-white/15">' + lg.m.length + ' match</span>' +
+          '</div>' + 
+          rows;
+          
+        c.appendChild(w);
+      });
+    }
+
+function renderLeagueBars() {
+      var c = document.getElementById('leagueBars');
+      c.innerHTML = '';
+      
+      var lc = {};
+      matches.forEach(function (m) { lc[m.league] = (lc[m.league] || 0) + 1; });
+      
+      /* --- LOGIKA PENGURUTAN BARU --- */
+      // Mengurutkan dari jumlah pertandingan terbanyak ke terdikit (Descending)
+      // Jika jumlahnya sama, akan diurutkan berdasarkan abjad nama liganya
+      var sorted = Object.entries(lc).sort(function (a, b) {
+        if (b[1] !== a[1]) {
+          return b[1] - a[1]; // Urutkan berdasarkan jumlah (tertinggi ke terendah)
+        }
+        return a[0].localeCompare(b[0]); // Jika jumlah sama, urutkan abjad A-Z
+      });
+      /* ------------------------------ */
+      
+      var max = sorted.length > 0 ? sorted[0][1] : 1; // Mencegah error jika kosong
+      var sn = {
+        'ENGLISH PREMIER LEAGUE':'English Premier League','SPAIN LA LIGA':'Spain La Liga',
+        'ITALY CUP':'Italy Cup','ENGLISH CHAMPIONSHIP':'English Championship',
+        'FRANCE CUP':'France Cup','AFC CHAMPIONS LEAGUE ELITE':'AFC CL Elite',
+        'BELGIUM FIRST DIVISION A PLAYOFF':'Belgium Playoff','RUSSIA PREMIER LEAGUE':'Russia Premier League',
+        'SWEDEN SUPERETTAN':'Sweden Superettan','AUSTRIA BUNDESLIGA PLAYOFF':'Austria Playoff',
+        'CHINA FOOTBALL SUPER LEAGUE':'China Super League','KOREA K-LEAGUE 1':'Korea K-League 1',
+        'ENGLISH LEAGUE ONE':'English League One','ENGLISH LEAGUE TWO':'English League Two',
+        'TURKIYE CUP':'Turkiye Cup','FINLAND YKKOSLIIGA':'Finland Ykkosliiga',
+        'DENMARK 1ST DIV PLAYOFF':'Denmark 1st Div PO','CROATIA SUPERLIGA':'Croatia Superliga',
+        'ROMANIA CUP':'Romania Cup','SCOTLAND CHAMPIONSHIP':'Scotland Championship',
+        'GEORGIA EROVNULI LIGA':'Georgia Erovnuli Liga','AZERBAIJAN CUP':'Azerbaijan Cup',
+        'HUNGARY CUP':'Hungary Cup','CZECHIA CUP':'Czechia Cup','UKRAINE CUP':'Ukraine Cup',
+        'BULGARIA CUP':'Bulgaria Cup','LATVIA VIRSLIGA':'Latvia Virsliga',
+        'ENGLISH NATIONAL LEAGUE':'English National League','ENGLISH NATIONAL LEAGUE NORTH':'English NL North',
+        'ESTONIA PREMIUM LIGA':'Estonia Premium Liga','MEXICO PRIMERA DIVISION':'Mexico Primera Div',
+        'ECUADOR LIGA PRO SERIE A':'Ecuador Liga Pro','BOLIVIA PROFESSIONAL FOOTBALL LEAGUE':'Bolivia Pro League',
+        'COSTA RICA PRIMERA DIVISION':'Costa Rica Primera','USL CHAMPIONSHIP':'USL Championship',
+        'ARGENTINA PRIMERA B':'Argentina Primera B','VENEZUELA PRIMERA DIVISION':'Venezuela Primera Div'
+      };
+      var bc = ['#818CF8','#22D3EE','#A78BFA','#FBBF24','#F472B6','#6366F1','#FB923C','#F87171','#38BDF8','#E879F9','#FACC15','#2DD4BF','#4ade80','#FB7185','#34D399','#A3E635','#C084FC','#FCA5A1','#67E8F9','#FDE68A','#86EFAC','#FDA4AF','#D8B4FE','#BEF264','#FCD34D','#6EE7B7','#99F6E4','#F0ABFC','#FDBA74','#FCA5A1','#7DD3FC','#BAE6FD','#E9D5FF','#FEF08A','#BBF7D0','#FBCFE8','#CFFAFE','#F5D0FE','#FDE68A'];
+      
+      sorted.forEach(function (entry, i) {
+        var l = entry[0], count = entry[1], pct = Math.round((count / max) * 100), name = sn[l] || l;
+        var r = document.createElement('div');
+        r.className = 'flex items-center gap-3';
+        r.innerHTML = 
+          '<div class="w-36 lg:w-44 flex-shrink-0 text-[11px] text-white/50 truncate font-medium">' + name + '</div>' +
+          '<div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">' +
+            '<div class="league-bar" style="width:0%;background:' + bc[i % bc.length] + '" data-width="' + pct + '"></div>' +
+          '</div>' +
+          '<div class="w-6 text-right text-[11px] font-bold text-white/60">' + count + '</div>';
+        c.appendChild(r);
+      });
+      
+      setTimeout(function () { 
+        document.querySelectorAll('.league-bar').forEach(function (b) { 
+          b.style.width = b.dataset.width + '%'; 
+        }); 
+      }, 300);
+    }
+
+    function filterMatches() {
+      var q = document.getElementById('searchInput').value.toLowerCase().trim();
+      if (!q) { 
+        renderSchedule(matches); 
+        return; 
+      }
+      renderSchedule(matches.filter(function (m) { 
+        return m.home.toLowerCase().includes(q) || m.away.toLowerCase().includes(q) || m.league.toLowerCase().includes(q); 
+      }));
+    }
+
+    // Initialize Function Calls
+    updateStats();
+    renderSpotlight();
+    renderLeagueBars();
+    renderPrediksi();
+    renderSchedule(matches);
+    renderManualTable('PL');
+
+  </script>
+</body>
+</html>
