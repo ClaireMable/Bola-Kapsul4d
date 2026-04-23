@@ -1833,5 +1833,38 @@ function renderLeagueBars() {
     renderManualTable('PL');
 
   </script>
+
+<!-- PROTECT SIMPLE (NO RIGHT CLICK) -->
+<script>
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
+
+document.addEventListener("keydown", function(e) {
+    // F12
+    if (e.key === "F12") {
+        e.preventDefault();
+    }
+
+    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
+    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) {
+        e.preventDefault();
+    }
+
+    if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+    }
+});
+</script>
+
+<style>
+/* MATIKAN BLOK TEKS */
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+</style>
+
 </body>
 </html>
