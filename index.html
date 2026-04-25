@@ -252,7 +252,7 @@
     .date-sep-text {
       font-size: 9px;
       font-weight: 600;
-      color: rgba(255, 255, 255, 0.18);
+      color: rgb(255, 255, 255);
       letter-spacing: 0.06em;
       text-transform: uppercase;
       white-space: nowrap;
@@ -724,7 +724,7 @@
       <div id="secJadwal" style="display:none">
         <div class="anim-in d6">
           <div class="flex items-center justify-between mb-5">
-            <h2 class="font-bold text-base">Jadwal &amp; Handicap 23 - 24 April 2026</h2>
+            <h2 class="font-bold text-base">Jadwal &amp; Handicap 25 - 26 April 2026</h2>
             <span class="text-[11px] text-white/25" id="matchCountLabel">0 pertandingan</span>
           </div>
           <div id="scheduleContainer"></div>
@@ -738,7 +738,7 @@
       <div id="secPrediksi" style="display:none">
         <div class="flex items-center gap-2 mb-5 anim-in d1">
           <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
-          <h2 class="font-bold text-base">Hasil Pertandingan 23 - 24 April 2026</h2>
+          <h2 class="font-bold text-base">Hasil Pertandingan 25 - 26 April 2026</h2>
         </div>
         <div id="prediksiList"></div>
       </div>
@@ -909,7 +909,7 @@
     var sectionMeta = {
       dashboard: { title: 'Dashboard', desc: 'Ringkasan Pertandingan & Spotlight Liga Top' },
       jadwal: { title: 'Jadwal Pertandingan', desc: 'Jadwal Lengkap Beserta Handicap Untuk Semua Liga' },
-      prediksi: { title: 'Hasil Pertandingan', desc: 'Semua Hasil Pertandingan 23-24 April 2026' },
+      prediksi: { title: 'Hasil Pertandingan', desc: 'Semua Hasil Pertandingan 25-26 April 2026' },
       klasemen: { title: 'Klasemen Liga', desc: '' }
     };
     
@@ -1136,8 +1136,8 @@
             '<div class="cell-w  text-[10px] text-white">' + t[3] + '</div>' +
             '<div class="cell-d  text-[10px] text-white">' + t[4] + '</div>' +
             '<div class="cell-l  text-[10px] text-white">' + t[5] + '</div>' +
-            '<div class="cell-gf text-[10px] text-white/">' + t[6] + '</div>' +
-            '<div class="cell-ga text-[10px] text-white/">' + t[7] + '</div>' +
+            '<div class="cell-gf text-[10px] text-white">' + t[6] + '</div>' +
+            '<div class="cell-ga text-[10px] text-white">' + t[7] + '</div>' +
             '<div class="text-[10px] sm:text-[11px] ' + gdC + ' font-medium text-center">' + gd + '</div>' +
             '<div class="text-[11px] sm:text-[12px] font-bold text-center">' + t[9] + '</div>' +
             '<div class="flex items-center justify-center">' + formDots(t[10]) + '</div>' +
@@ -1193,369 +1193,806 @@
     }
 
 var leagueOrder = [
-  'INDONESIA SUPER LEAGUE', 'ARMENIA PREMIER LEAGUE', 'UKRAINE PREMIER LEAGUE', 'ICELAND PREMIER LEAGUE',
-  'UZBEKISTAN SUPER LEAGUE', 'SERBIA SUPERLIGA PLAYOFF', 'RUSSIA PREMIER LEAGUE', 'EGYPT PREMIER LEAGUE PLAYOFF',
-  'LATVIA VIRSLIGA', 'TURKIYE CUP', 'DENMARK SUPER LEAGUE PLAYOFF', 'SAUDI ARABIA PRO LEAGUE',
-  'SLOVENIA CUP', 'NETHERLANDS EREDIVISIE', 'SPAIN LA LIGA', 'SWEDEN ALLSVENSKAN',
-  'DENMARK 1ST DIV PLAYOFF', 'ROMANIA CUP', 'LIGA PORTUGAL', 'POLAND 1ST LIGA',
-  'BELGIUM FIRST DIVISION A PLAYOFF', 'BELGIUM FIRST DIVISION B PLAYOFF', 'GERMANY CUP', 'ENGLISH LEAGUE TWO',
-  'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', 'ARGENTINA LIGA PROFESIONAL', 'CHILE PRIMERA DIVISION', 'MEXICO LIGA DE EXPANSION PLAYOFF',
-  'COLOMBIA PRIMERA A', 'ECUADOR LIGA PRO SERIE A', 'PERU LIGA 1', 'COSTA RICA PRIMERA DIVISION'
+  'ENGLAND PREMIER LEAGUE', 'ITALY SERIE A', 'SPAIN LA LIGA', 'GERMANY BUNDESLIGA',
+  'ENGLISH FA CUP', 'FRANCE LIGUE 1', 'ENGLISH CHAMPIONSHIP', 'GERMANY BUNDESLIGA 2',
+  'AUSTRALIA A LEAGUE', 'JAPAN J1 LEAGUE', 'JAPAN J2/J3 LEAGUE', 'NETHERLANDS EREDIVISIE',
+  'NORWAY ELITESERIEN', 'FINLAND VEIKKAUSLIIGA', 'LIGA PORTUGAL', 'SWISS SUPER LEAGUE PLAYOFF',
+  'AFC CHAMPIONS LEAGUE ELITE', 'SPAIN LA LIGA 2', 'BELGIUM FIRST DIVISION A PLAYOFF', 'TURKIYE SUPER LIG',
+  'RUSSIA PREMIER LEAGUE', 'ITALY SERIE B', 'FRANCE LIGUE 2', 'SCOTLAND PREMIERSHIP PLAYOFF',
+  'SWEDEN SUPERETTAN', 'AUSTRIA BUNDESLIGA PLAYOFF', 'INDONESIA SUPER LEAGUE', 'CHINA SUPER LEAGUE',
+  'KOREA K-LEAGUE 1', 'KOREA K-LEAGUE 2', 'POLAND EKSTRAKLASA', 'NORWAY 1ST DIV',
+  'ENGLISH LEAGUE ONE', 'ENGLISH LEAGUE TWO', 'IRELAND PREMIER DIVISION', 'AUSTRALIA VICTORIA NPL',
+  'EGYPT PREMIER LEAGUE PLAYOFF', 'DENMARK 1ST DIV PLAYOFF', 'ROMANIA SUPERLIGA PLAYOFF', 'LIGA PORTUGAL 2',
+  'GERMANY 3RD LIGA', 'BRAZIL SERIE A', 'ARGENTINA LIGA PROFESIONAL', 'MEXICO PRIMERA DIVISION',
+  'CHILE PRIMERA DIVISION', 'BRAZIL SERIE B', 'COLOMBIA PRIMERA A', 'ECUADOR LIGA PRO',
+  'PARAGUAY PRIMERA DIVISION', 'PERU LIGA 1', 'URUGUAY PRIMERA DIVISION', 'ARGENTINA PRIMERA NACIONAL',
+  'VENEZUELA PRIMERA DIVISION'
 ];
 
 /* ================================================================
-       MATCH DATA
-       ================================================================ */
+   MATCH DATA
+   ================================================================ */
 var matches = [
+  // ENGLAND PREMIER LEAGUE
+  { date:'25/04', time:'18:30', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Fulham', away:'Aston Villa', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Liverpool', away:'Crystal Palace', handicap:'0 : 1' },
+  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Wolverhampton Wanderers', away:'Tottenham Hotspur', handicap:'0 : 3/4' },
+  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'West Ham United', away:'Everton', handicap:'1/4 : 0' },
+  { date:'25/04', time:'23:30', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Arsenal', away:'Newcastle United', handicap:'0 : 1 1/4' },
+
+  // ITALY SERIE A
+  { date:'25/04', time:'20:00', league:'ITALY SERIE A', flag:'it', home:'Parma Calcio', away:'Pisa', handicap:'0 : 1/2' },
+  { date:'25/04', time:'23:00', league:'ITALY SERIE A', flag:'it', home:'Bologna', away:'AS Roma', handicap:'1/4 : 0' },
+  { date:'26/04', time:'01:45', league:'ITALY SERIE A', flag:'it', home:'Hellas Verona', away:'Lecce', handicap:'1/4 : 0' },
+
+  // SPAIN LA LIGA
+  { date:'25/04', time:'19:00', league:'SPAIN LA LIGA', flag:'es', home:'Alaves', away:'Mallorca', handicap:'0 : 1/4' },
+  { date:'25/04', time:'21:15', league:'SPAIN LA LIGA', flag:'es', home:'Getafe', away:'Barcelona', handicap:'1 : 0' },
+  { date:'25/04', time:'23:30', league:'SPAIN LA LIGA', flag:'es', home:'Valencia', away:'Girona FC', handicap:'0 : 1/4' },
+  { date:'26/04', time:'02:00', league:'SPAIN LA LIGA', flag:'es', home:'Atletico Madrid', away:'Athletic Bilbao', handicap:'0 : 1/2' },
+
+  // GERMANY BUNDESLIGA
+  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Augsburg', away:'Eintracht Frankfurt', handicap:'0 : 0' },
+  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'FC Heidenheim', away:'St. Pauli', handicap:'0 : 1/4' },
+  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Koln', away:'Bayer Leverkusen', handicap:'1/2 : 0' },
+  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'FSV Mainz 05', away:'Bayern Munchen', handicap:'3/4 : 0' },
+  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'VfL Wolfsburg', away:'Borussia Monchengladbach', handicap:'0 : 1/4' },
+  { date:'25/04', time:'23:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Hamburger SV', away:'TSG Hoffenheim', handicap:'3/4 : 0' },
+
+  // ENGLISH FA CUP
+  { date:'25/04', time:'23:15', league:'ENGLISH FA CUP', flag:'gb-eng', home:'Manchester City', away:'Southampton', handicap:'0 : 2' },
+
+  // FRANCE LIGUE 1
+  { date:'25/04', time:'20:00', league:'FRANCE LIGUE 1', flag:'fr', home:'Lyon', away:'Auxerre', handicap:'0 : 3/4' },
+  { date:'25/04', time:'22:30', league:'FRANCE LIGUE 1', flag:'fr', home:'Angers', away:'Paris Saint Germain', handicap:'1 3/4 : 0' },
+  { date:'26/04', time:'02:05', league:'FRANCE LIGUE 1', flag:'fr', home:'Toulouse', away:'AS Monaco', handicap:'1/2 : 0' },
+
+  // ENGLISH CHAMPIONSHIP
+  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Middlesbrough', away:'Watford', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'W.B.A', away:'Ipswich Town', handicap:'1/2 : 0' },
+  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Charlton Athletic', away:'Hull City', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Oxford United', away:'Sheffield Wednesday', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Queens Park Rangers', away:'Derby County', handicap:'1/4 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Norwich City', away:'Swansea City', handicap:'0 : 3/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Stoke City', away:'Portsmouth', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Birmingham City', away:'Bristol City', handicap:'0 : 3/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Sheffield United', away:'Preston North End', handicap:'0 : 1' },
+
+  // GERMANY BUNDESLIGA 2
+  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Karlsruher SC', away:'Hannover 96', handicap:'3/4 : 0' },
+  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Hertha Berlin', away:'Holstein Kiel', handicap:'0 : 1/2' },
+  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Preussen Munster', away:'Arminia Bielefeld', handicap:'1/4 : 0' },
+  { date:'26/04', time:'01:30', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'SV Darmstadt 98', away:'SV Elversberg', handicap:'1/4 : 0' },
+
+  // AUSTRALIA A LEAGUE
+  { date:'25/04', time:'14:00', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Newcastle Jets', away:'Central Coast Mariners', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'16:35', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Western Sydney Wanderers FC', away:'Melbourne Victory', handicap:'1/4 : 0' },
+  { date:'25/04', time:'18:45', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Perth Glory', away:'Brisbane Roar FC', handicap:'1/4 : 0' },
+
+  // JAPAN J1 LEAGUE
+  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Shimizu S-Pulse', away:'Nagoya Grampus', handicap:'0 : 1/4' },
+  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Fagiano Okayama', away:'Avispa Fukuoka', handicap:'0 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Urawa Red Diamonds', away:'Yokohama F Marinos', handicap:'0 : 1/2' },
+  { date:'25/04', time:'13:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Kawasaki Frontale', away:'JEF United Ichihara Chiba', handicap:'0 : 3/4' },
+  { date:'25/04', time:'14:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Sanfrecce Hiroshima', away:'Cerezo Osaka', handicap:'0 : 3/4' },
+  { date:'25/04', time:'16:30', league:'JAPAN J1 LEAGUE', flag:'jp', home:'V-Varen Nagasaki', away:'Gamba Osaka', handicap:'1/2 : 0' },
+
+  // JAPAN J2/J3 LEAGUE
+  { date:'25/04', time:'11:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Jubilo Iwata', away:'FC Gifu', handicap:'0 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Giravanz Kitakyushu', away:'Renofa Yamaguchi', handicap:'1/4 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Vegalta Sendai', away:'Montedio Yamagata', handicap:'0 : 1' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Zweigen Kanazawa', away:'Nara Club', handicap:'0 : 1/2' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Fukushima United FC', away:'Ventforet Kofu', handicap:'1/2 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Fujieda MYFC', away:'RB Omiya Ardija', handicap:'1/2 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Tochigi City FC', away:'Tochigi SC', handicap:'0 : 1/4' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Albirex Niigata', away:'FC Osaka', handicap:'0 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Gainare Tottori', away:'Roasso Kumamoto', handicap:'1/2 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Tegevajaro Miyazaki', away:'Kagoshima United', handicap:'0 : 1/4' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'FC Imabari', away:'Kataller Toyama', handicap:'1/4 : 0' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Sagan Tosu', away:'Reilac Shiga FC', handicap:'0 : 1' },
+  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Hokkaido Consadole Sapporo', away:'Iwaki FC', handicap:'1/4 : 0' },
+  { date:'25/04', time:'15:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'SC Sagamihara', away:'Shonan Bellmare', handicap:'1/2 : 0' },
+
+  // NETHERLANDS EREDIVISIE
+  { date:'25/04', time:'21:30', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'Feyenoord', away:'Groningen', handicap:'0 : 1' },
+  { date:'25/04', time:'23:45', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'SC Heerenveen', away:'Fortuna Sittard', handicap:'0 : 1' },
+  { date:'26/04', time:'01:00', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'NAC Breda', away:'Ajax', handicap:'1/2 : 0' },
+  { date:'26/04', time:'02:00', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'FC Twente Enschede', away:'NEC Nijmegen', handicap:'0 : 1/2' },
+
+  // NORWAY ELITESERIEN
+  { date:'25/04', time:'21:00', league:'NORWAY ELITESERIEN', flag:'no', home:'Fredrikstad', away:'Viking', handicap:'3/4 : 0' },
+  { date:'25/04', time:'23:00', league:'NORWAY ELITESERIEN', flag:'no', home:'Rosenborg', away:'Brann', handicap:'0 : 1/4' },
+
+  // FINLAND VEIKKAUSLIIGA
+  { date:'25/04', time:'19:00', league:'FINLAND VEIKKAUSLIIGA', flag:'fi', home:'Lahti', away:'AC Oulu', handicap:'1/4 : 0' },
+  { date:'25/04', time:'21:00', league:'FINLAND VEIKKAUSLIIGA', flag:'fi', home:'Inter Turku', away:'IFK Mariehamn', handicap:'0 : 1 1/2' },
+
+  // LIGA PORTUGAL
+  { date:'25/04', time:'21:30', league:'LIGA PORTUGAL', flag:'pt', home:'CD Tondela', away:'Nacional da Madeira', handicap:'0 : 0' },
+  { date:'25/04', time:'22:30', league:'LIGA PORTUGAL', flag:'pt', home:'Benfica', away:'Moreirense', handicap:'0 : 2 1/4' },
+  { date:'26/04', time:'02:30', league:'LIGA PORTUGAL', flag:'pt', home:'Vitoria Guimaraes', away:'Rio Ave', handicap:'0 : 1/2' },
+
+  // SWISS SUPER LEAGUE PLAYOFF
+  { date:'25/04', time:'23:00', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Lausanne Sports', away:'FC Zurich', handicap:'0 : 1/2' },
+  { date:'25/04', time:'23:00', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Grasshopper', away:'Luzern', handicap:'1/4 : 0' },
+  { date:'26/04', time:'01:30', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Thun', away:'Lugano', handicap:'0 : 1/2' },
+
+  // AFC CHAMPIONS LEAGUE ELITE
+  { date:'25/04', time:'23:15', league:'AFC CHAMPIONS LEAGUE ELITE', flag:'afc', home:'Al Ahli Jeddah', away:'FC Machida Zelvia', handicap:'0 : 3/4' },
+
+  // SPAIN LA LIGA 2
+  { date:'25/04', time:'21:15', league:'SPAIN LA LIGA 2', flag:'es', home:'Real Valladolid', away:'Real Sociedad B', handicap:'0 : 1' },
+  { date:'25/04', time:'23:30', league:'SPAIN LA LIGA 2', flag:'es', home:'Burgos CF', away:'RC Deportivo La Coruna', handicap:'0 : 1/4' },
+  { date:'26/04', time:'02:00', league:'SPAIN LA LIGA 2', flag:'es', home:'Malaga CF', away:'CD Castellon', handicap:'0 : 0' },
+
+  // BELGIUM FIRST DIVISION A PLAYOFF
+  { date:'25/04', time:'21:00', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'Oud-Heverlee Leuven', away:'Sporting Charleroi', handicap:'1/4 : 0' },
+  { date:'25/04', time:'23:15', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'KRC Genk', away:'Standard Liege', handicap:'0 : 3/4' },
+  { date:'26/04', time:'01:45', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'KVC Westerlo', away:'Royal Antwerp', handicap:'0 : 1/4' },
+
+  // TURKIYE SUPER LIG
+  { date:'25/04', time:'18:30', league:'TURKIYE SUPER LIG', flag:'tr', home:'Eyupspor', away:'Gaziantep FK', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Kayserispor', away:'Caykur Rizespor', handicap:'0 : 0' },
+  { date:'25/04', time:'22:30', league:'TURKIYE SUPER LIG', flag:'tr', home:'Goztepe AS', away:'Antalyaspor', handicap:'0 : 3/4' },
+
+  // RUSSIA PREMIER LEAGUE
+  { date:'25/04', time:'18:30', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Rostov FK', away:'FC Orenburg', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'PFC Krylia Sovetov', away:'Lokomotiv Moscow', handicap:'1/2 : 0' },
+  { date:'25/04', time:'23:30', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Rubin Kazan', away:'CSKA Moscow', handicap:'0 : 0' },
+
+  // ITALY SERIE B
+  { date:'25/04', time:'17:30', league:'ITALY SERIE B', flag:'it', home:'Catanzaro', away:'Spezia', handicap:'0 : 1/4' },
+  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Pescara', away:'Juve Stabia', handicap:'0 : 1/4' },
+  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'AC Reggiana 1919', away:'Palermo', handicap:'1 : 0' },
+  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'FC Sudtirol', away:'Mantova', handicap:'0 : 1/4' },
+  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Virtus Entella', away:'Padova', handicap:'0 : 1/2' },
+  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Frosinone', away:'Carrarese', handicap:'0 : 1' },
+  { date:'25/04', time:'22:15', league:'ITALY SERIE B', flag:'it', home:'Venezia', away:'Empoli', handicap:'0 : 1 1/4' },
+  { date:'26/04', time:'00:30', league:'ITALY SERIE B', flag:'it', home:'Cesena FC', away:'Sampdoria', handicap:'0 : 0' },
+
+  // FRANCE LIGUE 2
+  { date:'25/04', time:'19:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Grenoble Foot 38', away:'Le Mans', handicap:'0 : 0' },
+  { date:'25/04', time:'19:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Reims', away:'Nancy', handicap:'0 : 1' },
+  { date:'26/04', time:'01:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Saint Etienne', away:'Troyes', handicap:'0 : 1/2' },
+
+  // SCOTLAND PREMIERSHIP PLAYOFF
+  { date:'25/04', time:'21:00', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Aberdeen', away:'Kilmarnock', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Saint Mirren', away:'Livingston', handicap:'0 : 3/4' },
+  { date:'25/04', time:'23:30', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Celtic FC', away:'Falkirk', handicap:'0 : 1 1/4' },
+
+  // SWEDEN SUPERETTAN
+  { date:'25/04', time:'18:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Osters', away:'Ostersunds FK', handicap:'0 : 1/2' },
+  { date:'25/04', time:'20:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Falkenbergs', away:'GIF Sundsvall', handicap:'0 : 3/4' },
+  { date:'25/04', time:'22:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Nordic United FC', away:'Sandvikens IF', handicap:'0 : 1/4' },
+  { date:'25/04', time:'22:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Orebro', away:'Norrby IF', handicap:'0 : 1/2' },
+
+  // AUSTRIA BUNDESLIGA PLAYOFF
+  { date:'25/04', time:'22:00', league:'AUSTRIA BUNDESLIGA PLAYOFF', flag:'at', home:'WSG Tirol', away:'SV Ried', handicap:'0 : 0' },
+  { date:'25/04', time:'22:00', league:'AUSTRIA BUNDESLIGA PLAYOFF', flag:'at', home:'Wolfsberger AC', away:'GAK 1902', handicap:'0 : 1/4' },
+
   // INDONESIA SUPER LEAGUE
-  { date:'23/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'PSM Makassar', away:'Persik Kediri', handicap:'0 : 1/2' },
-  { date:'23/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Persita Tangerang', away:'Bali United', handicap:'0 : 0' },
-  { date:'23/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Malut United', away:'Persebaya Surabaya', handicap:'0 : 3/4' },
+  { date:'25/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Borneo FC Samarinda', away:'Semen Padang', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Madura United', away:'Dewa United FC', handicap:'1/2 : 0' },
 
-  // ARMENIA
-  { date:'23/04', time:'18:30', league:'ARMENIA PREMIER LEAGUE', flag:'am', home:'FC Van', away:'BKMA FC', handicap:'0 : 1/4' },
-  { date:'23/04', time:'21:00', league:'ARMENIA PREMIER LEAGUE', flag:'am', home:'Pyunik Yerevan', away:'Urartu FC', handicap:'0 : 3/4' },
+  // CHINA SUPER LEAGUE
+  { date:'25/04', time:'18:00', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Chengdu Rongcheng', away:'Zhejiang Professional FC', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'18:35', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Beijing Guoan', away:'Tianjin Jinmen Tiger', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'19:00', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Shanghai Port FC', away:'Wuhan Three Towns', handicap:'0 : 3/4' },
 
-  // UKRAINE
-  { date:'23/04', time:'19:30', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'Zorya Luhansk', away:'Shakhtar Donetsk', handicap:'1 1/2 : 0' },
+  // KOREA K-LEAGUE 1
+  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Gangwon FC', away:'FC Seoul', handicap:'0 : 0' },
+  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Incheon United', away:'Jeju SK FC', handicap:'0 : 1/2' },
+  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Bucheon FC 1995', away:'Gimcheon Sangmu FC', handicap:'1/4 : 0' },
 
-  // ICELAND
-  { date:'23/04', time:'20:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'IBV Vestmannaeyjar', away:'KR Reykjavik', handicap:'3/4 : 0' },
-  { date:'24/04', time:'00:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Thor Akureyri', away:'Fram Reykjavik', handicap:'1/2 : 0' },
-  { date:'24/04', time:'02:11', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Valur Reykjavik', away:'FH Hafnarfjordur', handicap:'0 : 0' },
-  { date:'24/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Vikingur Reykjavik', away:'Stjarnan Gardabaer', handicap:'0 : 1' },
+  // KOREA K-LEAGUE 2
+  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Suwon Samsung Bluewings', away:'Busan I.Park', handicap:'0 : 1/4' },
+  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Paju Frontier FC', away:'Gyeongnam FC', handicap:'0 : 1/4' },
+  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Cheonan City', away:'Seongnam FC', handicap:'1/2 : 0' },
+  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Ansan Greeners FC', away:'Jeonnam Dragons', handicap:'1/2 : 0' },
 
-  // UZBEKISTAN
-  { date:'23/04', time:'21:00', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'Nasaf Qarshi', away:'Lokomotiv Tashkent', handicap:'0 : 1/4' },
-  { date:'23/04', time:'21:00', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'Navbahor Namangan', away:'Sogdiana Jizzakh', handicap:'0 : 3/4' },
-  { date:'23/04', time:'22:15', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'Dinamo Samarqand', away:'AGMK Olmaliq', handicap:'0 : 1/4' },
+  // POLAND EKSTRAKLASA
+  { date:'25/04', time:'19:45', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Korona Kielce', away:'GKS Katowice', handicap:'0 : 1/4' },
+  { date:'25/04', time:'22:30', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Lechia Gdansk', away:'Rakow Czestochowa', handicap:'0 : 0' },
+  { date:'26/04', time:'01:15', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Cracovia Krakow', away:'Pogon Szczecin', handicap:'0 : 1/4' },
 
-  // SERBIA
-  { date:'23/04', time:'21:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'Radnicki Nis', away:'Javor Ivanjica', handicap:'0 : 1/2' },
-  { date:'23/04', time:'23:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'Napredak Krusevac', away:'IMT Novi Beograd', handicap:'1 1/4 : 0' },
-  { date:'24/04', time:'01:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'Mladost Lucani', away:'Radnicki 1923', handicap:'1/4 : 0' },
-  { date:'24/04', time:'01:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'Spartak Subotica', away:'TSC Backa Topola', handicap:'3/4 : 0' },
+  // NORWAY 1ST DIV
+  { date:'25/04', time:'21:00', league:'NORWAY 1ST DIV', flag:'no', home:'Sogndal', away:'Asane Fotball', handicap:'0 : 3/4' },
+  { date:'25/04', time:'23:00', league:'NORWAY 1ST DIV', flag:'no', home:'Strommen IF', away:'Kongsvinger', handicap:'3/4 : 0' },
+  { date:'26/04', time:'01:00', league:'NORWAY 1ST DIV', flag:'no', home:'Bryne', away:'Odd BK', handicap:'0 : 1/4' },
 
-  // RUSSIA
-  { date:'23/04', time:'21:30', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Akron Tolyatti', away:'FC Dynamo Makhachkala', handicap:'0 : 1/4' },
-  { date:'23/04', time:'23:45', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Akhmat Grozny', away:'Baltika Kaliningrad', handicap:'1/4 : 0' },
-  { date:'23/04', time:'23:45', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Spartak Moscow', away:'FC Krasnodar', handicap:'0 : 1/4' },
+  // ENGLISH LEAGUE ONE
+  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Doncaster Rovers', away:'Stevenage FC', handicap:'1/4 : 0' },
+  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Stockport County', away:'Peterborough United', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Blackpool', away:'Leyton Orient', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Bradford City', away:'Bolton Wanderers', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Burton Albion', away:'Exeter City', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Huddersfield Town', away:'Mansfield Town', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Luton Town', away:'Barnsley', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Plymouth Argyle', away:'Port Vale', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Wigan Athletic', away:'AFC Wimbledon', handicap:'0 : 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Cardiff City', away:'Northampton Town', handicap:'0 : 2 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Lincoln City', away:'Wycombe Wanderers', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Rotherham United', away:'Reading', handicap:'1/4 : 0' },
 
-  // EGYPT
-  { date:'23/04', time:'22:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Arab Contractors', away:'Al Ittihad Alexandria', handicap:'0 : 0' },
-  { date:'24/04', time:'01:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Ghazl El Mahallah', away:'Petrojet', handicap:'0 : 0' },
-  { date:'24/04', time:'01:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Zamalek', away:'Pyramids FC', handicap:'1/4 : 0' },
+  // ENGLISH LEAGUE TWO
+  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Milton Keynes Dons', away:'Tranmere Rovers', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Grimsby Town', away:'Swindon Town', handicap:'0 : 3/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Chesterfield', away:'Crewe Alexandra', handicap:'0 : 3/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Cambridge United', away:'Barrow', handicap:'0 : 1 1/2' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Bristol Rovers', away:'Cheltenham Town', handicap:'0 : 1/2' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Barnet', away:'Gillingham', handicap:'0 : 1 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Accrington Stanley', away:'Crawley Town', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Colchester United', away:'Notts County', handicap:'0 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Walsall', away:'Harrogate Town', handicap:'0 : 1/4' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Shrewsbury Town', away:'Fleetwood Town', handicap:'1/4 : 0' },
+  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Newport County', away:'Oldham Athletic', handicap:'0 : 0' },
 
-  // LATVIA
-  { date:'23/04', time:'22:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'SK Super Nova', away:'FK Liepaja', handicap:'1/2 : 0' },
+  // IRELAND PREMIER DIVISION
+  { date:'26/04', time:'01:45', league:'IRELAND PREMIER DIVISION', flag:'ie', home:'Sligo Rovers', away:'Dundalk', handicap:'1/2 : 0' },
 
-  // TURKIYE
-  { date:'23/04', time:'22:45', league:'TURKIYE CUP', flag:'tr', home:'Samsunspor', away:'Trabzonspor', handicap:'0 : 0' },
-  { date:'24/04', time:'00:45', league:'TURKIYE CUP', flag:'tr', home:'Besiktas', away:'Alanyaspor', handicap:'0 : 1' },
+  // AUSTRALIA VICTORIA NPL
+  { date:'25/04', time:'15:00', league:'AUSTRALIA VICTORIA NPL', flag:'au', home:'Caroline Springs George Cross FC', away:'Altona Magic', handicap:'0 : 1/4' },
 
-  // DENMARK SUPER LEAGUE
-  { date:'23/04', time:'23:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'Randers FC', away:'Fredericia', handicap:'0 : 3/4' },
-  { date:'23/04', time:'23:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'Nordsjaelland', away:'AGF Aarhus', handicap:'1/4 : 0' },
-  { date:'24/04', time:'01:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'Sonderjyske', away:'Midtjylland', handicap:'3/4 : 0' },
+  // EGYPT PREMIER LEAGUE PLAYOFF
+  { date:'25/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Haras El Hodood', away:'Wadi Degla', handicap:'1/2 : 0' },
 
-  // SAUDI
-  { date:'23/04', time:'23:10', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Al Najma Unaizah', away:'Al Taawoun Buraidah', handicap:'3/4 : 0' },
-  { date:'24/04', time:'01:00', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Damac', away:'Al Okhdood', handicap:'0 : 3/4' },
+  // DENMARK 1ST DIV PLAYOFF
+  { date:'25/04', time:'18:00', league:'DENMARK 1ST DIV PLAYOFF', flag:'dk', home:'Hvidovre', away:'AC Horsens', handicap:'0 : 1/4' },
+  { date:'25/04', time:'19:00', league:'DENMARK 1ST DIV PLAYOFF', flag:'dk', home:'Hillerod Fodbold', away:'Kolding IF', handicap:'0 : 1/4' },
 
-  // SLOVENIA
-  { date:'23/04', time:'23:30', league:'SLOVENIA CUP', flag:'si', home:'NK Bravo', away:'NK Aluminij', handicap:'0 : 3/4' },
+  // ROMANIA SUPERLIGA PLAYOFF
+  { date:'25/04', time:'19:00', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'Botosani', away:'Otelul Galati', handicap:'0 : 1/2' },
+  { date:'26/04', time:'00:30', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'CFR Cluj', away:'Universitatea Cluj', handicap:'0 : 1/4' },
 
-  // NETHERLANDS
-  { date:'23/04', time:'23:45', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'Go Ahead Eagles', away:'AZ Alkmaar', handicap:'1/4 : 0' },
-  { date:'24/04', time:'02:00', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'PSV Eindhoven', away:'PEC Zwolle', handicap:'0 : 2 1/4' },
+  // LIGA PORTUGAL 2
+  { date:'25/04', time:'17:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Leixoes', away:'Portimonense SAD', handicap:'0 : 1/2' },
+  { date:'25/04', time:'20:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Sporting Farense', away:'Academico Viseu', handicap:'0 : 0' },
+  { date:'26/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Felgueiras', away:'Uniao de Leiria', handicap:'0 : 0' },
 
-  // SPAIN
-  { date:'24/04', time:'00:00', league:'SPAIN LA LIGA', flag:'es', home:'Levante', away:'Sevilla', handicap:'0 : 1/4' },
-  { date:'24/04', time:'01:00', league:'SPAIN LA LIGA', flag:'es', home:'Rayo Vallecano', away:'RCD Espanyol', handicap:'0 : 1/2' },
-  { date:'24/04', time:'02:30', league:'SPAIN LA LIGA', flag:'es', home:'Real Oviedo', away:'Villarreal', handicap:'1/4 : 0' },
+  // GERMANY 3RD LIGA
+  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'Erzgebirge Aue', away:'SV Wehen Wiesbaden', handicap:'0 : 0' },
+  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'Hansa Rostock', away:'Jahn Regensburg', handicap:'0 : 1' },
+  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'TSV 1860 Munchen', away:'SSV Ulm 1846', handicap:'0 : 1/2' },
+  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'VfL Osnabruck', away:'SC Verl', handicap:'0 : 1/4' },
+  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'TSG Hoffenheim Am', away:'Ingolstadt 04', handicap:'0 : 1/4' },
 
-  // SWEDEN
-  { date:'24/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'IFK Goteborg', handicap:'1/4 : 0' },
-  { date:'24/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Degerfors', away:'AIK Fotboll', handicap:'0 : 0' },
-  { date:'24/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Malmo', away:'IK Sirius FK', handicap:'0 : 1/4' },
-  { date:'24/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'GAIS Goteborg', away:'Mjallby', handicap:'1/4 : 0' },
+  // BRAZIL SERIE A
+  { date:'26/04', time:'04:30', league:'BRAZIL SERIE A', flag:'br', home:'Bahia EC BA', away:'Santos SP', handicap:'0 : 3/4' },
+  { date:'26/04', time:'04:30', league:'BRAZIL SERIE A', flag:'br', home:'Botafogo RJ', away:'Internacional RS', handicap:'0 : 0' },
+  { date:'26/04', time:'07:00', league:'BRAZIL SERIE A', flag:'br', home:'Sao Paulo SP', away:'Mirassol SP', handicap:'0 : 1/2' },
 
-  // DANISH 1ST DIV
-  { date:'24/04', time:'00:00', league:'DENMARK 1ST DIV PLAYOFF', flag:'dk', home:'Aalborg', away:'B93 Copenhagen', handicap:'0 : 3/4' },
+  // ARGENTINA LIGA PROFESIONAL
+  { date:'26/04', time:'03:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Estudiantes La Plata', away:'Talleres Cordoba', handicap:'0 : 1/4' },
+  { date:'26/04', time:'05:15', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Sarmiento', away:'Club Atletico Tigre', handicap:'1/4 : 0' },
+  { date:'26/04', time:'07:30', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA River Plate', away:'Aldosivi', handicap:'0 : 1 1/4' },
 
-  // ROMANIA
-  { date:'24/04', time:'00:30', league:'ROMANIA CUP', flag:'ro', home:'Dinamo Bucuresti', away:'CS Universitatea Craiova', handicap:'0 : 0' },
+  // MEXICO PRIMERA DIVISION
+  { date:'26/04', time:'06:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Pachuca', away:'Pumas UNAM', handicap:'0 : 1/4' },
+  { date:'26/04', time:'06:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Tigres UANL', away:'Mazatlan FC', handicap:'0 : 2' },
+  { date:'26/04', time:'08:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Deportivo Toluca', away:'Club Leon', handicap:'0 : 1' },
+  { date:'26/04', time:'08:07', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Guadalajara Chivas', away:'Tijuana', handicap:'0 : 1 1/4' },
+  { date:'26/04', time:'10:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Club America', away:'Atlas', handicap:'0 : 3/4' },
+  { date:'26/04', time:'10:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'FC Juarez', away:'Atletico San Luis', handicap:'0 : 1/2' },
 
-  // PORTUGAL
-  { date:'24/04', time:'01:00', league:'LIGA PORTUGAL', flag:'pt', home:'Casa Pia', away:'Sporting Braga', handicap:'1 : 0' },
+  // CHILE PRIMERA DIVISION
+  { date:'26/04', time:'02:00', league:'CHILE PRIMERA DIVISION', flag:'cl', home:'Nublense', away:'O Higgins', handicap:'0 : 1/4' },
+  { date:'26/04', time:'05:00', league:'CHILE PRIMERA DIVISION', flag:'cl', home:'Universidad de Chile', away:'CD Universidad Catolica', handicap:'0 : 1/4' },
 
-  // POLAND
-  { date:'24/04', time:'01:00', league:'POLAND 1ST LIGA', flag:'pl', home:'KS Wieczysta Krakow', away:'Polonia Bytom', handicap:'0 : 3/4' },
+  // BRAZIL SERIE B
+  { date:'26/04', time:'06:30', league:'BRAZIL SERIE B', flag:'br', home:'Sport Club do Recife PE', away:'Gremio Novorizontino SP', handicap:'0 : 1/4' },
+  { date:'26/04', time:'07:00', league:'BRAZIL SERIE B', flag:'br', home:'Juventude RS', away:'Londrina PR', handicap:'0 : 1/2' },
 
-  // BELGIUM A
-  { date:'24/04', time:'01:30', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'Sint-Truidense', away:'Anderlecht', handicap:'0 : 1/4' },
+  // COLOMBIA PRIMERA A
+  { date:'26/04', time:'02:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Atletico Bucaramanga', away:'Jaguares de Cordoba', handicap:'0 : 1 1/4' },
+  { date:'26/04', time:'02:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Deportivo Pereira', away:'Atletico Nacional', handicap:'1 1/4 : 0' },
+  { date:'26/04', time:'06:10', league:'COLOMBIA PRIMERA A', flag:'co', home:'Deportivo Cali', away:'America de Cali', handicap:'0 : 0' },
+  { date:'26/04', time:'08:30', league:'COLOMBIA PRIMERA A', flag:'co', home:'Independiente Medellin', away:'Fortaleza CEIF', handicap:'0 : 3/4' },
 
-  // BELGIUM B
-  { date:'24/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'Lommel SK', away:'RFC de Liege', handicap:'0 : 3/4' },
-  { date:'24/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'Patro Eisden', away:'Beerschot VA', handicap:'1/4 : 0' },
+  // ECUADOR LIGA PRO
+  { date:'25/04', time:'23:45', league:'ECUADOR LIGA PRO', flag:'ec', home:'Mushuc Runa SC', away:'Deportivo Cuenca', handicap:'0 : 1/2' },
+  { date:'26/04', time:'02:10', league:'ECUADOR LIGA PRO', flag:'ec', home:'Independiente del Valle', away:'Leones FC Quito', handicap:'0 : 1 3/4' },
+  { date:'26/04', time:'05:00', league:'ECUADOR LIGA PRO', flag:'ec', home:'CS Emelec', away:'LDU Quito', handicap:'0 : 1/4' },
 
-  // GERMANY
-  { date:'24/04', time:'01:45', league:'GERMANY CUP', flag:'de', home:'VfB Stuttgart', away:'SC Freiburg', handicap:'0 : 1' },
+  // PARAGUAY PRIMERA DIVISION
+  { date:'26/04', time:'03:45', league:'PARAGUAY PRIMERA DIVISION', flag:'py', home:'Sportivo Luqueno', away:'Sportivo Trinidense', handicap:'1/4 : 0' },
+  { date:'26/04', time:'06:00', league:'PARAGUAY PRIMERA DIVISION', flag:'py', home:'Libertad', away:'Olimpia Asuncion', handicap:'1/4 : 0' },
 
-  // ENGLISH L2
-  { date:'24/04', time:'01:45', league:'ENGLISH LEAGUE TWO', flag:'gb', home:'Salford City', away:'Bromley', handicap:'0 : 1/2' },
+  // PERU LIGA 1
+  { date:'26/04', time:'01:00', league:'PERU LIGA 1', flag:'pe', home:'Deportivo Moquegua', away:'FC Cajamarca', handicap:'0 : 1/2' },
+  { date:'26/04', time:'03:30', league:'PERU LIGA 1', flag:'pe', home:'Comerciantes Unidos', away:'Sporting Cristal', handicap:'0 : 1/4' },
+  { date:'26/04', time:'07:00', league:'PERU LIGA 1', flag:'pe', home:'Sport Boys Association', away:'Juan Pablo II College', handicap:'0 : 3/4' },
 
-  // BOLIVIA
-  { date:'24/04', time:'02:00', league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', home:'CD San Antonio Bulo Bulo', away:'CDT Real Oruro', handicap:'0 : 1 1/4' },
-  { date:'24/04', time:'07:00', league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', home:'CD Real Tomayapo', away:'The Strongest', handicap:'3/4 : 0' },
+  // URUGUAY PRIMERA DIVISION
+  { date:'25/04', time:'22:00', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'CA Juventud', away:'Liverpool Montevideo', handicap:'1/4 : 0' },
+  { date:'26/04', time:'01:30', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Deportivo Maldonado', away:'Albion FC', handicap:'0 : 1/4' },
+  { date:'26/04', time:'05:00', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Nacional Montevideo', away:'Danubio', handicap:'0 : 3/4' },
 
-  // ARGENTINA
-  { date:'24/04', time:'06:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Defensa y Justicia', away:'Boca Juniors', handicap:'1/4 : 0' },
+  // ARGENTINA PRIMERA NACIONAL
+  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA Temperley', away:'Patronato', handicap:'0 : 1/4' },
+  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA San Miguel', away:'CA Los Andes', handicap:'0 : 1/4' },
+  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA San Telmo', away:'CA All Boys', handicap:'0 : 0' },
+  { date:'26/04', time:'03:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'San Martin San Juan', away:'Quilmes', handicap:'0 : 1/2' },
+  { date:'26/04', time:'04:00', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'Atletico de Rafaela', away:'Gimnasia Jujuy', handicap:'0 : 1/4' },
 
-  // CHILE
-  { date:'24/04', time:'07:00', league:'CHILE PRIMERA DIVISION', flag:'cl', home:'Palestino', away:'Deportes Concepcion', handicap:'0 : 3/4' },
-
-  // MEXICO
-  { date:'24/04', time:'06:00', league:'MEXICO LIGA DE EXPANSION PLAYOFF', flag:'mx', home:'Atlante', away:'Tepatitlan FC', handicap:'0 : 1' },
-  { date:'24/04', time:'08:00', league:'MEXICO LIGA DE EXPANSION PLAYOFF', flag:'mx', home:'CD Tapatio', away:'Cancun FC', handicap:'0 : 1/4' },
-
-  // COLOMBIA
-  { date:'24/04', time:'06:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Deportivo Pasto', away:'Independiente Santa Fe', handicap:'0 : 1/4' },
-  { date:'24/04', time:'08:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Millonarios', away:'Deportes Tolima', handicap:'0 : 1/2' },
-
-  // ECUADOR
-  { date:'24/04', time:'07:00', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'Universidad Catolica del Ecuador', away:'Macara', handicap:'0 : 3/4' },
-
-  // PERU
-  { date:'24/04', time:'03:00', league:'PERU LIGA 1', flag:'pe', home:'CD Los Chankas', away:'Cienciano', handicap:'0 : 0' },
-
-  // COSTA RICA
-  { date:'24/04', time:'09:00', league:'COSTA RICA PRIMERA DIVISION', flag:'cr', home:'Alajuelense', away:'Puntarenas FC', handicap:'0 : 1' }
+  // VENEZUELA PRIMERA DIVISION
+  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Deportivo Tachira', away:'Carabobo', handicap:'0 : 1/4' },
+  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Portuguesa FC', away:'Universidad Central de Venezuela FC', handicap:'0 : 1/4' },
+  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Caracas FC', away:'Deportivo Rayo Zuliano', handicap:'0 : 3/4' },
+  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Anzoategui FC', away:'Zamora FC', handicap:'1/4 : 0' },
+  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Monagas SC', away:'Academia Puerto Cabello', handicap:'1/4 : 0' },
+  { date:'26/04', time:'04:30', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Trujillanos FC', away:'Deportivo La Guaira', handicap:'3/4 : 0' }
 ];
 
-    /* ================================================================
-       PREDICTIONS DATA
-       ================================================================ */
+/* ================================================================
+   PREDICTIONS DATA
+   ================================================================ */
 var predictions = [
   {
-    league: 'INDONESIA SUPER LEAGUE', flag: 'id',
+    league: 'ENGLAND PREMIER LEAGUE', flag: 'gb-eng',
     m: [
-      ['PSM Makassar','PSM','Persik Kediri','PER','2-2'],
-      ['Persita Tangerang','PER','Bali United','BAL','1-3'],
-      ['Malut United','MAL','Persebaya Surabaya','PER','1-3']
+      ['Fulham','FUL','Aston Villa','AST','2-1'],
+      ['Liverpool','LIV','Crystal Palace','CRY','3-1'],
+      ['Wolverhampton Wanderers','WOL','Tottenham Hotspur','TOT','1-1'],
+      ['West Ham United','WES','Everton','EVE','1-2'],
+      ['Arsenal','ARS','Newcastle United','NEW','2-0']
     ]
   },
   {
-    league: 'ARMENIA PREMIER LEAGUE', flag: 'am',
+    league: 'ITALY SERIE A', flag: 'it',
     m: [
-      ['FC Van','VAN','BKMA FC','BKM','2-1'],
-      ['Pyunik Yerevan','PYU','Urartu FC','URA','3-0']
-    ]
-  },
-  {
-    league: 'UKRAINE PREMIER LEAGUE', flag: 'ua',
-    m: [
-      ['Zorya Luhansk','ZOR','Shakhtar Donetsk','SHA','0-3']
-    ]
-  },
-  {
-    league: 'ICELAND PREMIER LEAGUE', flag: 'is',
-    m: [
-      ['IBV Vestmannaeyjar','IBV','KR Reykjavik','KR','1-2'],
-      ['Thor Akureyri','THO','Fram Reykjavik','FRA','1-3'],
-      ['Valur Reykjavik','VAL','FH Hafnarfjordur','FH','3-1'],
-      ['Vikingur Reykjavik','VIK','Stjarnan Gardabaer','STJ','4-2']
-    ]
-  },
-  {
-    league: 'UZBEKISTAN SUPER LEAGUE', flag: 'uz',
-    m: [
-      ['Nasaf Qarshi','NAS','Lokomotiv Tashkent','LOK','3-1'],
-      ['Navbahor Namangan','NAV','Sogdiana Jizzakh','SOG','2-0'],
-      ['Dinamo Samarqand','DIN','AGMK Olmaliq','AGM','4-1']
-    ]
-  },
-  {
-    league: 'SERBIA SUPERLIGA PLAYOFF', flag: 'rs',
-    m: [
-      ['Radnicki Nis','RAD','Javor Ivanjica','JAV','2-1'],
-      ['Napredak Krusevac','NAP','IMT Novi Beograd','IMT','1-4'],
-      ['Mladost Lucani','MLA','Radnicki 1923','RAD','1-3'],
-      ['Spartak Subotica','SPA','TSC Backa Topola','TSC','2-3']
-    ]
-  },
-  {
-    league: 'RUSSIA PREMIER LEAGUE', flag: 'ru',
-    m: [
-      ['Akron Tolyatti','AKR','FC Dynamo Makhachkala','DYN','4-1'],
-      ['Akhmat Grozny','AKH','Baltika Kaliningrad','BAL','1-3'],
-      ['Spartak Moscow','SPA','FC Krasnodar','KRA','4-1']
-    ]
-  },
-  {
-    league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg',
-    m: [
-      ['Arab Contractors','ARA','Al Ittihad Alexandria','ITT','1-2'],
-      ['Ghazl El Mahallah','GHA','Petrojet','PET','1-2'],
-      ['Zamalek','ZAM','Pyramids FC','PYR','0-3']
-    ]
-  },
-  {
-    league: 'LATVIA VIRSLIGA', flag: 'lv',
-    m: [
-      ['SK Super Nova','SUP','FK Liepaja','LIE','0-2']
-    ]
-  },
-  {
-    league: 'TURKIYE CUP', flag: 'tr',
-    m: [
-      ['Samsunspor','SAM','Trabzonspor','TRA','4-1'],
-      ['Besiktas','BES','Alanyaspor','ALA','3-2']
-    ]
-  },
-  {
-    league: 'DENMARK SUPER LEAGUE PLAYOFF', flag: 'dk',
-    m: [
-      ['Randers FC','RAN','Fredericia','FRE','2-1'],
-      ['Nordsjaelland','NOR','AGF Aarhus','AGF','1-3'],
-      ['Sonderjyske','SON','Midtjylland','MID','1-2']
-    ]
-  },
-  {
-    league: 'SAUDI ARABIA PRO LEAGUE', flag: 'sa',
-    m: [
-      ['Al Najma Unaizah','NAJ','Al Taawoun Buraidah','TAA','0-1'],
-      ['Damac','DAM','Al Okhdood','OKH','4-1']
-    ]
-  },
-  {
-    league: 'SLOVENIA CUP', flag: 'si',
-    m: [
-      ['NK Bravo','BRA','NK Aluminij','ALU','3-2']
-    ]
-  },
-  {
-    league: 'NETHERLANDS EREDIVISIE', flag: 'nl',
-    m: [
-      ['Go Ahead Eagles','GAE','AZ Alkmaar','AZ','0-2'],
-      ['PSV Eindhoven','PSV','PEC Zwolle','PEC','3-0']
+      ['Parma Calcio','PAR','Pisa','PIS','1-1'],
+      ['Bologna','BOL','AS Roma','AS ','0-1'],
+      ['Hellas Verona','HEL','Lecce','LEC','2-2']
     ]
   },
   {
     league: 'SPAIN LA LIGA', flag: 'es',
     m: [
-      ['Levante','LEV','Sevilla','SEV','4-1'],
-      ['Rayo Vallecano','RAY','RCD Espanyol','ESP','3-1'],
-      ['Real Oviedo','OVI','Villarreal','VIL','0-1']
+      ['Alaves','ALA','Mallorca','MAL','0-0'],
+      ['Getafe','GET','Barcelona','BAR','1-3'],
+      ['Valencia','VAL','Girona FC','GIR','2-1'],
+      ['Atletico Madrid','ATL','Athletic Bilbao','ATH','1-0']
     ]
   },
   {
-    league: 'SWEDEN ALLSVENSKAN', flag: 'se',
+    league: 'GERMANY BUNDESLIGA', flag: 'de',
     m: [
-      ['Kalmar','KAL','IFK Goteborg','IFK','0-2'],
-      ['Degerfors','DEG','AIK Fotboll','AIK','4-1'],
-      ['Malmo','MAL','IK Sirius FK','SIR','2-1'],
-      ['GAIS Goteborg','GAI','Mjallby','MJA','1-3']
+      ['Augsburg','AUG','Eintracht Frankfurt','EIN','2-2'],
+      ['FC Heidenheim','FC ','St. Pauli','ST.','1-0'],
+      ['Koln','KOL','Bayer Leverkusen','BAY','0-2'],
+      ['FSV Mainz 05','FSV','Bayern Munchen','BAY','1-3'],
+      ['VfL Wolfsburg','VFL','Borussia Monchengladbach','BOR','2-1'],
+      ['Hamburger SV','HAM','TSG Hoffenheim','TSG','1-1']
     ]
   },
   {
-    league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk',
+    league: 'ENGLISH FA CUP', flag: 'gb-eng',
     m: [
-      ['Aalborg','AAL','B93 Copenhagen','B93','4-1']
+      ['Manchester City','MAN','Southampton','SOU','3-0']
     ]
   },
   {
-    league: 'ROMANIA CUP', flag: 'ro',
+    league: 'FRANCE LIGUE 1', flag: 'fr',
     m: [
-      ['Dinamo Bucuresti','DIN','CS Universitatea Craiova','CRA','1-2']
+      ['Lyon','LYO','Auxerre','AUX','2-0'],
+      ['Angers','ANG','Paris Saint Germain','PAR','0-4'],
+      ['Toulouse','TOU','AS Monaco','AS ','1-2']
+    ]
+  },
+  {
+    league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng',
+    m: [
+      ['Middlesbrough','MID','Watford','WAT','2-1'],
+      ['W.B.A','W.B','Ipswich Town','IPS','0-1'],
+      ['Charlton Athletic','CHA','Hull City','HUL','1-1'],
+      ['Oxford United','OXF','Sheffield Wednesday','SHE','2-2'],
+      ['Queens Park Rangers','QUE','Derby County','DER','1-0'],
+      ['Norwich City','NOR','Swansea City','SWA','3-1'],
+      ['Stoke City','STO','Portsmouth','POR','0-0'],
+      ['Birmingham City','BIR','Bristol City','BRI','2-1'],
+      ['Sheffield United','SHE','Preston North End','PRE','1-1']
+    ]
+  },
+  {
+    league: 'GERMANY BUNDESLIGA 2', flag: 'de',
+    m: [
+      ['Karlsruher SC','KAR','Hannover 96','HAN','1-1'],
+      ['Hertha Berlin','HER','Holstein Kiel','HOL','2-0'],
+      ['Preussen Munster','PRE','Arminia Bielefeld','ARM','1-2'],
+      ['SV Darmstadt 98','SV ','SV Elversberg','SV ','2-2']
+    ]
+  },
+  {
+    league: 'AUSTRALIA A LEAGUE', flag: 'au',
+    m: [
+      ['Newcastle Jets','NEW','Central Coast Mariners','CEN','2-1'],
+      ['Western Sydney Wanderers FC','WES','Melbourne Victory','MEL','1-2'],
+      ['Perth Glory','PER','Brisbane Roar FC','BRI','2-2']
+    ]
+  },
+  {
+    league: 'JAPAN J1 LEAGUE', flag: 'jp',
+    m: [
+      ['Shimizu S-Pulse','SHI','Nagoya Grampus','NAG','1-1'],
+      ['Fagiano Okayama','FAG','Avispa Fukuoka','AVI','0-0'],
+      ['Urawa Red Diamonds','URA','Yokohama F Marinos','YOK','2-2'],
+      ['Kawasaki Frontale','KAW','JEF United Ichihara Chiba','JEF','3-1'],
+      ['Sanfrecce Hiroshima','SAN','Cerezo Osaka','CER','2-0'],
+      ['V-Varen Nagasaki','V-V','Gamba Osaka','GAM','1-1']
+    ]
+  },
+  {
+    league: 'JAPAN J2/J3 LEAGUE', flag: 'jp',
+    m: [
+      ['Jubilo Iwata','JUB','FC Gifu','FC ','2-1'],
+      ['Giravanz Kitakyushu','GIR','Renofa Yamaguchi','REN','1-1'],
+      ['Vegalta Sendai','VEG','Montedio Yamagata','MON','1-2'],
+      ['Zweigen Kanazawa','ZWE','Nara Club','NAR','2-2'],
+      ['Fukushima United FC','FUK','Ventforet Kofu','VEN','1-0'],
+      ['Fujieda MYFC','FUJ','RB Omiya Ardija','RB ','2-2'],
+      ['Tochigi City FC','TOC','Tochigi SC','TOC','1-1'],
+      ['Albirex Niigata','ALB','FC Osaka','FC ','0-1'],
+      ['Gainare Tottori','GAI','Roasso Kumamoto','ROA','2-1'],
+      ['Tegevajaro Miyazaki','TEG','Kagoshima United','KAG','1-1'],
+      ['FC Imabari','FC ','Kataller Toyama','KAT','1-2'],
+      ['Sagan Tosu','SAG','Reilac Shiga FC','REI','2-0'],
+      ['Hokkaido Consadole Sapporo','HOK','Iwaki FC','IWA','2-2'],
+      ['SC Sagamihara','SC ','Shonan Bellmare','SHO','1-3']
+    ]
+  },
+  {
+    league: 'NETHERLANDS EREDIVISIE', flag: 'nl',
+    m: [
+      ['Feyenoord','FEY','Groningen','GRO','3-1'],
+      ['SC Heerenveen','SC ','Fortuna Sittard','FOR','2-1'],
+      ['NAC Breda','NAC','Ajax','AJA','0-2'],
+      ['FC Twente Enschede','FC ','NEC Nijmegen','NEC','2-2']
+    ]
+  },
+  {
+    league: 'NORWAY ELITESERIEN', flag: 'no',
+    m: [
+      ['Fredrikstad','FRE','Viking','VIK','1-1'],
+      ['Rosenborg','ROS','Brann','BRA','2-1']
+    ]
+  },
+  {
+    league: 'FINLAND VEIKKAUSLIIGA', flag: 'fi',
+    m: [
+      ['Lahti','LAH','AC Oulu','AC ','1-2'],
+      ['Inter Turku','INT','IFK Mariehamn','IFK','3-0']
     ]
   },
   {
     league: 'LIGA PORTUGAL', flag: 'pt',
     m: [
-      ['Casa Pia','CAS','Sporting Braga','BRA','1-3']
+      ['CD Tondela','CD ','Nacional da Madeira','NAC','1-1'],
+      ['Benfica','BEN','Moreirense','MOR','2-0'],
+      ['Vitoria Guimaraes','VIT','Rio Ave','RIO','1-2']
     ]
   },
   {
-    league: 'POLAND 1ST LIGA', flag: 'pl',
+    league: 'SWISS SUPER LEAGUE PLAYOFF', flag: 'ch',
     m: [
-      ['KS Wieczysta Krakow','WIE','Polonia Bytom','POL','2-1']
+      ['Lausanne Sports','LAU','FC Zurich','FC ','2-1'],
+      ['Grasshopper','GRA','Luzern','LUZ','1-1'],
+      ['Thun','THU','Lugano','LUG','0-2']
+    ]
+  },
+  {
+    league: 'AFC CHAMPIONS LEAGUE ELITE', flag: 'afc',
+    m: [
+      ['Al Ahli Jeddah','AL ','FC Machida Zelvia','FC ','3-1']
+    ]
+  },
+  {
+    league: 'SPAIN LA LIGA 2', flag: 'es',
+    m: [
+      ['Real Valladolid','REA','Real Sociedad B','REA','1-0'],
+      ['Burgos CF','BUR','RC Deportivo La Coruna','RC ','2-2'],
+      ['Malaga CF','MAL','CD Castellon','CD ','1-1']
     ]
   },
   {
     league: 'BELGIUM FIRST DIVISION A PLAYOFF', flag: 'be',
     m: [
-      ['Sint-Truidense','STT','Anderlecht','AND','4-1']
+      ['Oud-Heverlee Leuven','OUD','Sporting Charleroi','SPO','2-1'],
+      ['KRC Genk','KRC','Standard Liege','STA','2-0'],
+      ['KVC Westerlo','KVC','Royal Antwerp','ROY','1-2']
     ]
   },
   {
-    league: 'BELGIUM FIRST DIVISION B PLAYOFF', flag: 'be',
+    league: 'TURKIYE SUPER LIG', flag: 'tr',
     m: [
-      ['Lommel SK','LOM','RFC de Liege','LIE','3-1'],
-      ['Patro Eisden','PAT','Beerschot VA','BEE','1-2']
+      ['Eyupspor','EYU','Gaziantep FK','GAZ','1-1'],
+      ['Kayserispor','KAY','Caykur Rizespor','CAY','2-1'],
+      ['Goztepe AS','GOZ','Antalyaspor','ANT','2-0']
     ]
   },
   {
-    league: 'GERMANY CUP', flag: 'de',
+    league: 'RUSSIA PREMIER LEAGUE', flag: 'ru',
     m: [
-      ['VfB Stuttgart','STU','SC Freiburg','FRE','4-2']
+      ['Rostov FK','ROS','FC Orenburg','FC ','1-0'],
+      ['PFC Krylia Sovetov','PFC','Lokomotiv Moscow','LOK','2-2'],
+      ['Rubin Kazan','RUB','CSKA Moscow','CSK','1-1']
+    ]
+  },
+  {
+    league: 'ITALY SERIE B', flag: 'it',
+    m: [
+      ['Catanzaro','CAT','Spezia','SPE','2-1'],
+      ['Pescara','PES','Juve Stabia','JUV','1-1'],
+      ['AC Reggiana 1919','AC ','Palermo','PAL','0-0'],
+      ['FC Sudtirol','FC ','Mantova','MAN','2-2'],
+      ['Virtus Entella','VIR','Padova','PAD','1-0'],
+      ['Frosinone','FRO','Carrarese','CAR','2-1'],
+      ['Venezia','VEN','Empoli','EMP','3-1'],
+      ['Cesena FC','CES','Sampdoria','SAM','1-1']
+    ]
+  },
+  {
+    league: 'FRANCE LIGUE 2', flag: 'fr',
+    m: [
+      ['Grenoble Foot 38','GRE','Le Mans','LE ','1-0'],
+      ['Reims','REI','Nancy','NAN','2-1'],
+      ['Saint Etienne','SAI','Troyes','TRO','2-2']
+    ]
+  },
+  {
+    league: 'SCOTLAND PREMIERSHIP PLAYOFF', flag: 'gb-sct',
+    m: [
+      ['Aberdeen','ABE','Kilmarnock','KIL','2-1'],
+      ['Saint Mirren','SAI','Livingston','LIV','1-0'],
+      ['Celtic FC','CEL','Falkirk','FAL','3-0']
+    ]
+  },
+  {
+    league: 'SWEDEN SUPERETTAN', flag: 'se',
+    m: [
+      ['Osters','OST','Ostersunds FK','OST','1-1'],
+      ['Falkenbergs','FAL','GIF Sundsvall','GIF','2-2'],
+      ['Nordic United FC','NOR','Sandvikens IF','SAN','2-1'],
+      ['Orebro','ORE','Norrby IF','NOR','3-0']
+    ]
+  },
+  {
+    league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at',
+    m: [
+      ['WSG Tirol','WSG','SV Ried','SV ','1-0'],
+      ['Wolfsberger AC','WOL','GAK 1902','GAK','2-1']
+    ]
+  },
+  {
+    league: 'INDONESIA SUPER LEAGUE', flag: 'id',
+    m: [
+      ['Borneo FC Samarinda','BOR','Semen Padang','SEM','3-1'],
+      ['Madura United','MAD','Dewa United FC','DEW','1-2']
+    ]
+  },
+  {
+    league: 'CHINA SUPER LEAGUE', flag: 'cn',
+    m: [
+      ['Chengdu Rongcheng','CHE','Zhejiang Professional FC','ZHE','2-1'],
+      ['Beijing Guoan','BEI','Tianjin Jinmen Tiger','TIA','1-1'],
+      ['Shanghai Port FC','SHA','Wuhan Three Towns','WUH','2-0']
+    ]
+  },
+  {
+    league: 'KOREA K-LEAGUE 1', flag: 'kr',
+    m: [
+      ['Gangwon FC','GAN','FC Seoul','FC ','1-1'],
+      ['Incheon United','INC','Jeju SK FC','JEJ','2-2'],
+      ['Bucheon FC 1995','BUC','Gimcheon Sangmu FC','GIM','1-0']
+    ]
+  },
+  {
+    league: 'KOREA K-LEAGUE 2', flag: 'kr',
+    m: [
+      ['Suwon Samsung Bluewings','SUW','Busan I.Park','BUS','2-1'],
+      ['Paju Frontier FC','PAJ','Gyeongnam FC','GYE','1-1'],
+      ['Cheonan City','CHE','Seongnam FC','SEO','2-2'],
+      ['Ansan Greeners FC','ANS','Jeonnam Dragons','JEO','1-2']
+    ]
+  },
+  {
+    league: 'POLAND EKSTRAKLASA', flag: 'pl',
+    m: [
+      ['Korona Kielce','KOR','GKS Katowice','GKS','1-1'],
+      ['Lechia Gdansk','LEC','Rakow Czestochowa','RAK','0-0'],
+      ['Cracovia Krakow','CRA','Pogon Szczecin','POG','2-1']
+    ]
+  },
+  {
+    league: 'NORWAY 1ST DIV', flag: 'no',
+    m: [
+      ['Sogndal','SOG','Asane Fotball','ASA','2-1'],
+      ['Strommen IF','STR','Kongsvinger','KON','1-3'],
+      ['Bryne','BRY','Odd BK','ODD','1-2']
+    ]
+  },
+  {
+    league: 'ENGLISH LEAGUE ONE', flag: 'gb-eng',
+    m: [
+      ['Doncaster Rovers','DON','Stevenage FC','STE','1-2'],
+      ['Stockport County','STO','Peterborough United','PET','2-2'],
+      ['Blackpool','BLA','Leyton Orient','LEY','1-1'],
+      ['Bradford City','BRA','Bolton Wanderers','BOL','2-1'],
+      ['Burton Albion','BUR','Exeter City','EXE','1-0'],
+      ['Huddersfield Town','HUD','Mansfield Town','MAN','2-1'],
+      ['Luton Town','LUT','Barnsley','BAR','3-1'],
+      ['Plymouth Argyle','PLY','Port Vale','POR','2-0'],
+      ['Wigan Athletic','WIG','AFC Wimbledon','AFC','2-2'],
+      ['Cardiff City','CAR','Northampton Town','NOR','3-0'],
+      ['Lincoln City','LIN','Wycombe Wanderers','WYC','2-1'],
+      ['Rotherham United','ROT','Reading','REA','1-1']
     ]
   },
   {
     league: 'ENGLISH LEAGUE TWO', flag: 'gb-eng',
     m: [
-      ['Salford City','SAL','Bromley','BRO','3-1']
+      ['Milton Keynes Dons','MIL','Tranmere Rovers','TRA','2-0'],
+      ['Grimsby Town','GRI','Swindon Town','SWI','2-1'],
+      ['Chesterfield','CHE','Crewe Alexandra','CRE','2-2'],
+      ['Cambridge United','CAM','Barrow','BAR','3-1'],
+      ['Bristol Rovers','BRI','Cheltenham Town','CHE','1-0'],
+      ['Barnet','BAR','Gillingham','GIL','2-1'],
+      ['Accrington Stanley','ACC','Crawley Town','CRA','1-1'],
+      ['Colchester United','COL','Notts County','NOT','1-2'],
+      ['Walsall','WAL','Harrogate Town','HAR','2-0'],
+      ['Shrewsbury Town','SHR','Fleetwood Town','FLE','1-1'],
+      ['Newport County','NEW','Oldham Athletic','OLD','2-2']
     ]
   },
   {
-    league: 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag: 'bo',
+    league: 'IRELAND PREMIER DIVISION', flag: 'ie',
     m: [
-      ['CD San Antonio Bulo Bulo','SAN','CDT Real Oruro','ORU','4-1'],
-      ['CD Real Tomayapo','TOM','The Strongest','STR','1-3']
+      ['Sligo Rovers','SLI','Dundalk','DUN','1-2']
+    ]
+  },
+  {
+    league: 'AUSTRALIA VICTORIA NPL', flag: 'au',
+    m: [
+      ['Caroline Springs George Cross FC','CAR','Altona Magic','ALT','2-1']
+    ]
+  },
+  {
+    league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg',
+    m: [
+      ['Haras El Hodood','HAR','Wadi Degla','WAD','1-1']
+    ]
+  },
+  {
+    league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk',
+    m: [
+      ['Hvidovre','HVI','AC Horsens','AC ','2-1'],
+      ['Hillerod Fodbold','HIL','Kolding IF','KOL','1-2']
+    ]
+  },
+  {
+    league: 'ROMANIA SUPERLIGA PLAYOFF', flag: 'ro',
+    m: [
+      ['Botosani','BOT','Otelul Galati','OTE','1-0'],
+      ['CFR Cluj','CFR','Universitatea Cluj','UNI','2-1']
+    ]
+  },
+  {
+    league: 'LIGA PORTUGAL 2', flag: 'pt',
+    m: [
+      ['Leixoes','LEI','Portimonense SAD','POR','2-1'],
+      ['Sporting Farense','SPO','Academico Viseu','ACA','1-1'],
+      ['Felgueiras','FEL','Uniao de Leiria','UNI','2-2']
+    ]
+  },
+  {
+    league: 'GERMANY 3RD LIGA', flag: 'de',
+    m: [
+      ['Erzgebirge Aue','ERZ','SV Wehen Wiesbaden','SV ','1-0'],
+      ['Hansa Rostock','HAN','Jahn Regensburg','JAH','2-1'],
+      ['TSV 1860 Munchen','TSV','SSV Ulm 1846','SSV','2-2'],
+      ['VfL Osnabruck','VFL','SC Verl','SC ','1-1'],
+      ['TSG Hoffenheim Am','TSG','Ingolstadt 04','ING','2-2']
+    ]
+  },
+  {
+    league: 'BRAZIL SERIE A', flag: 'br',
+    m: [
+      ['Bahia EC BA','BAH','Santos SP','SAN','2-1'],
+      ['Botafogo RJ','BOT','Internacional RS','INT','1-1'],
+      ['Sao Paulo SP','SAO','Mirassol SP','MIR','2-0']
     ]
   },
   {
     league: 'ARGENTINA LIGA PROFESIONAL', flag: 'ar',
     m: [
-      ['Defensa y Justicia','DEF','Boca Juniors','BOC','0-1']
+      ['Estudiantes La Plata','EST','Talleres Cordoba','TAL','1-1'],
+      ['CA Sarmiento','CA ','Club Atletico Tigre','CLU','2-1'],
+      ['CA River Plate','CA ','Aldosivi','ALD','3-0']
+    ]
+  },
+  {
+    league: 'MEXICO PRIMERA DIVISION', flag: 'mx',
+    m: [
+      ['Pachuca','PAC','Pumas UNAM','PUM','2-1'],
+      ['Tigres UANL','TIG','Mazatlan FC','MAZ','3-0'],
+      ['Deportivo Toluca','DEP','Club Leon','CLU','2-2'],
+      ['Guadalajara Chivas','GUA','Tijuana','TIJ','2-0'],
+      ['Club America','CLU','Atlas','ATL','2-1'],
+      ['FC Juarez','FC ','Atletico San Luis','ATL','1-1']
     ]
   },
   {
     league: 'CHILE PRIMERA DIVISION', flag: 'cl',
     m: [
-      ['Palestino','PAL','Deportes Concepcion','CON','1-2']
+      ['Nublense','NUB','O Higgins','O H','2-1'],
+      ['Universidad de Chile','UNI','CD Universidad Catolica','CD ','2-2']
     ]
   },
   {
-    league: 'MEXICO LIGA DE EXPANSION PLAYOFF', flag: 'mx',
+    league: 'BRAZIL SERIE B', flag: 'br',
     m: [
-      ['Atlante','ATL','Tepatitlan FC','TEP','4-2'],
-      ['CD Tapatio','TAP','Cancun FC','CAN','3-1']
+      ['Sport Club do Recife PE','SPO','Gremio Novorizontino SP','GRE','2-1'],
+      ['Juventude RS','JUV','Londrina PR','LON','1-1']
     ]
   },
   {
     league: 'COLOMBIA PRIMERA A', flag: 'co',
     m: [
-      ['Deportivo Pasto','PAS','Independiente Santa Fe','SAN','4-1'],
-      ['Millonarios','MIL','Deportes Tolima','TOL','3-1']
+      ['Atletico Bucaramanga','ATL','Jaguares de Cordoba','JAG','2-0'],
+      ['Deportivo Pereira','DEP','Atletico Nacional','ATL','1-3'],
+      ['Deportivo Cali','DEP','America de Cali','AME','1-1'],
+      ['Independiente Medellin','IND','Fortaleza CEIF','FOR','2-1']
     ]
   },
   {
-    league: 'ECUADOR LIGA PRO SERIE A', flag: 'ec',
+    league: 'ECUADOR LIGA PRO', flag: 'ec',
     m: [
-      ['Universidad Catolica del Ecuador','CAT','Macara','MAC','4-1']
+      ['Mushuc Runa SC','MUS','Deportivo Cuenca','DEP','1-1'],
+      ['Independiente del Valle','IND','Leones FC Quito','LEO','3-0'],
+      ['CS Emelec','CS ','LDU Quito','LDU','2-2']
+    ]
+  },
+  {
+    league: 'PARAGUAY PRIMERA DIVISION', flag: 'py',
+    m: [
+      ['Sportivo Luqueno','SPO','Sportivo Trinidense','SPO','1-2'],
+      ['Libertad','LIB','Olimpia Asuncion','OLI','1-1']
     ]
   },
   {
     league: 'PERU LIGA 1', flag: 'pe',
     m: [
-      ['CD Los Chankas','CHA','Cienciano','CIE','1-3']
+      ['Deportivo Moquegua','DEP','FC Cajamarca','FC ','2-1'],
+      ['Comerciantes Unidos','COM','Sporting Cristal','SPO','1-2'],
+      ['Sport Boys Association','SPO','Juan Pablo II College','JUA','2-2']
     ]
   },
   {
-    league: 'COSTA RICA PRIMERA DIVISION', flag: 'cr',
+    league: 'URUGUAY PRIMERA DIVISION', flag: 'uy',
     m: [
-      ['Alajuelense','ALA','Puntarenas FC','PUN','2-1']
+      ['CA Juventud','CA ','Liverpool Montevideo','LIV','1-0'],
+      ['Deportivo Maldonado','DEP','Albion FC','ALB','2-1'],
+      ['Nacional Montevideo','NAC','Danubio','DAN','2-0']
+    ]
+  },
+  {
+    league: 'ARGENTINA PRIMERA NACIONAL', flag: 'ar',
+    m: [
+      ['CA Temperley','CA ','Patronato','PAT','1-1'],
+      ['CA San Miguel','CA ','CA Los Andes','CA ','2-2'],
+      ['CA San Telmo','CA ','CA All Boys','CA ','1-0'],
+      ['San Martin San Juan','SAN','Quilmes','QUI','2-1'],
+      ['Atletico de Rafaela','ATL','Gimnasia Jujuy','GIM','1-1']
+    ]
+  },
+  {
+    league: 'VENEZUELA PRIMERA DIVISION', flag: 've',
+    m: [
+      ['Deportivo Tachira','DEP','Carabobo','CAR','2-1'],
+      ['Portuguesa FC','POR','Universidad Central de Venezuela FC','UNI','1-2'],
+      ['Caracas FC','CAR','Deportivo Rayo Zuliano','DEP','2-2'],
+      ['Anzoategui FC','ANZ','Zamora FC','ZAM','1-1'],
+      ['Monagas SC','MON','Academia Puerto Cabello','ACA','2-1'],
+      ['Trujillanos FC','TRU','Deportivo La Guaira','DEP','0-2']
     ]
   }
 ];
@@ -1563,12 +2000,12 @@ var predictions = [
 function renderSpotlight() {
   var el = document.getElementById('spotlightCards');
   var sp = [
-    { lg:'INDONESIA SUPER LEAGUE', fl:'id', h:'PSM Makassar', ha:'PSM', a:'Persik Kediri', aa:'PSK', dt:'23 April 2026 • 15:30 WIB', hc:'0 : 1/2', sc:'2-2' },
-    { lg:'SPAIN LA LIGA', fl:'es', h:'Levante', ha:'LEV', a:'Sevilla', aa:'SEV', dt:'24 April 2026 • 01:00 WIB', hc:'0 : 1/4', sc:'4-1' },
-    { lg:'NETHERLANDS EREDIVISIE', fl:'nl', h:'PSV Eindhoven', ha:'PSV', a:'PEC Zwolle', aa:'PEC', dt:'24 April 2026 • 03:00 WIB', hc:'0 : 2 1/4', sc:'3-0' },
-    { lg:'GERMANY CUP', fl:'de', h:'VfB Stuttgart', ha:'STU', a:'SC Freiburg', aa:'SCF', dt:'24 April 2026 • 02:45 WIB', hc:'0 : 1', sc:'4-2' }
+    { lg:'ENGLAND PREMIER LEAGUE', fl:'gb-eng', h:'Liverpool', ha:'LIV', a:'Crystal Palace', aa:'CRY', dt:'25 April 2026 • 21:00 WIB', hc:'0 : 1', sc:'3 - 1' },
+    { lg:'SPAIN LA LIGA', fl:'es', h:'Getafe', ha:'GET', a:'Barcelona', aa:'BAR', dt:'25 April 2026 • 21:15 WIB', hc:'1 : 0', sc:'1 - 3' },
+    { lg:'GERMANY BUNDESLIGA', fl:'de', h:'Mainz', ha:'MAI', a:'Bayern Munich', aa:'FCB', dt:'25 April 2026 • 20:30 WIB', hc:'3/4 : 0', sc:'1 - 3' },
+    { lg:'ITALY SERIE A', fl:'it', h:'Bologna', ha:'BOL', a:'AS Roma', aa:'ROM', dt:'25 April 2026 • 23:00 WIB', hc:'1/4 : 0', sc:'0 - 1' }
   ];
-  var h = '';
+var h = '';
   
   sp.forEach(function (s) {
     var c1 = gc(s.h), c2 = gc(s.a);
@@ -1577,10 +2014,16 @@ function renderSpotlight() {
     
     h +=
       '<div class="hero-card p-6">' +
+        /* --- BAGIAN ATAS: SEKARANG BERISI FLAG & NAMA LIGA --- */
         '<div class="flex items-center justify-between mb-5">' +
-          '<div class="text-[10px] font-semibold text-white/25 uppercase tracking-wider">' + s.dt + '</div>' +
+          '<div class="flex items-center gap-2">' + 
+            flagImg(s.fl, 'flag-icon') + 
+            '<span class="text-[11px] font-semibold text-white/40 uppercase tracking-wider">' + s.lg + '</span>' +
+          '</div>' +
           '<span class="text-[9px] font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 px-2 py-0.5 rounded-full">handicap ' + s.hc + '</span>' +
         '</div>' +
+
+        /* --- BAGIAN TENGAH: TIM & SKOR (TETAP) --- */
         '<div class="flex items-center justify-between">' +
           '<div class="flex items-center gap-3 flex-1">' +
             '<div class="team-badge bg-gradient-to-br ' + c1[0] + ' ' + c1[1] + '">' + s.ha + '</div>' +
@@ -1595,9 +2038,10 @@ function renderSpotlight() {
             '<div class="team-badge bg-gradient-to-br ' + c2[0] + ' ' + c2[1] + '">' + s.aa + '</div>' +
           '</div>' +
         '</div>' +
-        '<div class="mt-4 pt-3 border-t border-white/5 flex items-center gap-2">' + 
-          flagImg(s.fl, 'flag-icon') + 
-          '<span class="text-[11px] text-white/30">' + s.lg + '</span>' +
+
+        /* --- BAGIAN BAWAH: SEKARANG BERISI WAKTU / TANGGAL --- */
+        '<div class="mt-4 pt-3 border-t border-white/5">' + 
+          '<div class="text-[10px] font-medium text-white/40 uppercase tracking-wider">' + s.dt + '</div>' +
         '</div>' +
       '</div>';
   });
