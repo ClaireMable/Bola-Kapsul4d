@@ -1,0 +1,1702 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>KAPSUL4D — Media Jadwal, Prediksi &amp; Klasemen SepakBola</title>
+  <meta name="title" content="Kapsul4D — Jadwal &amp; Prediksi SepakBola">
+  <meta name="description" content="Kapsul4D Merupakan Platform Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <link rel="icon" href="https://favx.link/i/ms7jfx0t/favicon1.png" />
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://kapsul4d-project-iota.vercel.app/">
+  <meta property="og:title" content="KAPSUL4D - MEDIA JADWAL, PREDIKSI &amp; KLASEMEN">
+  <meta property="og:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <meta property="og:image" content="https://favx.link/i/cmijscll/logokapsul.jpg">
+
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://kapsul4d-project-iota.vercel.app/">
+  <meta property="twitter:title" content="KAPSUL4D - MEDIA JADWAL DAN PREDIKSI">
+  <meta property="twitter:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <meta property="twitter:image" content="https://favx.link/i/cmijscll/logokapsul.jpg">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    tailwind.config = {
+      theme: { 
+        extend: { 
+          fontFamily: { 
+            sans: ["Inter", "sans-serif"] 
+          } 
+        } 
+      },
+    };
+  </script>
+
+  <style>
+/* ══════════════════════════════════════════════════════════════════
+   KAPSUL4D — GLASSMORPHISM FUTURISTIC HIGH-FIDELITY CSS OVERHAUL
+   Concept: Deep Space Control Room · Warm-Orange + Arctic-Cyan
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── CSS Custom Properties ─────────────────────────────────────── */
+:root {
+  --cyan:       #22d3ee;
+  --cyan-dim:   rgba(34, 211, 238, 0.18);
+  --cyan-glow:  rgba(34, 211, 238, 0.12);
+  --indigo:     #818cf8;
+  --orange:     rgba(234, 88, 12, 0.22);
+  --glass-bg:   rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(255, 255, 255, 0.11);
+  --glass-shine: rgba(255, 255, 255, 0.09);
+  --shadow-deep: rgba(0, 0, 0, 0.45);
+  --shadow-md:   rgba(0, 0, 0, 0.28);
+}
+
+/* ── Reset ──────────────────────────────────────────────────────── */
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background: #ffffff00;
+}
+
+/* ── Noise Texture Overlay (realism) ───────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
+
+/* ── Animated Background Scene ──────────────────────────────────── */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 75% at -8%  -8%,  rgba(234, 88,  12, 0.26)  0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 108% 108%, rgba(6, 182, 212, 0.24)   0%, transparent 55%),
+    radial-gradient(ellipse 55% 55% at  52%  48%, rgba(79, 70, 229, 0.10)  0%, transparent 68%),
+    radial-gradient(ellipse 40% 40% at  82%  12%, rgba(251,191, 36, 0.055) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 35% at  18%  88%, rgba(34, 211, 238, 0.07) 0%, transparent 60%),
+    linear-gradient(155deg, #080b1c 0%, #0b0f24 45%, #08091a 100%);
+}
+
+/* Volumetric vignette ring */
+.bg-scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 120% at 50% 50%,
+      transparent 40%,
+      rgba(0,0,0,0.55) 100%);
+}
+
+/* Subtle animated horizontal light band */
+.bg-scene::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(34,211,238,0.018) 50%,
+    transparent 100%);
+  animation: lightSweep 18s ease-in-out infinite;
+}
+@keyframes lightSweep {
+  0%   { transform: translateY(0%); }
+  50%  { transform: translateY(200%); }
+  100% { transform: translateY(0%); }
+}
+
+/* Disable old blobs */
+.bg-blob { display: none !important; }
+
+/* ── Grid Overlay ───────────────────────────────────────────────── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.028) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 100%);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   GLASS SYSTEM
+   ══════════════════════════════════════════════════════════════════ */
+
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.09) 0%,
+    rgba(255,255,255,0.04) 60%,
+    rgba(255,255,255,0.02) 100%
+  );
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.2);
+  border-left-color: rgba(255,255,255,0.15);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.12) inset,
+    0 -1px 0  rgba(0,0,0,0.20) inset,
+    0 6px 6px rgba(0,0,0,0.14),
+    0 16px 48px rgba(0,0,0,0.38);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+/* top-edge shine */
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.28) 35%,
+    rgba(255,255,255,0.08) 65%,
+    transparent 100%);
+  pointer-events: none;
+}
+/* diagonal sheen */
+.glass::after {
+  content: '';
+  position: absolute;
+  top: -40%; left: -20%;
+  width: 55%; height: 90%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 60%);
+  transform: skewX(-10deg);
+  pointer-events: none;
+}
+.glass:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.13) 0%,
+    rgba(255,255,255,0.07) 60%,
+    rgba(255,255,255,0.03) 100%
+  );
+  border-color: rgba(34, 211, 238, 0.28);
+  border-top-color: rgba(34, 211, 238, 0.45);
+  transform: translateY(-5px);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.18) inset,
+    0 -1px 0  rgba(0,0,0,0.2) inset,
+    0 8px 10px rgba(0,0,0,0.18),
+    0 24px 60px rgba(0,0,0,0.45),
+    0 0  25px  rgba(34,211,238,0.10),
+    0 0  55px  rgba(34,211,238,0.05);
+}
+
+/* ── Glass Static ───────────────────────────────────────────────── */
+.glass-static {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.075) 0%,
+    rgba(255,255,255,0.03) 55%,
+    rgba(255,255,255,0.015) 100%
+  );
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top-color: rgba(255,255,255,0.17);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0  rgba(255,255,255,0.12) inset,
+    0 -1px 0 rgba(0,0,0,0.15) inset,
+    0 8px 32px rgba(0,0,0,0.32),
+    0 2px 6px  rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+.glass-static::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  pointer-events: none;
+}
+.glass-static::after {
+  content: '';
+  position: absolute;
+  top: -35%; left: -15%;
+  width: 50%; height: 80%;
+  background: linear-gradient(130deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
+
+/* ── Glass Sidebar ──────────────────────────────────────────────── */
+.glass-sidebar {
+  background: linear-gradient(
+    175deg,
+    rgba(255,255,255,0.065) 0%,
+    rgba(255,255,255,0.025) 60%,
+    rgba(255,255,255,0.01) 100%
+  );
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    4px 0 30px rgba(0,0,0,0.35),
+    inset -1px 0 0 rgba(255,255,255,0.05),
+    inset 1px 0 0 rgba(255,255,255,0.03);
+  position: relative;
+}
+.glass-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 1px; bottom: 0;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(34,211,238,0.25) 30%,
+    rgba(129,140,248,0.2) 70%,
+    transparent 100%);
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════════════════════ */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: rgba(255,255,255,0.42);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+.nav-item:hover {
+  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.nav-item:hover::before { opacity: 1; }
+.nav-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34,211,238,0.55);
+}
+.nav-item.active {
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.22) 0%,
+    rgba(99, 102, 241, 0.16) 100%
+  );
+  border-color: rgba(34,211,238,0.30);
+  box-shadow:
+    0 0  12px rgba(34,211,238,0.18),
+    0 0  30px rgba(34,211,238,0.08),
+    0 0  60px rgba(34,211,238,0.04),
+    0 4px 15px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.16),
+    inset 0 0 15px rgba(34,211,238,0.06);
+  text-shadow: 0 0 18px rgba(34,211,238,0.45);
+}
+.nav-item.active::before { opacity: 1; }
+.nav-item.active i {
+  color: #22d3ee;
+  filter: drop-shadow(0 0 6px rgba(34,211,238,0.75)) drop-shadow(0 0 14px rgba(34,211,238,0.35));
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   STAT CARDS
+   ══════════════════════════════════════════════════════════════════ */
+.accent-green {
+  border-top: 2px solid rgba(74,222,128,0.75) !important;
+  box-shadow:
+    0 -2px 22px rgba(74,222,128,0.14) inset,
+    0 1px 0 rgba(255,255,255,0.12) inset,
+    0 8px 32px rgba(0,0,0,0.35),
+    0 0 0 0.5px rgba(74,222,128,0.12) !important;
+}
+.accent-cyan {
+  border-top: 2px solid rgba(34,211,238,0.75) !important;
+  box-shadow:
+    0 -2px 22px rgba(34,211,238,0.14) inset,
+    0 1px 0 rgba(255,255,255,0.12) inset,
+    0 8px 32px rgba(0,0,0,0.35),
+    0 0 0 0.5px rgba(34,211,238,0.12) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   MATCH ROWS
+   ══════════════════════════════════════════════════════════════════ */
+.match-row {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.045) 0%,
+    rgba(255,255,255,0.018) 100%
+  );
+  border: 1px solid rgba(255,255,255,0.065);
+  border-top-color: rgba(255,255,255,0.10);
+  border-radius: 12px;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.match-row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.10) 40%,
+    rgba(255,255,255,0.04) 70%,
+    transparent 100%);
+  pointer-events: none;
+}
+.match-row:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(34,211,238,0.08) 0%,
+    rgba(255,255,255,0.04) 100%
+  );
+  border-color: rgba(34,211,238,0.22);
+  border-top-color: rgba(34,211,238,0.35);
+  transform: translateX(4px);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.26),
+    0 0  18px rgba(34,211,238,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   HERO / SPOTLIGHT CARDS
+   ══════════════════════════════════════════════════════════════════ */
+.hero-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.09) 0%,
+    rgba(255,255,255,0.04) 55%,
+    rgba(255,255,255,0.02) 100%
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.22);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.15) inset,
+    0 -1px 0  rgba(0,0,0,0.18) inset,
+    0 8px 32px rgba(0,0,0,0.40),
+    0 2px 8px  rgba(0,0,0,0.22);
+}
+/* Gradient top bar */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(34,211,238,0.90) 25%,
+    rgba(129,140,248,0.90) 60%,
+    rgba(234,88,12,0.50) 85%,
+    transparent 100%);
+  filter: blur(0.5px);
+}
+/* Internal sheen */
+.hero-card::after {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 55%; height: 85%;
+  background: linear-gradient(130deg, rgba(255,255,255,0.06) 0%, transparent 55%);
+  transform: skewX(-8deg);
+  pointer-events: none;
+}
+.hero-card:hover {
+  border-color: rgba(34,211,238,0.32);
+  border-top-color: rgba(34,211,238,0.55);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.22) inset,
+    0 -1px 0  rgba(0,0,0,0.18) inset,
+    0 12px 50px rgba(0,0,0,0.50),
+    0 0  35px rgba(34,211,238,0.14),
+    0 0  70px rgba(99,102,241,0.08);
+  transform: translateY(-5px);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   HANDICAP BADGES
+   ══════════════════════════════════════════════════════════════════ */
+.handicap-badge {
+  background: linear-gradient(135deg, rgba(251,191,36,0.18) 0%, rgba(251,191,36,0.08) 100%);
+  border: 1px solid rgba(251,191,36,0.28);
+  color: #fbbf24;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 0 12px rgba(251,191,36,0.12),
+    0 2px 6px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  text-shadow: 0 0 10px rgba(251,191,36,0.45);
+}
+.handicap-zero {
+  background: linear-gradient(135deg, rgba(34,211,238,0.12) 0%, rgba(99,102,241,0.08) 100%);
+  border-color: rgba(34,211,238,0.22);
+  color: rgba(34,211,238,0.72);
+  box-shadow: 0 0 10px rgba(34,211,238,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCORE COLORS + RESULT TAGS
+   ══════════════════════════════════════════════════════════════════ */
+.score-home { color: #4ade80; text-shadow: 0 0 14px rgba(74,222,128,0.65), 0 0 30px rgba(74,222,128,0.25); }
+.score-away { color: #f87171; text-shadow: 0 0 14px rgba(248,113,113,0.65), 0 0 30px rgba(248,113,113,0.25); }
+.score-draw { color: #fbbf24; text-shadow: 0 0 14px rgba(251,191,36,0.55),  0 0 28px rgba(251,191,36,0.22); }
+
+.result-home {
+  background: rgba(74,222,128,0.10);
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.22);
+  box-shadow: 0 0 12px rgba(74,222,128,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(74,222,128,0.5);
+}
+.result-away {
+  background: rgba(248,113,113,0.10);
+  color: #f87171;
+  border: 1px solid rgba(248,113,113,0.22);
+  box-shadow: 0 0 12px rgba(248,113,113,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(248,113,113,0.5);
+}
+.result-draw {
+  background: rgba(251,191,36,0.10);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.22);
+  box-shadow: 0 0 12px rgba(251,191,36,0.10), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(251,191,36,0.4);
+}
+
+/* ── Form Dots ─────────────────────────────────────────────────── */
+.form-dot { 
+  width: 7px; 
+  height: 7px; 
+  border-radius: 50%; 
+  display: inline-block; 
+  flex-shrink: 0; 
+}
+.form-gap { 
+  width: 3px; 
+  flex-shrink: 0; 
+}
+.form-w { background: #4ade80; box-shadow: 0 0 7px rgba(74,222,128,0.85), 0 0 16px rgba(74,222,128,0.35); }
+.form-d { background: rgba(255,255,255,0.25); box-shadow: 0 0 4px rgba(255,255,255,0.12); }
+.form-l { background: #f87171; box-shadow: 0 0 7px rgba(248,113,113,0.85), 0 0 16px rgba(248,113,113,0.35); }
+
+/* ══════════════════════════════════════════════════════════════════
+   KLASEMEN TABS
+   ══════════════════════════════════════════════════════════════════ */
+.klasemen-tab {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.40);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.klasemen-tab:hover {
+  color: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.klasemen-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(34,211,238,0.20) 0%, rgba(99,102,241,0.16) 100%);
+  border-color: rgba(34,211,238,0.32);
+  box-shadow:
+    0 0  20px rgba(34,211,238,0.15),
+    0 0  40px rgba(34,211,238,0.06),
+    0 4px 16px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+  text-shadow: 0 0 14px rgba(34,211,238,0.35);
+}
+
+/* ── Stand Rows ─────────────────────────────────────────────────── */
+.stand-row {
+  display: grid;
+  gap: 2px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 7px;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: default;
+  font-size: 11px;
+  grid-template-columns: 24px 22px 1fr 26px 26px 26px 26px 26px 26px 30px 30px 65px;
+  position: relative;
+}
+.stand-row:not(.stand-header):hover {
+  background: linear-gradient(135deg, rgba(34,211,238,0.055) 0%, rgba(255,255,255,0.025) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Zone borders — enhanced glow */
+.ucl           { border-left: 3px solid rgba(129,140,248,0.90); box-shadow: -2px 0 12px rgba(129,140,248,0.20) inset; }
+.uel           { border-left: 3px solid rgba(249,115, 22,0.90); box-shadow: -2px 0 12px rgba(249,115,22,0.20)  inset; }
+.uecl          { border-left: 3px solid rgba(34, 197, 94,0.90); box-shadow: -2px 0 12px rgba(34,197,94,0.20)   inset; }
+.ucl-qualifier { border-left: 3px solid rgba(168, 85,247,0.90); box-shadow: -2px 0 12px rgba(168,85,247,0.20)  inset; }
+.relegation    { border-left: 3px solid rgba(239, 68, 68,0.90); box-shadow: -2px 0 12px rgba(239,68,68,0.20)   inset; }
+.relegation-playoff { border-left: 4px solid rgba(251,146,60,0.90); box-shadow: -2px 0 12px rgba(251,146,60,0.20) inset; }
+
+/* ── Zone Legend ─────────────────────────────────────────────────── */
+.zone-legend {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.zone-legend span { display:flex; align-items:center; gap:5px; font-size:10px; color:rgba(255,255,255,0.85); }
+.zone-legend .dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
+
+/* ══════════════════════════════════════════════════════════════════
+   LEAGUE CARD
+   ══════════════════════════════════════════════════════════════════ */
+.league-card { margin-bottom: 1rem; }
+.league-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ── League Distribution Bar ─────────────────────────────────────── */
+.league-bar {
+  height: 6px;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px currentColor;
+  filter: brightness(1.1);
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   DATE SEPARATOR
+   ══════════════════════════════════════════════════════════════════ */
+.date-sep { display:flex; align-items:center; gap:10px; margin:8px 0 6px; padding-left:2px; }
+.date-sep-line { flex:1; height:1px; background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(255,255,255,0.04)); }
+.date-sep-text {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(34,211,238,0.80);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(34,211,238,0.4);
+}
+
+/* ── League Tag ──────────────────────────────────────────────────── */
+.league-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TEAM BADGES
+   ══════════════════════════════════════════════════════════════════ */
+.team-badge {
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 11px; letter-spacing: -0.02em;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.team-badge-sm {
+  width: 34px; height: 34px;
+  border-radius: 9px; font-size: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.20);
+}
+.team-crest {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 6.5px; font-weight: 800; color: white; flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+@media (min-width: 1024px) {
+  .team-crest { width:20px; height:20px; border-radius:5px; font-size:7px; }
+}
+
+/* ── Flag Icons ──────────────────────────────────────────────────── */
+.flag-icon    { height:14px; width:auto; border-radius:1.5px; object-fit:cover; flex-shrink:0; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
+.flag-icon-lg { height:16px; width:auto; border-radius:2px;   object-fit:cover; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
+
+/* ══════════════════════════════════════════════════════════════════
+   TOAST
+   ══════════════════════════════════════════════════════════════════ */
+.toast-container {
+  position: fixed; top:20px; right:20px;
+  z-index: 200; display:flex; flex-direction:column;
+  gap:8px; max-width:320px; pointer-events:none;
+}
+@keyframes toastIn {
+  from { opacity:0; transform:translateX(40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+.toast-item { animation: toastIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards; pointer-events:auto; }
+
+/* ══════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.anim-in { animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0; }
+.d1 { animation-delay:0.06s; } .d2 { animation-delay:0.12s; }
+.d3 { animation-delay:0.18s; } .d4 { animation-delay:0.24s; }
+.d5 { animation-delay:0.30s; } .d6 { animation-delay:0.36s; }
+.d7 { animation-delay:0.42s; } .d8 { animation-delay:0.48s; }
+
+/* ══════════════════════════════════════════════════════════════════
+   STAND HEADER
+   ══════════════════════════════════════════════════════════════════ */
+.stand-header {
+  color: rgba(34,211,238,0.75);
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.stand-header > div { text-align:center; }
+.stand-header > div:nth-child(3) { text-align:left; }
+.stand-header > div:last-child { text-align:center; }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE SIDEBAR
+   ══════════════════════════════════════════════════════════════════ */
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:40; backdrop-filter:blur(4px); }
+.sidebar-overlay.show { display:block; }
+@media (max-width:1023px) {
+  .sidebar { transform:translateX(-100%); position:fixed !important; z-index:50; transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .sidebar.open { transform:translateX(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width:4px; height:4px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(34,211,238,0.35), rgba(99,102,241,0.35));
+  border-radius:2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(34,211,238,0.6), rgba(99,102,241,0.6));
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESULT TAG (base)
+   ══════════════════════════════════════════════════════════════════ */
+.result-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:10px; font-weight:700;
+  padding:3px 8px; border-radius:6px;
+}
+
+/* Subtle text glow utility */
+.text-indigo-400 { text-shadow: 0 0 12px rgba(129,140,248,0.35); }
+.text-green-400  { text-shadow: 0 0 10px rgba(74,222,128,0.35); }
+.text-red-400    { text-shadow: 0 0 10px rgba(248,113,113,0.35); }
+.text-orange-400 { text-shadow: 0 0 10px rgba(251,146,60,0.35); }
+.text-violet-400 { text-shadow: 0 0 10px rgba(167,139,250,0.35); }
+
+/* ══════════════════════════════════════════════════════════════════
+   CELL HELPERS
+   ══════════════════════════════════════════════════════════════════ */
+.cell-crest, .cell-mp, .cell-w, .cell-d, .cell-l, .cell-gf, .cell-ga {
+  display:flex; align-items:center; justify-content:center;
+}
+
+
+  </style>
+</head>
+<body class="min-h-screen text-white">
+
+  <div class="bg-scene">
+    <div class="bg-blob bg-blob-1"></div>
+    <div class="bg-blob bg-blob-2"></div>
+    <div class="bg-blob bg-blob-3"></div>
+    <div class="bg-blob bg-blob-4"></div>
+  </div>
+  <div class="bg-grid"></div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <div class="relative z-10 flex min-h-screen">
+    
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <aside class="sidebar glass-sidebar w-60 flex-shrink-0 flex flex-col p-5 lg:sticky lg:top-0 lg:h-screen" id="sidebar">
+      <div class="flex items-center gap-3 mb-8 anim-in">
+        <img src="https://favx.link/i/eecprr_0/favicon.png" class="w-9 h-9 rounded-xl object-cover" alt="Kapsul4D Logo" />
+        <span class="text-lg font-bold tracking-tight">KAPSUL4D</span>
+      </div>
+
+      <nav class="flex-1 space-y-1">
+        <div class="text-[10px] font-semibold uppercase tracking-widest text-white/20 px-4 mb-3">Menu</div>
+        
+        <button class="nav-item active anim-in d1" data-section="dashboard">
+          <i data-lucide="layout-dashboard" class="w-[18px] h-[18px]"></i> 
+          Dashboard
+        </button>
+        <button class="nav-item anim-in d2" data-section="jadwal">
+          <i data-lucide="calendar-days" class="w-[18px] h-[18px]"></i> 
+          Jadwal
+        </button>
+        <button class="nav-item anim-in d3" data-section="prediksi">
+          <i data-lucide="brain" class="w-[18px] h-[18px]"></i> 
+          Prediksi
+        </button>
+        <button class="nav-item anim-in d4" data-section="klasemen">
+          <i data-lucide="medal" class="w-[18px] h-[18px]"></i> 
+          Klasemen
+        </button>
+        <button class="nav-item anim-in d5" data-action="favorit">
+          <i data-lucide="star" class="w-[18px] h-[18px]"></i> 
+          Favorit
+        </button>
+      </nav>
+
+      <div class="glass-static p-3 flex items-center gap-2 mt-4 anim-in d8">
+        <img src="https://favx.link/i/cmijscll/logokapsul.jpg" class="w-9 h-9 rounded-full object-cover ring-2 ring-indigo-500/30" alt="Profile" />
+        <div class="flex-1 min-w-0">
+          <div class="text-sm font-medium truncate">Bola Kapsul4D</div>
+          <div class="text-[12px] text-white/35 truncate">By : Claire</div>
+        </div>
+        <i data-lucide="chevrons-up-down" class="w-4 h-4 text-white/25"></i>
+      </div>
+    </aside>
+
+    <main class="flex-1 p-4 lg:p-8 overflow-y-auto w-full">
+      <header class="flex items-center justify-between mb-6 anim-in">
+        <div class="flex items-center gap-4">
+          <button class="lg:hidden p-2 rounded-xl hover:bg-white/5 transition" onclick="toggleSidebar()">
+            <i data-lucide="menu" class="w-5 h-5"></i>
+          </button>
+          <div>
+            <h1 class="text-2xl lg:text-3xl font-bold tracking-tight" id="headerTitle">Dashboard</h1>
+            <p class="text-sm text-white/35 mt-1" id="headerDesc">Ringkasan Pertandingan &amp; Spotlight Liga Top</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-3" id="searchWrapper" style="display:none">
+          <div class="hidden md:flex items-center gap-2 glass-static px-4 py-2.5 rounded-xl">
+            <i data-lucide="search" class="w-4 h-4 text-white/25"></i>
+            <input type="text" placeholder="Cari tim atau liga..." class="bg-transparent border-none outline-none text-sm text-white placeholder-white/25 w-40" id="searchInput" oninput="filterMatches()" />
+          </div>
+        </div>
+      </header>
+
+      <div id="secDashboard">
+        <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
+          <div class="glass accent-green p-5 anim-in d1">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
+                <i data-lucide="calendar-check" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full">Total</span>
+            </div>
+            <div class="text-2xl font-bold" id="statTotal">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+          <div class="glass accent-cyan p-5 anim-in d2">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
+                <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+            </div>
+            <div class="text-2xl font-bold" id="statLeagues">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Liga</div>
+          </div>
+          <div class="glass accent-green p-5 anim-in d3">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
+                <i data-lucide="sun" class="w-4 h-4 text-green-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-green-400 bg-green-400/10 px-2 py-0.5 rounded-full" id="statDate1Label">-</span>
+            </div>
+            <div class="text-2xl font-bold" id="statDate1">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+          <div class="glass accent-cyan p-5 anim-in d4">
+            <div class="flex items-center justify-between mb-2">
+              <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
+                <i data-lucide="moon" class="w-4 h-4 text-cyan-400"></i>
+              </div>
+              <span class="text-[9px] font-semibold text-cyan-400 bg-cyan-400/10 px-2 py-0.5 rounded-full" id="statDate2Label">-</span>
+            </div>
+            <div class="text-2xl font-bold" id="statDate2">-</div>
+            <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
+          </div>
+        </div>
+
+        <div class="mb-6 anim-in d5">
+          <div class="flex items-center gap-2 mb-4">
+            <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+            <h2 class="text-sm font-bold text-indigo-400 uppercase tracking-wider">Spotlight Pertandingan</h2>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="spotlightCards"></div>
+        </div>
+      </div>
+
+      <div id="secJadwal" style="display:none">
+        <div class="anim-in d6">
+          <div class="flex items-center justify-between mb-5">
+            <h2 class="font-bold text-base">Jadwal &amp; Handicap 25 - 26 April 2026</h2>
+            <span class="text-[11px] text-white/25" id="matchCountLabel">0 pertandingan</span>
+          </div>
+          <div id="scheduleContainer"></div>
+        </div>
+        <div class="glass-static p-5 lg:p-6 mt-4 anim-in d7">
+          <h3 class="font-bold text-sm mb-4">Distribusi Pertandingan per Liga</h3>
+          <div class="space-y-2.5" id="leagueBars"></div>
+        </div>
+      </div>
+
+      <div id="secPrediksi" style="display:none">
+        <div class="flex items-center gap-2 mb-5 anim-in d1">
+          <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
+          <h2 class="font-bold text-base">Hasil Pertandingan 25 - 26 April 2026</h2>
+        </div>
+        <div id="prediksiList"></div>
+      </div>
+
+      <div id="secKlasemen" style="display:none">
+        <div class="flex items-center gap-2 mb-5">
+          <i data-lucide="medal" class="w-4 h-4 text-indigo-400"></i>
+          <h2 class="font-bold text-base">Klasemen 5 Liga Eropa</h2>
+          <span class="text-[10px] text-white/50 ml-2 hidden sm:inline">Musim 2025/2026</span>
+        </div>
+
+        <div class="flex gap-2 mb-4 overflow-x-auto" style="scrollbar-width:none" id="klasemenTabs">
+          <div class="klasemen-tab active flex items-center gap-2" data-league="PL">
+            <img src="https://flagcdn.com/w20/gb-eng.png" class="w-4 h-4 object-contain" alt="England" />
+            <span>Premier League</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="PD">
+            <img src="https://flagcdn.com/w20/es.png" class="w-4 h-4 object-contain" alt="Spain" />
+            <span>La Liga</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="BL1">
+            <img src="https://flagcdn.com/w20/de.png" class="w-4 h-4 object-contain" alt="Germany" />
+            <span>Bundesliga</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="SA">
+            <img src="https://flagcdn.com/w20/it.png" class="w-4 h-4 object-contain" alt="Italy" />
+            <span>Serie A</span>
+          </div>
+          <div class="klasemen-tab flex items-center gap-2" data-league="FL1">
+            <img src="https://flagcdn.com/w20/fr.png" class="w-4 h-4 object-contain" alt="France" />
+            <span>Ligue 1</span>
+          </div>
+        </div>
+
+        <div id="klasemenContent" class="glass-static p-3 lg:p-4"></div>
+      </div>
+
+      <footer class="text-center text-[11px] text-white/55 pb-4 mt-6">
+        &copy; 2026 KAPSUL4D. All right reserved.
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    
+    // Init Lucide Icons
+    lucide.createIcons();
+
+    // Map of country codes for flag CDN
+    var flagMap = {
+      'gb-eng':'gb-eng','es':'es','it':'it','de':'de','fr':'fr','au':'au','jp':'jp',
+      'no':'no','se':'se','fi':'fi','pt':'pt','ch':'ch','be':'be','tr':'tr','ru':'ru',
+      'ar':'ar','id':'id','th':'th','cn':'cn','kr':'kr','pl':'pl','ie':'ie','dk':'dk',
+      'ro':'ro','gr':'gr','nl':'nl','gb-sct':'gb-sct','ua':'ua','sk':'sk','hu':'hu',
+      'rs':'rs','by':'by','am':'am','kz':'kz','si':'si','lt':'lt','cy':'cy','ee':'ee',
+      'cl':'cl','co':'co','py':'py','uy':'uy','br':'br','ve':'ve','at':'at','hr':'hr',
+      'ge':'ge','az':'az','bg':'bg','lv':'lv','mx':'mx','ec':'ec','bo':'bo','cr':'cr',
+      'us':'us','cz':'cz'
+    };
+
+    function flagImg(code, cls) {
+      cls = cls || 'flag-icon';
+      if (!code) return '<div class="cl-badge" style="width:14px;height:14px;border-radius:2px"></div>';
+      var c = flagMap[code] || code;
+      if (c && /^[a-z]/.test(c)) {
+        return '<img src="https://flagcdn.com/w20/' + c + '.png" class="' + cls + '" alt="" loading="lazy" onerror="this.style.display=\'none\'">';
+      }
+      return '<div class="cl-badge" style="width:14px;height:14px;border-radius:2px"></div>';
+    }
+
+    function showToast(msg, icon) {
+      icon = icon || 'info';
+      var c = document.getElementById('toastContainer');
+      var t = document.createElement('div');
+      t.className = 'toast-item glass-static p-4 flex items-center gap-3';
+      t.innerHTML = '<i data-lucide="' + icon + '" class="w-4 h-4 text-indigo-400 flex-shrink-0"></i><span class="text-[13px] text-white/80">' + msg + '</span>';
+      c.appendChild(t); 
+      lucide.createIcons();
+      setTimeout(function () { 
+        t.style.opacity = '0'; 
+        t.style.transform = 'translateX(30px)'; 
+        t.style.transition = 'all .3s'; 
+        setTimeout(function () { t.remove(); }, 300); 
+      }, 2800);
+    }
+
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('sidebarOverlay').classList.toggle('show');
+    }
+
+    function fmtHC(v) { 
+      v = v.trim(); 
+      if (v === '0') return '0'; 
+      return v.replace(/3\s*\/\s*4/g, '\u00be').replace(/1\s*\/\s*2/g, '\u00bd').replace(/1\s*\/\s*4/g, '\u00bc'); 
+    }
+    
+    function parseHC(s) { 
+      var p = s.split(':'); 
+      return { home: fmtHC(p[0]), away: fmtHC(p[1]) }; 
+    }
+    
+    function isZeroHC(v) { 
+      return v.home === '0' && v.away === '0'; 
+    }
+    
+    function getAbbr(n) { 
+      var p = n.split(' '); 
+      if (p.length >= 2 && p[0].length <= 3) return p[0].toUpperCase(); 
+      if (p.length >= 2) return (p[0][0] + p[1][0]).toUpperCase(); 
+      return n.substring(0, 3).toUpperCase(); 
+    }
+
+    var pal = [
+      ['from-red-600','to-red-800'], ['from-blue-600','to-blue-800'], 
+      ['from-emerald-600','to-emerald-800'], ['from-amber-500','to-amber-700'], 
+      ['from-purple-600','to-purple-800'], ['from-cyan-600','to-cyan-800'], 
+      ['from-indigo-600','to-indigo-800'], ['from-pink-600','to-pink-800'], 
+      ['from-teal-600','to-teal-800'], ['from-orange-500','to-orange-700'], 
+      ['from-lime-600','to-lime-800'], ['from-rose-600','to-rose-800']
+    ];
+    
+    function gc(n) { 
+      var h = 0; 
+      for (var i = 0; i < n.length; i++) h = n.charCodeAt(i) + ((h << 5) - h); 
+      return pal[Math.abs(h) % pal.length]; 
+    }
+
+    function dateShort(d) { 
+      var p = d.split('/'); 
+      return parseInt(p[0]) + '/' + parseInt(p[1]); 
+    }
+    
+    function dateLabel(d) { 
+      var p = d.split('/'); 
+      var m = ['','Jan','Feb','Mar','Apr','Mei','Jun','Jul','Ags','Sep','Okt','Nov','Des']; 
+      return parseInt(p[0]) + ' ' + m[parseInt(p[1])] + ' 2026'; 
+    }
+    
+    function scoreClass(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      return h > a ? 'score-home' : h < a ? 'score-away' : 'score-draw'; 
+    }
+    
+    function resultTag(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      if (h > a) return 'Home Win'; 
+      if (h < a) return 'Away Win'; 
+      return 'Draw'; 
+    }
+    
+    function resultTagClass(s) { 
+      var p = s.split('-'); 
+      var h = parseInt(p[0]), a = parseInt(p[1]); 
+      if (h > a) return 'result-home'; 
+      if (h < a) return 'result-away'; 
+      return 'result-draw'; 
+    }
+    
+    function formDots(f) { 
+      return f.split('').map(function (r) { 
+        return '<span class="form-dot form-' + r.toLowerCase() + '"></span><span class="form-gap"></span>'; 
+      }).join(''); 
+    }
+
+    var sectionMeta = {
+      dashboard: { title: 'Dashboard', desc: 'Ringkasan Pertandingan & Spotlight Liga Top' },
+      jadwal: { title: 'Jadwal Pertandingan', desc: 'Jadwal Lengkap Beserta Handicap Untuk Semua Liga' },
+      prediksi: { title: 'Hasil Pertandingan', desc: 'Semua Hasil Pertandingan 25-26 April 2026' },
+      klasemen: { title: 'Klasemen Liga', desc: '' }
+    };
+    
+    var currentSection = 'dashboard';
+
+    document.querySelectorAll('.nav-item[data-section]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        document.querySelectorAll('.nav-item').forEach(function (n) { 
+          n.classList.remove('active'); 
+        });
+        this.classList.add('active');
+        var sec = this.dataset.section; 
+        currentSection = sec;
+        ['secDashboard', 'secJadwal', 'secPrediksi', 'secKlasemen'].forEach(function (id) { 
+          document.getElementById(id).style.display = 'none'; 
+        });
+        document.getElementById('sec' + sec.charAt(0).toUpperCase() + sec.slice(1)).style.display = '';
+        document.getElementById('headerTitle').textContent = sectionMeta[sec].title;
+        document.getElementById('headerDesc').textContent = sectionMeta[sec].desc;
+        document.getElementById('searchWrapper').style.display = sec === 'jadwal' ? '' : 'none';
+        if (window.innerWidth < 1024) toggleSidebar();
+        if (sec === 'klasemen') renderManualTable(currentLeague);
+      });
+    });
+
+    document.querySelectorAll('.nav-item[data-action]').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var a = this.dataset.action; 
+        if (a === 'favorit') showToast('Fitur favorit segera hadir!', 'star');
+        if (window.innerWidth < 1023) toggleSidebar();
+      });
+    });
+
+var ST = {
+      PL: [
+        [1,'Arsenal',34,22,7,5,64,26,38,73,'WWLLW'],
+        [2,'Manchester City',33,21,7,5,66,29,37,70,'DDWWW'],
+        [3,'Manchester United',33,16,10,7,58,45,13,58,'LWDLW'],
+        [4,'Liverpool',34,17,7,10,57,44,13,58,'DLWWW'],
+        [5,'Aston Villa',34,17,7,10,47,42,5,58,'LWDWL'],
+        [6,'Brighton',34,13,11,10,48,39,9,50,'WWWDW'],
+        [7,'Bournemouth',34,11,16,7,52,52,0,49,'DDWWD'],
+        [8,'Chelsea',34,13,9,12,53,45,8,48,'LLLLL'],
+        [9,'Brentford',33,13,9,11,48,44,4,48,'DDDDD'],
+        [10,'Fulham',34,14,6,14,44,46,-2,48,'DWLDW'],
+        [11,'Everton',34,13,8,13,41,41,0,47,'LWDLL'],
+        [12,'Sunderland',34,12,10,12,36,45,-9,46,'LWWLL'],
+        [13,'Crystal Palace',33,11,10,12,36,39,-3,43,'WDWDL'],
+        [14,'Newcastle United',34,12,6,16,46,50,-4,42,'WLLLL'],
+        [15,'Leeds United',34,9,13,12,44,51,-7,40,'DDWWD'],
+        [16,'Nottingham Forest',34,10,9,15,41,45,-4,39,'DWDWW'],
+        [17,'West Ham United',34,9,9,16,42,58,-16,36,'DLWDW'],
+        [18,'Tottenham Hotspur',34,8,10,16,43,53,-10,34,'DLLDW'],
+        [19,'Burnley',34,4,8,22,34,68,-34,20,'DLLLL'],
+        [20,'Wolverhampton',34,3,8,23,24,62,-38,17,'WDLLL']
+      ],
+      PD: [
+        [1,'Barcelona',33,28,1,4,87,30,57,85,'WWWWW'],
+        [2,'Real Madrid',33,23,5,5,68,31,37,74,'WLDWD'],
+        [3,'Villarreal',33,20,5,8,59,38,21,65,'WLWDW'],
+        [4,'Atletico Madrid',33,18,6,9,56,37,19,60,'LLLLW'],
+        [5,'Real Betis',33,12,14,7,49,41,8,50,'LDDWD'],
+        [6,'Getafe',33,13,5,15,28,34,-6,44,'WWLWL'],
+        [7,'Celta Vigo',33,11,11,11,45,43,2,44,'LWLLL'],
+        [8,'Real Sociedad',33,11,10,12,52,52,0,43,'LWDLD'],
+        [9,'Osasuna',33,11,9,13,39,40,-1,42,'WDDLW'],
+        [10,'Athletic Club',33,12,5,16,36,48,-12,41,'WLLWL'],
+        [11,'Rayo Vallecano',33,9,12,12,33,41,-8,39,'LWLWD'],
+        [12,'Valencia',33,10,9,14,37,48,-11,39,'WLLDW'],
+        [13,'Elche',33,9,11,13,44,50,-6,38,'WLWWW'],
+        [14,'Espanyol',32,10,8,14,37,49,-12,38,'LLDLL'],
+        [15,'Girona',33,9,11,13,36,50,-14,38,'LWDLL'],
+        [16,'Alaves',33,9,9,15,38,49,-11,36,'WDDLW'],
+        [17,'Mallorca',33,9,8,16,41,51,-10,35,'LWWDL'],
+        [18,'Sevilla',33,9,7,17,40,55,-15,34,'LLWLL'],
+        [19,'Levante',32,8,8,16,37,50,-13,32,'DWLWW'],
+        [20,'Real Oviedo',33,6,10,17,26,51,-25,28,'LWWDL']
+      ],
+      BL1: [
+        [1,'Bayern Munich',31,26,4,1,113,32,81,82,'WWWWW'],
+        [2,'Borussia Dortmund',31,20,7,4,65,31,34,67,'WWLLW'],
+        [3,'RB Leipzig',31,19,5,7,62,38,24,62,'WWWWW'],
+        [4,'VfB Stuttgart',31,17,6,8,63,43,20,57,'WLWLD'],
+        [5,'TSG Hoffenheim',31,17,6,8,61,45,16,57,'LLDWW'],
+        [6,'Bayer Leverkusen',31,16,7,8,62,42,20,55,'DWWLW'],
+        [7,'Eintracht Frankfurt',31,11,10,10,56,58,-2,43,'LDWLD'],
+        [8,'SC Freiburg',31,12,7,12,44,52,-8,43,'WLWWL'],
+        [9,'FC Augsburg',31,10,7,14,39,55,-16,37,'LDDWD'],
+        [10,'Mainz 05',31,8,10,13,39,49,-10,34,'WWLDL'],
+        [11,'Borussia Mgladbach',31,7,11,13,36,50,-14,32,'DDLDD'],
+        [12,'Werder Bremen',31,8,8,15,36,54,-18,32,'WLLWD'],
+        [13,'Union Berlin',31,8,8,15,35,55,-20,32,'LDLLL'],
+        [14,'FC Koln',31,7,10,14,45,53,-8,31,'DDWDL'],
+        [15,'Hamburger SV',31,7,10,14,34,50,-16,31,'LDLLL'],
+        [16,'St. Pauli',31,6,8,17,26,53,-27,26,'LDLDL'],
+        [17,'VfL Wolfsburg',31,6,7,18,41,66,-25,25,'LLLWD'],
+        [18,'FC Heidenheim',31,5,7,19,35,66,-31,22,'DDWLW']
+      ],
+      SA: [
+        [1,'Inter Milan',34,25,4,5,80,31,49,79,'DWWWD'],
+        [2,'Napoli',34,21,6,7,52,33,19,69,'WWDLW'],
+        [3,'AC Milan',34,19,10,5,48,27,21,67,'WLLWD'],
+        [4,'Juventus',34,18,10,6,57,29,28,64,'DWWWD'],
+        [5,'Como',34,17,10,7,59,28,31,61,'WDLLW'],
+        [6,'AS Roma',34,19,4,11,48,29,19,61,'WLWDW'],
+        [7,'Atalanta',33,14,12,7,45,29,16,54,'DWWLD'],
+        [8,'Bologna',34,14,6,14,42,41,1,48,'LWWLL'],
+        [9,'Lazio',33,12,11,10,34,30,4,47,'WWDLW'],
+        [10,'Sassuolo',34,13,7,14,41,44,-3,46,'DWLWD'],
+        [11,'Udinese',33,12,7,14,38,43,-5,43,'LWDWL'],
+        [12,'Parma',34,10,12,12,25,40,-15,42,'LDDLW'],
+        [13,'Torino',34,11,8,15,39,56,-17,41,'LWWDD'],
+        [14,'Genoa',34,10,9,15,40,48,-8,39,'LLWWL'],
+        [15,'Fiorentina',34,8,13,13,38,45,-7,37,'DWWDD'],
+        [16,'Cagliari',33,8,9,16,33,47,-14,33,'LLLWL'],
+        [17,'Lecce',34,7,8,19,22,46,-24,29,'LLLDD'],
+        [18,'Cremonese',34,6,10,18,26,51,-25,28,'WLLDL'],
+        [19,'Hellas Verona',34,3,10,21,23,56,-33,19,'LLLLD'],
+        [20,'Pisa',34,2,12,20,24,61,-37,18,'LLLLL']
+      ],
+      FL1: [
+        [1,'Paris Saint-Germain',30,22,3,5,68,25,43,69,'WWLWW'],
+        [2,'RC Lens',30,20,3,7,60,32,28,63,'LWLWD'],
+        [3,'Olympique Lyon',31,17,6,8,48,32,16,57,'LDWWW'],
+        [4,'Lille OSC',31,17,6,8,50,34,16,57,'WWWDW'],
+        [5,'Stade Rennais',31,16,8,7,54,42,12,56,'DWWWW'],
+        [6,'Olympique Marseille',31,16,5,10,59,41,18,53,'LLWLD'],
+        [7,'AS Monaco',31,15,6,10,54,47,7,51,'WWLDD'],
+        [8,'RC Strasbourg',30,13,7,10,49,39,10,46,'DWWLW'],
+        [9,'Lorient',31,10,11,10,42,47,-5,41,'LDLWL'],
+        [10,'Toulouse FC',31,10,8,13,43,44,-1,38,'WLLLD'],
+        [11,'Stade Brestois',30,10,8,12,41,47,-6,38,'LLLDD'],
+        [12,'Paris FC',31,9,11,11,40,47,-7,38,'WDWWL'],
+        [13,'Angers SCO',31,9,7,15,26,43,-17,34,'LDLDL'],
+        [14,'Le Havre AC',31,6,13,12,29,42,-13,31,'LDDDD'],
+        [15,'OGC Nice',31,7,9,15,35,57,-22,30,'LLDDD'],
+        [16,'AJ Auxerre',31,5,10,16,27,42,-15,25,'WDDDL'],
+        [17,'FC Nantes',31,4,8,19,26,51,-25,20,'DDDLL'],
+        [18,'Metz',31,3,7,21,31,70,-39,16,'DDLLD']
+      ]
+    };
+
+    var zones = {
+      PL:  { ucl: 5,  uel: 5,  uecl: 6,  rel: 17 },
+      PD:  { ucl: 5,  uel: 5,  uecl: 6,  rel: 17 },
+      BL1: { ucl: 4,  uel: 4,  uecl: 5,  relPlayoff: 15, rel: 16 },
+      SA:  { ucl: 4,  uel: 4,  uecl: 5,  rel: 17 },
+      FL1: { ucl: 3,  uclQ: 3, uel: 4,  uecl: 5,  relPlayoff: 15, rel: 16 }
+    };
+
+    function getZoneClass(i, z) {
+      if (i >= z.rel) return 'relegation';
+      if (z.relPlayoff !== undefined && i === z.relPlayoff) return 'relegation-playoff';
+      if (i === z.uecl) return 'uecl';
+      if (i === z.uel) return 'uel';
+      if (z.uclQ !== undefined && i === z.uclQ) return 'ucl-qualifier';
+      if (i < z.ucl) return 'ucl';
+      return '';
+    }
+
+    function getPosColor(zone) {
+      if (zone === 'ucl') return 'text-indigo-400';
+      if (zone === 'ucl-qualifier') return 'text-violet-400';
+      if (zone === 'uel') return 'text-orange-400';
+      if (zone === 'uecl') return 'text-green-400';
+      if (zone === 'relegation') return 'text-red-400';
+      if (zone === 'relegation-playoff') return 'text-orange-400';
+      return 'text-white/30';
+    }
+
+    var currentLeague = 'PL';
+
+    document.querySelectorAll('.klasemen-tab').forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        document.querySelectorAll('.klasemen-tab').forEach(function (t) { 
+          t.classList.remove('active'); 
+        });
+        this.classList.add('active');
+        currentLeague = this.dataset.league;
+        renderManualTable(currentLeague);
+      });
+    });
+
+    function renderManualTable(code) {
+      var el = document.getElementById('klasemenContent');
+      var data = ST[code];
+      if (!data) { el.innerHTML = '<p class="text-center text-white/30 py-12">Data tidak tersedia.</p>'; return; }
+      var z = zones[code] || { ucl: 4, uel: 4, uecl: 5, rel: 17 };
+      var rows = '';
+      data.forEach(function (t, i) {
+        var zone = getZoneClass(i, z);
+        var posC = getPosColor(zone);
+        var gd   = t[8] > 0 ? '+' + t[8] : t[8];
+        var gdC  = t[8] > 0 ? 'text-green-400' : t[8] < 0 ? 'text-red-400' : 'text-white/40';
+        var c    = gc(t[1]);
+        var ab   = getAbbr(t[1]);
+        rows +=
+          '<div class="stand-row ' + zone + '" style="animation:fadeInUp .3s ' + (i * 0.02) + 's cubic-bezier(.4,0,.2,1) forwards;opacity:0">' +
+            '<div class="text-[11px] font-bold ' + posC + '">' + t[0] + '</div>' +
+            '<div class="cell-crest"><div class="team-crest bg-gradient-to-br ' + c[0] + ' ' + c[1] + '">' + ab + '</div></div>' +
+            '<div class="text-[11px] sm:text-[12px] font-semibold truncate pl-0.5">' + t[1] + '</div>' +
+            '<div class="cell-mp text-[10px] text-white">' + t[2] + '</div>' +
+            '<div class="cell-w  text-[10px] text-white">' + t[3] + '</div>' +
+            '<div class="cell-d  text-[10px] text-white">' + t[4] + '</div>' +
+            '<div class="cell-l  text-[10px] text-white">' + t[5] + '</div>' +
+            '<div class="cell-gf text-[10px] text-white">' + t[6] + '</div>' +
+            '<div class="cell-ga text-[10px] text-white">' + t[7] + '</div>' +
+            '<div class="text-[10px] sm:text-[11px] ' + gdC + ' font-medium text-center">' + gd + '</div>' +
+            '<div class="text-[11px] sm:text-[12px] font-bold text-center">' + t[9] + '</div>' +
+            '<div class="flex items-center justify-center">' + formDots(t[10]) + '</div>' +
+          '</div>';
+      });
+      var uclQLegend = z.uclQ !== undefined ? '<span><div class="dot" style="background:#A855F7"></div>UCL Qualifier</span>' : '';
+      var playoffLegend = z.relPlayoff !== undefined ? '<span><div class="dot" style="background:orange"></div>Playoff Degradasi</span>' : '';
+      el.innerHTML =
+        '<div class="zone-legend" style="justify-content:space-between">' +
+          '<div class="flex gap-3 flex-wrap">' +
+            '<span><div class="dot" style="background:#818CF8"></div>Champions League</span>' + 
+            uclQLegend +
+            '<span><div class="dot" style="background:#F97316"></div>Europa League</span>' +
+            '<span><div class="dot" style="background:#22C55E"></div>Conference League</span>' +
+            playoffLegend + 
+            '<span><div class="dot" style="background:#EF4444"></div>Relegation</span>' +
+          '</div>' +
+          '<div class="flex items-center gap-2.5 flex-shrink-0">' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-w" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Win</span></span>' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-d" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Draw</span></span>' +
+            '<span class="flex items-center gap-1"><span class="form-dot form-l" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Lose</span></span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="w-full overflow-x-auto pb-2">' +
+          '<div class="mx-auto" style="min-width: 650px; max-width: 800px;">' +
+            '<div class="stand-row stand-header mb-1" style="opacity:1">' +
+              '<div>RANK</div><div class="cell-crest"></div><div>CLUB</div>' +
+              '<div class="cell-mp text-white">MP</div>' +
+              '<div class="cell-w text-white">W</div>' +
+              '<div class="cell-d text-white">D</div>' +
+              '<div class="cell-l text-white">L</div>' +
+              '<div class="cell-gf">GF</div>' +
+              '<div class="cell-ga">GA</div>' +
+              '<div class="text-center">GD</div>' +
+              '<div class="text-center">PTS</div>' +
+              '<div class="text-center text-white">LAST 5</div>' +
+            '</div>' +
+            rows +
+          '</div>' +
+        '</div>';
+    }
+
+var leagueOrder = [
+  'ENGLISH PREMIER LEAGUE', 'ITALY SERIE A', 'SPAIN LA LIGA',
+  'SWEDEN ALLSVENSKAN', 'DENMARK SUPER LEAGUE PLAYOFF', 'LIGA PORTUGAL',
+  'SPAIN LA LIGA 2', 'TURKIYE SUPER LIG', 'RUSSIA PREMIER LEAGUE',
+  'FRANCE LIGUE 2', 'INDONESIA SUPER LEAGUE', 'POLAND EKSTRAKLASA',
+  'NORWAY 1ST DIV', 'ICELAND PREMIER LEAGUE', 'EGYPT PREMIER LEAGUE PLAYOFF',
+  'ROMANIA SUPERLIGA PLAYOFF', 'LIGA PORTUGAL 2', 'CYPRUS 1ST DIV PLAYOFF',
+  'POLAND 1ST LIGA', 'UKRAINE PREMIER LEAGUE', 'CROATIA SUPERLIGA',
+  'BELGIUM FIRST DIVISION B PLAYOFF', 'GEORGIA EROVNULI LIGA',
+  'SERBIA SUPERLIGA PLAYOFF', 'AZERBAIJAN PREMIER LEAGUE', 'RUSSIA FIRST LEAGUE',
+  'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', 'LATVIA VIRSLIGA',
+  'SWEDEN ETTAN NORTH', 'GERMANY WOMEN BUNDESLIGA', 'ARGENTINA LIGA PROFESIONAL',
+  'BRAZIL SERIE B', 'ECUADOR LIGA PRO SERIE A', 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE',
+  'PERU LIGA 1', 'URUGUAY PRIMERA DIVISION', 'BRAZIL SERIE C',
+  'COLOMBIA PRIMERA B PLAYOFF', 'PARAGUAY DIVISION INTERMEDIA',
+  'URUGUAY SEGUNDA DIVISION', 'CHILE PRIMERA B'
+];
+
+var matches = [
+  { date:'28/04', time:'02:00', league:'ENGLISH PREMIER LEAGUE', flag:'gb-eng', home:'Manchester United', away:'Brentford', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:30', league:'ITALY SERIE A', flag:'it', home:'Cagliari', away:'Atalanta', handicap:'3/4 : 0' },
+  { date:'28/04', time:'01:45', league:'ITALY SERIE A', flag:'it', home:'Lazio', away:'Udinese', handicap:'0 : 1/2' },
+  { date:'28/04', time:'02:00', league:'SPAIN LA LIGA', flag:'es', home:'RCD Espanyol', away:'Levante', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Mjallby', away:'Halmstads', handicap:'0 : 1 1/4' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'BK Hacken', away:'IK Sirius FK', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'0 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Orgryte', away:'Degerfors', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'0 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'FC Copenhagen', away:'Vejle', handicap:'0 : 1 3/4' },
+  { date:'28/04', time:'02:15', league:'LIGA PORTUGAL', flag:'pt', home:'Gil Vicente', away:'Casa Pia', handicap:'0 : 3/4' },
+  { date:'28/04', time:'01:30', league:'SPAIN LA LIGA 2', flag:'es', home:'Cadiz CF', away:'UD Las Palmas', handicap:'1/4 : 0' },
+  { date:'27/04', time:'21:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Alanyaspor', away:'Samsunspor', handicap:'0 : 1/4' },
+  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Konyaspor', away:'Trabzonspor', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Besiktas', away:'Fatih Karagumruk', handicap:'0 : 1 1/2' },
+  { date:'28/04', time:'00:00', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Baltika Kaliningrad', away:'Akron Tolyatti', handicap:'0 : 3/4' },
+  { date:'28/04', time:'01:45', league:'FRANCE LIGUE 2', flag:'fr', home:'US Boulogne', away:'USL Dunkerque', handicap:'0 : 0' },
+  { date:'27/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Bali United', away:'PSM Makassar', handicap:'0 : 1/2' },
+  { date:'27/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Persija Jakarta', away:'Persis Solo', handicap:'0 : 1 3/4' },
+  { date:'28/04', time:'00:00', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Piast Gliwice', away:'Arka Gdynia', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'NORWAY 1ST DIV', flag:'no', home:'Egersund', away:'Ranheim', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Fram Reykjavik', away:'IBV Vestmannaeyjar', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'KR Reykjavik', away:'FH Hafnarfjordur', handicap:'0 : 1' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Stjarnan Gardabaer', away:'Valur Reykjavik', handicap:'0 : 3/4' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Breidablik', away:'Thor Akureyri', handicap:'0 : 1 1/4' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Vikingur Reykjavik', away:'IA Akranes', handicap:'0 : 1 1/4' },
+  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Zamalek', away:'Enppi', handicap:'0 : 3/4' },
+  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Smouha SC', away:'Al Masry', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Pyramids FC', away:'Al Ahly Cairo', handicap:'0 : 0' },
+  { date:'27/04', time:'21:30', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'Metaloglobus Bucuresti', away:'Unirea Slobozia', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'GD Chaves', away:'UD Oliveirense', handicap:'0 : 3/4' },
+  { date:'27/04', time:'23:00', league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', home:'AEL Limassol', away:'Anorthosis Famagusta', handicap:'0 : 0' },
+  { date:'27/04', time:'23:00', league:'POLAND 1ST LIGA', flag:'pl', home:'Ruch Chorzow', away:'Pogon Grodzisk Mazowiecki', handicap:'0 : 3/4' },
+  { date:'27/04', time:'17:00', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'FC Epitsentr Kamianets Podilskyi', away:'FC Oleksandriya', handicap:'0 : 1/4' },
+  { date:'27/04', time:'19:30', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'Zorya Luhansk', away:'Veres Rivne', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'CROATIA SUPERLIGA', flag:'hr', home:'HNK Gorica', away:'Istra 1961 Pula', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'RFC de Liege', away:'Lommel SK', handicap:'1/4 : 0' },
+  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'Beerschot VA', away:'Patro Eisden', handicap:'0 : 3/4' },
+  { date:'27/04', time:'22:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Gagra Tbilisi', away:'FC Meshakhte Tkibuli', handicap:'0 : 3/4' },
+  { date:'28/04', time:'00:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Dinamo Batumi', away:'FC Torpedo Kutaisi', handicap:'1/2 : 0' },
+  { date:'27/04', time:'22:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'IMT Novi Beograd', away:'Radnicki Nis', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'TSC Backa Topola', away:'Mladost Lucani', handicap:'0 : 3/4' },
+  { date:'27/04', time:'21:00', league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', home:'Turan Tovuz', away:'Zira PFK', handicap:'0 : 1/4' },
+  { date:'27/04', time:'21:30', league:'RUSSIA FIRST LEAGUE', flag:'ru', home:'Torpedo Moscow', away:'Fakel Voronezh', handicap:'0 : 0' },
+  { date:'27/04', time:'21:30', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'FC Montana', away:'Dobrudzha Dobrich', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'Lokomotiv Sofia', away:'PFC Septemvri Sofia', handicap:'0 : 1/2' },
+  { date:'27/04', time:'22:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'BFC Daugavpils', away:'SK Super Nova', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'Ogre United', away:'FS Jelgava', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ETTAN NORTH', flag:'se', home:'Hammarby TFF', away:'Vasalunds IF', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'GERMANY WOMEN BUNDESLIGA', flag:'de', home:'TSG Hoffenheim [w]', away:'Koln [w]', handicap:'0 : 3/4' },
+  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/4' },
+  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/2' },
+  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 1/4' },
+  { date:'28/04', time:'05:00', league:'BRAZIL SERIE B', flag:'br', home:'Athletic Club MG', away:'Nautico PE', handicap:'0 : 0' },
+  { date:'28/04', time:'04:30', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'Manta FC', away:'Universidad Catolica del Ecuador', handicap:'1/2 : 0' },
+  { date:'28/04', time:'07:00', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'SD Aucas', away:'Delfin SC', handicap:'0 : 3/4' },
+  { date:'28/04', time:'07:00', league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', home:'Club Aurora', away:'CD San Antonio Bulo Bulo', handicap:'0 : 1/2' },
+  { date:'28/04', time:'03:00', league:'PERU LIGA 1', flag:'pe', home:'AD Tarma', away:'CD Los Chankas', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'PERU LIGA 1', flag:'pe', home:'Deportivo Garcilaso', away:'FBC Melgar', handicap:'0 : 0' },
+  { date:'28/04', time:'05:30', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Defensor Sporting', away:'CA Progreso', handicap:'0 : 1/2' },
+  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'S.E.R Caxias', away:'Ypiranga RS', handicap:'0 : 1/2' },
+  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'Ferroviaria SP', away:'Guarani SP', handicap:'1/4 : 0' },
+  { date:'28/04', time:'05:00', league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', home:'Bogota FC', away:'Union Magdalena', handicap:'1/4 : 0' },
+  { date:'28/04', time:'03:00', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Atletico Tembetary', away:'3 de Noviembre', handicap:'0 : 1/2' },
+  { date:'28/04', time:'05:30', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Sportivo Carapegua', away:'Deportivo Santani', handicap:'0 : 1/4' },
+  { date:'28/04', time:'05:00', league:'URUGUAY SEGUNDA DIVISION', flag:'uy', home:'Atenas de San Carlos', away:'Centro Atletico Fenix', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'CHILE PRIMERA B', flag:'cl', home:'Deportes Iquique', away:'Santiago Wanderers', handicap:'0 : 1/2' }
+];
+
+var predictions = [
+  { league:'ENGLISH PREMIER LEAGUE', flag:'gb - eng', m:[['Manchester United','MAN','Brentford','BRE','2 - 1']] },
+  { league:'ITALY SERIE A', flag:'it', m:[['Cagliari','CAG','Atalanta','ATA','1 - 3'],['Lazio','LAZ','Udinese','UDI','1 - 1']] },
+  { league:'SPAIN LA LIGA', flag:'es', m:[['RCD Espanyol','ESP','Levante','LEV','2 - 0']] },
+  { league:'SWEDEN ALLSVENSKAN', flag:'se', m:[['Mjallby','MJA','Halmstads','HAL','1 - 2'],['BK Hacken','HAC','IK Sirius FK','SIR','3 - 1'],['Kalmar','KAL','Elfsborg','ELF','0 - 2'],['Kalmar','KAL','Elfsborg','ELF','1 - 1'],['Orgryte','ORG','Degerfors','DEG','2 - 2'],['AIK Fotboll','AIK','Malmo','MAL','0 - 0'],['AIK Fotboll','AIK','Malmo','MAL','2 - 1']] },
+  { league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', m:[['FC Copenhagen','COP','Vejle','VEJ','3 - 0']] },
+  { league:'LIGA PORTUGAL', flag:'pt', m:[['Gil Vicente','GIL','Casa Pia','CAS','2 - 0']] },
+  { league:'SPAIN LA LIGA 2', flag:'es', m:[['Cadiz CF','CAD','UD Las Palmas','LPA','1 - 0']] },
+  { league:'TURKIYE SUPER LIG', flag:'tr', m:[['Alanyaspor','ALA','Samsunspor','SAM','1 - 1'],['Konyaspor','KON','Trabzonspor','TRA','0 - 2'],['Besiktas','BES','Fatih Karagumruk','FAT','3 - 0']] },
+  { league:'RUSSIA PREMIER LEAGUE', flag:'ru', m:[['Baltika Kaliningrad','BAL','Akron Tolyatti','AKR','1 - 0']] },
+  { league:'FRANCE LIGUE 2', flag:'fr', m:[['US Boulogne','BOU','USL Dunkerque','DUN','1 - 1']] },
+  { league:'INDONESIA SUPER LEAGUE', flag:'id', m:[['Bali United','BAL','PSM Makassar','PSM','2 - 1'],['Persija Jakarta','PER','Persis Solo','PES','3 - 0']] },
+  { league:'POLAND EKSTRAKLASA', flag:'pl', m:[['Piast Gliwice','PIA','Arka Gdynia','ARK','2 - 1']] },
+  { league:'NORWAY 1ST DIV', flag:'no', m:[['Egersund','EGE','Ranheim','RAN','1 - 1']] },
+  { league:'ICELAND PREMIER LEAGUE', flag:'is', m:[['Fram Reykjavik','FRA','IBV Vestmannaeyjar','IBV','2 - 0'],['KR Reykjavik','KRR','FH Hafnarfjordur','FHH','3 - 1'],['Stjarnan Gardabaer','STJ','Valur Reykjavik','VAL','1 - 2'],['Breidablik','BRE','Thor Akureyri','THO','2 - 0'],['Vikingur Reykjavik','VIR','IA Akranes','AKA','3 - 0']] },
+  { league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', m:[['Zamalek','ZAM','Enppi','ENP','2 - 0'],['Smouha SC','SMO','Al Masry','MAS','1 - 0'],['Pyramids FC','PYR','Al Ahly Cairo','AHC','1 - 1']] },
+  { league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', m:[['Metaloglobus Bucuresti','MET','Unirea Slobozia','UNI','1 - 0']] },
+  { league:'LIGA PORTUGAL 2', flag:'pt', m:[['GD Chaves','CHA','UD Oliveirense','OLI','2 - 0']] },
+  { league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', m:[['AEL Limassol','AEL','Anorthosis Famagusta','ANO','1 - 1']] },
+  { league:'POLAND 1ST LIGA', flag:'pl', m:[['Ruch Chorzow','RUC','Pogon Grodzisk Mazowiecki','POG','2 - 0']] },
+  { league:'UKRAINE PREMIER LEAGUE', flag:'ua', m:[['FC Epitsentr Kamianets Podilskyi','EPI','FC Oleksandriya','OLE','0 - 0'],['Zorya Luhansk','ZOR','Veres Rivne','VER','2 - 1']] },
+  { league:'CROATIA SUPERLIGA', flag:'hr', m:[['HNK Gorica','GOR','Istra 1961 Pula','IST','1 - 2']] },
+  { league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', m:[['RFC de Liege','LIE','Lommel SK','LOM','1 - 0'],['Beerschot VA','BEE','Patro Eisden','PAT','2 - 0']] },
+  { league:'GEORGIA EROVNULI LIGA', flag:'ge', m:[['FC Gagra Tbilisi','GAG','FC Meshakhte Tkibuli','MES','2 - 0'],['FC Dinamo Batumi','DIN','FC Torpedo Kutaisi','TOR','1 - 0']] },
+  { league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', m:[['IMT Novi Beograd','IMT','Radnicki Nis','RAD','1 - 2'],['TSC Backa Topola','TSC','Mladost Lucani','MLD','3 - 0']] },
+  { league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', m:[['Turan Tovuz','TUR','Zira PFK','ZIR','1 - 1']] },
+  { league:'RUSSIA FIRST LEAGUE', flag:'ru', m:[['Torpedo Moscow','TRM','Fakel Voronezh','FAK','0 - 1']] },
+  { league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', m:[['FC Montana','MON','Dobrudzha Dobrich','DOB','1 - 0'],['Lokomotiv Sofia','LOK','PFC Septemvri Sofia','SEP','2 - 1']] },
+  { league:'LATVIA VIRSLIGA', flag:'lv', m:[['BFC Daugavpils','DAU','SK Super Nova','SUP','2 - 0'],['Ogre United','OGR','FS Jelgava','JEL','1 - 1']] },
+  { league:'SWEDEN ETTAN NORTH', flag:'se', m:[['Hammarby TFF','HAM','Vasalunds IF','VAS','2 - 1']] },
+  { league:'GERMANY WOMEN BUNDESLIGA', flag:'de', m:[['TSG Hoffenheim [w]','HOF','Koln [w]','KOL','2 - 0']] },
+  { league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', m:[['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 0'],['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 1'],['CA Huracan','HUR','Argentinos Juniors','ARJ','0 - 0'],['CA Huracan','HUR','Argentinos Juniors','ARJ','2 - 1']] },
+  { league:'BRAZIL SERIE B', flag:'br', m:[['Athletic Club MG','ATH','Nautico PE','NAU','1 - 0']] },
+  { league:'ECUADOR LIGA PRO SERIE A', flag:'ec', m:[['Manta FC','MAN','Universidad Catolica del Ecuador','UCD','0 - 2'],['SD Aucas','AUC','Delfin SC','DEL','2 - 0']] },
+  { league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', m:[['Club Aurora','AUR','CD San Antonio Bulo Bulo','SAB','2 - 1']] },
+  { league:'PERU LIGA 1', flag:'pe', m:[['AD Tarma','TAR','CD Los Chankas','CHA','1 - 1'],['Deportivo Garcilaso','GAR','FBC Melgar','MEL','0 - 1']] },
+  { league:'URUGUAY PRIMERA DIVISION', flag:'uy', m:[['Defensor Sporting','DEF','CA Progreso','PRO','2 - 0']] },
+  { league:'BRAZIL SERIE C', flag:'br', m:[['S.E.R Caxias','CAX','Ypiranga RS','YPI','1 - 1'],['Ferroviaria SP','FER','Guarani SP','GUA','1 - 0']] },
+  { league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', m:[['Bogota FC','BOG','Union Magdalena','UMG','0 - 0']] },
+  { league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', m:[['Atletico Tembetary','TEM','3 de Noviembre','3NO','2 - 1'],['Sportivo Carapegua','CAR','Deportivo Santani','SAN','1 - 0']] },
+  { league:'URUGUAY SEGUNDA DIVISION', flag:'uy', m:[['Atenas de San Carlos','ATE','Centro Atletico Fenix','CAF','0 - 0']] },
+  { league:'CHILE PRIMERA B', flag:'cl', m:[['Deportes Iquique','DIQ','Santiago Wanderers','SAW','2 - 1']] }
+];
+
+function renderSpotlight() {
+  var el = document.getElementById('spotlightCards');
+  var sp = [
+    { lg:'ENGLISH PREMIER LEAGUE', fl:'gb-eng', h:'Manchester United', ha:'MAN', a:'Brentford', aa:'BRE', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 1' },
+    { lg:'ITALY SERIE A', fl:'it', h:'Cagliari', ha:'CAG', a:'Atalanta', aa:'ATA', dt:'27 April 2026 \u2022 23:30 WIB', hc:'3/4 : 0', sc:'1 - 3' },
+    { lg:'TURKIYE SUPER LIG', fl:'tr', h:'Besiktas', ha:'BES', a:'Fatih Karagumruk', aa:'FAT', dt:'28 April 2026 \u2022 00:00 WIB', hc:'0 : 1 1/2', sc:'3 - 0' },
+    { lg:'SPAIN LA LIGA', fl:'es', h:'RCD Espanyol', ha:'ESP', a:'Levante', aa:'LEV', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 0' }
+  ];
+  var h = '';
+  sp.forEach(function (s) {
+    var c1 = gc(s.h), c2 = gc(s.a);
+    var scC = scoreClass(s.sc);
+    var rt = resultTag(s.sc), rtC = resultTagClass(s.sc);
+    h +=
+      '<div class="hero-card p-6">' +
+        '<div class="flex items-center justify-between mb-5">' +
+          '<div class="flex items-center gap-2">' + flagImg(s.fl, 'flag-icon') + '<span class="text-[11px] font-semibold text-white/40 uppercase tracking-wider">' + s.lg + '</span></div>' +
+          '<span class="text-[9px] font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 px-2 py-0.5 rounded-full">handicap ' + s.hc + '</span>' +
+        '</div>' +
+        '<div class="flex items-center justify-between">' +
+          '<div class="flex items-center gap-3 flex-1"><div class="team-badge bg-gradient-to-br ' + c1[0] + ' ' + c1[1] + '">' + s.ha + '</div><div><div class="text-base font-bold">' + s.h + '</div><div class="text-[10px] text-white/30">Home</div></div></div>' +
+          '<div class="flex flex-col items-center px-4"><div class="text-2xl font-black tracking-tight ' + scC + '">' + s.sc + '</div><span class="result-tag ' + rtC + ' mt-1">' + rt + '</span></div>' +
+          '<div class="flex items-center gap-3 flex-1 justify-end"><div class="text-right"><div class="text-base font-bold">' + s.a + '</div><div class="text-[10px] text-white/30">Away</div></div><div class="team-badge bg-gradient-to-br ' + c2[0] + ' ' + c2[1] + '">' + s.aa + '</div></div>' +
+        '</div>' +
+        '<div class="mt-4 pt-3 border-t border-white/5"><div class="text-[10px] font-medium text-white/40 uppercase tracking-wider">' + s.dt + '</div></div>' +
+      '</div>';
+  });
+  el.innerHTML = h;
+}
+
+function updateStats() {
+  var t  = matches.length;
+  var l  = new Set(matches.map(function (m) { return m.league; })).size;
+  var ds = Array.from(new Set(matches.map(function (m) { return m.date; }))).sort();
+  document.getElementById('statTotal').textContent   = t;
+  document.getElementById('statLeagues').textContent = l;
+  document.getElementById('statDate1').textContent      = matches.filter(function (m) { return m.date === ds[0]; }).length;
+  document.getElementById('statDate1Label').textContent = dateLabel(ds[0]).replace(' 2026', '');
+  document.getElementById('statDate2').textContent      = ds[1] ? matches.filter(function (m) { return m.date === ds[1]; }).length : 0;
+  document.getElementById('statDate2Label').textContent = ds[1] ? dateLabel(ds[1]).replace(' 2026', '') : '\u2014';
+}
+
+function renderSchedule(data) {
+  var c = document.getElementById('scheduleContainer');
+  c.innerHTML = '';
+  if (!data || !data.length) {
+    c.innerHTML = '<div class="flex flex-col items-center gap-3 py-16 anim-in d1"><i data-lucide="search-x" class="w-10 h-10 text-white/10"></i><span class="text-sm text-white/30">Tidak ditemukan pertandingan</span></div>';
+    lucide.createIcons();
+    document.getElementById('matchCountLabel').textContent = '0 pertandingan';
+    return;
+  }
+  var leagueGroups = {};
+  data.forEach(function (m) { if (!leagueGroups[m.league]) leagueGroups[m.league] = []; leagueGroups[m.league].push(m); });
+  var orderMap = {};
+  leagueOrder.forEach(function (lg, i) { orderMap[lg] = i; });
+  var orderedLeagues = Object.keys(leagueGroups).sort(function (a, b) { return (orderMap[a] !== undefined ? orderMap[a] : 999) - (orderMap[b] !== undefined ? orderMap[b] : 999); });
+  var total = 0;
+  orderedLeagues.forEach(function (league, li) {
+    var ms = leagueGroups[league].sort(function (a, b) { return a.date !== b.date ? a.date.localeCompare(b.date) : a.time.localeCompare(b.time); });
+    total += ms.length;
+    var w = document.createElement('div');
+    w.className = 'glass-static p-5 mb-4 league-card';
+    w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+    w.style.opacity = '0';
+    var fl = ms[0].flag;
+    var headerHTML = '<div class="league-card-header"><div class="flex items-center gap-2">' + flagImg(fl, 'flag-icon-lg') + '<span class="league-tag">' + league + '</span></div><span class="text-[10px] text-white/15">' + ms.length + ' match</span></div>';
+    var rows = '';
+    var prevDate = '';
+    ms.forEach(function (m) {
+      var v  = parseHC(m.handicap);
+      var z  = isZeroHC(v);
+      var hc = gc(m.home);
+      var ac = gc(m.away);
+      var ha = getAbbr(m.home);
+      var aa = getAbbr(m.away);
+      var ds = dateShort(m.date);
+      if (ds !== prevDate) { rows += '<div class="date-sep"><span class="date-sep-text">' + dateLabel(m.date) + '</span><div class="date-sep-line"></div></div>'; prevDate = ds; }
+      rows += '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5"><div class="flex-shrink-0 w-[64px]"><div class="text-xs font-bold text-white/70">' + m.time + '</div><div class="text-[9px] text-white/20 font-medium">WIB</div></div><div class="flex items-center gap-2.5 flex-1 min-w-0"><div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + ha + '</div><span class="text-[13px] font-semibold truncate">' + m.home + '</span></div><div class="handicap-badge ' + (z ? 'handicap-zero' : '') + ' flex-shrink-0 text-center">' + v.home + ' : ' + v.away + '</div><div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end"><span class="text-[13px] font-semibold truncate text-right">' + m.away + '</span><div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + aa + '</div></div></div>';
+    });
+    w.innerHTML = headerHTML + rows;
+    c.appendChild(w);
+  });
+  document.getElementById('matchCountLabel').textContent = total + ' pertandingan';
+}
+
+function renderPrediksi() {
+  var c = document.getElementById('prediksiList');
+  c.innerHTML = '';
+  if (!predictions.length) { c.innerHTML = '<div class="flex flex-col items-center gap-3 py-16 anim-in d1"><i data-lucide="clock" class="w-10 h-10 text-white/10"></i><span class="text-sm text-white/30">Belum ada hasil pertandingan</span></div>'; lucide.createIcons(); return; }
+  predictions.forEach(function (lg, li) {
+    var w = document.createElement('div');
+    w.className = 'glass-static p-5 mb-4';
+    w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+    w.style.opacity = '0';
+    var rows = '';
+    lg.m.forEach(function (m) {
+      var sc = scoreClass(m[4]);
+      var hc = gc(m[0]);
+      var ac = gc(m[2]);
+      var rt = resultTag(m[4]);
+      var rc = resultTagClass(m[4]);
+      rows += '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5"><div class="flex items-center gap-2.5 flex-1 min-w-0"><div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + m[1] + '</div><span class="text-[13px] font-semibold truncate">' + m[0] + '</span></div><div class="flex-shrink-0 flex flex-col items-center gap-1"><div class="text-lg font-black ' + sc + '">' + m[4] + '</div><span class="result-tag ' + rc + '">' + rt + '</span></div><div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end"><span class="text-[13px] font-semibold truncate text-right">' + m[2] + '</span><div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + m[3] + '</div></div></div>';
+    });
+    w.innerHTML = '<div class="league-card-header"><div class="flex items-center gap-2">' + flagImg(lg.flag, 'flag-icon-lg') + '<span class="league-tag">' + lg.league + '</span></div><span class="text-[10px] text-white/15">' + lg.m.length + ' match</span></div>' + rows;
+    c.appendChild(w);
+  });
+}
+
+function renderLeagueBars() {
+  var c = document.getElementById('leagueBars');
+  c.innerHTML = '';
+  var lc = {};
+  matches.forEach(function (m) { lc[m.league] = (lc[m.league] || 0) + 1; });
+  var sorted = Object.entries(lc).sort(function (a, b) { return b[1] !== a[1] ? b[1] - a[1] : a[0].localeCompare(b[0]); });
+  var max = sorted.length > 0 ? sorted[0][1] : 1;
+  var bc = ['#22d3ee','#818cf8','#a78bfa','#fbbf24','#f472b6','#6366f1','#fb923c','#f87171','#38bdf8','#e879f9','#facc15','#2dd4bf','#4ade80','#fb7185','#34d399','#a3e635','#c084fc','#fca5a1','#67e8f9','#fde68a','#86efac','#fda4af','#d8b4fe','#bef264','#fcd34d','#6ee7b7','#99f6e4','#f0abfc','#fdba74','#7dd3fc'];
+  sorted.forEach(function (entry, i) {
+    var l = entry[0], count = entry[1], pct = Math.round((count / max) * 100);
+    var r = document.createElement('div');
+    r.className = 'flex items-center gap-3';
+    r.innerHTML = '<div class="w-36 lg:w-44 flex-shrink-0 text-[11px] text-white/50 truncate font-medium">' + l + '</div><div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="league-bar" style="width:0%;background:' + bc[i % bc.length] + '" data-width="' + pct + '"></div></div><div class="w-6 text-right text-[11px] font-bold text-white/60">' + count + '</div>';
+    c.appendChild(r);
+  });
+  setTimeout(function () { document.querySelectorAll('.league-bar').forEach(function (b) { b.style.width = b.dataset.width + '%'; }); }, 300);
+}
+
+function filterMatches() {
+  var q = document.getElementById('searchInput').value.toLowerCase().trim();
+  if (!q) { renderSchedule(matches); return; }
+  renderSchedule(matches.filter(function (m) { return m.home.toLowerCase().includes(q) || m.away.toLowerCase().includes(q) || m.league.toLowerCase().includes(q); }));
+}
+
+updateStats();
+renderSpotlight();
+renderLeagueBars();
+renderPrediksi();
+renderSchedule(matches);
+renderManualTable('PL');
+
+  </script>
+
+<script>
+document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
+document.addEventListener("keydown", function(e) {
+  if (e.key === "F12") e.preventDefault();
+  if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) e.preventDefault();
+  if (e.ctrlKey && e.key === "u") e.preventDefault();
+});
+</script>
+<style>
+body { user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+
+/* ── Mobile Match Row — Compact 2-Line Layout ─────────────── */
+@media (max-width: 640px) {
+  .match-row {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    padding: 10px 12px;
+  }
+
+  /* === JADWAL: Baris 1 = Waktu + Handicap === */
+  #scheduleContainer .match-row > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    margin-bottom: 2px;
+  }
+  #scheduleContainer .match-row > div:not(:first-child) {
+    flex: 0 0 auto;
+  }
+  #scheduleContainer .match-row > div:nth-child(2),
+  #scheduleContainer .match-row > div:nth-child(4) {
+    flex: 1 1 0;
+  }
+
+  /* === PREDIKSI: Skor tetap di tengah === */
+  #prediksiList .match-row > div:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  /* === UMUM: Nama tim full tanpa truncate === */
+  .match-row span {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+  .match-row > div {
+    min-width: unset !important;
+  }
+  .match-row .team-badge-sm {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+    border-radius: 6px;
+  }
+  .match-row .handicap-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  .match-row .result-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  .match-row [class*="text-lg"] {
+    font-size: 16px !important;
+  }
+}
+</style>
+
+</body>
+</html>
