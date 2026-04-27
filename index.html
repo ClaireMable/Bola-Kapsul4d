@@ -5,23 +5,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>KAPSUL4D — Media Jadwal, Prediksi & Klasemen SepakBola</title>
-  <meta name="title" content="Kapsul4D — Jadwal & Prediksi SepakBola">
-  <meta name="description" content="Kapsul4D Merupakan Platform Yang Menyediakan Jadwal, Prediksi & Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <title>KAPSUL4D — Media Jadwal, Prediksi &amp; Klasemen SepakBola</title>
+  <meta name="title" content="Kapsul4D — Jadwal &amp; Prediksi SepakBola">
+  <meta name="description" content="Kapsul4D Merupakan Platform Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
   <link rel="icon" href="https://favx.link/i/ms7jfx0t/favicon1.png" />
 
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://kapsul4d-project-iota.vercel.app/">
-  <meta property="og:title" content="KAPSUL4D - MEDIA JADWAL, PREDIKSI & KLASEMEN">
-  <meta property="og:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi & Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <meta property="og:title" content="KAPSUL4D - MEDIA JADWAL, PREDIKSI &amp; KLASEMEN">
+  <meta property="og:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
   <meta property="og:image" content="https://favx.link/i/cmijscll/logokapsul.jpg">
 
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://kapsul4d-project-iota.vercel.app/">
   <meta property="twitter:title" content="KAPSUL4D - MEDIA JADWAL DAN PREDIKSI">
-  <meta property="twitter:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi & Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
+  <meta property="twitter:description" content="Kapsul4D Merupakan Platform Media Yang Menyediakan Jadwal, Prediksi &amp; Klasemen Liga Sepak Bola Yang Terupdate Setiap Hari.">
   <meta property="twitter:image" content="https://favx.link/i/cmijscll/logokapsul.jpg">
-
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -43,556 +42,749 @@
   </script>
 
   <style>
-    /* ── Reset ─────────────────────────────────────────────── */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: "Inter", sans-serif;
-      overflow-x: hidden;
-    }
+/* ══════════════════════════════════════════════════════════════════
+   KAPSUL4D — GLASSMORPHISM FUTURISTIC HIGH-FIDELITY CSS OVERHAUL
+   Concept: Deep Space Control Room · Warm-Orange + Arctic-Cyan
+   ══════════════════════════════════════════════════════════════════ */
 
-    /* ── Animated Background Scene ─────────────────────────── */
-    .bg-scene {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      background: linear-gradient(
-        135deg,
-        #0a0a12 0%,
-        #0e0f1e 25%,
-        #0d1025 55%,
-        #0a0a12 100%
-      );
-    }
-    .bg-blob {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(130px);
-      opacity: 0.3;
-      animation: blobFloat 14s ease-in-out infinite alternate;
-    }
-    .bg-blob-1 { 
-      width: 600px; 
-      height: 600px; 
-      background: #3730a3; 
-      top: -15%; 
-      left: -10%; 
-    }
-    .bg-blob-2 { 
-      width: 500px; 
-      height: 500px; 
-      background: #4f46e5; 
-      bottom: -15%; 
-      right: -8%; 
-      animation-delay: -5s; 
-    }
-    .bg-blob-3 { 
-      width: 400px; 
-      height: 400px; 
-      background: #312e81; 
-      top: 35%; 
-      left: 45%; 
-      animation-delay: -9s; 
-    }
-    .bg-blob-4 { 
-      width: 300px; 
-      height: 300px; 
-      background: #6366f1; 
-      top: 5%; 
-      right: 15%; 
-      animation-delay: -3s; 
-      opacity: 0.15; 
-    }
+/* ── CSS Custom Properties ─────────────────────────────────────── */
+:root {
+  --cyan:       #22d3ee;
+  --cyan-dim:   rgba(34, 211, 238, 0.18);
+  --cyan-glow:  rgba(34, 211, 238, 0.12);
+  --indigo:     #818cf8;
+  --orange:     rgba(234, 88, 12, 0.22);
+  --glass-bg:   rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(255, 255, 255, 0.11);
+  --glass-shine: rgba(255, 255, 255, 0.09);
+  --shadow-deep: rgba(0, 0, 0, 0.45);
+  --shadow-md:   rgba(0, 0, 0, 0.28);
+}
 
-    @keyframes blobFloat {
-      0%   { transform: translate(0, 0) scale(1); }
-      33%  { transform: translate(30px, -50px) scale(1.06); }
-      66%  { transform: translate(-25px, 25px) scale(0.94); }
-      100% { transform: translate(15px, -15px) scale(1.02); }
-    }
+/* ── Reset ──────────────────────────────────────────────────────── */
+* { margin:0; padding:0; box-sizing:border-box; }
 
-    /* ── Grid Overlay ───────────────────────────────────────── */
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      z-index: 1;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background: #ffffff00;
+}
 
-    /* ── Glassmorphism Utilities ────────────────────────────── */
-    .glass {
-      background: rgba(255, 255, 255, 0.035);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 16px;
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    .glass:hover {
-      background: rgba(255, 255, 255, 0.06);
-      border-color: rgba(255, 255, 255, 0.14);
-      transform: translateY(-2px);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    }
-    .glass-static {
-      background: rgba(255, 255, 255, 0.035);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      border-radius: 16px;
-    }
-    .glass-sidebar {
-      background: rgba(255, 255, 255, 0.025);
-      backdrop-filter: blur(30px);
-      -webkit-backdrop-filter: blur(30px);
-      border-right: 1px solid rgba(255, 255, 255, 0.05);
-    }
+/* ── Noise Texture Overlay (realism) ───────────────────────────── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.038;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 220px 220px;
+}
 
-    /* ── Sidebar Navigation Items ───────────────────────────── */
-    .nav-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 10px 16px;
-      border-radius: 10px;
-      color: rgba(255, 255, 255, 0.45);
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s;
-      cursor: pointer;
-      user-select: none;
-      background: none;
-      border: none;
-      width: 100%;
-      text-align: left;
-      font-family: inherit;
-    }
-    .nav-item:hover {
-      color: rgba(255, 255, 255, 0.85);
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .nav-item:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.6);
-    }
-    .nav-item.active {
-      color: #fff;
-      background: rgba(79, 70, 229, 0.2);
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      box-shadow: 0 0 20px rgba(99, 102, 241, 0.1);
-    }
-    .nav-item.active i { 
-      color: #818cf8; 
-    }
+/* ── Animated Background Scene ──────────────────────────────────── */
+.bg-scene {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 75% at -8%  -8%,  rgba(234, 88,  12, 0.26)  0%, transparent 58%),
+    radial-gradient(ellipse 80% 70% at 108% 108%, rgba(6, 182, 212, 0.24)   0%, transparent 55%),
+    radial-gradient(ellipse 55% 55% at  52%  48%, rgba(79, 70, 229, 0.10)  0%, transparent 68%),
+    radial-gradient(ellipse 40% 40% at  82%  12%, rgba(251,191, 36, 0.055) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 35% at  18%  88%, rgba(34, 211, 238, 0.07) 0%, transparent 60%),
+    linear-gradient(155deg, #080b1c 0%, #0b0f24 45%, #08091a 100%);
+}
 
-    /* ── Stat Card Accent Borders ───────────────────────────── */
-    .accent-green { border-top: 2px solid #4ade80; }
-    .accent-cyan  { border-top: 2px solid #22d3ee; }
+/* Volumetric vignette ring */
+.bg-scene::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 120% 120% at 50% 50%,
+      transparent 40%,
+      rgba(0,0,0,0.55) 100%);
+}
 
-    /* ── Match Row ──────────────────────────────────────────── */
-    .match-row {
-      background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      border-radius: 12px;
-      transition: all 0.3s;
-    }
-    .match-row:hover {
-      background: rgba(255, 255, 255, 0.055);
-      border-color: rgba(255, 255, 255, 0.15);
-      transform: translateX(2px);
-    }
+/* Subtle animated horizontal light band */
+.bg-scene::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0;
+  top: -100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(34,211,238,0.018) 50%,
+    transparent 100%);
+  animation: lightSweep 18s ease-in-out infinite;
+}
+@keyframes lightSweep {
+  0%   { transform: translateY(0%); }
+  50%  { transform: translateY(200%); }
+  100% { transform: translateY(0%); }
+}
 
-    /* ── Handicap Badge ─────────────────────────────────────── */
-    .handicap-badge {
-      background: rgba(251, 191, 36, 0.1);
-      border: 1px solid rgba(251, 191, 36, 0.2);
-      color: #fbbf24;
-      border-radius: 8px;
-      padding: 4px 10px;
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-      letter-spacing: 0.02em;
-    }
-    .handicap-zero {
-      background: rgba(99, 102, 241, 0.08);
-      border-color: rgba(99, 102, 241, 0.18);
-      color: rgba(129, 140, 248, 0.7);
-    }
+/* Disable old blobs */
+.bg-blob { display: none !important; }
 
-    /* ── League Tag & Date Separator ────────────────────────── */
-    .league-tag {
-      font-size: 10px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.3);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .date-sep {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin: 8px 0 6px;
-      padding-left: 2px;
-    }
-    .date-sep-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(255, 255, 255, 0.04);
-    }
-    .date-sep-text {
-      font-size: 9px;
-      font-weight: 600;
-      color: rgb(255, 255, 255);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      white-space: nowrap;
-    }
+/* ── Grid Overlay ───────────────────────────────────────────────── */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.028) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.028) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 100% 100% at 50% 50%, black 30%, transparent 100%);
+}
 
-    /* ── Fade In Up Animation ───────────────────────────────── */
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .anim-in { 
-      animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards; 
-      opacity: 0; 
-    }
-    .d1 { animation-delay: 0.06s; }
-    .d2 { animation-delay: 0.12s; }
-    .d3 { animation-delay: 0.18s; }
-    .d4 { animation-delay: 0.24s; }
-    .d5 { animation-delay: 0.30s; }
-    .d6 { animation-delay: 0.36s; }
-    .d7 { animation-delay: 0.42s; }
-    .d8 { animation-delay: 0.48s; }
+/* ══════════════════════════════════════════════════════════════════
+   GLASS SYSTEM
+   ══════════════════════════════════════════════════════════════════ */
 
-    /* ── Hero / Spotlight Card ──────────────────────────────── */
-    .hero-card {
-      background: rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(30px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 18px;
-      position: relative;
-      overflow: hidden;
-      transition: all 0.4s;
-    }
-    .hero-card:hover {
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 40px rgba(99, 102, 241, 0.08);
-      transform: translateY(-3px);
-    }
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, #818cf8, transparent);
-    }
+.glass {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.09) 0%,
+    rgba(255,255,255,0.04) 60%,
+    rgba(255,255,255,0.02) 100%
+  );
+  backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.2);
+  border-left-color: rgba(255,255,255,0.15);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.12) inset,
+    0 -1px 0  rgba(0,0,0,0.20) inset,
+    0 6px 6px rgba(0,0,0,0.14),
+    0 16px 48px rgba(0,0,0,0.38);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+/* top-edge shine */
+.glass::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.28) 35%,
+    rgba(255,255,255,0.08) 65%,
+    transparent 100%);
+  pointer-events: none;
+}
+/* diagonal sheen */
+.glass::after {
+  content: '';
+  position: absolute;
+  top: -40%; left: -20%;
+  width: 55%; height: 90%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 60%);
+  transform: skewX(-10deg);
+  pointer-events: none;
+}
+.glass:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.13) 0%,
+    rgba(255,255,255,0.07) 60%,
+    rgba(255,255,255,0.03) 100%
+  );
+  border-color: rgba(34, 211, 238, 0.28);
+  border-top-color: rgba(34, 211, 238, 0.45);
+  transform: translateY(-5px);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.18) inset,
+    0 -1px 0  rgba(0,0,0,0.2) inset,
+    0 8px 10px rgba(0,0,0,0.18),
+    0 24px 60px rgba(0,0,0,0.45),
+    0 0  25px  rgba(34,211,238,0.10),
+    0 0  55px  rgba(34,211,238,0.05);
+}
 
-    /* ── Team Badges ────────────────────────────────────────── */
-    .team-badge {
-      width: 40px;
-      height: 40px;
-      border-radius: 11px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 800;
-      font-size: 11px;
-      letter-spacing: -0.02em;
-      flex-shrink: 0;
-    }
-    .team-badge-sm {
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      font-size: 10px;
-    }
-    .team-crest {
-      width: 18px;
-      height: 18px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 6.5px;
-      font-weight: 800;
-      color: white;
-      flex-shrink: 0;
-    }
-    @media (min-width: 1024px) {
-      .team-crest { 
-        width: 20px; 
-        height: 20px; 
-        border-radius: 5px; 
-        font-size: 7px; 
-      }
-    }
+/* ── Glass Static ───────────────────────────────────────────────── */
+.glass-static {
+  background: linear-gradient(
+    145deg,
+    rgba(255,255,255,0.075) 0%,
+    rgba(255,255,255,0.03) 55%,
+    rgba(255,255,255,0.015) 100%
+  );
+  backdrop-filter: blur(24px) saturate(170%);
+  -webkit-backdrop-filter: blur(24px) saturate(170%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top-color: rgba(255,255,255,0.17);
+  border-radius: 18px;
+  box-shadow:
+    0 1px 0  rgba(255,255,255,0.12) inset,
+    0 -1px 0 rgba(0,0,0,0.15) inset,
+    0 8px 32px rgba(0,0,0,0.32),
+    0 2px 6px  rgba(0,0,0,0.12);
+  position: relative;
+  overflow: hidden;
+}
+.glass-static::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.22), transparent);
+  pointer-events: none;
+}
+.glass-static::after {
+  content: '';
+  position: absolute;
+  top: -35%; left: -15%;
+  width: 50%; height: 80%;
+  background: linear-gradient(130deg, rgba(255,255,255,0.04) 0%, transparent 60%);
+  transform: skewX(-12deg);
+  pointer-events: none;
+}
 
-    /* ── Flag Icons ─────────────────────────────────────────── */
-    .flag-icon { 
-      height: 14px; 
-      width: auto; 
-      border-radius: 1.5px; 
-      object-fit: cover; 
-      flex-shrink: 0; 
-    }
-    .flag-icon-lg { 
-      height: 16px; 
-      width: auto; 
-      border-radius: 2px; 
-      object-fit: cover; 
-    }
+/* ── Glass Sidebar ──────────────────────────────────────────────── */
+.glass-sidebar {
+  background: linear-gradient(
+    175deg,
+    rgba(255,255,255,0.065) 0%,
+    rgba(255,255,255,0.025) 60%,
+    rgba(255,255,255,0.01) 100%
+  );
+  backdrop-filter: blur(36px) saturate(200%);
+  -webkit-backdrop-filter: blur(36px) saturate(200%);
+  border-right: 1px solid rgba(255,255,255,0.08);
+  box-shadow:
+    4px 0 30px rgba(0,0,0,0.35),
+    inset -1px 0 0 rgba(255,255,255,0.05),
+    inset 1px 0 0 rgba(255,255,255,0.03);
+  position: relative;
+}
+.glass-sidebar::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 1px; bottom: 0;
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(34,211,238,0.25) 30%,
+    rgba(129,140,248,0.2) 70%,
+    transparent 100%);
+  pointer-events: none;
+}
 
-    /* ── Score Color Classes ────────────────────────────────── */
-    .score-home  { color: #4ade80; }
-    .score-away  { color: #f87171; }
-    .score-draw  { color: #fbbf24; }
+/* ══════════════════════════════════════════════════════════════════
+   NAVIGATION
+   ══════════════════════════════════════════════════════════════════ */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  color: rgba(255,255,255,0.42);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: 1px solid transparent;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+}
+.nav-item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%);
+  opacity: 0;
+  transition: opacity 0.28s;
+}
+.nav-item:hover {
+  color: rgba(255,255,255,0.88);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow:
+    0 4px 15px rgba(0,0,0,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.1);
+}
+.nav-item:hover::before { opacity: 1; }
+.nav-item:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(34,211,238,0.55);
+}
+.nav-item.active {
+  color: #fff;
+  background: linear-gradient(
+    135deg,
+    rgba(6, 182, 212, 0.22) 0%,
+    rgba(99, 102, 241, 0.16) 100%
+  );
+  border-color: rgba(34,211,238,0.30);
+  box-shadow:
+    0 0  12px rgba(34,211,238,0.18),
+    0 0  30px rgba(34,211,238,0.08),
+    0 0  60px rgba(34,211,238,0.04),
+    0 4px 15px rgba(0,0,0,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.16),
+    inset 0 0 15px rgba(34,211,238,0.06);
+  text-shadow: 0 0 18px rgba(34,211,238,0.45);
+}
+.nav-item.active::before { opacity: 1; }
+.nav-item.active i {
+  color: #22d3ee;
+  filter: drop-shadow(0 0 6px rgba(34,211,238,0.75)) drop-shadow(0 0 14px rgba(34,211,238,0.35));
+}
 
-    /* ── Result Tags ────────────────────────────────────────── */
-    .result-tag {
-      display: inline-flex;
-      align-items: center;
-      gap: 4px;
-      font-size: 10px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 6px;
-    }
-    .result-home { 
-      background: rgba(74, 222, 128, 0.08); 
-      color: #4ade80; 
-      border: 1px solid rgba(74, 222, 128, 0.15); 
-    }
-    .result-away { 
-      background: rgba(248, 113, 113, 0.08); 
-      color: #f87171; 
-      border: 1px solid rgba(248, 113, 113, 0.15); 
-    }
-    .result-draw { 
-      background: rgba(251, 191, 36, 0.08);  
-      color: #fbbf24; 
-      border: 1px solid rgba(251, 191, 36, 0.15); 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   STAT CARDS
+   ══════════════════════════════════════════════════════════════════ */
+.accent-green {
+  border-top: 2px solid rgba(74,222,128,0.75) !important;
+  box-shadow:
+    0 -2px 22px rgba(74,222,128,0.14) inset,
+    0 1px 0 rgba(255,255,255,0.12) inset,
+    0 8px 32px rgba(0,0,0,0.35),
+    0 0 0 0.5px rgba(74,222,128,0.12) !important;
+}
+.accent-cyan {
+  border-top: 2px solid rgba(34,211,238,0.75) !important;
+  box-shadow:
+    0 -2px 22px rgba(34,211,238,0.14) inset,
+    0 1px 0 rgba(255,255,255,0.12) inset,
+    0 8px 32px rgba(0,0,0,0.35),
+    0 0 0 0.5px rgba(34,211,238,0.12) !important;
+}
 
-    /* ── Form Indicator Dots ────────────────────────────────── */
-    .form-dot { 
-      width: 7px; 
-      height: 7px; 
-      border-radius: 50%; 
-      display: inline-block; 
-      flex-shrink: 0; 
-    }
-    .form-w { 
-      background: #4ade80; 
-      box-shadow: 0 0 4px rgba(74, 222, 128, 0.25); 
-    }
-    .form-d { 
-      background: rgba(255, 255, 255, 0.18); 
-    }
-    .form-l { 
-      background: #f87171; 
-      box-shadow: 0 0 4px rgba(248, 113, 113, 0.25); 
-    }
-    .form-gap { 
-      width: 3px; 
-      flex-shrink: 0; 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   MATCH ROWS
+   ══════════════════════════════════════════════════════════════════ */
+.match-row {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.045) 0%,
+    rgba(255,255,255,0.018) 100%
+  );
+  border: 1px solid rgba(255,255,255,0.065);
+  border-top-color: rgba(255,255,255,0.10);
+  border-radius: 12px;
+  transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+.match-row::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,0.10) 40%,
+    rgba(255,255,255,0.04) 70%,
+    transparent 100%);
+  pointer-events: none;
+}
+.match-row:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(34,211,238,0.08) 0%,
+    rgba(255,255,255,0.04) 100%
+  );
+  border-color: rgba(34,211,238,0.22);
+  border-top-color: rgba(34,211,238,0.35);
+  transform: translateX(4px);
+  box-shadow:
+    0 4px 20px rgba(0,0,0,0.26),
+    0 0  18px rgba(34,211,238,0.07),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
 
-    /* ── League Card & Header ───────────────────────────────── */
-    .league-card { 
-      margin-bottom: 1rem; 
-    }
-    .league-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-    }
+/* ══════════════════════════════════════════════════════════════════
+   HERO / SPOTLIGHT CARDS
+   ══════════════════════════════════════════════════════════════════ */
+.hero-card {
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.09) 0%,
+    rgba(255,255,255,0.04) 55%,
+    rgba(255,255,255,0.02) 100%
+  );
+  backdrop-filter: blur(32px) saturate(180%);
+  -webkit-backdrop-filter: blur(32px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-top-color: rgba(255,255,255,0.22);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.15) inset,
+    0 -1px 0  rgba(0,0,0,0.18) inset,
+    0 8px 32px rgba(0,0,0,0.40),
+    0 2px 8px  rgba(0,0,0,0.22);
+}
+/* Gradient top bar */
+.hero-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(34,211,238,0.90) 25%,
+    rgba(129,140,248,0.90) 60%,
+    rgba(234,88,12,0.50) 85%,
+    transparent 100%);
+  filter: blur(0.5px);
+}
+/* Internal sheen */
+.hero-card::after {
+  content: '';
+  position: absolute;
+  top: -30%; left: -10%;
+  width: 55%; height: 85%;
+  background: linear-gradient(130deg, rgba(255,255,255,0.06) 0%, transparent 55%);
+  transform: skewX(-8deg);
+  pointer-events: none;
+}
+.hero-card:hover {
+  border-color: rgba(34,211,238,0.32);
+  border-top-color: rgba(34,211,238,0.55);
+  box-shadow:
+    0 1px 0   rgba(255,255,255,0.22) inset,
+    0 -1px 0  rgba(0,0,0,0.18) inset,
+    0 12px 50px rgba(0,0,0,0.50),
+    0 0  35px rgba(34,211,238,0.14),
+    0 0  70px rgba(99,102,241,0.08);
+  transform: translateY(-5px);
+}
 
-    /* ── Distribution Bar ───────────────────────────────────── */
-    .league-bar {
-      height: 6px;
-      border-radius: 3px;
-      transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
+/* ══════════════════════════════════════════════════════════════════
+   HANDICAP BADGES
+   ══════════════════════════════════════════════════════════════════ */
+.handicap-badge {
+  background: linear-gradient(135deg, rgba(251,191,36,0.18) 0%, rgba(251,191,36,0.08) 100%);
+  border: 1px solid rgba(251,191,36,0.28);
+  color: #fbbf24;
+  border-radius: 8px;
+  padding: 4px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+  box-shadow:
+    0 0 12px rgba(251,191,36,0.12),
+    0 2px 6px rgba(0,0,0,0.2),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+  text-shadow: 0 0 10px rgba(251,191,36,0.45);
+}
+.handicap-zero {
+  background: linear-gradient(135deg, rgba(34,211,238,0.12) 0%, rgba(99,102,241,0.08) 100%);
+  border-color: rgba(34,211,238,0.22);
+  color: rgba(34,211,238,0.72);
+  box-shadow: 0 0 10px rgba(34,211,238,0.08), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: none;
+}
 
-    /* ── Klasemen Tabs ──────────────────────────────────────── */
-    .klasemen-tab {
-      padding: 8px 16px;
-      border-radius: 10px;
-      font-size: 12px;
-      font-weight: 600;
-      color: rgba(255, 255, 255, 0.4);
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid transparent;
-      white-space: nowrap;
-      background: rgba(255, 255, 255, 0.03);
-    }
-    .klasemen-tab:hover { 
-      color: rgba(255, 255, 255, 0.7); 
-      background: rgba(255, 255, 255, 0.06); 
-    }
-    .klasemen-tab.active { 
-      color: #fff; 
-      background: rgba(99, 102, 241, 0.15); 
-      border-color: rgba(99, 102, 241, 0.25); 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   SCORE COLORS + RESULT TAGS
+   ══════════════════════════════════════════════════════════════════ */
+.score-home { color: #4ade80; text-shadow: 0 0 14px rgba(74,222,128,0.65), 0 0 30px rgba(74,222,128,0.25); }
+.score-away { color: #f87171; text-shadow: 0 0 14px rgba(248,113,113,0.65), 0 0 30px rgba(248,113,113,0.25); }
+.score-draw { color: #fbbf24; text-shadow: 0 0 14px rgba(251,191,36,0.55),  0 0 28px rgba(251,191,36,0.22); }
 
-    /* ── Standing Table Row (FIXED GRID LAYOUT) ─────────────── */
-    .stand-row {
-      display: grid;
-      gap: 2px;
-      align-items: center;
-      padding: 6px 10px;
-      border-radius: 6px;
-      transition: background 0.2s;
-      cursor: default;
-      font-size: 11px;
-      /* Memaksa layout dengan 12 Kolom yang pas */
-      grid-template-columns: 24px 22px 1fr 26px 26px 26px 26px 26px 26px 30px 30px 65px;
-    }
-    .stand-row:hover { 
-      background: rgba(255, 255, 255, 0.03); 
-    }
+.result-home {
+  background: rgba(74,222,128,0.10);
+  color: #4ade80;
+  border: 1px solid rgba(74,222,128,0.22);
+  box-shadow: 0 0 12px rgba(74,222,128,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(74,222,128,0.5);
+}
+.result-away {
+  background: rgba(248,113,113,0.10);
+  color: #f87171;
+  border: 1px solid rgba(248,113,113,0.22);
+  box-shadow: 0 0 12px rgba(248,113,113,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(248,113,113,0.5);
+}
+.result-draw {
+  background: rgba(251,191,36,0.10);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.22);
+  box-shadow: 0 0 12px rgba(251,191,36,0.10), inset 0 1px 0 rgba(255,255,255,0.08);
+  text-shadow: 0 0 8px rgba(251,191,36,0.4);
+}
 
-    /* Mencegah kolom disembunyikan saat layar kecil / zoom */
-    .cell-crest, 
-    .cell-mp, 
-    .cell-w, 
-    .cell-d, 
-    .cell-l, 
-    .cell-gf, 
-    .cell-ga {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* ── Form Dots ─────────────────────────────────────────────────── */
+.form-dot { 
+  width: 7px; 
+  height: 7px; 
+  border-radius: 50%; 
+  display: inline-block; 
+  flex-shrink: 0; 
+}
+.form-gap { 
+  width: 3px; 
+  flex-shrink: 0; 
+}
+.form-w { background: #4ade80; box-shadow: 0 0 7px rgba(74,222,128,0.85), 0 0 16px rgba(74,222,128,0.35); }
+.form-d { background: rgba(255,255,255,0.25); box-shadow: 0 0 4px rgba(255,255,255,0.12); }
+.form-l { background: #f87171; box-shadow: 0 0 7px rgba(248,113,113,0.85), 0 0 16px rgba(248,113,113,0.35); }
 
-    .stand-header {
-      color: rgb(255, 255, 255);
-      font-size: 9px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .stand-header > div { 
-      text-align: center; 
-    }
-    .stand-header > div:nth-child(3) { 
-      text-align: left; 
-    }
-    .stand-header > div:last-child { 
-      text-align: center; 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   KLASEMEN TABS
+   ══════════════════════════════════════════════════════════════════ */
+.klasemen-tab {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.40);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid transparent;
+  white-space: nowrap;
+  background: rgba(255,255,255,0.04);
+  position: relative;
+  overflow: hidden;
+}
+.klasemen-tab:hover {
+  color: rgba(255,255,255,0.82);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+.klasemen-tab.active {
+  color: #fff;
+  background: linear-gradient(135deg, rgba(34,211,238,0.20) 0%, rgba(99,102,241,0.16) 100%);
+  border-color: rgba(34,211,238,0.32);
+  box-shadow:
+    0 0  20px rgba(34,211,238,0.15),
+    0 0  40px rgba(34,211,238,0.06),
+    0 4px 16px rgba(0,0,0,0.25),
+    inset 0 1px 0 rgba(255,255,255,0.14);
+  text-shadow: 0 0 14px rgba(34,211,238,0.35);
+}
 
-    /* ── Zone Color Coding ────────────────────────────────────── */
-    .ucl           { border-left: 3px solid #818CF8; }
-    .uel           { border-left: 3px solid #F97316; }
-    .uecl          { border-left: 3px solid #22C55E; }
-    .ucl-qualifier { border-left: 3px solid #A855F7; }
-    .relegation    { border-left: 3px solid #EF4444; }
-    .relegation-playoff { border-left: 4px solid orange; }
+/* ── Stand Rows ─────────────────────────────────────────────────── */
+.stand-row {
+  display: grid;
+  gap: 2px;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 7px;
+  transition: background 0.2s, box-shadow 0.2s;
+  cursor: default;
+  font-size: 11px;
+  grid-template-columns: 24px 22px 1fr 26px 26px 26px 26px 26px 26px 30px 30px 65px;
+  position: relative;
+}
+.stand-row:not(.stand-header):hover {
+  background: linear-gradient(135deg, rgba(34,211,238,0.055) 0%, rgba(255,255,255,0.025) 100%);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 2px 8px rgba(0,0,0,0.15);
+}
 
-    .zone-legend {
-      display: flex;
-      gap: 14px;
-      margin-bottom: 12px;
-      padding: 8px 12px;
-      background: rgba(255, 255, 255, 0.02);
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      flex-wrap: wrap;
-    }
-    .zone-legend span { 
-      display: flex; 
-      align-items: center; 
-      gap: 5px; 
-      font-size: 10px; 
-      color: rgb(255, 255, 255); 
-    }
-    .zone-legend .dot { 
-      width: 8px; 
-      height: 8px; 
-      border-radius: 2px; 
-      flex-shrink: 0; 
-    }
+/* Zone borders — enhanced glow */
+.ucl           { border-left: 3px solid rgba(129,140,248,0.90); box-shadow: -2px 0 12px rgba(129,140,248,0.20) inset; }
+.uel           { border-left: 3px solid rgba(249,115, 22,0.90); box-shadow: -2px 0 12px rgba(249,115,22,0.20)  inset; }
+.uecl          { border-left: 3px solid rgba(34, 197, 94,0.90); box-shadow: -2px 0 12px rgba(34,197,94,0.20)   inset; }
+.ucl-qualifier { border-left: 3px solid rgba(168, 85,247,0.90); box-shadow: -2px 0 12px rgba(168,85,247,0.20)  inset; }
+.relegation    { border-left: 3px solid rgba(239, 68, 68,0.90); box-shadow: -2px 0 12px rgba(239,68,68,0.20)   inset; }
+.relegation-playoff { border-left: 4px solid rgba(251,146,60,0.90); box-shadow: -2px 0 12px rgba(251,146,60,0.20) inset; }
 
-    /* ── Toast Notification ─────────────────────────────────── */
-    .toast-container {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 200;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-width: 320px;
-      pointer-events: none;
-    }
-    @keyframes toastIn {
-      from { opacity: 0; transform: translateX(40px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    .toast-item {
-      animation: toastIn 0.35s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      pointer-events: auto;
-    }
+/* ── Zone Legend ─────────────────────────────────────────────────── */
+.zone-legend {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+.zone-legend span { display:flex; align-items:center; gap:5px; font-size:10px; color:rgba(255,255,255,0.85); }
+.zone-legend .dot { width:8px; height:8px; border-radius:2px; flex-shrink:0; }
 
-    /* ── Mobile Sidebar Overlay ─────────────────────────────── */
-    .sidebar-overlay { 
-      display: none; 
-      position: fixed; 
-      inset: 0; 
-      background: rgba(0, 0, 0, 0.5); 
-      z-index: 40; 
-    }
-    .sidebar-overlay.show { 
-      display: block; 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   LEAGUE CARD
+   ══════════════════════════════════════════════════════════════════ */
+.league-card { margin-bottom: 1rem; }
+.league-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
 
-    @media (max-width: 1023px) {
-      .sidebar {
-        transform: translateX(-100%);
-        position: fixed !important;
-        z-index: 50;
-        transition: transform 0.3s;
-      }
-      .sidebar.open { 
-        transform: translateX(0); 
-      }
-    }
+/* ── League Distribution Bar ─────────────────────────────────────── */
+.league-bar {
+  height: 6px;
+  border-radius: 3px;
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 0 8px currentColor;
+  filter: brightness(1.1);
+}
 
-    /* ── Custom Scrollbar ───────────────────────────────────── */
-    ::-webkit-scrollbar { 
-      width: 5px; 
-      height: 5px; 
-    }
-    ::-webkit-scrollbar-track { 
-      background: transparent; 
-    }
-    ::-webkit-scrollbar-thumb { 
-      background: rgba(255, 255, 255, 0.08); 
-      border-radius: 3px; 
-    }
+/* ══════════════════════════════════════════════════════════════════
+   DATE SEPARATOR
+   ══════════════════════════════════════════════════════════════════ */
+.date-sep { display:flex; align-items:center; gap:10px; margin:8px 0 6px; padding-left:2px; }
+.date-sep-line { flex:1; height:1px; background: linear-gradient(90deg, rgba(34,211,238,0.15), rgba(255,255,255,0.04)); }
+.date-sep-text {
+  font-size: 9px;
+  font-weight: 700;
+  color: rgba(34,211,238,0.80);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  text-shadow: 0 0 10px rgba(34,211,238,0.4);
+}
+
+/* ── League Tag ──────────────────────────────────────────────────── */
+.league-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TEAM BADGES
+   ══════════════════════════════════════════════════════════════════ */
+.team-badge {
+  width: 40px; height: 40px;
+  border-radius: 11px;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 11px; letter-spacing: -0.02em;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.team-badge-sm {
+  width: 34px; height: 34px;
+  border-radius: 9px; font-size: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.30), inset 0 1px 0 rgba(255,255,255,0.20);
+}
+.team-crest {
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 6.5px; font-weight: 800; color: white; flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2);
+}
+@media (min-width: 1024px) {
+  .team-crest { width:20px; height:20px; border-radius:5px; font-size:7px; }
+}
+
+/* ── Flag Icons ──────────────────────────────────────────────────── */
+.flag-icon    { height:14px; width:auto; border-radius:1.5px; object-fit:cover; flex-shrink:0; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
+.flag-icon-lg { height:16px; width:auto; border-radius:2px;   object-fit:cover; filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4)); }
+
+/* ══════════════════════════════════════════════════════════════════
+   TOAST
+   ══════════════════════════════════════════════════════════════════ */
+.toast-container {
+  position: fixed; top:20px; right:20px;
+  z-index: 200; display:flex; flex-direction:column;
+  gap:8px; max-width:320px; pointer-events:none;
+}
+@keyframes toastIn {
+  from { opacity:0; transform:translateX(40px); }
+  to   { opacity:1; transform:translateX(0); }
+}
+.toast-item { animation: toastIn 0.35s cubic-bezier(0.4,0,0.2,1) forwards; pointer-events:auto; }
+
+/* ══════════════════════════════════════════════════════════════════
+   ANIMATIONS
+   ══════════════════════════════════════════════════════════════════ */
+@keyframes fadeInUp {
+  from { opacity:0; transform:translateY(18px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.anim-in { animation: fadeInUp 0.5s cubic-bezier(0.4,0,0.2,1) forwards; opacity:0; }
+.d1 { animation-delay:0.06s; } .d2 { animation-delay:0.12s; }
+.d3 { animation-delay:0.18s; } .d4 { animation-delay:0.24s; }
+.d5 { animation-delay:0.30s; } .d6 { animation-delay:0.36s; }
+.d7 { animation-delay:0.42s; } .d8 { animation-delay:0.48s; }
+
+/* ══════════════════════════════════════════════════════════════════
+   STAND HEADER
+   ══════════════════════════════════════════════════════════════════ */
+.stand-header {
+  color: rgba(34,211,238,0.75);
+  font-size: 9px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.05em;
+}
+.stand-header > div { text-align:center; }
+.stand-header > div:nth-child(3) { text-align:left; }
+.stand-header > div:last-child { text-align:center; }
+
+/* ══════════════════════════════════════════════════════════════════
+   MOBILE SIDEBAR
+   ══════════════════════════════════════════════════════════════════ */
+.sidebar-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:40; backdrop-filter:blur(4px); }
+.sidebar-overlay.show { display:block; }
+@media (max-width:1023px) {
+  .sidebar { transform:translateX(-100%); position:fixed !important; z-index:50; transition:transform 0.3s cubic-bezier(0.4,0,0.2,1); }
+  .sidebar.open { transform:translateX(0); }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   SCROLLBAR
+   ══════════════════════════════════════════════════════════════════ */
+::-webkit-scrollbar { width:4px; height:4px; }
+::-webkit-scrollbar-track { background:transparent; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, rgba(34,211,238,0.35), rgba(99,102,241,0.35));
+  border-radius:2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, rgba(34,211,238,0.6), rgba(99,102,241,0.6));
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   RESULT TAG (base)
+   ══════════════════════════════════════════════════════════════════ */
+.result-tag {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:10px; font-weight:700;
+  padding:3px 8px; border-radius:6px;
+}
+
+/* Subtle text glow utility */
+.text-indigo-400 { text-shadow: 0 0 12px rgba(129,140,248,0.35); }
+.text-green-400  { text-shadow: 0 0 10px rgba(74,222,128,0.35); }
+.text-red-400    { text-shadow: 0 0 10px rgba(248,113,113,0.35); }
+.text-orange-400 { text-shadow: 0 0 10px rgba(251,146,60,0.35); }
+.text-violet-400 { text-shadow: 0 0 10px rgba(167,139,250,0.35); }
+
+/* ══════════════════════════════════════════════════════════════════
+   CELL HELPERS
+   ══════════════════════════════════════════════════════════════════ */
+.cell-crest, .cell-mp, .cell-w, .cell-d, .cell-l, .cell-gf, .cell-ga {
+  display:flex; align-items:center; justify-content:center;
+}
+
+
   </style>
 </head>
-
 <body class="min-h-screen text-white">
 
   <div class="bg-scene">
@@ -746,7 +938,7 @@
       <div id="secKlasemen" style="display:none">
         <div class="flex items-center gap-2 mb-5">
           <i data-lucide="medal" class="w-4 h-4 text-indigo-400"></i>
-          <h2 class="font-bold text-base">Klasemen 5 Liga Besar</h2>
+          <h2 class="font-bold text-base">Klasemen 5 Liga Eropa</h2>
           <span class="text-[10px] text-white/50 ml-2 hidden sm:inline">Musim 2025/2026</span>
         </div>
 
@@ -915,26 +1107,21 @@
     
     var currentSection = 'dashboard';
 
-    // Navigation Click Handlers
     document.querySelectorAll('.nav-item[data-section]').forEach(function (item) {
       item.addEventListener('click', function () {
         document.querySelectorAll('.nav-item').forEach(function (n) { 
           n.classList.remove('active'); 
         });
-        
         this.classList.add('active');
         var sec = this.dataset.section; 
         currentSection = sec;
-        
         ['secDashboard', 'secJadwal', 'secPrediksi', 'secKlasemen'].forEach(function (id) { 
           document.getElementById(id).style.display = 'none'; 
         });
-        
         document.getElementById('sec' + sec.charAt(0).toUpperCase() + sec.slice(1)).style.display = '';
         document.getElementById('headerTitle').textContent = sectionMeta[sec].title;
         document.getElementById('headerDesc').textContent = sectionMeta[sec].desc;
         document.getElementById('searchWrapper').style.display = sec === 'jadwal' ? '' : 'none';
-        
         if (window.innerWidth < 1024) toggleSidebar();
         if (sec === 'klasemen') renderManualTable(currentLeague);
       });
@@ -948,119 +1135,112 @@
       });
     });
 
-
-/* ================================================================
-       STANDING DATA — ST[leagueCode]
-       Format per row: [pos, name, mp, w, d, l, gf, ga, gd, pts, form]
-       Update: 23 April 2026 | 07.00 WIB
-       Status: Verified by Image & Latest Results
-       ================================================================ */
-    var ST = {
+var ST = {
       PL: [
-        [1,'Manchester City',33,21,7,5,66,29,37,70,'DDWWW'],
-        [2,'Arsenal',33,21,7,5,63,26,37,70,'WWWLL'],
+        [1,'Arsenal',34,22,7,5,64,26,38,73,'WWLLW'],
+        [2,'Manchester City',33,21,7,5,66,29,37,70,'DDWWW'],
         [3,'Manchester United',33,16,10,7,58,45,13,58,'LWDLW'],
-        [4,'Aston Villa',33,17,7,9,47,41,6,58,'LLWDW'],
-        [5,'Liverpool',33,16,7,10,54,43,11,55,'LDLWW'],
-        [6,'Brighton',34,13,11,10,48,39,9,50,'WWLDW'],
+        [4,'Liverpool',34,17,7,10,57,44,13,58,'DLWWW'],
+        [5,'Aston Villa',34,17,7,10,47,42,5,58,'LWDWL'],
+        [6,'Brighton',34,13,11,10,48,39,9,50,'WWWDW'],
         [7,'Bournemouth',34,11,16,7,52,52,0,49,'DDWWD'],
         [8,'Chelsea',34,13,9,12,53,45,8,48,'LLLLL'],
         [9,'Brentford',33,13,9,11,48,44,4,48,'DDDDD'],
-        [10,'Everton',33,13,8,12,40,39,1,47,'WLWDL'],
-        [11,'Sunderland',33,12,10,11,36,40,-4,46,'WLWWL'],
-        [12,'Fulham',33,13,6,14,43,46,-3,45,'LDWLD'],
-        [13,'Crystal Palace',32,11,10,11,35,36,-1,43,'LWDWD'],
-        [14,'Newcastle United',33,12,6,15,46,49,-3,42,'WWLLL'],
-        [15,'Leeds United',34,9,13,12,44,51,-7,40,'DDLWD'],
-        [16,'Nottingham Forest',33,9,9,15,36,45,-9,36,'DDLWW'],
-        [17,'West Ham United',33,8,9,16,40,57,-17,33,'WDLDD'],
-        [18,'Tottenham Hotspur',33,7,10,16,42,53,-11,31,'LDLLD'],
+        [10,'Fulham',34,14,6,14,44,46,-2,48,'DWLDW'],
+        [11,'Everton',34,13,8,13,41,41,0,47,'LWDLL'],
+        [12,'Sunderland',34,12,10,12,36,45,-9,46,'LWWLL'],
+        [13,'Crystal Palace',33,11,10,12,36,39,-3,43,'WDWDL'],
+        [14,'Newcastle United',34,12,6,16,46,50,-4,42,'WLLLL'],
+        [15,'Leeds United',34,9,13,12,44,51,-7,40,'DDWWD'],
+        [16,'Nottingham Forest',34,10,9,15,41,45,-4,39,'DWDWW'],
+        [17,'West Ham United',34,9,9,16,42,58,-16,36,'DLWDW'],
+        [18,'Tottenham Hotspur',34,8,10,16,43,53,-10,34,'DLLDW'],
         [19,'Burnley',34,4,8,22,34,68,-34,20,'DLLLL'],
-        [20,'Wolverhampton',33,3,8,22,24,61,-37,17,'WWDLL']
+        [20,'Wolverhampton',34,3,8,23,24,62,-38,17,'WDLLL']
       ],
       PD: [
-        [1,'Barcelona',32,27,1,4,85,30,55,82,'WWWWW'],
-        [2,'Real Madrid',32,23,4,5,67,30,37,73,'WWLDW'],
-        [3,'Villarreal',31,19,4,8,56,36,20,61,'WDLLW'],
-        [4,'Atletico Madrid',32,17,6,9,53,35,18,57,'WLLLL'],
-        [5,'Real Betis',32,12,13,7,48,40,8,49,'DLLDD'],
-        [6,'Getafe',32,13,5,14,28,32,-4,44,'LLLWW'],
-        [7,'Celta Vigo',32,11,11,10,44,41,3,44,'DLWLL'],
-        [8,'Real Sociedad',32,11,9,12,49,49,0,42,'WLLDL'],
-        [9,'Athletic Club',32,12,5,15,34,45,-11,41,'LLLLW'],
-        [10,'Osasuna',32,10,9,13,37,39,-2,39,'LWDDL'],
-        [11,'Girona',32,9,11,12,35,48,-13,38,'WLLDL'],
-        [12,'Espanyol',31,10,8,13,37,48,-11,38,'DLLDL'],
-        [13,'Valencia',32,9,9,14,35,47,-12,36,'LWLLD'],
-        [14,'Mallorca',32,9,8,15,40,49,-9,35,'WLWWD'],
-        [15,'Elche',32,8,11,13,42,49,-7,35,'LLWLW'],
-        [16,'Rayo Vallecano',31,8,11,12,29,38,-9,35,'DDLWL'],
-        [17,'Sevilla',31,9,7,15,39,51,-12,34,'DLLLL'],
-        [18,'Alaves',32,8,9,15,36,48,-12,33,'DWDDL'],
-        [19,'Levante',31,7,8,16,35,50,-15,29,'DLWLL'],
-        [20,'Real Oviedo',31,6,9,16,24,48,-24,27,'DLWLW']
+        [1,'Barcelona',33,28,1,4,87,30,57,85,'WWWWW'],
+        [2,'Real Madrid',33,23,5,5,68,31,37,74,'WLDWD'],
+        [3,'Villarreal',33,20,5,8,59,38,21,65,'WLWDW'],
+        [4,'Atletico Madrid',33,18,6,9,56,37,19,60,'LLLLW'],
+        [5,'Real Betis',33,12,14,7,49,41,8,50,'LDDWD'],
+        [6,'Getafe',33,13,5,15,28,34,-6,44,'WWLWL'],
+        [7,'Celta Vigo',33,11,11,11,45,43,2,44,'LWLLL'],
+        [8,'Real Sociedad',33,11,10,12,52,52,0,43,'LWDLD'],
+        [9,'Osasuna',33,11,9,13,39,40,-1,42,'WDDLW'],
+        [10,'Athletic Club',33,12,5,16,36,48,-12,41,'WLLWL'],
+        [11,'Rayo Vallecano',33,9,12,12,33,41,-8,39,'LWLWD'],
+        [12,'Valencia',33,10,9,14,37,48,-11,39,'WLLDW'],
+        [13,'Elche',33,9,11,13,44,50,-6,38,'WLWWW'],
+        [14,'Espanyol',32,10,8,14,37,49,-12,38,'LLDLL'],
+        [15,'Girona',33,9,11,13,36,50,-14,38,'LWDLL'],
+        [16,'Alaves',33,9,9,15,38,49,-11,36,'WDDLW'],
+        [17,'Mallorca',33,9,8,16,41,51,-10,35,'LWWDL'],
+        [18,'Sevilla',33,9,7,17,40,55,-15,34,'LLWLL'],
+        [19,'Levante',32,8,8,16,37,50,-13,32,'DWLWW'],
+        [20,'Real Oviedo',33,6,10,17,26,51,-25,28,'LWWDL']
       ],
       BL1: [
-        [1,'Bayern Munich',30,25,4,1,109,29,80,79,'DDWWW'],
-        [2,'Borussia Dortmund',30,19,7,4,61,31,30,64,'WWWLL'],
-        [3,'RB Leipzig',30,18,5,7,59,37,22,59,'LWWWW'],
-        [4,'VfB Stuttgart',30,17,5,8,62,42,20,56,'WWLWL'],
-        [5,'TSG Hoffenheim',30,16,6,8,59,44,15,54,'DLLDW'],
-        [6,'Bayer Leverkusen',30,15,7,8,60,41,19,52,'DDWWL'],
-        [7,'SC Freiburg',30,12,7,11,44,48,-4,43,'LWLWW'],
-        [8,'Eintracht Frankfurt',30,11,9,10,55,57,-2,42,'WLDWL'],
-        [9,'FC Augsburg',30,10,6,14,38,54,-16,36,'LLDDW'],
-        [10,'Mainz 05',30,8,10,12,36,45,-9,34,'WWWLD'],
-        [11,'Union Berlin',30,8,8,14,34,52,-18,32,'WLDLL'],
-        [12,'FC Koln',30,7,10,13,44,51,-7,31,'DDDWD'],
-        [13,'Borussia Mgladbach',30,7,10,13,36,50,-14,31,'WDDLL'],
-        [14,'Hamburger SV',30,7,10,13,33,48,-15,31,'LDLLD'],
-        [15,'Werder Bremen',30,8,7,15,35,53,-18,31,'LWLLW'],
-        [16,'St. Pauli',30,6,8,16,26,51,-25,26,'LLDLD'],
-        [17,'VfL Wolfsburg',30,6,6,18,41,66,-25,24,'DLLLW'],
-        [18,'FC Heidenheim',30,4,7,19,33,66,-33,19,'LDDWL']
+        [1,'Bayern Munich',31,26,4,1,113,32,81,82,'WWWWW'],
+        [2,'Borussia Dortmund',31,20,7,4,65,31,34,67,'WWLLW'],
+        [3,'RB Leipzig',31,19,5,7,62,38,24,62,'WWWWW'],
+        [4,'VfB Stuttgart',31,17,6,8,63,43,20,57,'WLWLD'],
+        [5,'TSG Hoffenheim',31,17,6,8,61,45,16,57,'LLDWW'],
+        [6,'Bayer Leverkusen',31,16,7,8,62,42,20,55,'DWWLW'],
+        [7,'Eintracht Frankfurt',31,11,10,10,56,58,-2,43,'LDWLD'],
+        [8,'SC Freiburg',31,12,7,12,44,52,-8,43,'WLWWL'],
+        [9,'FC Augsburg',31,10,7,14,39,55,-16,37,'LDDWD'],
+        [10,'Mainz 05',31,8,10,13,39,49,-10,34,'WWLDL'],
+        [11,'Borussia Mgladbach',31,7,11,13,36,50,-14,32,'DDLDD'],
+        [12,'Werder Bremen',31,8,8,15,36,54,-18,32,'WLLWD'],
+        [13,'Union Berlin',31,8,8,15,35,55,-20,32,'LDLLL'],
+        [14,'FC Koln',31,7,10,14,45,53,-8,31,'DDWDL'],
+        [15,'Hamburger SV',31,7,10,14,34,50,-16,31,'LDLLL'],
+        [16,'St. Pauli',31,6,8,17,26,53,-27,26,'LDLDL'],
+        [17,'VfL Wolfsburg',31,6,7,18,41,66,-25,25,'LLLWD'],
+        [18,'FC Heidenheim',31,5,7,19,35,66,-31,22,'DDWLW']
       ],
       SA: [
-        [1,'Inter Milan',33,25,3,5,78,29,49,78,'DDWWW'],
-        [2,'AC Milan',33,19,9,5,48,27,21,66,'LWLLW'],
-        [3,'Napoli',33,20,6,7,48,33,15,66,'WWWDL'],
-        [4,'Juventus',33,18,9,6,57,29,28,63,'WDWWW'],
-        [5,'Como',33,16,10,7,57,28,29,58,'WWDLL'],
-        [6,'AS Roma',33,18,4,11,46,29,17,58,'LWLWD'],
+        [1,'Inter Milan',34,25,4,5,80,31,49,79,'DWWWD'],
+        [2,'Napoli',34,21,6,7,52,33,19,69,'WWDLW'],
+        [3,'AC Milan',34,19,10,5,48,27,21,67,'WLLWD'],
+        [4,'Juventus',34,18,10,6,57,29,28,64,'DWWWD'],
+        [5,'Como',34,17,10,7,59,28,31,61,'WDLLW'],
+        [6,'AS Roma',34,19,4,11,48,29,19,61,'WLWDW'],
         [7,'Atalanta',33,14,12,7,45,29,16,54,'DWWLD'],
-        [8,'Bologna',33,14,6,13,42,39,3,48,'WLWWL'],
+        [8,'Bologna',34,14,6,14,42,41,1,48,'LWWLL'],
         [9,'Lazio',33,12,11,10,34,30,4,47,'WWDLW'],
-        [10,'Sassuolo',33,13,6,14,41,44,-3,45,'LDWLW'],
+        [10,'Sassuolo',34,13,7,14,41,44,-3,46,'DWLWD'],
         [11,'Udinese',33,12,7,14,38,43,-5,43,'LWDWL'],
-        [12,'Torino',33,11,7,15,37,54,-17,40,'WLWWD'],
-        [13,'Genoa',33,10,9,14,40,46,-6,39,'WLLWW'],
-        [14,'Parma',33,9,12,12,24,40,-16,39,'LLDDW'],
-        [15,'Fiorentina',33,8,12,13,38,45,-7,36,'DWDWW'],
+        [12,'Parma',34,10,12,12,25,40,-15,42,'LDDLW'],
+        [13,'Torino',34,11,8,15,39,56,-17,41,'LWWDD'],
+        [14,'Genoa',34,10,9,15,40,48,-8,39,'LLWWL'],
+        [15,'Fiorentina',34,8,13,13,38,45,-7,37,'DWWDD'],
         [16,'Cagliari',33,8,9,16,33,47,-14,33,'LLLWL'],
-        [17,'Cremonese',33,6,10,17,26,47,-21,28,'LWLLD'],
-        [18,'Lecce',33,7,7,19,22,46,-24,28,'LLLLW'],
-        [19,'Hellas Verona',33,3,9,21,23,56,-33,18,'LLLLL'],
-        [20,'Pisa',33,2,12,19,24,60,-36,18,'WLLLL']
+        [17,'Lecce',34,7,8,19,22,46,-24,29,'LLLDD'],
+        [18,'Cremonese',34,6,10,18,26,51,-25,28,'WLLDL'],
+        [19,'Hellas Verona',34,3,10,21,23,56,-33,19,'LLLLD'],
+        [20,'Pisa',34,2,12,20,24,61,-37,18,'LLLLL']
       ],
       FL1: [
-        [1,'Paris Saint-Germain',29,21,3,5,65,25,40,66,'LWLWW'],
-        [2,'RC Lens',29,20,2,7,57,29,28,62,'WLWLW'],
-        [3,'Lille OSC',30,16,6,8,49,34,15,54,'WWWWD'],
-        [4,'Olympique Lyon',30,16,6,8,45,30,15,54,'DLWWW'],
-        [5,'Stade Rennais',30,15,8,7,52,41,11,53,'LDWWW'],
-        [6,'Olympique Marseille',30,16,4,10,58,40,18,52,'WLLWL'],
-        [7,'AS Monaco',30,15,5,10,52,45,7,50,'WWWLD'],
-        [8,'RC Strasbourg',29,12,7,10,46,37,9,43,'DDWWL'],
-        [9,'Lorient',30,10,11,9,40,44,-4,41,'WLDLW'],
-        [10,'Paris FC',30,9,11,10,40,46,-6,38,'DWDWW'],
-        [11,'Toulouse FC',30,10,7,13,41,42,-1,37,'WWLLL'],
-        [12,'Stade Brestois',29,10,7,12,38,44,-6,37,'WLLLD'],
-        [13,'Angers SCO',30,9,7,14,26,40,-14,34,'LLDLD'],
-        [14,'Le Havre AC',30,6,12,12,25,38,-13,30,'LLDDD'],
-        [15,'OGC Nice',30,7,8,15,34,56,-22,29,'WLLDD'],
-        [16,'AJ Auxerre',30,5,10,15,25,39,-14,25,'LWDDD'],
-        [17,'FC Nantes',30,4,8,18,25,49,-24,20,'LLDDD'],
-        [18,'Metz',30,3,6,21,27,66,-39,15,'LDDLL']
+        [1,'Paris Saint-Germain',30,22,3,5,68,25,43,69,'WWLWW'],
+        [2,'RC Lens',30,20,3,7,60,32,28,63,'LWLWD'],
+        [3,'Olympique Lyon',31,17,6,8,48,32,16,57,'LDWWW'],
+        [4,'Lille OSC',31,17,6,8,50,34,16,57,'WWWDW'],
+        [5,'Stade Rennais',31,16,8,7,54,42,12,56,'DWWWW'],
+        [6,'Olympique Marseille',31,16,5,10,59,41,18,53,'LLWLD'],
+        [7,'AS Monaco',31,15,6,10,54,47,7,51,'WWLDD'],
+        [8,'RC Strasbourg',30,13,7,10,49,39,10,46,'DWWLW'],
+        [9,'Lorient',31,10,11,10,42,47,-5,41,'LDLWL'],
+        [10,'Toulouse FC',31,10,8,13,43,44,-1,38,'WLLLD'],
+        [11,'Stade Brestois',30,10,8,12,41,47,-6,38,'LLLDD'],
+        [12,'Paris FC',31,9,11,11,40,47,-7,38,'WDWWL'],
+        [13,'Angers SCO',31,9,7,15,26,43,-17,34,'LDLDL'],
+        [14,'Le Havre AC',31,6,13,12,29,42,-13,31,'LDDDD'],
+        [15,'OGC Nice',31,7,9,15,35,57,-22,30,'LLDDD'],
+        [16,'AJ Auxerre',31,5,10,16,27,42,-15,25,'WDDDL'],
+        [17,'FC Nantes',31,4,8,19,26,51,-25,20,'DDDLL'],
+        [18,'Metz',31,3,7,21,31,70,-39,16,'DDLLD']
       ]
     };
 
@@ -1108,15 +1288,9 @@
     function renderManualTable(code) {
       var el = document.getElementById('klasemenContent');
       var data = ST[code];
-
-      if (!data) {
-        el.innerHTML = '<p class="text-center text-white/30 py-12">Data tidak tersedia.</p>';
-        return;
-      }
-
+      if (!data) { el.innerHTML = '<p class="text-center text-white/30 py-12">Data tidak tersedia.</p>'; return; }
       var z = zones[code] || { ucl: 4, uel: 4, uecl: 5, rel: 17 };
       var rows = '';
-
       data.forEach(function (t, i) {
         var zone = getZoneClass(i, z);
         var posC = getPosColor(zone);
@@ -1124,10 +1298,7 @@
         var gdC  = t[8] > 0 ? 'text-green-400' : t[8] < 0 ? 'text-red-400' : 'text-white/40';
         var c    = gc(t[1]);
         var ab   = getAbbr(t[1]);
-
-        var htmlComment = (zone === 'relegation-playoff') ? '\n          \n          ' : '';
-
-        rows += htmlComment +
+        rows +=
           '<div class="stand-row ' + zone + '" style="animation:fadeInUp .3s ' + (i * 0.02) + 's cubic-bezier(.4,0,.2,1) forwards;opacity:0">' +
             '<div class="text-[11px] font-bold ' + posC + '">' + t[0] + '</div>' +
             '<div class="cell-crest"><div class="team-crest bg-gradient-to-br ' + c[0] + ' ' + c[1] + '">' + ab + '</div></div>' +
@@ -1143,16 +1314,8 @@
             '<div class="flex items-center justify-center">' + formDots(t[10]) + '</div>' +
           '</div>';
       });
-
-      /* Logika Dinamis Legend Keterangan (Hanya muncul jika ada) */
-      var uclQLegend = z.uclQ !== undefined
-        ? '<span><div class="dot" style="background:#A855F7"></div>UCL Qualifier</span>'
-        : '';
-        
-      var playoffLegend = z.relPlayoff !== undefined
-        ? '<span><div class="dot" style="background:orange"></div>Playoff Degradasi</span>'
-        : '';
-
+      var uclQLegend = z.uclQ !== undefined ? '<span><div class="dot" style="background:#A855F7"></div>UCL Qualifier</span>' : '';
+      var playoffLegend = z.relPlayoff !== undefined ? '<span><div class="dot" style="background:orange"></div>Playoff Degradasi</span>' : '';
       el.innerHTML =
         '<div class="zone-legend" style="justify-content:space-between">' +
           '<div class="flex gap-3 flex-wrap">' +
@@ -1163,16 +1326,12 @@
             playoffLegend + 
             '<span><div class="dot" style="background:#EF4444"></div>Relegation</span>' +
           '</div>' +
-          
-          /* BAGIAN LEGEND WIN / DRAW / LOSE DI KANAN ATAS */
           '<div class="flex items-center gap-2.5 flex-shrink-0">' +
             '<span class="flex items-center gap-1"><span class="form-dot form-w" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Win</span></span>' +
             '<span class="flex items-center gap-1"><span class="form-dot form-d" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Draw</span></span>' +
             '<span class="flex items-center gap-1"><span class="form-dot form-l" style="width:8px;height:8px"></span><span class="text-[10px] text-white font-semibold">Lose</span></span>' +
           '</div>' +
         '</div>' +
-        
-        /* WRAPPER SCROLL UNTUK MOBILE & PEMBATAS LEBAR UNTUK DESKTOP */
         '<div class="w-full overflow-x-auto pb-2">' +
           '<div class="mx-auto" style="min-width: 650px; max-width: 800px;">' +
             '<div class="stand-row stand-header mb-1" style="opacity:1">' +
@@ -1193,1136 +1352,349 @@
     }
 
 var leagueOrder = [
-  'ENGLAND PREMIER LEAGUE', 'ITALY SERIE A', 'SPAIN LA LIGA', 'GERMANY BUNDESLIGA',
-  'ENGLISH FA CUP', 'FRANCE LIGUE 1', 'ENGLISH CHAMPIONSHIP', 'GERMANY BUNDESLIGA 2',
-  'AUSTRALIA A LEAGUE', 'JAPAN J1 LEAGUE', 'JAPAN J2/J3 LEAGUE', 'NETHERLANDS EREDIVISIE',
-  'NORWAY ELITESERIEN', 'FINLAND VEIKKAUSLIIGA', 'LIGA PORTUGAL', 'SWISS SUPER LEAGUE PLAYOFF',
-  'AFC CHAMPIONS LEAGUE ELITE', 'SPAIN LA LIGA 2', 'BELGIUM FIRST DIVISION A PLAYOFF', 'TURKIYE SUPER LIG',
-  'RUSSIA PREMIER LEAGUE', 'ITALY SERIE B', 'FRANCE LIGUE 2', 'SCOTLAND PREMIERSHIP PLAYOFF',
-  'SWEDEN SUPERETTAN', 'AUSTRIA BUNDESLIGA PLAYOFF', 'INDONESIA SUPER LEAGUE', 'CHINA SUPER LEAGUE',
-  'KOREA K-LEAGUE 1', 'KOREA K-LEAGUE 2', 'POLAND EKSTRAKLASA', 'NORWAY 1ST DIV',
-  'ENGLISH LEAGUE ONE', 'ENGLISH LEAGUE TWO', 'IRELAND PREMIER DIVISION', 'AUSTRALIA VICTORIA NPL',
-  'EGYPT PREMIER LEAGUE PLAYOFF', 'DENMARK 1ST DIV PLAYOFF', 'ROMANIA SUPERLIGA PLAYOFF', 'LIGA PORTUGAL 2',
-  'GERMANY 3RD LIGA', 'BRAZIL SERIE A', 'ARGENTINA LIGA PROFESIONAL', 'MEXICO PRIMERA DIVISION',
-  'CHILE PRIMERA DIVISION', 'BRAZIL SERIE B', 'COLOMBIA PRIMERA A', 'ECUADOR LIGA PRO',
-  'PARAGUAY PRIMERA DIVISION', 'PERU LIGA 1', 'URUGUAY PRIMERA DIVISION', 'ARGENTINA PRIMERA NACIONAL',
-  'VENEZUELA PRIMERA DIVISION'
+  'ENGLISH PREMIER LEAGUE', 'ITALY SERIE A', 'SPAIN LA LIGA',
+  'SWEDEN ALLSVENSKAN', 'DENMARK SUPER LEAGUE PLAYOFF', 'LIGA PORTUGAL',
+  'SPAIN LA LIGA 2', 'TURKIYE SUPER LIG', 'RUSSIA PREMIER LEAGUE',
+  'FRANCE LIGUE 2', 'INDONESIA SUPER LEAGUE', 'POLAND EKSTRAKLASA',
+  'NORWAY 1ST DIV', 'ICELAND PREMIER LEAGUE', 'EGYPT PREMIER LEAGUE PLAYOFF',
+  'ROMANIA SUPERLIGA PLAYOFF', 'LIGA PORTUGAL 2', 'CYPRUS 1ST DIV PLAYOFF',
+  'POLAND 1ST LIGA', 'UKRAINE PREMIER LEAGUE', 'CROATIA SUPERLIGA',
+  'BELGIUM FIRST DIVISION B PLAYOFF', 'GEORGIA EROVNULI LIGA',
+  'SERBIA SUPERLIGA PLAYOFF', 'AZERBAIJAN PREMIER LEAGUE', 'RUSSIA FIRST LEAGUE',
+  'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', 'LATVIA VIRSLIGA',
+  'SWEDEN ETTAN NORTH', 'GERMANY WOMEN BUNDESLIGA', 'ARGENTINA LIGA PROFESIONAL',
+  'BRAZIL SERIE B', 'ECUADOR LIGA PRO SERIE A', 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE',
+  'PERU LIGA 1', 'URUGUAY PRIMERA DIVISION', 'BRAZIL SERIE C',
+  'COLOMBIA PRIMERA B PLAYOFF', 'PARAGUAY DIVISION INTERMEDIA',
+  'URUGUAY SEGUNDA DIVISION', 'CHILE PRIMERA B'
 ];
 
-/* ================================================================
-   MATCH DATA
-   ================================================================ */
 var matches = [
-  // ENGLAND PREMIER LEAGUE
-  { date:'25/04', time:'18:30', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Fulham', away:'Aston Villa', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Liverpool', away:'Crystal Palace', handicap:'0 : 1' },
-  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Wolverhampton Wanderers', away:'Tottenham Hotspur', handicap:'0 : 3/4' },
-  { date:'25/04', time:'21:00', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'West Ham United', away:'Everton', handicap:'1/4 : 0' },
-  { date:'25/04', time:'23:30', league:'ENGLAND PREMIER LEAGUE', flag:'gb-eng', home:'Arsenal', away:'Newcastle United', handicap:'0 : 1 1/4' },
-
-  // ITALY SERIE A
-  { date:'25/04', time:'20:00', league:'ITALY SERIE A', flag:'it', home:'Parma Calcio', away:'Pisa', handicap:'0 : 1/2' },
-  { date:'25/04', time:'23:00', league:'ITALY SERIE A', flag:'it', home:'Bologna', away:'AS Roma', handicap:'1/4 : 0' },
-  { date:'26/04', time:'01:45', league:'ITALY SERIE A', flag:'it', home:'Hellas Verona', away:'Lecce', handicap:'1/4 : 0' },
-
-  // SPAIN LA LIGA
-  { date:'25/04', time:'19:00', league:'SPAIN LA LIGA', flag:'es', home:'Alaves', away:'Mallorca', handicap:'0 : 1/4' },
-  { date:'25/04', time:'21:15', league:'SPAIN LA LIGA', flag:'es', home:'Getafe', away:'Barcelona', handicap:'1 : 0' },
-  { date:'25/04', time:'23:30', league:'SPAIN LA LIGA', flag:'es', home:'Valencia', away:'Girona FC', handicap:'0 : 1/4' },
-  { date:'26/04', time:'02:00', league:'SPAIN LA LIGA', flag:'es', home:'Atletico Madrid', away:'Athletic Bilbao', handicap:'0 : 1/2' },
-
-  // GERMANY BUNDESLIGA
-  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Augsburg', away:'Eintracht Frankfurt', handicap:'0 : 0' },
-  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'FC Heidenheim', away:'St. Pauli', handicap:'0 : 1/4' },
-  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Koln', away:'Bayer Leverkusen', handicap:'1/2 : 0' },
-  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'FSV Mainz 05', away:'Bayern Munchen', handicap:'3/4 : 0' },
-  { date:'25/04', time:'20:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'VfL Wolfsburg', away:'Borussia Monchengladbach', handicap:'0 : 1/4' },
-  { date:'25/04', time:'23:30', league:'GERMANY BUNDESLIGA', flag:'de', home:'Hamburger SV', away:'TSG Hoffenheim', handicap:'3/4 : 0' },
-
-  // ENGLISH FA CUP
-  { date:'25/04', time:'23:15', league:'ENGLISH FA CUP', flag:'gb-eng', home:'Manchester City', away:'Southampton', handicap:'0 : 2' },
-
-  // FRANCE LIGUE 1
-  { date:'25/04', time:'20:00', league:'FRANCE LIGUE 1', flag:'fr', home:'Lyon', away:'Auxerre', handicap:'0 : 3/4' },
-  { date:'25/04', time:'22:30', league:'FRANCE LIGUE 1', flag:'fr', home:'Angers', away:'Paris Saint Germain', handicap:'1 3/4 : 0' },
-  { date:'26/04', time:'02:05', league:'FRANCE LIGUE 1', flag:'fr', home:'Toulouse', away:'AS Monaco', handicap:'1/2 : 0' },
-
-  // ENGLISH CHAMPIONSHIP
-  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Middlesbrough', away:'Watford', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'W.B.A', away:'Ipswich Town', handicap:'1/2 : 0' },
-  { date:'25/04', time:'18:30', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Charlton Athletic', away:'Hull City', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Oxford United', away:'Sheffield Wednesday', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Queens Park Rangers', away:'Derby County', handicap:'1/4 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Norwich City', away:'Swansea City', handicap:'0 : 3/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Stoke City', away:'Portsmouth', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Birmingham City', away:'Bristol City', handicap:'0 : 3/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Sheffield United', away:'Preston North End', handicap:'0 : 1' },
-
-  // GERMANY BUNDESLIGA 2
-  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Karlsruher SC', away:'Hannover 96', handicap:'3/4 : 0' },
-  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Hertha Berlin', away:'Holstein Kiel', handicap:'0 : 1/2' },
-  { date:'25/04', time:'18:00', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'Preussen Munster', away:'Arminia Bielefeld', handicap:'1/4 : 0' },
-  { date:'26/04', time:'01:30', league:'GERMANY BUNDESLIGA 2', flag:'de', home:'SV Darmstadt 98', away:'SV Elversberg', handicap:'1/4 : 0' },
-
-  // AUSTRALIA A LEAGUE
-  { date:'25/04', time:'14:00', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Newcastle Jets', away:'Central Coast Mariners', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'16:35', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Western Sydney Wanderers FC', away:'Melbourne Victory', handicap:'1/4 : 0' },
-  { date:'25/04', time:'18:45', league:'AUSTRALIA A LEAGUE', flag:'au', home:'Perth Glory', away:'Brisbane Roar FC', handicap:'1/4 : 0' },
-
-  // JAPAN J1 LEAGUE
-  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Shimizu S-Pulse', away:'Nagoya Grampus', handicap:'0 : 1/4' },
-  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Fagiano Okayama', away:'Avispa Fukuoka', handicap:'0 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Urawa Red Diamonds', away:'Yokohama F Marinos', handicap:'0 : 1/2' },
-  { date:'25/04', time:'13:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Kawasaki Frontale', away:'JEF United Ichihara Chiba', handicap:'0 : 3/4' },
-  { date:'25/04', time:'14:00', league:'JAPAN J1 LEAGUE', flag:'jp', home:'Sanfrecce Hiroshima', away:'Cerezo Osaka', handicap:'0 : 3/4' },
-  { date:'25/04', time:'16:30', league:'JAPAN J1 LEAGUE', flag:'jp', home:'V-Varen Nagasaki', away:'Gamba Osaka', handicap:'1/2 : 0' },
-
-  // JAPAN J2/J3 LEAGUE
-  { date:'25/04', time:'11:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Jubilo Iwata', away:'FC Gifu', handicap:'0 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Giravanz Kitakyushu', away:'Renofa Yamaguchi', handicap:'1/4 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Vegalta Sendai', away:'Montedio Yamagata', handicap:'0 : 1' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Zweigen Kanazawa', away:'Nara Club', handicap:'0 : 1/2' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Fukushima United FC', away:'Ventforet Kofu', handicap:'1/2 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Fujieda MYFC', away:'RB Omiya Ardija', handicap:'1/2 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Tochigi City FC', away:'Tochigi SC', handicap:'0 : 1/4' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Albirex Niigata', away:'FC Osaka', handicap:'0 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Gainare Tottori', away:'Roasso Kumamoto', handicap:'1/2 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Tegevajaro Miyazaki', away:'Kagoshima United', handicap:'0 : 1/4' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'FC Imabari', away:'Kataller Toyama', handicap:'1/4 : 0' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Sagan Tosu', away:'Reilac Shiga FC', handicap:'0 : 1' },
-  { date:'25/04', time:'12:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'Hokkaido Consadole Sapporo', away:'Iwaki FC', handicap:'1/4 : 0' },
-  { date:'25/04', time:'15:00', league:'JAPAN J2/J3 LEAGUE', flag:'jp', home:'SC Sagamihara', away:'Shonan Bellmare', handicap:'1/2 : 0' },
-
-  // NETHERLANDS EREDIVISIE
-  { date:'25/04', time:'21:30', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'Feyenoord', away:'Groningen', handicap:'0 : 1' },
-  { date:'25/04', time:'23:45', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'SC Heerenveen', away:'Fortuna Sittard', handicap:'0 : 1' },
-  { date:'26/04', time:'01:00', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'NAC Breda', away:'Ajax', handicap:'1/2 : 0' },
-  { date:'26/04', time:'02:00', league:'NETHERLANDS EREDIVISIE', flag:'nl', home:'FC Twente Enschede', away:'NEC Nijmegen', handicap:'0 : 1/2' },
-
-  // NORWAY ELITESERIEN
-  { date:'25/04', time:'21:00', league:'NORWAY ELITESERIEN', flag:'no', home:'Fredrikstad', away:'Viking', handicap:'3/4 : 0' },
-  { date:'25/04', time:'23:00', league:'NORWAY ELITESERIEN', flag:'no', home:'Rosenborg', away:'Brann', handicap:'0 : 1/4' },
-
-  // FINLAND VEIKKAUSLIIGA
-  { date:'25/04', time:'19:00', league:'FINLAND VEIKKAUSLIIGA', flag:'fi', home:'Lahti', away:'AC Oulu', handicap:'1/4 : 0' },
-  { date:'25/04', time:'21:00', league:'FINLAND VEIKKAUSLIIGA', flag:'fi', home:'Inter Turku', away:'IFK Mariehamn', handicap:'0 : 1 1/2' },
-
-  // LIGA PORTUGAL
-  { date:'25/04', time:'21:30', league:'LIGA PORTUGAL', flag:'pt', home:'CD Tondela', away:'Nacional da Madeira', handicap:'0 : 0' },
-  { date:'25/04', time:'22:30', league:'LIGA PORTUGAL', flag:'pt', home:'Benfica', away:'Moreirense', handicap:'0 : 2 1/4' },
-  { date:'26/04', time:'02:30', league:'LIGA PORTUGAL', flag:'pt', home:'Vitoria Guimaraes', away:'Rio Ave', handicap:'0 : 1/2' },
-
-  // SWISS SUPER LEAGUE PLAYOFF
-  { date:'25/04', time:'23:00', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Lausanne Sports', away:'FC Zurich', handicap:'0 : 1/2' },
-  { date:'25/04', time:'23:00', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Grasshopper', away:'Luzern', handicap:'1/4 : 0' },
-  { date:'26/04', time:'01:30', league:'SWISS SUPER LEAGUE PLAYOFF', flag:'ch', home:'Thun', away:'Lugano', handicap:'0 : 1/2' },
-
-  // AFC CHAMPIONS LEAGUE ELITE
-  { date:'25/04', time:'23:15', league:'AFC CHAMPIONS LEAGUE ELITE', flag:'afc', home:'Al Ahli Jeddah', away:'FC Machida Zelvia', handicap:'0 : 3/4' },
-
-  // SPAIN LA LIGA 2
-  { date:'25/04', time:'21:15', league:'SPAIN LA LIGA 2', flag:'es', home:'Real Valladolid', away:'Real Sociedad B', handicap:'0 : 1' },
-  { date:'25/04', time:'23:30', league:'SPAIN LA LIGA 2', flag:'es', home:'Burgos CF', away:'RC Deportivo La Coruna', handicap:'0 : 1/4' },
-  { date:'26/04', time:'02:00', league:'SPAIN LA LIGA 2', flag:'es', home:'Malaga CF', away:'CD Castellon', handicap:'0 : 0' },
-
-  // BELGIUM FIRST DIVISION A PLAYOFF
-  { date:'25/04', time:'21:00', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'Oud-Heverlee Leuven', away:'Sporting Charleroi', handicap:'1/4 : 0' },
-  { date:'25/04', time:'23:15', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'KRC Genk', away:'Standard Liege', handicap:'0 : 3/4' },
-  { date:'26/04', time:'01:45', league:'BELGIUM FIRST DIVISION A PLAYOFF', flag:'be', home:'KVC Westerlo', away:'Royal Antwerp', handicap:'0 : 1/4' },
-
-  // TURKIYE SUPER LIG
-  { date:'25/04', time:'18:30', league:'TURKIYE SUPER LIG', flag:'tr', home:'Eyupspor', away:'Gaziantep FK', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Kayserispor', away:'Caykur Rizespor', handicap:'0 : 0' },
-  { date:'25/04', time:'22:30', league:'TURKIYE SUPER LIG', flag:'tr', home:'Goztepe AS', away:'Antalyaspor', handicap:'0 : 3/4' },
-
-  // RUSSIA PREMIER LEAGUE
-  { date:'25/04', time:'18:30', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Rostov FK', away:'FC Orenburg', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'PFC Krylia Sovetov', away:'Lokomotiv Moscow', handicap:'1/2 : 0' },
-  { date:'25/04', time:'23:30', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Rubin Kazan', away:'CSKA Moscow', handicap:'0 : 0' },
-
-  // ITALY SERIE B
-  { date:'25/04', time:'17:30', league:'ITALY SERIE B', flag:'it', home:'Catanzaro', away:'Spezia', handicap:'0 : 1/4' },
-  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Pescara', away:'Juve Stabia', handicap:'0 : 1/4' },
-  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'AC Reggiana 1919', away:'Palermo', handicap:'1 : 0' },
-  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'FC Sudtirol', away:'Mantova', handicap:'0 : 1/4' },
-  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Virtus Entella', away:'Padova', handicap:'0 : 1/2' },
-  { date:'25/04', time:'20:00', league:'ITALY SERIE B', flag:'it', home:'Frosinone', away:'Carrarese', handicap:'0 : 1' },
-  { date:'25/04', time:'22:15', league:'ITALY SERIE B', flag:'it', home:'Venezia', away:'Empoli', handicap:'0 : 1 1/4' },
-  { date:'26/04', time:'00:30', league:'ITALY SERIE B', flag:'it', home:'Cesena FC', away:'Sampdoria', handicap:'0 : 0' },
-
-  // FRANCE LIGUE 2
-  { date:'25/04', time:'19:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Grenoble Foot 38', away:'Le Mans', handicap:'0 : 0' },
-  { date:'25/04', time:'19:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Reims', away:'Nancy', handicap:'0 : 1' },
-  { date:'26/04', time:'01:00', league:'FRANCE LIGUE 2', flag:'fr', home:'Saint Etienne', away:'Troyes', handicap:'0 : 1/2' },
-
-  // SCOTLAND PREMIERSHIP PLAYOFF
-  { date:'25/04', time:'21:00', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Aberdeen', away:'Kilmarnock', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Saint Mirren', away:'Livingston', handicap:'0 : 3/4' },
-  { date:'25/04', time:'23:30', league:'SCOTLAND PREMIERSHIP PLAYOFF', flag:'gb-sct', home:'Celtic FC', away:'Falkirk', handicap:'0 : 1 1/4' },
-
-  // SWEDEN SUPERETTAN
-  { date:'25/04', time:'18:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Osters', away:'Ostersunds FK', handicap:'0 : 1/2' },
-  { date:'25/04', time:'20:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Falkenbergs', away:'GIF Sundsvall', handicap:'0 : 3/4' },
-  { date:'25/04', time:'22:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Nordic United FC', away:'Sandvikens IF', handicap:'0 : 1/4' },
-  { date:'25/04', time:'22:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'Orebro', away:'Norrby IF', handicap:'0 : 1/2' },
-
-  // AUSTRIA BUNDESLIGA PLAYOFF
-  { date:'25/04', time:'22:00', league:'AUSTRIA BUNDESLIGA PLAYOFF', flag:'at', home:'WSG Tirol', away:'SV Ried', handicap:'0 : 0' },
-  { date:'25/04', time:'22:00', league:'AUSTRIA BUNDESLIGA PLAYOFF', flag:'at', home:'Wolfsberger AC', away:'GAK 1902', handicap:'0 : 1/4' },
-
-  // INDONESIA SUPER LEAGUE
-  { date:'25/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Borneo FC Samarinda', away:'Semen Padang', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Madura United', away:'Dewa United FC', handicap:'1/2 : 0' },
-
-  // CHINA SUPER LEAGUE
-  { date:'25/04', time:'18:00', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Chengdu Rongcheng', away:'Zhejiang Professional FC', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'18:35', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Beijing Guoan', away:'Tianjin Jinmen Tiger', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'19:00', league:'CHINA SUPER LEAGUE', flag:'cn', home:'Shanghai Port FC', away:'Wuhan Three Towns', handicap:'0 : 3/4' },
-
-  // KOREA K-LEAGUE 1
-  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Gangwon FC', away:'FC Seoul', handicap:'0 : 0' },
-  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Incheon United', away:'Jeju SK FC', handicap:'0 : 1/2' },
-  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 1', flag:'kr', home:'Bucheon FC 1995', away:'Gimcheon Sangmu FC', handicap:'1/4 : 0' },
-
-  // KOREA K-LEAGUE 2
-  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Suwon Samsung Bluewings', away:'Busan I.Park', handicap:'0 : 1/4' },
-  { date:'25/04', time:'12:00', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Paju Frontier FC', away:'Gyeongnam FC', handicap:'0 : 1/4' },
-  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Cheonan City', away:'Seongnam FC', handicap:'1/2 : 0' },
-  { date:'25/04', time:'14:30', league:'KOREA K-LEAGUE 2', flag:'kr', home:'Ansan Greeners FC', away:'Jeonnam Dragons', handicap:'1/2 : 0' },
-
-  // POLAND EKSTRAKLASA
-  { date:'25/04', time:'19:45', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Korona Kielce', away:'GKS Katowice', handicap:'0 : 1/4' },
-  { date:'25/04', time:'22:30', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Lechia Gdansk', away:'Rakow Czestochowa', handicap:'0 : 0' },
-  { date:'26/04', time:'01:15', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Cracovia Krakow', away:'Pogon Szczecin', handicap:'0 : 1/4' },
-
-  // NORWAY 1ST DIV
-  { date:'25/04', time:'21:00', league:'NORWAY 1ST DIV', flag:'no', home:'Sogndal', away:'Asane Fotball', handicap:'0 : 3/4' },
-  { date:'25/04', time:'23:00', league:'NORWAY 1ST DIV', flag:'no', home:'Strommen IF', away:'Kongsvinger', handicap:'3/4 : 0' },
-  { date:'26/04', time:'01:00', league:'NORWAY 1ST DIV', flag:'no', home:'Bryne', away:'Odd BK', handicap:'0 : 1/4' },
-
-  // ENGLISH LEAGUE ONE
-  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Doncaster Rovers', away:'Stevenage FC', handicap:'1/4 : 0' },
-  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Stockport County', away:'Peterborough United', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Blackpool', away:'Leyton Orient', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Bradford City', away:'Bolton Wanderers', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Burton Albion', away:'Exeter City', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Huddersfield Town', away:'Mansfield Town', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Luton Town', away:'Barnsley', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Plymouth Argyle', away:'Port Vale', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Wigan Athletic', away:'AFC Wimbledon', handicap:'0 : 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Cardiff City', away:'Northampton Town', handicap:'0 : 2 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Lincoln City', away:'Wycombe Wanderers', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Rotherham United', away:'Reading', handicap:'1/4 : 0' },
-
-  // ENGLISH LEAGUE TWO
-  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Milton Keynes Dons', away:'Tranmere Rovers', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'18:30', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Grimsby Town', away:'Swindon Town', handicap:'0 : 3/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Chesterfield', away:'Crewe Alexandra', handicap:'0 : 3/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Cambridge United', away:'Barrow', handicap:'0 : 1 1/2' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Bristol Rovers', away:'Cheltenham Town', handicap:'0 : 1/2' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Barnet', away:'Gillingham', handicap:'0 : 1 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Accrington Stanley', away:'Crawley Town', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Colchester United', away:'Notts County', handicap:'0 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Walsall', away:'Harrogate Town', handicap:'0 : 1/4' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Shrewsbury Town', away:'Fleetwood Town', handicap:'1/4 : 0' },
-  { date:'25/04', time:'21:00', league:'ENGLISH LEAGUE TWO', flag:'gb-eng', home:'Newport County', away:'Oldham Athletic', handicap:'0 : 0' },
-
-  // IRELAND PREMIER DIVISION
-  { date:'26/04', time:'01:45', league:'IRELAND PREMIER DIVISION', flag:'ie', home:'Sligo Rovers', away:'Dundalk', handicap:'1/2 : 0' },
-
-  // AUSTRALIA VICTORIA NPL
-  { date:'25/04', time:'15:00', league:'AUSTRALIA VICTORIA NPL', flag:'au', home:'Caroline Springs George Cross FC', away:'Altona Magic', handicap:'0 : 1/4' },
-
-  // EGYPT PREMIER LEAGUE PLAYOFF
-  { date:'25/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Haras El Hodood', away:'Wadi Degla', handicap:'1/2 : 0' },
-
-  // DENMARK 1ST DIV PLAYOFF
-  { date:'25/04', time:'18:00', league:'DENMARK 1ST DIV PLAYOFF', flag:'dk', home:'Hvidovre', away:'AC Horsens', handicap:'0 : 1/4' },
-  { date:'25/04', time:'19:00', league:'DENMARK 1ST DIV PLAYOFF', flag:'dk', home:'Hillerod Fodbold', away:'Kolding IF', handicap:'0 : 1/4' },
-
-  // ROMANIA SUPERLIGA PLAYOFF
-  { date:'25/04', time:'19:00', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'Botosani', away:'Otelul Galati', handicap:'0 : 1/2' },
-  { date:'26/04', time:'00:30', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'CFR Cluj', away:'Universitatea Cluj', handicap:'0 : 1/4' },
-
-  // LIGA PORTUGAL 2
-  { date:'25/04', time:'17:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Leixoes', away:'Portimonense SAD', handicap:'0 : 1/2' },
-  { date:'25/04', time:'20:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Sporting Farense', away:'Academico Viseu', handicap:'0 : 0' },
-  { date:'26/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Felgueiras', away:'Uniao de Leiria', handicap:'0 : 0' },
-
-  // GERMANY 3RD LIGA
-  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'Erzgebirge Aue', away:'SV Wehen Wiesbaden', handicap:'0 : 0' },
-  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'Hansa Rostock', away:'Jahn Regensburg', handicap:'0 : 1' },
-  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'TSV 1860 Munchen', away:'SSV Ulm 1846', handicap:'0 : 1/2' },
-  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'VfL Osnabruck', away:'SC Verl', handicap:'0 : 1/4' },
-  { date:'25/04', time:'19:00', league:'GERMANY 3RD LIGA', flag:'de', home:'TSG Hoffenheim Am', away:'Ingolstadt 04', handicap:'0 : 1/4' },
-
-  // BRAZIL SERIE A
-  { date:'26/04', time:'04:30', league:'BRAZIL SERIE A', flag:'br', home:'Bahia EC BA', away:'Santos SP', handicap:'0 : 3/4' },
-  { date:'26/04', time:'04:30', league:'BRAZIL SERIE A', flag:'br', home:'Botafogo RJ', away:'Internacional RS', handicap:'0 : 0' },
-  { date:'26/04', time:'07:00', league:'BRAZIL SERIE A', flag:'br', home:'Sao Paulo SP', away:'Mirassol SP', handicap:'0 : 1/2' },
-
-  // ARGENTINA LIGA PROFESIONAL
-  { date:'26/04', time:'03:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Estudiantes La Plata', away:'Talleres Cordoba', handicap:'0 : 1/4' },
-  { date:'26/04', time:'05:15', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Sarmiento', away:'Club Atletico Tigre', handicap:'1/4 : 0' },
-  { date:'26/04', time:'07:30', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA River Plate', away:'Aldosivi', handicap:'0 : 1 1/4' },
-
-  // MEXICO PRIMERA DIVISION
-  { date:'26/04', time:'06:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Pachuca', away:'Pumas UNAM', handicap:'0 : 1/4' },
-  { date:'26/04', time:'06:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Tigres UANL', away:'Mazatlan FC', handicap:'0 : 2' },
-  { date:'26/04', time:'08:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Deportivo Toluca', away:'Club Leon', handicap:'0 : 1' },
-  { date:'26/04', time:'08:07', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Guadalajara Chivas', away:'Tijuana', handicap:'0 : 1 1/4' },
-  { date:'26/04', time:'10:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'Club America', away:'Atlas', handicap:'0 : 3/4' },
-  { date:'26/04', time:'10:00', league:'MEXICO PRIMERA DIVISION', flag:'mx', home:'FC Juarez', away:'Atletico San Luis', handicap:'0 : 1/2' },
-
-  // CHILE PRIMERA DIVISION
-  { date:'26/04', time:'02:00', league:'CHILE PRIMERA DIVISION', flag:'cl', home:'Nublense', away:'O Higgins', handicap:'0 : 1/4' },
-  { date:'26/04', time:'05:00', league:'CHILE PRIMERA DIVISION', flag:'cl', home:'Universidad de Chile', away:'CD Universidad Catolica', handicap:'0 : 1/4' },
-
-  // BRAZIL SERIE B
-  { date:'26/04', time:'06:30', league:'BRAZIL SERIE B', flag:'br', home:'Sport Club do Recife PE', away:'Gremio Novorizontino SP', handicap:'0 : 1/4' },
-  { date:'26/04', time:'07:00', league:'BRAZIL SERIE B', flag:'br', home:'Juventude RS', away:'Londrina PR', handicap:'0 : 1/2' },
-
-  // COLOMBIA PRIMERA A
-  { date:'26/04', time:'02:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Atletico Bucaramanga', away:'Jaguares de Cordoba', handicap:'0 : 1 1/4' },
-  { date:'26/04', time:'02:00', league:'COLOMBIA PRIMERA A', flag:'co', home:'Deportivo Pereira', away:'Atletico Nacional', handicap:'1 1/4 : 0' },
-  { date:'26/04', time:'06:10', league:'COLOMBIA PRIMERA A', flag:'co', home:'Deportivo Cali', away:'America de Cali', handicap:'0 : 0' },
-  { date:'26/04', time:'08:30', league:'COLOMBIA PRIMERA A', flag:'co', home:'Independiente Medellin', away:'Fortaleza CEIF', handicap:'0 : 3/4' },
-
-  // ECUADOR LIGA PRO
-  { date:'25/04', time:'23:45', league:'ECUADOR LIGA PRO', flag:'ec', home:'Mushuc Runa SC', away:'Deportivo Cuenca', handicap:'0 : 1/2' },
-  { date:'26/04', time:'02:10', league:'ECUADOR LIGA PRO', flag:'ec', home:'Independiente del Valle', away:'Leones FC Quito', handicap:'0 : 1 3/4' },
-  { date:'26/04', time:'05:00', league:'ECUADOR LIGA PRO', flag:'ec', home:'CS Emelec', away:'LDU Quito', handicap:'0 : 1/4' },
-
-  // PARAGUAY PRIMERA DIVISION
-  { date:'26/04', time:'03:45', league:'PARAGUAY PRIMERA DIVISION', flag:'py', home:'Sportivo Luqueno', away:'Sportivo Trinidense', handicap:'1/4 : 0' },
-  { date:'26/04', time:'06:00', league:'PARAGUAY PRIMERA DIVISION', flag:'py', home:'Libertad', away:'Olimpia Asuncion', handicap:'1/4 : 0' },
-
-  // PERU LIGA 1
-  { date:'26/04', time:'01:00', league:'PERU LIGA 1', flag:'pe', home:'Deportivo Moquegua', away:'FC Cajamarca', handicap:'0 : 1/2' },
-  { date:'26/04', time:'03:30', league:'PERU LIGA 1', flag:'pe', home:'Comerciantes Unidos', away:'Sporting Cristal', handicap:'0 : 1/4' },
-  { date:'26/04', time:'07:00', league:'PERU LIGA 1', flag:'pe', home:'Sport Boys Association', away:'Juan Pablo II College', handicap:'0 : 3/4' },
-
-  // URUGUAY PRIMERA DIVISION
-  { date:'25/04', time:'22:00', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'CA Juventud', away:'Liverpool Montevideo', handicap:'1/4 : 0' },
-  { date:'26/04', time:'01:30', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Deportivo Maldonado', away:'Albion FC', handicap:'0 : 1/4' },
-  { date:'26/04', time:'05:00', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Nacional Montevideo', away:'Danubio', handicap:'0 : 3/4' },
-
-  // ARGENTINA PRIMERA NACIONAL
-  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA Temperley', away:'Patronato', handicap:'0 : 1/4' },
-  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA San Miguel', away:'CA Los Andes', handicap:'0 : 1/4' },
-  { date:'26/04', time:'01:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'CA San Telmo', away:'CA All Boys', handicap:'0 : 0' },
-  { date:'26/04', time:'03:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'San Martin San Juan', away:'Quilmes', handicap:'0 : 1/2' },
-  { date:'26/04', time:'04:00', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'Atletico de Rafaela', away:'Gimnasia Jujuy', handicap:'0 : 1/4' },
-
-  // VENEZUELA PRIMERA DIVISION
-  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Deportivo Tachira', away:'Carabobo', handicap:'0 : 1/4' },
-  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Portuguesa FC', away:'Universidad Central de Venezuela FC', handicap:'0 : 1/4' },
-  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Caracas FC', away:'Deportivo Rayo Zuliano', handicap:'0 : 3/4' },
-  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Anzoategui FC', away:'Zamora FC', handicap:'1/4 : 0' },
-  { date:'26/04', time:'04:00', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Monagas SC', away:'Academia Puerto Cabello', handicap:'1/4 : 0' },
-  { date:'26/04', time:'04:30', league:'VENEZUELA PRIMERA DIVISION', flag:'ve', home:'Trujillanos FC', away:'Deportivo La Guaira', handicap:'3/4 : 0' }
+  { date:'28/04', time:'02:00', league:'ENGLISH PREMIER LEAGUE', flag:'gb-eng', home:'Manchester United', away:'Brentford', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:30', league:'ITALY SERIE A', flag:'it', home:'Cagliari', away:'Atalanta', handicap:'3/4 : 0' },
+  { date:'28/04', time:'01:45', league:'ITALY SERIE A', flag:'it', home:'Lazio', away:'Udinese', handicap:'0 : 1/2' },
+  { date:'28/04', time:'02:00', league:'SPAIN LA LIGA', flag:'es', home:'RCD Espanyol', away:'Levante', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Mjallby', away:'Halmstads', handicap:'0 : 1 1/4' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'BK Hacken', away:'IK Sirius FK', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'0 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Orgryte', away:'Degerfors', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'0 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'FC Copenhagen', away:'Vejle', handicap:'0 : 1 3/4' },
+  { date:'28/04', time:'02:15', league:'LIGA PORTUGAL', flag:'pt', home:'Gil Vicente', away:'Casa Pia', handicap:'0 : 3/4' },
+  { date:'28/04', time:'01:30', league:'SPAIN LA LIGA 2', flag:'es', home:'Cadiz CF', away:'UD Las Palmas', handicap:'1/4 : 0' },
+  { date:'27/04', time:'21:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Alanyaspor', away:'Samsunspor', handicap:'0 : 1/4' },
+  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Konyaspor', away:'Trabzonspor', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Besiktas', away:'Fatih Karagumruk', handicap:'0 : 1 1/2' },
+  { date:'28/04', time:'00:00', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Baltika Kaliningrad', away:'Akron Tolyatti', handicap:'0 : 3/4' },
+  { date:'28/04', time:'01:45', league:'FRANCE LIGUE 2', flag:'fr', home:'US Boulogne', away:'USL Dunkerque', handicap:'0 : 0' },
+  { date:'27/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Bali United', away:'PSM Makassar', handicap:'0 : 1/2' },
+  { date:'27/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Persija Jakarta', away:'Persis Solo', handicap:'0 : 1 3/4' },
+  { date:'28/04', time:'00:00', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Piast Gliwice', away:'Arka Gdynia', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'NORWAY 1ST DIV', flag:'no', home:'Egersund', away:'Ranheim', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Fram Reykjavik', away:'IBV Vestmannaeyjar', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'KR Reykjavik', away:'FH Hafnarfjordur', handicap:'0 : 1' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Stjarnan Gardabaer', away:'Valur Reykjavik', handicap:'0 : 3/4' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Breidablik', away:'Thor Akureyri', handicap:'0 : 1 1/4' },
+  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Vikingur Reykjavik', away:'IA Akranes', handicap:'0 : 1 1/4' },
+  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Zamalek', away:'Enppi', handicap:'0 : 3/4' },
+  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Smouha SC', away:'Al Masry', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Pyramids FC', away:'Al Ahly Cairo', handicap:'0 : 0' },
+  { date:'27/04', time:'21:30', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'Metaloglobus Bucuresti', away:'Unirea Slobozia', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'GD Chaves', away:'UD Oliveirense', handicap:'0 : 3/4' },
+  { date:'27/04', time:'23:00', league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', home:'AEL Limassol', away:'Anorthosis Famagusta', handicap:'0 : 0' },
+  { date:'27/04', time:'23:00', league:'POLAND 1ST LIGA', flag:'pl', home:'Ruch Chorzow', away:'Pogon Grodzisk Mazowiecki', handicap:'0 : 3/4' },
+  { date:'27/04', time:'17:00', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'FC Epitsentr Kamianets Podilskyi', away:'FC Oleksandriya', handicap:'0 : 1/4' },
+  { date:'27/04', time:'19:30', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'Zorya Luhansk', away:'Veres Rivne', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'CROATIA SUPERLIGA', flag:'hr', home:'HNK Gorica', away:'Istra 1961 Pula', handicap:'0 : 1/2' },
+  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'RFC de Liege', away:'Lommel SK', handicap:'1/4 : 0' },
+  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'Beerschot VA', away:'Patro Eisden', handicap:'0 : 3/4' },
+  { date:'27/04', time:'22:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Gagra Tbilisi', away:'FC Meshakhte Tkibuli', handicap:'0 : 3/4' },
+  { date:'28/04', time:'00:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Dinamo Batumi', away:'FC Torpedo Kutaisi', handicap:'1/2 : 0' },
+  { date:'27/04', time:'22:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'IMT Novi Beograd', away:'Radnicki Nis', handicap:'0 : 1/2' },
+  { date:'28/04', time:'00:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'TSC Backa Topola', away:'Mladost Lucani', handicap:'0 : 3/4' },
+  { date:'27/04', time:'21:00', league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', home:'Turan Tovuz', away:'Zira PFK', handicap:'0 : 1/4' },
+  { date:'27/04', time:'21:30', league:'RUSSIA FIRST LEAGUE', flag:'ru', home:'Torpedo Moscow', away:'Fakel Voronezh', handicap:'0 : 0' },
+  { date:'27/04', time:'21:30', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'FC Montana', away:'Dobrudzha Dobrich', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'Lokomotiv Sofia', away:'PFC Septemvri Sofia', handicap:'0 : 1/2' },
+  { date:'27/04', time:'22:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'BFC Daugavpils', away:'SK Super Nova', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'Ogre United', away:'FS Jelgava', handicap:'1/4 : 0' },
+  { date:'28/04', time:'00:00', league:'SWEDEN ETTAN NORTH', flag:'se', home:'Hammarby TFF', away:'Vasalunds IF', handicap:'0 : 1/2' },
+  { date:'27/04', time:'23:00', league:'GERMANY WOMEN BUNDESLIGA', flag:'de', home:'TSG Hoffenheim [w]', away:'Koln [w]', handicap:'0 : 3/4' },
+  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/4' },
+  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/2' },
+  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 1/4' },
+  { date:'28/04', time:'05:00', league:'BRAZIL SERIE B', flag:'br', home:'Athletic Club MG', away:'Nautico PE', handicap:'0 : 0' },
+  { date:'28/04', time:'04:30', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'Manta FC', away:'Universidad Catolica del Ecuador', handicap:'1/2 : 0' },
+  { date:'28/04', time:'07:00', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'SD Aucas', away:'Delfin SC', handicap:'0 : 3/4' },
+  { date:'28/04', time:'07:00', league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', home:'Club Aurora', away:'CD San Antonio Bulo Bulo', handicap:'0 : 1/2' },
+  { date:'28/04', time:'03:00', league:'PERU LIGA 1', flag:'pe', home:'AD Tarma', away:'CD Los Chankas', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'PERU LIGA 1', flag:'pe', home:'Deportivo Garcilaso', away:'FBC Melgar', handicap:'0 : 0' },
+  { date:'28/04', time:'05:30', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Defensor Sporting', away:'CA Progreso', handicap:'0 : 1/2' },
+  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'S.E.R Caxias', away:'Ypiranga RS', handicap:'0 : 1/2' },
+  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'Ferroviaria SP', away:'Guarani SP', handicap:'1/4 : 0' },
+  { date:'28/04', time:'05:00', league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', home:'Bogota FC', away:'Union Magdalena', handicap:'1/4 : 0' },
+  { date:'28/04', time:'03:00', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Atletico Tembetary', away:'3 de Noviembre', handicap:'0 : 1/2' },
+  { date:'28/04', time:'05:30', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Sportivo Carapegua', away:'Deportivo Santani', handicap:'0 : 1/4' },
+  { date:'28/04', time:'05:00', league:'URUGUAY SEGUNDA DIVISION', flag:'uy', home:'Atenas de San Carlos', away:'Centro Atletico Fenix', handicap:'0 : 0' },
+  { date:'28/04', time:'07:00', league:'CHILE PRIMERA B', flag:'cl', home:'Deportes Iquique', away:'Santiago Wanderers', handicap:'0 : 1/2' }
 ];
 
-/* ================================================================
-   PREDICTIONS DATA
-   ================================================================ */
 var predictions = [
-  {
-    league: 'ENGLAND PREMIER LEAGUE', flag: 'gb-eng',
-    m: [
-      ['Fulham','FUL','Aston Villa','AST','2-1'],
-      ['Liverpool','LIV','Crystal Palace','CRY','3-1'],
-      ['Wolverhampton Wanderers','WOL','Tottenham Hotspur','TOT','1-1'],
-      ['West Ham United','WES','Everton','EVE','1-2'],
-      ['Arsenal','ARS','Newcastle United','NEW','2-0']
-    ]
-  },
-  {
-    league: 'ITALY SERIE A', flag: 'it',
-    m: [
-      ['Parma Calcio','PAR','Pisa','PIS','1-1'],
-      ['Bologna','BOL','AS Roma','AS ','0-1'],
-      ['Hellas Verona','HEL','Lecce','LEC','2-2']
-    ]
-  },
-  {
-    league: 'SPAIN LA LIGA', flag: 'es',
-    m: [
-      ['Alaves','ALA','Mallorca','MAL','0-0'],
-      ['Getafe','GET','Barcelona','BAR','1-3'],
-      ['Valencia','VAL','Girona FC','GIR','2-1'],
-      ['Atletico Madrid','ATL','Athletic Bilbao','ATH','1-0']
-    ]
-  },
-  {
-    league: 'GERMANY BUNDESLIGA', flag: 'de',
-    m: [
-      ['Augsburg','AUG','Eintracht Frankfurt','EIN','2-2'],
-      ['FC Heidenheim','FC ','St. Pauli','ST.','1-0'],
-      ['Koln','KOL','Bayer Leverkusen','BAY','0-2'],
-      ['FSV Mainz 05','FSV','Bayern Munchen','BAY','1-3'],
-      ['VfL Wolfsburg','VFL','Borussia Monchengladbach','BOR','2-1'],
-      ['Hamburger SV','HAM','TSG Hoffenheim','TSG','1-1']
-    ]
-  },
-  {
-    league: 'ENGLISH FA CUP', flag: 'gb-eng',
-    m: [
-      ['Manchester City','MAN','Southampton','SOU','3-0']
-    ]
-  },
-  {
-    league: 'FRANCE LIGUE 1', flag: 'fr',
-    m: [
-      ['Lyon','LYO','Auxerre','AUX','2-0'],
-      ['Angers','ANG','Paris Saint Germain','PAR','0-4'],
-      ['Toulouse','TOU','AS Monaco','AS ','1-2']
-    ]
-  },
-  {
-    league: 'ENGLISH CHAMPIONSHIP', flag: 'gb-eng',
-    m: [
-      ['Middlesbrough','MID','Watford','WAT','2-1'],
-      ['W.B.A','W.B','Ipswich Town','IPS','0-1'],
-      ['Charlton Athletic','CHA','Hull City','HUL','1-1'],
-      ['Oxford United','OXF','Sheffield Wednesday','SHE','2-2'],
-      ['Queens Park Rangers','QUE','Derby County','DER','1-0'],
-      ['Norwich City','NOR','Swansea City','SWA','3-1'],
-      ['Stoke City','STO','Portsmouth','POR','0-0'],
-      ['Birmingham City','BIR','Bristol City','BRI','2-1'],
-      ['Sheffield United','SHE','Preston North End','PRE','1-1']
-    ]
-  },
-  {
-    league: 'GERMANY BUNDESLIGA 2', flag: 'de',
-    m: [
-      ['Karlsruher SC','KAR','Hannover 96','HAN','1-1'],
-      ['Hertha Berlin','HER','Holstein Kiel','HOL','2-0'],
-      ['Preussen Munster','PRE','Arminia Bielefeld','ARM','1-2'],
-      ['SV Darmstadt 98','SV ','SV Elversberg','SV ','2-2']
-    ]
-  },
-  {
-    league: 'AUSTRALIA A LEAGUE', flag: 'au',
-    m: [
-      ['Newcastle Jets','NEW','Central Coast Mariners','CEN','2-1'],
-      ['Western Sydney Wanderers FC','WES','Melbourne Victory','MEL','1-2'],
-      ['Perth Glory','PER','Brisbane Roar FC','BRI','2-2']
-    ]
-  },
-  {
-    league: 'JAPAN J1 LEAGUE', flag: 'jp',
-    m: [
-      ['Shimizu S-Pulse','SHI','Nagoya Grampus','NAG','1-1'],
-      ['Fagiano Okayama','FAG','Avispa Fukuoka','AVI','0-0'],
-      ['Urawa Red Diamonds','URA','Yokohama F Marinos','YOK','2-2'],
-      ['Kawasaki Frontale','KAW','JEF United Ichihara Chiba','JEF','3-1'],
-      ['Sanfrecce Hiroshima','SAN','Cerezo Osaka','CER','2-0'],
-      ['V-Varen Nagasaki','V-V','Gamba Osaka','GAM','1-1']
-    ]
-  },
-  {
-    league: 'JAPAN J2/J3 LEAGUE', flag: 'jp',
-    m: [
-      ['Jubilo Iwata','JUB','FC Gifu','FC ','2-1'],
-      ['Giravanz Kitakyushu','GIR','Renofa Yamaguchi','REN','1-1'],
-      ['Vegalta Sendai','VEG','Montedio Yamagata','MON','1-2'],
-      ['Zweigen Kanazawa','ZWE','Nara Club','NAR','2-2'],
-      ['Fukushima United FC','FUK','Ventforet Kofu','VEN','1-0'],
-      ['Fujieda MYFC','FUJ','RB Omiya Ardija','RB ','2-2'],
-      ['Tochigi City FC','TOC','Tochigi SC','TOC','1-1'],
-      ['Albirex Niigata','ALB','FC Osaka','FC ','0-1'],
-      ['Gainare Tottori','GAI','Roasso Kumamoto','ROA','2-1'],
-      ['Tegevajaro Miyazaki','TEG','Kagoshima United','KAG','1-1'],
-      ['FC Imabari','FC ','Kataller Toyama','KAT','1-2'],
-      ['Sagan Tosu','SAG','Reilac Shiga FC','REI','2-0'],
-      ['Hokkaido Consadole Sapporo','HOK','Iwaki FC','IWA','2-2'],
-      ['SC Sagamihara','SC ','Shonan Bellmare','SHO','1-3']
-    ]
-  },
-  {
-    league: 'NETHERLANDS EREDIVISIE', flag: 'nl',
-    m: [
-      ['Feyenoord','FEY','Groningen','GRO','3-1'],
-      ['SC Heerenveen','SC ','Fortuna Sittard','FOR','2-1'],
-      ['NAC Breda','NAC','Ajax','AJA','0-2'],
-      ['FC Twente Enschede','FC ','NEC Nijmegen','NEC','2-2']
-    ]
-  },
-  {
-    league: 'NORWAY ELITESERIEN', flag: 'no',
-    m: [
-      ['Fredrikstad','FRE','Viking','VIK','1-1'],
-      ['Rosenborg','ROS','Brann','BRA','2-1']
-    ]
-  },
-  {
-    league: 'FINLAND VEIKKAUSLIIGA', flag: 'fi',
-    m: [
-      ['Lahti','LAH','AC Oulu','AC ','1-2'],
-      ['Inter Turku','INT','IFK Mariehamn','IFK','3-0']
-    ]
-  },
-  {
-    league: 'LIGA PORTUGAL', flag: 'pt',
-    m: [
-      ['CD Tondela','CD ','Nacional da Madeira','NAC','1-1'],
-      ['Benfica','BEN','Moreirense','MOR','2-0'],
-      ['Vitoria Guimaraes','VIT','Rio Ave','RIO','1-2']
-    ]
-  },
-  {
-    league: 'SWISS SUPER LEAGUE PLAYOFF', flag: 'ch',
-    m: [
-      ['Lausanne Sports','LAU','FC Zurich','FC ','2-1'],
-      ['Grasshopper','GRA','Luzern','LUZ','1-1'],
-      ['Thun','THU','Lugano','LUG','0-2']
-    ]
-  },
-  {
-    league: 'AFC CHAMPIONS LEAGUE ELITE', flag: 'afc',
-    m: [
-      ['Al Ahli Jeddah','AL ','FC Machida Zelvia','FC ','3-1']
-    ]
-  },
-  {
-    league: 'SPAIN LA LIGA 2', flag: 'es',
-    m: [
-      ['Real Valladolid','REA','Real Sociedad B','REA','1-0'],
-      ['Burgos CF','BUR','RC Deportivo La Coruna','RC ','2-2'],
-      ['Malaga CF','MAL','CD Castellon','CD ','1-1']
-    ]
-  },
-  {
-    league: 'BELGIUM FIRST DIVISION A PLAYOFF', flag: 'be',
-    m: [
-      ['Oud-Heverlee Leuven','OUD','Sporting Charleroi','SPO','2-1'],
-      ['KRC Genk','KRC','Standard Liege','STA','2-0'],
-      ['KVC Westerlo','KVC','Royal Antwerp','ROY','1-2']
-    ]
-  },
-  {
-    league: 'TURKIYE SUPER LIG', flag: 'tr',
-    m: [
-      ['Eyupspor','EYU','Gaziantep FK','GAZ','1-1'],
-      ['Kayserispor','KAY','Caykur Rizespor','CAY','2-1'],
-      ['Goztepe AS','GOZ','Antalyaspor','ANT','2-0']
-    ]
-  },
-  {
-    league: 'RUSSIA PREMIER LEAGUE', flag: 'ru',
-    m: [
-      ['Rostov FK','ROS','FC Orenburg','FC ','1-0'],
-      ['PFC Krylia Sovetov','PFC','Lokomotiv Moscow','LOK','2-2'],
-      ['Rubin Kazan','RUB','CSKA Moscow','CSK','1-1']
-    ]
-  },
-  {
-    league: 'ITALY SERIE B', flag: 'it',
-    m: [
-      ['Catanzaro','CAT','Spezia','SPE','2-1'],
-      ['Pescara','PES','Juve Stabia','JUV','1-1'],
-      ['AC Reggiana 1919','AC ','Palermo','PAL','0-0'],
-      ['FC Sudtirol','FC ','Mantova','MAN','2-2'],
-      ['Virtus Entella','VIR','Padova','PAD','1-0'],
-      ['Frosinone','FRO','Carrarese','CAR','2-1'],
-      ['Venezia','VEN','Empoli','EMP','3-1'],
-      ['Cesena FC','CES','Sampdoria','SAM','1-1']
-    ]
-  },
-  {
-    league: 'FRANCE LIGUE 2', flag: 'fr',
-    m: [
-      ['Grenoble Foot 38','GRE','Le Mans','LE ','1-0'],
-      ['Reims','REI','Nancy','NAN','2-1'],
-      ['Saint Etienne','SAI','Troyes','TRO','2-2']
-    ]
-  },
-  {
-    league: 'SCOTLAND PREMIERSHIP PLAYOFF', flag: 'gb-sct',
-    m: [
-      ['Aberdeen','ABE','Kilmarnock','KIL','2-1'],
-      ['Saint Mirren','SAI','Livingston','LIV','1-0'],
-      ['Celtic FC','CEL','Falkirk','FAL','3-0']
-    ]
-  },
-  {
-    league: 'SWEDEN SUPERETTAN', flag: 'se',
-    m: [
-      ['Osters','OST','Ostersunds FK','OST','1-1'],
-      ['Falkenbergs','FAL','GIF Sundsvall','GIF','2-2'],
-      ['Nordic United FC','NOR','Sandvikens IF','SAN','2-1'],
-      ['Orebro','ORE','Norrby IF','NOR','3-0']
-    ]
-  },
-  {
-    league: 'AUSTRIA BUNDESLIGA PLAYOFF', flag: 'at',
-    m: [
-      ['WSG Tirol','WSG','SV Ried','SV ','1-0'],
-      ['Wolfsberger AC','WOL','GAK 1902','GAK','2-1']
-    ]
-  },
-  {
-    league: 'INDONESIA SUPER LEAGUE', flag: 'id',
-    m: [
-      ['Borneo FC Samarinda','BOR','Semen Padang','SEM','3-1'],
-      ['Madura United','MAD','Dewa United FC','DEW','1-2']
-    ]
-  },
-  {
-    league: 'CHINA SUPER LEAGUE', flag: 'cn',
-    m: [
-      ['Chengdu Rongcheng','CHE','Zhejiang Professional FC','ZHE','2-1'],
-      ['Beijing Guoan','BEI','Tianjin Jinmen Tiger','TIA','1-1'],
-      ['Shanghai Port FC','SHA','Wuhan Three Towns','WUH','2-0']
-    ]
-  },
-  {
-    league: 'KOREA K-LEAGUE 1', flag: 'kr',
-    m: [
-      ['Gangwon FC','GAN','FC Seoul','FC ','1-1'],
-      ['Incheon United','INC','Jeju SK FC','JEJ','2-2'],
-      ['Bucheon FC 1995','BUC','Gimcheon Sangmu FC','GIM','1-0']
-    ]
-  },
-  {
-    league: 'KOREA K-LEAGUE 2', flag: 'kr',
-    m: [
-      ['Suwon Samsung Bluewings','SUW','Busan I.Park','BUS','2-1'],
-      ['Paju Frontier FC','PAJ','Gyeongnam FC','GYE','1-1'],
-      ['Cheonan City','CHE','Seongnam FC','SEO','2-2'],
-      ['Ansan Greeners FC','ANS','Jeonnam Dragons','JEO','1-2']
-    ]
-  },
-  {
-    league: 'POLAND EKSTRAKLASA', flag: 'pl',
-    m: [
-      ['Korona Kielce','KOR','GKS Katowice','GKS','1-1'],
-      ['Lechia Gdansk','LEC','Rakow Czestochowa','RAK','0-0'],
-      ['Cracovia Krakow','CRA','Pogon Szczecin','POG','2-1']
-    ]
-  },
-  {
-    league: 'NORWAY 1ST DIV', flag: 'no',
-    m: [
-      ['Sogndal','SOG','Asane Fotball','ASA','2-1'],
-      ['Strommen IF','STR','Kongsvinger','KON','1-3'],
-      ['Bryne','BRY','Odd BK','ODD','1-2']
-    ]
-  },
-  {
-    league: 'ENGLISH LEAGUE ONE', flag: 'gb-eng',
-    m: [
-      ['Doncaster Rovers','DON','Stevenage FC','STE','1-2'],
-      ['Stockport County','STO','Peterborough United','PET','2-2'],
-      ['Blackpool','BLA','Leyton Orient','LEY','1-1'],
-      ['Bradford City','BRA','Bolton Wanderers','BOL','2-1'],
-      ['Burton Albion','BUR','Exeter City','EXE','1-0'],
-      ['Huddersfield Town','HUD','Mansfield Town','MAN','2-1'],
-      ['Luton Town','LUT','Barnsley','BAR','3-1'],
-      ['Plymouth Argyle','PLY','Port Vale','POR','2-0'],
-      ['Wigan Athletic','WIG','AFC Wimbledon','AFC','2-2'],
-      ['Cardiff City','CAR','Northampton Town','NOR','3-0'],
-      ['Lincoln City','LIN','Wycombe Wanderers','WYC','2-1'],
-      ['Rotherham United','ROT','Reading','REA','1-1']
-    ]
-  },
-  {
-    league: 'ENGLISH LEAGUE TWO', flag: 'gb-eng',
-    m: [
-      ['Milton Keynes Dons','MIL','Tranmere Rovers','TRA','2-0'],
-      ['Grimsby Town','GRI','Swindon Town','SWI','2-1'],
-      ['Chesterfield','CHE','Crewe Alexandra','CRE','2-2'],
-      ['Cambridge United','CAM','Barrow','BAR','3-1'],
-      ['Bristol Rovers','BRI','Cheltenham Town','CHE','1-0'],
-      ['Barnet','BAR','Gillingham','GIL','2-1'],
-      ['Accrington Stanley','ACC','Crawley Town','CRA','1-1'],
-      ['Colchester United','COL','Notts County','NOT','1-2'],
-      ['Walsall','WAL','Harrogate Town','HAR','2-0'],
-      ['Shrewsbury Town','SHR','Fleetwood Town','FLE','1-1'],
-      ['Newport County','NEW','Oldham Athletic','OLD','2-2']
-    ]
-  },
-  {
-    league: 'IRELAND PREMIER DIVISION', flag: 'ie',
-    m: [
-      ['Sligo Rovers','SLI','Dundalk','DUN','1-2']
-    ]
-  },
-  {
-    league: 'AUSTRALIA VICTORIA NPL', flag: 'au',
-    m: [
-      ['Caroline Springs George Cross FC','CAR','Altona Magic','ALT','2-1']
-    ]
-  },
-  {
-    league: 'EGYPT PREMIER LEAGUE PLAYOFF', flag: 'eg',
-    m: [
-      ['Haras El Hodood','HAR','Wadi Degla','WAD','1-1']
-    ]
-  },
-  {
-    league: 'DENMARK 1ST DIV PLAYOFF', flag: 'dk',
-    m: [
-      ['Hvidovre','HVI','AC Horsens','AC ','2-1'],
-      ['Hillerod Fodbold','HIL','Kolding IF','KOL','1-2']
-    ]
-  },
-  {
-    league: 'ROMANIA SUPERLIGA PLAYOFF', flag: 'ro',
-    m: [
-      ['Botosani','BOT','Otelul Galati','OTE','1-0'],
-      ['CFR Cluj','CFR','Universitatea Cluj','UNI','2-1']
-    ]
-  },
-  {
-    league: 'LIGA PORTUGAL 2', flag: 'pt',
-    m: [
-      ['Leixoes','LEI','Portimonense SAD','POR','2-1'],
-      ['Sporting Farense','SPO','Academico Viseu','ACA','1-1'],
-      ['Felgueiras','FEL','Uniao de Leiria','UNI','2-2']
-    ]
-  },
-  {
-    league: 'GERMANY 3RD LIGA', flag: 'de',
-    m: [
-      ['Erzgebirge Aue','ERZ','SV Wehen Wiesbaden','SV ','1-0'],
-      ['Hansa Rostock','HAN','Jahn Regensburg','JAH','2-1'],
-      ['TSV 1860 Munchen','TSV','SSV Ulm 1846','SSV','2-2'],
-      ['VfL Osnabruck','VFL','SC Verl','SC ','1-1'],
-      ['TSG Hoffenheim Am','TSG','Ingolstadt 04','ING','2-2']
-    ]
-  },
-  {
-    league: 'BRAZIL SERIE A', flag: 'br',
-    m: [
-      ['Bahia EC BA','BAH','Santos SP','SAN','2-1'],
-      ['Botafogo RJ','BOT','Internacional RS','INT','1-1'],
-      ['Sao Paulo SP','SAO','Mirassol SP','MIR','2-0']
-    ]
-  },
-  {
-    league: 'ARGENTINA LIGA PROFESIONAL', flag: 'ar',
-    m: [
-      ['Estudiantes La Plata','EST','Talleres Cordoba','TAL','1-1'],
-      ['CA Sarmiento','CA ','Club Atletico Tigre','CLU','2-1'],
-      ['CA River Plate','CA ','Aldosivi','ALD','3-0']
-    ]
-  },
-  {
-    league: 'MEXICO PRIMERA DIVISION', flag: 'mx',
-    m: [
-      ['Pachuca','PAC','Pumas UNAM','PUM','2-1'],
-      ['Tigres UANL','TIG','Mazatlan FC','MAZ','3-0'],
-      ['Deportivo Toluca','DEP','Club Leon','CLU','2-2'],
-      ['Guadalajara Chivas','GUA','Tijuana','TIJ','2-0'],
-      ['Club America','CLU','Atlas','ATL','2-1'],
-      ['FC Juarez','FC ','Atletico San Luis','ATL','1-1']
-    ]
-  },
-  {
-    league: 'CHILE PRIMERA DIVISION', flag: 'cl',
-    m: [
-      ['Nublense','NUB','O Higgins','O H','2-1'],
-      ['Universidad de Chile','UNI','CD Universidad Catolica','CD ','2-2']
-    ]
-  },
-  {
-    league: 'BRAZIL SERIE B', flag: 'br',
-    m: [
-      ['Sport Club do Recife PE','SPO','Gremio Novorizontino SP','GRE','2-1'],
-      ['Juventude RS','JUV','Londrina PR','LON','1-1']
-    ]
-  },
-  {
-    league: 'COLOMBIA PRIMERA A', flag: 'co',
-    m: [
-      ['Atletico Bucaramanga','ATL','Jaguares de Cordoba','JAG','2-0'],
-      ['Deportivo Pereira','DEP','Atletico Nacional','ATL','1-3'],
-      ['Deportivo Cali','DEP','America de Cali','AME','1-1'],
-      ['Independiente Medellin','IND','Fortaleza CEIF','FOR','2-1']
-    ]
-  },
-  {
-    league: 'ECUADOR LIGA PRO', flag: 'ec',
-    m: [
-      ['Mushuc Runa SC','MUS','Deportivo Cuenca','DEP','1-1'],
-      ['Independiente del Valle','IND','Leones FC Quito','LEO','3-0'],
-      ['CS Emelec','CS ','LDU Quito','LDU','2-2']
-    ]
-  },
-  {
-    league: 'PARAGUAY PRIMERA DIVISION', flag: 'py',
-    m: [
-      ['Sportivo Luqueno','SPO','Sportivo Trinidense','SPO','1-2'],
-      ['Libertad','LIB','Olimpia Asuncion','OLI','1-1']
-    ]
-  },
-  {
-    league: 'PERU LIGA 1', flag: 'pe',
-    m: [
-      ['Deportivo Moquegua','DEP','FC Cajamarca','FC ','2-1'],
-      ['Comerciantes Unidos','COM','Sporting Cristal','SPO','1-2'],
-      ['Sport Boys Association','SPO','Juan Pablo II College','JUA','2-2']
-    ]
-  },
-  {
-    league: 'URUGUAY PRIMERA DIVISION', flag: 'uy',
-    m: [
-      ['CA Juventud','CA ','Liverpool Montevideo','LIV','1-0'],
-      ['Deportivo Maldonado','DEP','Albion FC','ALB','2-1'],
-      ['Nacional Montevideo','NAC','Danubio','DAN','2-0']
-    ]
-  },
-  {
-    league: 'ARGENTINA PRIMERA NACIONAL', flag: 'ar',
-    m: [
-      ['CA Temperley','CA ','Patronato','PAT','1-1'],
-      ['CA San Miguel','CA ','CA Los Andes','CA ','2-2'],
-      ['CA San Telmo','CA ','CA All Boys','CA ','1-0'],
-      ['San Martin San Juan','SAN','Quilmes','QUI','2-1'],
-      ['Atletico de Rafaela','ATL','Gimnasia Jujuy','GIM','1-1']
-    ]
-  },
-  {
-    league: 'VENEZUELA PRIMERA DIVISION', flag: 've',
-    m: [
-      ['Deportivo Tachira','DEP','Carabobo','CAR','2-1'],
-      ['Portuguesa FC','POR','Universidad Central de Venezuela FC','UNI','1-2'],
-      ['Caracas FC','CAR','Deportivo Rayo Zuliano','DEP','2-2'],
-      ['Anzoategui FC','ANZ','Zamora FC','ZAM','1-1'],
-      ['Monagas SC','MON','Academia Puerto Cabello','ACA','2-1'],
-      ['Trujillanos FC','TRU','Deportivo La Guaira','DEP','0-2']
-    ]
-  }
+  { league:'ENGLISH PREMIER LEAGUE', flag:'gb - eng', m:[['Manchester United','MAN','Brentford','BRE','2 - 1']] },
+  { league:'ITALY SERIE A', flag:'it', m:[['Cagliari','CAG','Atalanta','ATA','1 - 3'],['Lazio','LAZ','Udinese','UDI','1 - 1']] },
+  { league:'SPAIN LA LIGA', flag:'es', m:[['RCD Espanyol','ESP','Levante','LEV','2 - 0']] },
+  { league:'SWEDEN ALLSVENSKAN', flag:'se', m:[['Mjallby','MJA','Halmstads','HAL','1 - 2'],['BK Hacken','HAC','IK Sirius FK','SIR','3 - 1'],['Kalmar','KAL','Elfsborg','ELF','0 - 2'],['Kalmar','KAL','Elfsborg','ELF','1 - 1'],['Orgryte','ORG','Degerfors','DEG','2 - 2'],['AIK Fotboll','AIK','Malmo','MAL','0 - 0'],['AIK Fotboll','AIK','Malmo','MAL','2 - 1']] },
+  { league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', m:[['FC Copenhagen','COP','Vejle','VEJ','3 - 0']] },
+  { league:'LIGA PORTUGAL', flag:'pt', m:[['Gil Vicente','GIL','Casa Pia','CAS','2 - 0']] },
+  { league:'SPAIN LA LIGA 2', flag:'es', m:[['Cadiz CF','CAD','UD Las Palmas','LPA','1 - 0']] },
+  { league:'TURKIYE SUPER LIG', flag:'tr', m:[['Alanyaspor','ALA','Samsunspor','SAM','1 - 1'],['Konyaspor','KON','Trabzonspor','TRA','0 - 2'],['Besiktas','BES','Fatih Karagumruk','FAT','3 - 0']] },
+  { league:'RUSSIA PREMIER LEAGUE', flag:'ru', m:[['Baltika Kaliningrad','BAL','Akron Tolyatti','AKR','1 - 0']] },
+  { league:'FRANCE LIGUE 2', flag:'fr', m:[['US Boulogne','BOU','USL Dunkerque','DUN','1 - 1']] },
+  { league:'INDONESIA SUPER LEAGUE', flag:'id', m:[['Bali United','BAL','PSM Makassar','PSM','2 - 1'],['Persija Jakarta','PER','Persis Solo','PES','3 - 0']] },
+  { league:'POLAND EKSTRAKLASA', flag:'pl', m:[['Piast Gliwice','PIA','Arka Gdynia','ARK','2 - 1']] },
+  { league:'NORWAY 1ST DIV', flag:'no', m:[['Egersund','EGE','Ranheim','RAN','1 - 1']] },
+  { league:'ICELAND PREMIER LEAGUE', flag:'is', m:[['Fram Reykjavik','FRA','IBV Vestmannaeyjar','IBV','2 - 0'],['KR Reykjavik','KRR','FH Hafnarfjordur','FHH','3 - 1'],['Stjarnan Gardabaer','STJ','Valur Reykjavik','VAL','1 - 2'],['Breidablik','BRE','Thor Akureyri','THO','2 - 0'],['Vikingur Reykjavik','VIR','IA Akranes','AKA','3 - 0']] },
+  { league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', m:[['Zamalek','ZAM','Enppi','ENP','2 - 0'],['Smouha SC','SMO','Al Masry','MAS','1 - 0'],['Pyramids FC','PYR','Al Ahly Cairo','AHC','1 - 1']] },
+  { league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', m:[['Metaloglobus Bucuresti','MET','Unirea Slobozia','UNI','1 - 0']] },
+  { league:'LIGA PORTUGAL 2', flag:'pt', m:[['GD Chaves','CHA','UD Oliveirense','OLI','2 - 0']] },
+  { league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', m:[['AEL Limassol','AEL','Anorthosis Famagusta','ANO','1 - 1']] },
+  { league:'POLAND 1ST LIGA', flag:'pl', m:[['Ruch Chorzow','RUC','Pogon Grodzisk Mazowiecki','POG','2 - 0']] },
+  { league:'UKRAINE PREMIER LEAGUE', flag:'ua', m:[['FC Epitsentr Kamianets Podilskyi','EPI','FC Oleksandriya','OLE','0 - 0'],['Zorya Luhansk','ZOR','Veres Rivne','VER','2 - 1']] },
+  { league:'CROATIA SUPERLIGA', flag:'hr', m:[['HNK Gorica','GOR','Istra 1961 Pula','IST','1 - 2']] },
+  { league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', m:[['RFC de Liege','LIE','Lommel SK','LOM','1 - 0'],['Beerschot VA','BEE','Patro Eisden','PAT','2 - 0']] },
+  { league:'GEORGIA EROVNULI LIGA', flag:'ge', m:[['FC Gagra Tbilisi','GAG','FC Meshakhte Tkibuli','MES','2 - 0'],['FC Dinamo Batumi','DIN','FC Torpedo Kutaisi','TOR','1 - 0']] },
+  { league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', m:[['IMT Novi Beograd','IMT','Radnicki Nis','RAD','1 - 2'],['TSC Backa Topola','TSC','Mladost Lucani','MLD','3 - 0']] },
+  { league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', m:[['Turan Tovuz','TUR','Zira PFK','ZIR','1 - 1']] },
+  { league:'RUSSIA FIRST LEAGUE', flag:'ru', m:[['Torpedo Moscow','TRM','Fakel Voronezh','FAK','0 - 1']] },
+  { league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', m:[['FC Montana','MON','Dobrudzha Dobrich','DOB','1 - 0'],['Lokomotiv Sofia','LOK','PFC Septemvri Sofia','SEP','2 - 1']] },
+  { league:'LATVIA VIRSLIGA', flag:'lv', m:[['BFC Daugavpils','DAU','SK Super Nova','SUP','2 - 0'],['Ogre United','OGR','FS Jelgava','JEL','1 - 1']] },
+  { league:'SWEDEN ETTAN NORTH', flag:'se', m:[['Hammarby TFF','HAM','Vasalunds IF','VAS','2 - 1']] },
+  { league:'GERMANY WOMEN BUNDESLIGA', flag:'de', m:[['TSG Hoffenheim [w]','HOF','Koln [w]','KOL','2 - 0']] },
+  { league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', m:[['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 0'],['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 1'],['CA Huracan','HUR','Argentinos Juniors','ARJ','0 - 0'],['CA Huracan','HUR','Argentinos Juniors','ARJ','2 - 1']] },
+  { league:'BRAZIL SERIE B', flag:'br', m:[['Athletic Club MG','ATH','Nautico PE','NAU','1 - 0']] },
+  { league:'ECUADOR LIGA PRO SERIE A', flag:'ec', m:[['Manta FC','MAN','Universidad Catolica del Ecuador','UCD','0 - 2'],['SD Aucas','AUC','Delfin SC','DEL','2 - 0']] },
+  { league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', m:[['Club Aurora','AUR','CD San Antonio Bulo Bulo','SAB','2 - 1']] },
+  { league:'PERU LIGA 1', flag:'pe', m:[['AD Tarma','TAR','CD Los Chankas','CHA','1 - 1'],['Deportivo Garcilaso','GAR','FBC Melgar','MEL','0 - 1']] },
+  { league:'URUGUAY PRIMERA DIVISION', flag:'uy', m:[['Defensor Sporting','DEF','CA Progreso','PRO','2 - 0']] },
+  { league:'BRAZIL SERIE C', flag:'br', m:[['S.E.R Caxias','CAX','Ypiranga RS','YPI','1 - 1'],['Ferroviaria SP','FER','Guarani SP','GUA','1 - 0']] },
+  { league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', m:[['Bogota FC','BOG','Union Magdalena','UMG','0 - 0']] },
+  { league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', m:[['Atletico Tembetary','TEM','3 de Noviembre','3NO','2 - 1'],['Sportivo Carapegua','CAR','Deportivo Santani','SAN','1 - 0']] },
+  { league:'URUGUAY SEGUNDA DIVISION', flag:'uy', m:[['Atenas de San Carlos','ATE','Centro Atletico Fenix','CAF','0 - 0']] },
+  { league:'CHILE PRIMERA B', flag:'cl', m:[['Deportes Iquique','DIQ','Santiago Wanderers','SAW','2 - 1']] }
 ];
 
 function renderSpotlight() {
   var el = document.getElementById('spotlightCards');
   var sp = [
-    { lg:'ENGLAND PREMIER LEAGUE', fl:'gb-eng', h:'Liverpool', ha:'LIV', a:'Crystal Palace', aa:'CRY', dt:'25 April 2026 • 21:00 WIB', hc:'0 : 1', sc:'3 - 1' },
-    { lg:'SPAIN LA LIGA', fl:'es', h:'Getafe', ha:'GET', a:'Barcelona', aa:'BAR', dt:'25 April 2026 • 21:15 WIB', hc:'1 : 0', sc:'1 - 3' },
-    { lg:'GERMANY BUNDESLIGA', fl:'de', h:'Mainz', ha:'MAI', a:'Bayern Munich', aa:'FCB', dt:'25 April 2026 • 20:30 WIB', hc:'3/4 : 0', sc:'1 - 3' },
-    { lg:'ITALY SERIE A', fl:'it', h:'Bologna', ha:'BOL', a:'AS Roma', aa:'ROM', dt:'25 April 2026 • 23:00 WIB', hc:'1/4 : 0', sc:'0 - 1' }
+    { lg:'ENGLISH PREMIER LEAGUE', fl:'gb-eng', h:'Manchester United', ha:'MAN', a:'Brentford', aa:'BRE', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 1' },
+    { lg:'ITALY SERIE A', fl:'it', h:'Cagliari', ha:'CAG', a:'Atalanta', aa:'ATA', dt:'27 April 2026 \u2022 23:30 WIB', hc:'3/4 : 0', sc:'1 - 3' },
+    { lg:'TURKIYE SUPER LIG', fl:'tr', h:'Besiktas', ha:'BES', a:'Fatih Karagumruk', aa:'FAT', dt:'28 April 2026 \u2022 00:00 WIB', hc:'0 : 1 1/2', sc:'3 - 0' },
+    { lg:'SPAIN LA LIGA', fl:'es', h:'RCD Espanyol', ha:'ESP', a:'Levante', aa:'LEV', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 0' }
   ];
-var h = '';
-  
+  var h = '';
   sp.forEach(function (s) {
     var c1 = gc(s.h), c2 = gc(s.a);
     var scC = scoreClass(s.sc);
     var rt = resultTag(s.sc), rtC = resultTagClass(s.sc);
-    
     h +=
       '<div class="hero-card p-6">' +
-        /* --- BAGIAN ATAS: SEKARANG BERISI FLAG & NAMA LIGA --- */
         '<div class="flex items-center justify-between mb-5">' +
-          '<div class="flex items-center gap-2">' + 
-            flagImg(s.fl, 'flag-icon') + 
-            '<span class="text-[11px] font-semibold text-white/40 uppercase tracking-wider">' + s.lg + '</span>' +
-          '</div>' +
+          '<div class="flex items-center gap-2">' + flagImg(s.fl, 'flag-icon') + '<span class="text-[11px] font-semibold text-white/40 uppercase tracking-wider">' + s.lg + '</span></div>' +
           '<span class="text-[9px] font-bold bg-amber-400/10 text-amber-400 border border-amber-400/20 px-2 py-0.5 rounded-full">handicap ' + s.hc + '</span>' +
         '</div>' +
-
-        /* --- BAGIAN TENGAH: TIM & SKOR (TETAP) --- */
         '<div class="flex items-center justify-between">' +
-          '<div class="flex items-center gap-3 flex-1">' +
-            '<div class="team-badge bg-gradient-to-br ' + c1[0] + ' ' + c1[1] + '">' + s.ha + '</div>' +
-            '<div><div class="text-base font-bold">' + s.h + '</div><div class="text-[10px] text-white/30">Home</div></div>' +
-          '</div>' +
-          '<div class="flex flex-col items-center px-4">' +
-            '<div class="text-2xl font-black tracking-tight ' + scC + '">' + s.sc + '</div>' +
-            '<span class="result-tag ' + rtC + ' mt-1">' + rt + '</span>' +
-          '</div>' +
-          '<div class="flex items-center gap-3 flex-1 justify-end">' +
-            '<div class="text-right"><div class="text-base font-bold">' + s.a + '</div><div class="text-[10px] text-white/30">Away</div></div>' +
-            '<div class="team-badge bg-gradient-to-br ' + c2[0] + ' ' + c2[1] + '">' + s.aa + '</div>' +
-          '</div>' +
+          '<div class="flex items-center gap-3 flex-1"><div class="team-badge bg-gradient-to-br ' + c1[0] + ' ' + c1[1] + '">' + s.ha + '</div><div><div class="text-base font-bold">' + s.h + '</div><div class="text-[10px] text-white/30">Home</div></div></div>' +
+          '<div class="flex flex-col items-center px-4"><div class="text-2xl font-black tracking-tight ' + scC + '">' + s.sc + '</div><span class="result-tag ' + rtC + ' mt-1">' + rt + '</span></div>' +
+          '<div class="flex items-center gap-3 flex-1 justify-end"><div class="text-right"><div class="text-base font-bold">' + s.a + '</div><div class="text-[10px] text-white/30">Away</div></div><div class="team-badge bg-gradient-to-br ' + c2[0] + ' ' + c2[1] + '">' + s.aa + '</div></div>' +
         '</div>' +
-
-        /* --- BAGIAN BAWAH: SEKARANG BERISI WAKTU / TANGGAL --- */
-        '<div class="mt-4 pt-3 border-t border-white/5">' + 
-          '<div class="text-[10px] font-medium text-white/40 uppercase tracking-wider">' + s.dt + '</div>' +
-        '</div>' +
+        '<div class="mt-4 pt-3 border-t border-white/5"><div class="text-[10px] font-medium text-white/40 uppercase tracking-wider">' + s.dt + '</div></div>' +
       '</div>';
   });
   el.innerHTML = h;
 }
 
-    function updateStats() {
-      var t  = matches.length;
-      var l  = new Set(matches.map(function (m) { return m.league; })).size;
-      var ds = Array.from(new Set(matches.map(function (m) { return m.date; }))).sort();
+function updateStats() {
+  var t  = matches.length;
+  var l  = new Set(matches.map(function (m) { return m.league; })).size;
+  var ds = Array.from(new Set(matches.map(function (m) { return m.date; }))).sort();
+  document.getElementById('statTotal').textContent   = t;
+  document.getElementById('statLeagues').textContent = l;
+  document.getElementById('statDate1').textContent      = matches.filter(function (m) { return m.date === ds[0]; }).length;
+  document.getElementById('statDate1Label').textContent = dateLabel(ds[0]).replace(' 2026', '');
+  document.getElementById('statDate2').textContent      = ds[1] ? matches.filter(function (m) { return m.date === ds[1]; }).length : 0;
+  document.getElementById('statDate2Label').textContent = ds[1] ? dateLabel(ds[1]).replace(' 2026', '') : '\u2014';
+}
 
-      document.getElementById('statTotal').textContent   = t;
-      document.getElementById('statLeagues').textContent = l;
-      document.getElementById('statDate1').textContent      = matches.filter(function (m) { return m.date === ds[0]; }).length;
-      document.getElementById('statDate1Label').textContent = dateLabel(ds[0]).replace(' 2026', '');
-      document.getElementById('statDate2').textContent      = ds[1] ? matches.filter(function (m) { return m.date === ds[1]; }).length : 0;
-      document.getElementById('statDate2Label').textContent = ds[1] ? dateLabel(ds[1]).replace(' 2026', '') : '\u2014';
-    }
+function renderSchedule(data) {
+  var c = document.getElementById('scheduleContainer');
+  c.innerHTML = '';
+  if (!data || !data.length) {
+    c.innerHTML = '<div class="flex flex-col items-center gap-3 py-16 anim-in d1"><i data-lucide="search-x" class="w-10 h-10 text-white/10"></i><span class="text-sm text-white/30">Tidak ditemukan pertandingan</span></div>';
+    lucide.createIcons();
+    document.getElementById('matchCountLabel').textContent = '0 pertandingan';
+    return;
+  }
+  var leagueGroups = {};
+  data.forEach(function (m) { if (!leagueGroups[m.league]) leagueGroups[m.league] = []; leagueGroups[m.league].push(m); });
+  var orderMap = {};
+  leagueOrder.forEach(function (lg, i) { orderMap[lg] = i; });
+  var orderedLeagues = Object.keys(leagueGroups).sort(function (a, b) { return (orderMap[a] !== undefined ? orderMap[a] : 999) - (orderMap[b] !== undefined ? orderMap[b] : 999); });
+  var total = 0;
+  orderedLeagues.forEach(function (league, li) {
+    var ms = leagueGroups[league].sort(function (a, b) { return a.date !== b.date ? a.date.localeCompare(b.date) : a.time.localeCompare(b.time); });
+    total += ms.length;
+    var w = document.createElement('div');
+    w.className = 'glass-static p-5 mb-4 league-card';
+    w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+    w.style.opacity = '0';
+    var fl = ms[0].flag;
+    var headerHTML = '<div class="league-card-header"><div class="flex items-center gap-2">' + flagImg(fl, 'flag-icon-lg') + '<span class="league-tag">' + league + '</span></div><span class="text-[10px] text-white/15">' + ms.length + ' match</span></div>';
+    var rows = '';
+    var prevDate = '';
+    ms.forEach(function (m) {
+      var v  = parseHC(m.handicap);
+      var z  = isZeroHC(v);
+      var hc = gc(m.home);
+      var ac = gc(m.away);
+      var ha = getAbbr(m.home);
+      var aa = getAbbr(m.away);
+      var ds = dateShort(m.date);
+      if (ds !== prevDate) { rows += '<div class="date-sep"><span class="date-sep-text">' + dateLabel(m.date) + '</span><div class="date-sep-line"></div></div>'; prevDate = ds; }
+      rows += '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5"><div class="flex-shrink-0 w-[64px]"><div class="text-xs font-bold text-white/70">' + m.time + '</div><div class="text-[9px] text-white/20 font-medium">WIB</div></div><div class="flex items-center gap-2.5 flex-1 min-w-0"><div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + ha + '</div><span class="text-[13px] font-semibold truncate">' + m.home + '</span></div><div class="handicap-badge ' + (z ? 'handicap-zero' : '') + ' flex-shrink-0 text-center">' + v.home + ' : ' + v.away + '</div><div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end"><span class="text-[13px] font-semibold truncate text-right">' + m.away + '</span><div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + aa + '</div></div></div>';
+    });
+    w.innerHTML = headerHTML + rows;
+    c.appendChild(w);
+  });
+  document.getElementById('matchCountLabel').textContent = total + ' pertandingan';
+}
 
-    function renderSchedule(data) {
-      var c = document.getElementById('scheduleContainer');
-      c.innerHTML = '';
-      
-      if (!data || !data.length) {
-        c.innerHTML = 
-          '<div class="flex flex-col items-center gap-3 py-16 anim-in d1">' +
-            '<i data-lucide="search-x" class="w-10 h-10 text-white/10"></i>' +
-            '<span class="text-sm text-white/30">Tidak ditemukan pertandingan</span>' +
-          '</div>';
-        lucide.createIcons();
-        document.getElementById('matchCountLabel').textContent = '0 pertandingan';
-        return;
-      }
-      
-      var leagueGroups = {};
-      data.forEach(function (m) {
-        if (!leagueGroups[m.league]) leagueGroups[m.league] = [];
-        leagueGroups[m.league].push(m);
-      });
-      
-      var orderMap = {};
-      leagueOrder.forEach(function (lg, i) { orderMap[lg] = i; });
-      var orderedLeagues = Object.keys(leagueGroups).sort(function (a, b) {
-        return (orderMap[a] !== undefined ? orderMap[a] : 999) - (orderMap[b] !== undefined ? orderMap[b] : 999);
-      });
-
-      var total = 0;
-      orderedLeagues.forEach(function (league, li) {
-        var ms = leagueGroups[league].sort(function (a, b) {
-          return a.date !== b.date ? a.date.localeCompare(b.date) : a.time.localeCompare(b.time);
-        });
-        total += ms.length;
-
-        var w = document.createElement('div');
-        w.className = 'glass-static p-5 mb-4 league-card';
-        w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
-        w.style.opacity = '0';
-
-        var fl = ms[0].flag;
-        var headerHTML = 
-          '<div class="league-card-header">' +
-            '<div class="flex items-center gap-2">' + 
-              flagImg(fl, 'flag-icon-lg') + 
-              '<span class="league-tag">' + league + '</span>' +
-            '</div>' +
-            '<span class="text-[10px] text-white/15">' + ms.length + ' match</span>' +
-          '</div>';
-        var rows = '';
-        var prevDate = '';
-
-        ms.forEach(function (m) {
-          var v  = parseHC(m.handicap);
-          var z  = isZeroHC(v);
-          var hc = gc(m.home);
-          var ac = gc(m.away);
-          var ha = getAbbr(m.home);
-          var aa = getAbbr(m.away);
-          var ds = dateShort(m.date);
-          
-          if (ds !== prevDate) { 
-            rows += 
-              '<div class="date-sep">' +
-                '<span class="date-sep-text">' + dateLabel(m.date) + '</span>' +
-                '<div class="date-sep-line"></div>' +
-              '</div>'; 
-            prevDate = ds; 
-          }
-          
-          rows +=
-            '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5">' +
-              '<div class="flex-shrink-0 w-[64px]">' +
-                '<div class="text-xs font-bold text-white/70">' + m.time + '</div>' +
-                '<div class="text-[9px] text-white/20 font-medium">WIB</div>' +
-              '</div>' +
-              '<div class="flex items-center gap-2.5 flex-1 min-w-0">' +
-                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + ha + '</div>' +
-                '<span class="text-[13px] font-semibold truncate">' + m.home + '</span>' +
-              '</div>' +
-              '<div class="handicap-badge ' + (z ? 'handicap-zero' : '') + ' flex-shrink-0 text-center">' + v.home + ' : ' + v.away + '</div>' +
-              '<div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end">' +
-                '<span class="text-[13px] font-semibold truncate text-right">' + m.away + '</span>' +
-                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + aa + '</div>' +
-              '</div>' +
-            '</div>';
-        });
-        w.innerHTML = headerHTML + rows;
-        c.appendChild(w);
-      });
-      document.getElementById('matchCountLabel').textContent = total + ' pertandingan';
-    }
-
-    function renderPrediksi() {
-      var c = document.getElementById('prediksiList');
-      c.innerHTML = '';
-      
-      if (!predictions.length) {
-        c.innerHTML = 
-          '<div class="flex flex-col items-center gap-3 py-16 anim-in d1">' +
-            '<i data-lucide="clock" class="w-10 h-10 text-white/10"></i>' +
-            '<span class="text-sm text-white/30">Belum ada hasil pertandingan</span>' +
-          '</div>';
-        lucide.createIcons();
-        return;
-      }
-      
-      predictions.forEach(function (lg, li) {
-        var w = document.createElement('div');
-        w.className = 'glass-static p-5 mb-4';
-        w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
-        w.style.opacity = '0';
-        var rows = '';
-        
-        lg.m.forEach(function (m) {
-          var sc = scoreClass(m[4]);
-          var hc = gc(m[0]);
-          var ac = gc(m[2]);
-          var rt = resultTag(m[4]);
-          var rc = resultTagClass(m[4]);
-          
-          rows +=
-            '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5">' +
-              '<div class="flex items-center gap-2.5 flex-1 min-w-0">' +
-                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + m[1] + '</div>' +
-                '<span class="text-[13px] font-semibold truncate">' + m[0] + '</span>' +
-              '</div>' +
-              '<div class="flex-shrink-0 flex flex-col items-center gap-1">' +
-                '<div class="text-lg font-black ' + sc + '">' + m[4] + '</div>' +
-                '<span class="result-tag ' + rc + '">' + rt + '</span>' +
-              '</div>' +
-              '<div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end">' +
-                '<span class="text-[13px] font-semibold truncate text-right">' + m[2] + '</span>' +
-                '<div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + m[3] + '</div>' +
-              '</div>' +
-            '</div>';
-        });
-        
-        w.innerHTML = 
-          '<div class="league-card-header">' +
-            '<div class="flex items-center gap-2">' + 
-              flagImg(lg.flag, 'flag-icon-lg') + 
-              '<span class="league-tag">' + lg.league + '</span>' +
-            '</div>' +
-            '<span class="text-[10px] text-white/15">' + lg.m.length + ' match</span>' +
-          '</div>' + 
-          rows;
-          
-        c.appendChild(w);
-      });
-    }
+function renderPrediksi() {
+  var c = document.getElementById('prediksiList');
+  c.innerHTML = '';
+  if (!predictions.length) { c.innerHTML = '<div class="flex flex-col items-center gap-3 py-16 anim-in d1"><i data-lucide="clock" class="w-10 h-10 text-white/10"></i><span class="text-sm text-white/30">Belum ada hasil pertandingan</span></div>'; lucide.createIcons(); return; }
+  predictions.forEach(function (lg, li) {
+    var w = document.createElement('div');
+    w.className = 'glass-static p-5 mb-4';
+    w.style.animation = 'fadeInUp .5s ' + (li * 0.04) + 's cubic-bezier(.4,0,.2,1) forwards';
+    w.style.opacity = '0';
+    var rows = '';
+    lg.m.forEach(function (m) {
+      var sc = scoreClass(m[4]);
+      var hc = gc(m[0]);
+      var ac = gc(m[2]);
+      var rt = resultTag(m[4]);
+      var rc = resultTagClass(m[4]);
+      rows += '<div class="match-row p-3.5 flex items-center gap-3 mb-1.5"><div class="flex items-center gap-2.5 flex-1 min-w-0"><div class="team-badge team-badge-sm bg-gradient-to-br ' + hc[0] + ' ' + hc[1] + ' text-white">' + m[1] + '</div><span class="text-[13px] font-semibold truncate">' + m[0] + '</span></div><div class="flex-shrink-0 flex flex-col items-center gap-1"><div class="text-lg font-black ' + sc + '">' + m[4] + '</div><span class="result-tag ' + rc + '">' + rt + '</span></div><div class="flex items-center gap-2.5 flex-1 min-w-0 justify-end"><span class="text-[13px] font-semibold truncate text-right">' + m[2] + '</span><div class="team-badge team-badge-sm bg-gradient-to-br ' + ac[0] + ' ' + ac[1] + ' text-white">' + m[3] + '</div></div></div>';
+    });
+    w.innerHTML = '<div class="league-card-header"><div class="flex items-center gap-2">' + flagImg(lg.flag, 'flag-icon-lg') + '<span class="league-tag">' + lg.league + '</span></div><span class="text-[10px] text-white/15">' + lg.m.length + ' match</span></div>' + rows;
+    c.appendChild(w);
+  });
+}
 
 function renderLeagueBars() {
-      var c = document.getElementById('leagueBars');
-      c.innerHTML = '';
-      
-      var lc = {};
-      matches.forEach(function (m) { lc[m.league] = (lc[m.league] || 0) + 1; });
-      
-      /* --- LOGIKA PENGURUTAN BARU --- */
-      // Mengurutkan dari jumlah pertandingan terbanyak ke terdikit (Descending)
-      // Jika jumlahnya sama, akan diurutkan berdasarkan abjad nama liganya
-      var sorted = Object.entries(lc).sort(function (a, b) {
-        if (b[1] !== a[1]) {
-          return b[1] - a[1]; // Urutkan berdasarkan jumlah (tertinggi ke terendah)
-        }
-        return a[0].localeCompare(b[0]); // Jika jumlah sama, urutkan abjad A-Z
-      });
-      /* ------------------------------ */
-      
-      var max = sorted.length > 0 ? sorted[0][1] : 1; // Mencegah error jika kosong
-      var sn = {
-        'ENGLISH PREMIER LEAGUE':'English Premier League','SPAIN LA LIGA':'Spain La Liga',
-        'ITALY CUP':'Italy Cup','ENGLISH CHAMPIONSHIP':'English Championship',
-        'FRANCE CUP':'France Cup','AFC CHAMPIONS LEAGUE ELITE':'AFC CL Elite',
-        'BELGIUM FIRST DIVISION A PLAYOFF':'Belgium Playoff','RUSSIA PREMIER LEAGUE':'Russia Premier League',
-        'SWEDEN SUPERETTAN':'Sweden Superettan','AUSTRIA BUNDESLIGA PLAYOFF':'Austria Playoff',
-        'CHINA FOOTBALL SUPER LEAGUE':'China Super League','KOREA K-LEAGUE 1':'Korea K-League 1',
-        'ENGLISH LEAGUE ONE':'English League One','ENGLISH LEAGUE TWO':'English League Two',
-        'TURKIYE CUP':'Turkiye Cup','FINLAND YKKOSLIIGA':'Finland Ykkosliiga',
-        'DENMARK 1ST DIV PLAYOFF':'Denmark 1st Div PO','CROATIA SUPERLIGA':'Croatia Superliga',
-        'ROMANIA CUP':'Romania Cup','SCOTLAND CHAMPIONSHIP':'Scotland Championship',
-        'GEORGIA EROVNULI LIGA':'Georgia Erovnuli Liga','AZERBAIJAN CUP':'Azerbaijan Cup',
-        'HUNGARY CUP':'Hungary Cup','CZECHIA CUP':'Czechia Cup','UKRAINE CUP':'Ukraine Cup',
-        'BULGARIA CUP':'Bulgaria Cup','LATVIA VIRSLIGA':'Latvia Virsliga',
-        'ENGLISH NATIONAL LEAGUE':'English National League','ENGLISH NATIONAL LEAGUE NORTH':'English NL North',
-        'ESTONIA PREMIUM LIGA':'Estonia Premium Liga','MEXICO PRIMERA DIVISION':'Mexico Primera Div',
-        'ECUADOR LIGA PRO SERIE A':'Ecuador Liga Pro','BOLIVIA PROFESSIONAL FOOTBALL LEAGUE':'Bolivia Pro League',
-        'COSTA RICA PRIMERA DIVISION':'Costa Rica Primera','USL CHAMPIONSHIP':'USL Championship',
-        'ARGENTINA PRIMERA B':'Argentina Primera B','VENEZUELA PRIMERA DIVISION':'Venezuela Primera Div'
-      };
-      var bc = ['#818CF8','#22D3EE','#A78BFA','#FBBF24','#F472B6','#6366F1','#FB923C','#F87171','#38BDF8','#E879F9','#FACC15','#2DD4BF','#4ade80','#FB7185','#34D399','#A3E635','#C084FC','#FCA5A1','#67E8F9','#FDE68A','#86EFAC','#FDA4AF','#D8B4FE','#BEF264','#FCD34D','#6EE7B7','#99F6E4','#F0ABFC','#FDBA74','#FCA5A1','#7DD3FC','#BAE6FD','#E9D5FF','#FEF08A','#BBF7D0','#FBCFE8','#CFFAFE','#F5D0FE','#FDE68A'];
-      
-      sorted.forEach(function (entry, i) {
-        var l = entry[0], count = entry[1], pct = Math.round((count / max) * 100), name = sn[l] || l;
-        var r = document.createElement('div');
-        r.className = 'flex items-center gap-3';
-        r.innerHTML = 
-          '<div class="w-36 lg:w-44 flex-shrink-0 text-[11px] text-white/50 truncate font-medium">' + name + '</div>' +
-          '<div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden">' +
-            '<div class="league-bar" style="width:0%;background:' + bc[i % bc.length] + '" data-width="' + pct + '"></div>' +
-          '</div>' +
-          '<div class="w-6 text-right text-[11px] font-bold text-white/60">' + count + '</div>';
-        c.appendChild(r);
-      });
-      
-      setTimeout(function () { 
-        document.querySelectorAll('.league-bar').forEach(function (b) { 
-          b.style.width = b.dataset.width + '%'; 
-        }); 
-      }, 300);
-    }
+  var c = document.getElementById('leagueBars');
+  c.innerHTML = '';
+  var lc = {};
+  matches.forEach(function (m) { lc[m.league] = (lc[m.league] || 0) + 1; });
+  var sorted = Object.entries(lc).sort(function (a, b) { return b[1] !== a[1] ? b[1] - a[1] : a[0].localeCompare(b[0]); });
+  var max = sorted.length > 0 ? sorted[0][1] : 1;
+  var bc = ['#22d3ee','#818cf8','#a78bfa','#fbbf24','#f472b6','#6366f1','#fb923c','#f87171','#38bdf8','#e879f9','#facc15','#2dd4bf','#4ade80','#fb7185','#34d399','#a3e635','#c084fc','#fca5a1','#67e8f9','#fde68a','#86efac','#fda4af','#d8b4fe','#bef264','#fcd34d','#6ee7b7','#99f6e4','#f0abfc','#fdba74','#7dd3fc'];
+  sorted.forEach(function (entry, i) {
+    var l = entry[0], count = entry[1], pct = Math.round((count / max) * 100);
+    var r = document.createElement('div');
+    r.className = 'flex items-center gap-3';
+    r.innerHTML = '<div class="w-36 lg:w-44 flex-shrink-0 text-[11px] text-white/50 truncate font-medium">' + l + '</div><div class="flex-1 h-1.5 bg-white/5 rounded-full overflow-hidden"><div class="league-bar" style="width:0%;background:' + bc[i % bc.length] + '" data-width="' + pct + '"></div></div><div class="w-6 text-right text-[11px] font-bold text-white/60">' + count + '</div>';
+    c.appendChild(r);
+  });
+  setTimeout(function () { document.querySelectorAll('.league-bar').forEach(function (b) { b.style.width = b.dataset.width + '%'; }); }, 300);
+}
 
-    function filterMatches() {
-      var q = document.getElementById('searchInput').value.toLowerCase().trim();
-      if (!q) { 
-        renderSchedule(matches); 
-        return; 
-      }
-      renderSchedule(matches.filter(function (m) { 
-        return m.home.toLowerCase().includes(q) || m.away.toLowerCase().includes(q) || m.league.toLowerCase().includes(q); 
-      }));
-    }
+function filterMatches() {
+  var q = document.getElementById('searchInput').value.toLowerCase().trim();
+  if (!q) { renderSchedule(matches); return; }
+  renderSchedule(matches.filter(function (m) { return m.home.toLowerCase().includes(q) || m.away.toLowerCase().includes(q) || m.league.toLowerCase().includes(q); }));
+}
 
-    // Initialize Function Calls
-    updateStats();
-    renderSpotlight();
-    renderLeagueBars();
-    renderPrediksi();
-    renderSchedule(matches);
-    renderManualTable('PL');
+updateStats();
+renderSpotlight();
+renderLeagueBars();
+renderPrediksi();
+renderSchedule(matches);
+renderManualTable('PL');
 
   </script>
 
-<!-- PROTECT SIMPLE (NO RIGHT CLICK) -->
 <script>
-document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-});
-
+document.addEventListener("contextmenu", function(e) { e.preventDefault(); });
 document.addEventListener("keydown", function(e) {
-    // F12
-    if (e.key === "F12") {
-        e.preventDefault();
-    }
-
-    // Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+U
-    if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) {
-        e.preventDefault();
-    }
-
-    if (e.ctrlKey && e.key === "u") {
-        e.preventDefault();
-    }
+  if (e.key === "F12") e.preventDefault();
+  if (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "J")) e.preventDefault();
+  if (e.ctrlKey && e.key === "u") e.preventDefault();
 });
 </script>
-
 <style>
-/* MATIKAN BLOK TEKS */
-body {
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
+body { user-select: none; -webkit-user-select: none; -ms-user-select: none; }
+
+/* ── Mobile Match Row — Compact 2-Line Layout ─────────────── */
+@media (max-width: 640px) {
+  .match-row {
+    flex-wrap: wrap;
+    gap: 6px 10px;
+    padding: 10px 12px;
+  }
+
+  /* === JADWAL: Baris 1 = Waktu + Handicap === */
+  #scheduleContainer .match-row > div:first-child {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    margin-bottom: 2px;
+  }
+  #scheduleContainer .match-row > div:not(:first-child) {
+    flex: 0 0 auto;
+  }
+  #scheduleContainer .match-row > div:nth-child(2),
+  #scheduleContainer .match-row > div:nth-child(4) {
+    flex: 1 1 0;
+  }
+
+  /* === PREDIKSI: Skor tetap di tengah === */
+  #prediksiList .match-row > div:nth-child(2) {
+    flex: 0 0 auto;
+  }
+
+  /* === UMUM: Nama tim full tanpa truncate === */
+  .match-row span {
+    white-space: normal !important;
+    overflow: visible !important;
+    text-overflow: unset !important;
+  }
+  .match-row > div {
+    min-width: unset !important;
+  }
+  .match-row .team-badge-sm {
+    width: 26px;
+    height: 26px;
+    font-size: 8px;
+    border-radius: 6px;
+  }
+  .match-row .handicap-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+  }
+  .match-row .result-tag {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  .match-row [class*="text-lg"] {
+    font-size: 16px !important;
+  }
 }
 </style>
 
