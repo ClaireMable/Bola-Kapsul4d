@@ -87,7 +87,11 @@ body::after {
   position: fixed;
   inset: 0;
   z-index: 0;
-  background: url('https://favx.link/i/jktvnkzd/worldcup2026.png') center center / cover no-repeat;
+
+  background: url('https://favx.link/i/louguo0x/worldcupball2026.jfif') center center / cover no-repeat;
+
+  /* efek */
+  filter: blur(8px) brightness(0.4);
 }
 
 /* Volumetric vignette ring */
@@ -146,18 +150,20 @@ body::after {
     rgba(255,255,255,0.04) 60%,
     rgba(255,255,255,0.02) 100%
   );
-  backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
-  -webkit-backdrop-filter: blur(22px) saturate(180%) brightness(1.04);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-top-color: rgba(255,255,255,0.2);
-  border-left-color: rgba(255,255,255,0.15);
+  backdrop-filter: blur(5px) saturate(180%) brightness(1.04);
+  -webkit-backdrop-filter: blur(5px) saturate(180%) brightness(1.04);
+    border: 2px solid rgba(34, 211, 238, 0.35);
+  border-top-color: rgba(34, 211, 238, 0.50);
+  border-left-color: rgba(34, 211, 238, 0.40);
   border-radius: 18px;
   box-shadow:
-    0 1px 0   rgba(255,255,255,0.12) inset,
-    0 -1px 0  rgba(0,0,0,0.20) inset,
+    0 0 12px rgba(34, 211, 238, 0.12),
+    0 0 30px rgba(34, 211, 238, 0.06),
+    0 1px 0   rgba(34, 211, 238, 0.20) inset,
+    0 -1px 0  rgba(0,0,0,0.30) inset,
     0 6px 6px rgba(0,0,0,0.14),
     0 16px 48px rgba(0,0,0,0.38);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: none;
   position: relative;
   overflow: hidden;
 }
@@ -187,20 +193,22 @@ body::after {
 .glass:hover {
   background: linear-gradient(
     135deg,
-    rgba(255,255,255,0.13) 0%,
-    rgba(255,255,255,0.07) 60%,
-    rgba(255,255,255,0.03) 100%
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.25) 100%
   );
-  border-color: rgba(34, 211, 238, 0.28);
-  border-top-color: rgba(34, 211, 238, 0.45);
+  border: 3px solid rgba(34, 211, 238, 1);
+  border-top-color: rgba(34, 211, 238, 1);
+  border-left-color: rgba(34, 211, 238, 1);
   transform: translateY(-5px);
   box-shadow:
-    0 1px 0   rgba(255,255,255,0.18) inset,
+    0 0 8px rgba(34, 211, 238, 0.80),
+    0 0 25px rgba(34, 211, 238, 0.45),
+    0 0 35px rgba(34, 211, 238, 0.20),
+    0 0 60px rgba(34, 211, 238, 0.08),
     0 -1px 0  rgba(0,0,0,0.2) inset,
     0 8px 10px rgba(0,0,0,0.18),
-    0 24px 60px rgba(0,0,0,0.45),
-    0 0  25px  rgba(34,211,238,0.10),
-    0 0  55px  rgba(34,211,238,0.05);
+    0 24px 60px rgba(0,0,0,0.45);
 }
 
 /* ── Glass Static ───────────────────────────────────────────────── */
@@ -281,14 +289,14 @@ body::after {
   gap: 12px;
   padding: 10px 16px;
   border-radius: 12px;
-  color: rgba(255,255,255,0.42);
+  color: rgba(255, 255, 255, 0.805);
   font-size: 14px;
   font-weight: 500;
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   user-select: none;
   background: transparent;
-  border: 1px solid transparent;
+  border: 3px solid rgba(255,255,255,0.08);
   width: 100%;
   text-align: left;
   font-family: inherit;
@@ -300,17 +308,15 @@ body::after {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(255,255,255,0.07) 0%, transparent 55%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, transparent 55%);
   opacity: 0;
   transition: opacity 0.28s;
 }
 .nav-item:hover {
-  color: rgba(255,255,255,0.88);
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.08);
-  box-shadow:
-    0 4px 15px rgba(0,0,0,0.22),
-    inset 0 1px 0 rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .nav-item:hover::before { opacity: 1; }
 .nav-item:focus-visible {
@@ -319,45 +325,18 @@ body::after {
 }
 .nav-item.active {
   color: #fff;
-  background: linear-gradient(
-    135deg,
-    rgba(6, 182, 212, 0.22) 0%,
-    rgba(99, 102, 241, 0.16) 100%
-  );
-  border-color: rgba(34,211,238,0.30);
-  box-shadow:
-    0 0  12px rgba(34,211,238,0.18),
-    0 0  30px rgba(34,211,238,0.08),
-    0 0  60px rgba(34,211,238,0.04),
-    0 4px 15px rgba(0,0,0,0.28),
-    inset 0 1px 0 rgba(255,255,255,0.16),
-    inset 0 0 15px rgba(34,211,238,0.06);
-  text-shadow: 0 0 18px rgba(34,211,238,0.45);
+  background: rgba(34, 211, 238, 0.06);
+  border: 3px solid rgba(34, 211, 238, 1);
+box-shadow:
+    0 0 12px rgba(34, 211, 238, 1),
+    0 0 30px rgba(34, 211, 238, 1),
+    0 0 20px rgba(34, 211, 238, 1) inset,
+    0 2px 8px rgba(0,0,0,0.20);
 }
-.nav-item.active::before { opacity: 1; }
+.nav-item.active::before { opacity: 0; }
 .nav-item.active i {
   color: #22d3ee;
-  filter: drop-shadow(0 0 6px rgba(34,211,238,0.75)) drop-shadow(0 0 14px rgba(34,211,238,0.35));
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   STAT CARDS
-   ══════════════════════════════════════════════════════════════════ */
-.accent-green {
-  border-top: 2px solid rgba(74,222,128,0.75) !important;
-  box-shadow:
-    0 -2px 22px rgba(74,222,128,0.14) inset,
-    0 1px 0 rgba(255,255,255,0.12) inset,
-    0 8px 32px rgba(0,0,0,0.35),
-    0 0 0 0.5px rgba(74,222,128,0.12) !important;
-}
-.accent-cyan {
-  border-top: 2px solid rgba(34,211,238,0.75) !important;
-  box-shadow:
-    0 -2px 22px rgba(34,211,238,0.14) inset,
-    0 1px 0 rgba(255,255,255,0.12) inset,
-    0 8px 32px rgba(0,0,0,0.35),
-    0 0 0 0.5px rgba(34,211,238,0.12) !important;
+  filter: drop-shadow(0 0 4px rgba(34,211,238,0.60));
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -369,12 +348,13 @@ body::after {
     rgba(255,255,255,0.045) 0%,
     rgba(255,255,255,0.018) 100%
   );
-  border: 1px solid rgba(255,255,255,0.065);
-  border-top-color: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-top-color: rgba(255,255,255,0.14);
   border-radius: 12px;
   transition: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.06) inset;
 }
 .match-row::before {
   content: '';
@@ -391,16 +371,15 @@ body::after {
 .match-row:hover {
   background: linear-gradient(
     135deg,
-    rgba(34,211,238,0.08) 0%,
-    rgba(255,255,255,0.04) 100%
+    rgba(255,255,255,0.08) 0%,
+    rgba(255,255,255,0.035) 100%
   );
-  border-color: rgba(34,211,238,0.22);
-  border-top-color: rgba(34,211,238,0.35);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-top-color: rgba(255,255,255,0.22);
   transform: translateX(4px);
   box-shadow:
-    0 4px 20px rgba(0,0,0,0.26),
-    0 0  18px rgba(34,211,238,0.07),
-    inset 0 1px 0 rgba(255,255,255,0.12);
+    0 1px 0 rgba(255,255,255,0.10) inset,
+    0 2px 8px rgba(0,0,0,0.20);
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -543,31 +522,31 @@ body::after {
   border-radius: 10px;
   font-size: 12px;
   font-weight: 600;
-  color: rgba(255,255,255,0.40);
+  color: rgba(255,255,255,0.50);
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 1px solid transparent;
+  border: 1px solid rgba(255,255,255,0.08);
   white-space: nowrap;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.03);
   position: relative;
   overflow: hidden;
 }
 .klasemen-tab:hover {
-  color: rgba(255,255,255,0.82);
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.08);
-  box-shadow: 0 4px 14px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.80);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 .klasemen-tab.active {
   color: #fff;
-  background: linear-gradient(135deg, rgba(34,211,238,0.20) 0%, rgba(99,102,241,0.16) 100%);
-  border-color: rgba(34,211,238,0.32);
-  box-shadow:
-    0 0  20px rgba(34,211,238,0.15),
-    0 0  40px rgba(34,211,238,0.06),
-    0 4px 16px rgba(0,0,0,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.14);
-  text-shadow: 0 0 14px rgba(34,211,238,0.35);
+  background: rgba(34, 211, 238, 0.06);
+  border: 3px solid rgba(34, 211, 238, 1);
+box-shadow:
+    0 0 12px rgba(34, 211, 238, 1),
+    0 0 30px rgba(34, 211, 238, 1),
+    0 0 20px rgba(34, 211, 238, 1) inset,
+    0 2px 8px rgba(0,0,0,0.20);
+  text-shadow: 0 0 14px rgb(255, 255, 255);
 }
 
 /* ── Stand Rows ─────────────────────────────────────────────────── */
@@ -743,14 +722,37 @@ body::after {
 /* ══════════════════════════════════════════════════════════════════
    SCROLLBAR
    ══════════════════════════════════════════════════════════════════ */
-::-webkit-scrollbar { width:4px; height:4px; }
-::-webkit-scrollbar-track { background:transparent; }
-::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, rgba(34,211,238,0.35), rgba(99,102,241,0.35));
-  border-radius:2px;
+::-webkit-scrollbar {
+  width: 12px;
 }
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff7a18, #af002d);
+  border-radius: 999px;
+  box-shadow: 0 0 12px rgba(255, 122, 24, 0.5);
+}
+
+/* thumb utama (yang warna gradasi) */
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background: linear-gradient(
+    180deg,
+    #00e5ff,   /* orange atas */
+    #000000,   /* kuning tengah */
+    #00e5ff    /* orange bawah */
+  );
+
+  box-shadow:
+    0 0 12px rgba(249,115,22,0.6),
+    0 0 24px rgba(250,204,21,0.4);
+}
+
+/* hover effect */
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, rgba(34,211,238,0.6), rgba(99,102,241,0.6));
+  box-shadow:
+    0 0 14px rgba(249, 115, 22, 0.9),
+    0 0 30px rgba(251, 113, 133, 0.6);
 }
 
 /* ══════════════════════════════════════════════════════════════════
@@ -857,7 +859,7 @@ body::after {
 
       <div id="secDashboard">
         <div class="grid grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
-          <div class="glass accent-green p-5 anim-in d1">
+          <div class="glass p-5 anim-in d1">
             <div class="flex items-center justify-between mb-2">
               <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
                 <i data-lucide="calendar-check" class="w-4 h-4 text-green-400"></i>
@@ -867,7 +869,7 @@ body::after {
             <div class="text-2xl font-bold" id="statTotal">-</div>
             <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
           </div>
-          <div class="glass accent-cyan p-5 anim-in d2">
+          <div class="glass p-5 anim-in d2">
             <div class="flex items-center justify-between mb-2">
               <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
                 <i data-lucide="globe" class="w-4 h-4 text-cyan-400"></i>
@@ -876,7 +878,7 @@ body::after {
             <div class="text-2xl font-bold" id="statLeagues">-</div>
             <div class="text-[11px] text-white/35 mt-0.5">Liga</div>
           </div>
-          <div class="glass accent-green p-5 anim-in d3">
+          <div class="glass p-5 anim-in d3">
             <div class="flex items-center justify-between mb-2">
               <div class="w-9 h-9 rounded-xl bg-green-500/12 flex items-center justify-center">
                 <i data-lucide="sun" class="w-4 h-4 text-green-400"></i>
@@ -886,7 +888,7 @@ body::after {
             <div class="text-2xl font-bold" id="statDate1">-</div>
             <div class="text-[11px] text-white/35 mt-0.5">Pertandingan</div>
           </div>
-          <div class="glass accent-cyan p-5 anim-in d4">
+          <div class="glass p-5 anim-in d4">
             <div class="flex items-center justify-between mb-2">
               <div class="w-9 h-9 rounded-xl bg-cyan-500/12 flex items-center justify-center">
                 <i data-lucide="moon" class="w-4 h-4 text-cyan-400"></i>
@@ -910,7 +912,7 @@ body::after {
       <div id="secJadwal" style="display:none">
         <div class="anim-in d6">
           <div class="flex items-center justify-between mb-5">
-            <h2 class="font-bold text-base">Jadwal &amp; Handicap 27 - 28 April 2026</h2>
+            <h2 class="font-bold text-base">Jadwal &amp; Handicap 28 - 29 April 2026</h2>
             <span class="text-[11px] text-white/25" id="matchCountLabel">0 pertandingan</span>
           </div>
           <div id="scheduleContainer"></div>
@@ -924,7 +926,7 @@ body::after {
       <div id="secPrediksi" style="display:none">
         <div class="flex items-center gap-2 mb-5 anim-in d1">
           <i data-lucide="sparkles" class="w-4 h-4 text-indigo-400"></i>
-          <h2 class="font-bold text-base">Prediksi Pertandingan 27 - 28 April 2026</h2>
+          <h2 class="font-bold text-base">Prediksi Pertandingan 28 - 29 April 2026</h2>
         </div>
         <div id="prediksiList"></div>
       </div>
@@ -936,28 +938,28 @@ body::after {
           <span class="text-[10px] text-white/50 ml-2 hidden sm:inline">Musim 2025/2026</span>
         </div>
 
-        <div class="flex gap-2 mb-4 overflow-x-auto" style="scrollbar-width:none" id="klasemenTabs">
-          <div class="klasemen-tab active flex items-center gap-2" data-league="PL">
-            <img src="https://flagcdn.com/w20/gb-eng.png" class="w-4 h-4 object-contain" alt="England" />
-            <span>Premier League</span>
-          </div>
-          <div class="klasemen-tab flex items-center gap-2" data-league="PD">
-            <img src="https://flagcdn.com/w20/es.png" class="w-4 h-4 object-contain" alt="Spain" />
-            <span>La Liga</span>
-          </div>
-          <div class="klasemen-tab flex items-center gap-2" data-league="BL1">
-            <img src="https://flagcdn.com/w20/de.png" class="w-4 h-4 object-contain" alt="Germany" />
-            <span>Bundesliga</span>
-          </div>
-          <div class="klasemen-tab flex items-center gap-2" data-league="SA">
-            <img src="https://flagcdn.com/w20/it.png" class="w-4 h-4 object-contain" alt="Italy" />
-            <span>Serie A</span>
-          </div>
-          <div class="klasemen-tab flex items-center gap-2" data-league="FL1">
-            <img src="https://flagcdn.com/w20/fr.png" class="w-4 h-4 object-contain" alt="France" />
-            <span>Ligue 1</span>
-          </div>
-        </div>
+<div class="flex gap-3 mb-4 flex-nowrap" id="klasemenTabs">
+  <div class="klasemen-tab active flex items-center gap-2" data-league="PL">
+    <img src="https://flagcdn.com/w20/gb-eng.png" class="w-4 h-4 object-contain" alt="England" />
+    <span>Premier League</span>
+  </div>
+  <div class="klasemen-tab flex items-center gap-2" data-league="PD">
+    <img src="https://flagcdn.com/w20/es.png" class="w-4 h-4 object-contain" alt="Spain" />
+    <span>La Liga</span>
+  </div>
+  <div class="klasemen-tab flex items-center gap-2" data-league="BL1">
+    <img src="https://flagcdn.com/w20/de.png" class="w-4 h-4 object-contain" alt="Germany" />
+    <span>Bundesliga</span>
+  </div>
+  <div class="klasemen-tab flex items-center gap-2" data-league="SA">
+    <img src="https://flagcdn.com/w20/it.png" class="w-4 h-4 object-contain" alt="Italy" />
+    <span>Serie A</span>
+  </div>
+  <div class="klasemen-tab flex items-center gap-2" data-league="FL1">
+    <img src="https://flagcdn.com/w20/fr.png" class="w-4 h-4 object-contain" alt="France" />
+    <span>Ligue 1</span>
+  </div>
+</div>
 
         <div id="klasemenContent" class="glass-static p-3 lg:p-4"></div>
       </div>
@@ -1346,147 +1348,83 @@ var ST = {
     }
 
 var leagueOrder = [
-  'ENGLISH PREMIER LEAGUE', 'ITALY SERIE A', 'SPAIN LA LIGA',
-  'SWEDEN ALLSVENSKAN', 'DENMARK SUPER LEAGUE PLAYOFF', 'LIGA PORTUGAL',
-  'SPAIN LA LIGA 2', 'TURKIYE SUPER LIG', 'RUSSIA PREMIER LEAGUE',
-  'FRANCE LIGUE 2', 'INDONESIA SUPER LEAGUE', 'POLAND EKSTRAKLASA',
-  'NORWAY 1ST DIV', 'ICELAND PREMIER LEAGUE', 'EGYPT PREMIER LEAGUE PLAYOFF',
-  'ROMANIA SUPERLIGA PLAYOFF', 'LIGA PORTUGAL 2', 'CYPRUS 1ST DIV PLAYOFF',
-  'POLAND 1ST LIGA', 'UKRAINE PREMIER LEAGUE', 'CROATIA SUPERLIGA',
-  'BELGIUM FIRST DIVISION B PLAYOFF', 'GEORGIA EROVNULI LIGA',
-  'SERBIA SUPERLIGA PLAYOFF', 'AZERBAIJAN PREMIER LEAGUE', 'RUSSIA FIRST LEAGUE',
-  'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', 'LATVIA VIRSLIGA',
-  'SWEDEN ETTAN NORTH', 'GERMANY WOMEN BUNDESLIGA', 'ARGENTINA LIGA PROFESIONAL',
-  'BRAZIL SERIE B', 'ECUADOR LIGA PRO SERIE A', 'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE',
-  'PERU LIGA 1', 'URUGUAY PRIMERA DIVISION', 'BRAZIL SERIE C',
-  'COLOMBIA PRIMERA B PLAYOFF', 'PARAGUAY DIVISION INTERMEDIA',
-  'URUGUAY SEGUNDA DIVISION', 'CHILE PRIMERA B'
+  'UEFA CHAMPIONS LEAGUE', 'ENGLISH CHAMPIONSHIP', 'SWEDEN SUPERETTAN',
+  'INDONESIA SUPER LEAGUE', 'ENGLISH LEAGUE ONE', 'LIGA PORTUGAL 2',
+  'SAUDI ARABIA PRO LEAGUE', 'UZBEKISTAN SUPER LEAGUE', 'LATVIA VIRSLIGA',
+  'ENGLISH NATIONAL LEAGUE PLAYOFF', 'ENGLISH NATIONAL LEAGUE NORTH PLAYOFF',
+  'ENGLISH NATIONAL LEAGUE SOUTH PLAYOFF', 'LIGA PORTUGAL 3 PLAYOFF',
+  'CONCACAF CHAMPIONS CUP', 'COPA LIBERTADORES', 'COPA SUDAMERICANA',
+  'ARGENTINA PRIMERA NACIONAL', 'US OPEN CUP'
 ];
 
 var matches = [
-  { date:'28/04', time:'02:00', league:'ENGLISH PREMIER LEAGUE', flag:'gb-eng', home:'Manchester United', away:'Brentford', handicap:'0 : 1/2' },
-  { date:'27/04', time:'23:30', league:'ITALY SERIE A', flag:'it', home:'Cagliari', away:'Atalanta', handicap:'3/4 : 0' },
-  { date:'28/04', time:'01:45', league:'ITALY SERIE A', flag:'it', home:'Lazio', away:'Udinese', handicap:'0 : 1/2' },
-  { date:'28/04', time:'02:00', league:'SPAIN LA LIGA', flag:'es', home:'RCD Espanyol', away:'Levante', handicap:'0 : 1/2' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Mjallby', away:'Halmstads', handicap:'0 : 1 1/4' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'BK Hacken', away:'IK Sirius FK', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'0 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Kalmar', away:'Elfsborg', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'Orgryte', away:'Degerfors', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'0 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ALLSVENSKAN', flag:'se', home:'AIK Fotboll', away:'Malmo', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', home:'FC Copenhagen', away:'Vejle', handicap:'0 : 1 3/4' },
-  { date:'28/04', time:'02:15', league:'LIGA PORTUGAL', flag:'pt', home:'Gil Vicente', away:'Casa Pia', handicap:'0 : 3/4' },
-  { date:'28/04', time:'01:30', league:'SPAIN LA LIGA 2', flag:'es', home:'Cadiz CF', away:'UD Las Palmas', handicap:'1/4 : 0' },
-  { date:'27/04', time:'21:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Alanyaspor', away:'Samsunspor', handicap:'0 : 1/4' },
-  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Konyaspor', away:'Trabzonspor', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'TURKIYE SUPER LIG', flag:'tr', home:'Besiktas', away:'Fatih Karagumruk', handicap:'0 : 1 1/2' },
-  { date:'28/04', time:'00:00', league:'RUSSIA PREMIER LEAGUE', flag:'ru', home:'Baltika Kaliningrad', away:'Akron Tolyatti', handicap:'0 : 3/4' },
-  { date:'28/04', time:'01:45', league:'FRANCE LIGUE 2', flag:'fr', home:'US Boulogne', away:'USL Dunkerque', handicap:'0 : 0' },
-  { date:'27/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Bali United', away:'PSM Makassar', handicap:'0 : 1/2' },
-  { date:'27/04', time:'19:00', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Persija Jakarta', away:'Persis Solo', handicap:'0 : 1 3/4' },
-  { date:'28/04', time:'00:00', league:'POLAND EKSTRAKLASA', flag:'pl', home:'Piast Gliwice', away:'Arka Gdynia', handicap:'0 : 1/2' },
-  { date:'28/04', time:'00:00', league:'NORWAY 1ST DIV', flag:'no', home:'Egersund', away:'Ranheim', handicap:'0 : 1/2' },
-  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Fram Reykjavik', away:'IBV Vestmannaeyjar', handicap:'0 : 1/2' },
-  { date:'28/04', time:'01:00', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'KR Reykjavik', away:'FH Hafnarfjordur', handicap:'0 : 1' },
-  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Stjarnan Gardabaer', away:'Valur Reykjavik', handicap:'0 : 3/4' },
-  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Breidablik', away:'Thor Akureyri', handicap:'0 : 1 1/4' },
-  { date:'28/04', time:'02:15', league:'ICELAND PREMIER LEAGUE', flag:'is', home:'Vikingur Reykjavik', away:'IA Akranes', handicap:'0 : 1 1/4' },
-  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Zamalek', away:'Enppi', handicap:'0 : 3/4' },
-  { date:'27/04', time:'21:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Smouha SC', away:'Al Masry', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', home:'Pyramids FC', away:'Al Ahly Cairo', handicap:'0 : 0' },
-  { date:'27/04', time:'21:30', league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', home:'Metaloglobus Bucuresti', away:'Unirea Slobozia', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'GD Chaves', away:'UD Oliveirense', handicap:'0 : 3/4' },
-  { date:'27/04', time:'23:00', league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', home:'AEL Limassol', away:'Anorthosis Famagusta', handicap:'0 : 0' },
-  { date:'27/04', time:'23:00', league:'POLAND 1ST LIGA', flag:'pl', home:'Ruch Chorzow', away:'Pogon Grodzisk Mazowiecki', handicap:'0 : 3/4' },
-  { date:'27/04', time:'17:00', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'FC Epitsentr Kamianets Podilskyi', away:'FC Oleksandriya', handicap:'0 : 1/4' },
-  { date:'27/04', time:'19:30', league:'UKRAINE PREMIER LEAGUE', flag:'ua', home:'Zorya Luhansk', away:'Veres Rivne', handicap:'0 : 1/2' },
-  { date:'27/04', time:'23:00', league:'CROATIA SUPERLIGA', flag:'hr', home:'HNK Gorica', away:'Istra 1961 Pula', handicap:'0 : 1/2' },
-  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'RFC de Liege', away:'Lommel SK', handicap:'1/4 : 0' },
-  { date:'28/04', time:'01:30', league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', home:'Beerschot VA', away:'Patro Eisden', handicap:'0 : 3/4' },
-  { date:'27/04', time:'22:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Gagra Tbilisi', away:'FC Meshakhte Tkibuli', handicap:'0 : 3/4' },
-  { date:'28/04', time:'00:00', league:'GEORGIA EROVNULI LIGA', flag:'ge', home:'FC Dinamo Batumi', away:'FC Torpedo Kutaisi', handicap:'1/2 : 0' },
-  { date:'27/04', time:'22:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'IMT Novi Beograd', away:'Radnicki Nis', handicap:'0 : 1/2' },
-  { date:'28/04', time:'00:00', league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', home:'TSC Backa Topola', away:'Mladost Lucani', handicap:'0 : 3/4' },
-  { date:'27/04', time:'21:00', league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', home:'Turan Tovuz', away:'Zira PFK', handicap:'0 : 1/4' },
-  { date:'27/04', time:'21:30', league:'RUSSIA FIRST LEAGUE', flag:'ru', home:'Torpedo Moscow', away:'Fakel Voronezh', handicap:'0 : 0' },
-  { date:'27/04', time:'21:30', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'FC Montana', away:'Dobrudzha Dobrich', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', home:'Lokomotiv Sofia', away:'PFC Septemvri Sofia', handicap:'0 : 1/2' },
-  { date:'27/04', time:'22:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'BFC Daugavpils', away:'SK Super Nova', handicap:'0 : 1/2' },
-  { date:'27/04', time:'23:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'Ogre United', away:'FS Jelgava', handicap:'1/4 : 0' },
-  { date:'28/04', time:'00:00', league:'SWEDEN ETTAN NORTH', flag:'se', home:'Hammarby TFF', away:'Vasalunds IF', handicap:'0 : 1/2' },
-  { date:'27/04', time:'23:00', league:'GERMANY WOMEN BUNDESLIGA', flag:'de', home:'TSG Hoffenheim [w]', away:'Koln [w]', handicap:'0 : 3/4' },
-  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/4' },
-  { date:'28/04', time:'04:45', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'Velez Sarsfield', away:'Union de Santa Fe', handicap:'0 : 1/2' },
-  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 0' },
-  { date:'28/04', time:'07:00', league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', home:'CA Huracan', away:'Argentinos Juniors', handicap:'0 : 1/4' },
-  { date:'28/04', time:'05:00', league:'BRAZIL SERIE B', flag:'br', home:'Athletic Club MG', away:'Nautico PE', handicap:'0 : 0' },
-  { date:'28/04', time:'04:30', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'Manta FC', away:'Universidad Catolica del Ecuador', handicap:'1/2 : 0' },
-  { date:'28/04', time:'07:00', league:'ECUADOR LIGA PRO SERIE A', flag:'ec', home:'SD Aucas', away:'Delfin SC', handicap:'0 : 3/4' },
-  { date:'28/04', time:'07:00', league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', home:'Club Aurora', away:'CD San Antonio Bulo Bulo', handicap:'0 : 1/2' },
-  { date:'28/04', time:'03:00', league:'PERU LIGA 1', flag:'pe', home:'AD Tarma', away:'CD Los Chankas', handicap:'0 : 0' },
-  { date:'28/04', time:'07:00', league:'PERU LIGA 1', flag:'pe', home:'Deportivo Garcilaso', away:'FBC Melgar', handicap:'0 : 0' },
-  { date:'28/04', time:'05:30', league:'URUGUAY PRIMERA DIVISION', flag:'uy', home:'Defensor Sporting', away:'CA Progreso', handicap:'0 : 1/2' },
-  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'S.E.R Caxias', away:'Ypiranga RS', handicap:'0 : 1/2' },
-  { date:'28/04', time:'06:00', league:'BRAZIL SERIE C', flag:'br', home:'Ferroviaria SP', away:'Guarani SP', handicap:'1/4 : 0' },
-  { date:'28/04', time:'05:00', league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', home:'Bogota FC', away:'Union Magdalena', handicap:'1/4 : 0' },
-  { date:'28/04', time:'03:00', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Atletico Tembetary', away:'3 de Noviembre', handicap:'0 : 1/2' },
-  { date:'28/04', time:'05:30', league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', home:'Sportivo Carapegua', away:'Deportivo Santani', handicap:'0 : 1/4' },
-  { date:'28/04', time:'05:00', league:'URUGUAY SEGUNDA DIVISION', flag:'uy', home:'Atenas de San Carlos', away:'Centro Atletico Fenix', handicap:'0 : 0' },
-  { date:'28/04', time:'07:00', league:'CHILE PRIMERA B', flag:'cl', home:'Deportes Iquique', away:'Santiago Wanderers', handicap:'0 : 1/2' }
+  { date:'29/04', time:'02:00', league:'UEFA CHAMPIONS LEAGUE', flag:'uefa', home:'Paris Saint Germain', away:'Bayern Munchen', handicap:'0 : 0' },
+  { date:'29/04', time:'01:45', league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', home:'Southampton', away:'Ipswich Town', handicap:'0 : 1/4' },
+  { date:'29/04', time:'00:00', league:'SWEDEN SUPERETTAN', flag:'se', home:'IFK Norrkoping', away:'Landskrona BoIS', handicap:'0 : 3/4' },
+  { date:'28/04', time:'15:30', league:'INDONESIA SUPER LEAGUE', flag:'id', home:'Arema FC', away:'Persebaya Surabaya', handicap:'0 : 1/4' },
+  { date:'29/04', time:'01:45', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Northampton Town', away:'Barnsley', handicap:'1/4 : 0' },
+  { date:'29/04', time:'01:45', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Peterborough United', away:'Mansfield Town', handicap:'0 : 0' },
+  { date:'29/04', time:'01:45', league:'ENGLISH LEAGUE ONE', flag:'gb-eng', home:'Stockport County', away:'Port Vale', handicap:'0 : 1 1/4' },
+  { date:'29/04', time:'00:00', league:'LIGA PORTUGAL 2', flag:'pt', home:'Feirense', away:'SC Uniao Torreense', handicap:'0 : 0' },
+  { date:'28/04', time:'23:00', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Al Shabab Riyadh', away:'Al Fateh Al Hasa', handicap:'0 : 1/2' },
+  { date:'28/04', time:'23:45', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Neom SC', away:'Al Hazem', handicap:'0 : 3/4' },
+  { date:'29/04', time:'01:00', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Al Hilal Riyadh', away:'Damac', handicap:'0 : 2 1/4' },
+  { date:'29/04', time:'01:00', league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', home:'Al Khaleej Saihat', away:'Al Najma Unaizah', handicap:'0 : 1 1/4' },
+  { date:'28/04', time:'21:00', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'Sogdiana Jizzakh', away:'FK Termez Surkhon', handicap:'0 : 1/2' },
+  { date:'28/04', time:'21:00', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'FK Andijon', away:'Dinamo Samarqand', handicap:'0 : 1/4' },
+  { date:'28/04', time:'22:00', league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', home:'Pakhtakor Tashkent', away:'Nasaf Qarshi', handicap:'0 : 3/4' },
+  { date:'28/04', time:'22:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'FK Liepaja', away:'FK Grobina', handicap:'0 : 1' },
+  { date:'29/04', time:'00:00', league:'LATVIA VIRSLIGA', flag:'lv', home:'Rigas Futbola Skola', away:'Riga FC', handicap:'0 : 0' },
+  { date:'29/04', time:'01:45', league:'ENGLISH NATIONAL LEAGUE PLAYOFF', flag:'gb-eng', home:'Scunthorpe United', away:'Southend United', handicap:'1/2 : 0' },
+  { date:'29/04', time:'01:45', league:'ENGLISH NATIONAL LEAGUE NORTH PLAYOFF', flag:'gb-eng', home:'Buxton', away:'Scarborough Athletic', handicap:'0 : 1/2' },
+  { date:'29/04', time:'01:45', league:'ENGLISH NATIONAL LEAGUE SOUTH PLAYOFF', flag:'gb-eng', home:'Hemel Hempstead Town', away:'Weston Super Mare', handicap:'0 : 0' },
+  { date:'29/04', time:'02:00', league:'LIGA PORTUGAL 3 PLAYOFF', flag:'pt', home:'Fafe', away:'SC Sao Joao de Ver', handicap:'0 : 1/4' },
+  { date:'29/04', time:'07:30', league:'CONCACAF CHAMPIONS CUP', flag:'concacaf', home:'Nashville SC', away:'Tigres UANL', handicap:'0 : 1/4' },
+  { date:'29/04', time:'05:00', league:'COPA LIBERTADORES', flag:'conmebol', home:'Libertad', away:'Independiente del Valle', handicap:'0 : 0' },
+  { date:'29/04', time:'05:00', league:'COPA LIBERTADORES', flag:'conmebol', home:'Lanus', away:'LDU Quito', handicap:'0 : 3/4' },
+  { date:'29/04', time:'07:00', league:'COPA LIBERTADORES', flag:'conmebol', home:'Universidad Central de Venezuela FC', away:'Rosario Central', handicap:'3/4 : 0' },
+  { date:'29/04', time:'07:30', league:'COPA LIBERTADORES', flag:'conmebol', home:'Cruzeiro MG', away:'Boca Juniors', handicap:'0 : 1/4' },
+  { date:'29/04', time:'09:00', league:'COPA LIBERTADORES', flag:'conmebol', home:'Sporting Cristal [n]', away:'Junior Barranquilla', handicap:'0 : 1/4' },
+  { date:'29/04', time:'09:00', league:'COPA LIBERTADORES', flag:'conmebol', home:'Deportes Tolima', away:'Coquimbo Unido', handicap:'0 : 1/2' },
+  { date:'29/04', time:'05:00', league:'COPA SUDAMERICANA', flag:'conmebol', home:'Botafogo RJ', away:'Independiente Petrolero', handicap:'0 : 2 1/2' },
+  { date:'29/04', time:'05:00', league:'COPA SUDAMERICANA', flag:'conmebol', home:'San Lorenzo', away:'Santos SP', handicap:'0 : 1/4' },
+  { date:'29/04', time:'07:00', league:'COPA SUDAMERICANA', flag:'conmebol', home:'CA Barracas Central [n]', away:'Audax Italiano', handicap:'0 : 1/2' },
+  { date:'29/04', time:'07:30', league:'COPA SUDAMERICANA', flag:'conmebol', home:'Millonarios', away:'Sao Paulo SP', handicap:'0 : 1/4' },
+  { date:'29/04', time:'07:30', league:'COPA SUDAMERICANA', flag:'conmebol', home:'Deportivo Recoleta [n]', away:'Deportivo Cuenca', handicap:'0 : 0' },
+  { date:'29/04', time:'09:00', league:'COPA SUDAMERICANA', flag:'conmebol', home:'O Higgins', away:'CA Boston River', handicap:'0 : 3/4' },
+  { date:'29/04', time:'05:30', league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', home:'Ferro Carril Oeste', away:'Almirante Brown', handicap:'0 : 1/2' },
+  { date:'29/04', time:'06:00', league:'US OPEN CUP', flag:'us', home:'Charlotte FC [n]', away:'Atlanta United FC', handicap:'0 : 1/4' },
+  { date:'29/04', time:'09:00', league:'US OPEN CUP', flag:'us', home:'San Jose Earthquakes', away:'Minnesota United FC', handicap:'0 : 1/2' }
 ];
 
 var predictions = [
-  { league:'ENGLISH PREMIER LEAGUE', flag:'gb-eng', m:[['Manchester United','MAN','Brentford','BRE','2 - 1']] },
-  { league:'ITALY SERIE A', flag:'it', m:[['Cagliari','CAG','Atalanta','ATA','1 - 3'],['Lazio','LAZ','Udinese','UDI','1 - 1']] },
-  { league:'SPAIN LA LIGA', flag:'es', m:[['RCD Espanyol','ESP','Levante','LEV','2 - 0']] },
-  { league:'SWEDEN ALLSVENSKAN', flag:'se', m:[['Mjallby','MJA','Halmstads','HAL','1 - 2'],['BK Hacken','HAC','IK Sirius FK','SIR','3 - 1'],['Kalmar','KAL','Elfsborg','ELF','0 - 2'],['Kalmar','KAL','Elfsborg','ELF','1 - 1'],['Orgryte','ORG','Degerfors','DEG','2 - 2'],['AIK Fotboll','AIK','Malmo','MAL','0 - 0'],['AIK Fotboll','AIK','Malmo','MAL','2 - 1']] },
-  { league:'DENMARK SUPER LEAGUE PLAYOFF', flag:'dk', m:[['FC Copenhagen','COP','Vejle','VEJ','3 - 0']] },
-  { league:'LIGA PORTUGAL', flag:'pt', m:[['Gil Vicente','GIL','Casa Pia','CAS','2 - 0']] },
-  { league:'SPAIN LA LIGA 2', flag:'es', m:[['Cadiz CF','CAD','UD Las Palmas','LPA','1 - 0']] },
-  { league:'TURKIYE SUPER LIG', flag:'tr', m:[['Alanyaspor','ALA','Samsunspor','SAM','1 - 1'],['Konyaspor','KON','Trabzonspor','TRA','0 - 2'],['Besiktas','BES','Fatih Karagumruk','FAT','3 - 0']] },
-  { league:'RUSSIA PREMIER LEAGUE', flag:'ru', m:[['Baltika Kaliningrad','BAL','Akron Tolyatti','AKR','1 - 0']] },
-  { league:'FRANCE LIGUE 2', flag:'fr', m:[['US Boulogne','BOU','USL Dunkerque','DUN','1 - 1']] },
-  { league:'INDONESIA SUPER LEAGUE', flag:'id', m:[['Bali United','BAL','PSM Makassar','PSM','2 - 1'],['Persija Jakarta','PER','Persis Solo','PES','3 - 0']] },
-  { league:'POLAND EKSTRAKLASA', flag:'pl', m:[['Piast Gliwice','PIA','Arka Gdynia','ARK','2 - 1']] },
-  { league:'NORWAY 1ST DIV', flag:'no', m:[['Egersund','EGE','Ranheim','RAN','1 - 1']] },
-  { league:'ICELAND PREMIER LEAGUE', flag:'is', m:[['Fram Reykjavik','FRA','IBV Vestmannaeyjar','IBV','2 - 0'],['KR Reykjavik','KRR','FH Hafnarfjordur','FHH','3 - 1'],['Stjarnan Gardabaer','STJ','Valur Reykjavik','VAL','1 - 2'],['Breidablik','BRE','Thor Akureyri','THO','2 - 0'],['Vikingur Reykjavik','VIR','IA Akranes','AKA','3 - 0']] },
-  { league:'EGYPT PREMIER LEAGUE PLAYOFF', flag:'eg', m:[['Zamalek','ZAM','Enppi','ENP','2 - 0'],['Smouha SC','SMO','Al Masry','MAS','1 - 0'],['Pyramids FC','PYR','Al Ahly Cairo','AHC','1 - 1']] },
-  { league:'ROMANIA SUPERLIGA PLAYOFF', flag:'ro', m:[['Metaloglobus Bucuresti','MET','Unirea Slobozia','UNI','1 - 0']] },
-  { league:'LIGA PORTUGAL 2', flag:'pt', m:[['GD Chaves','CHA','UD Oliveirense','OLI','2 - 0']] },
-  { league:'CYPRUS 1ST DIV PLAYOFF', flag:'cy', m:[['AEL Limassol','AEL','Anorthosis Famagusta','ANO','1 - 1']] },
-  { league:'POLAND 1ST LIGA', flag:'pl', m:[['Ruch Chorzow','RUC','Pogon Grodzisk Mazowiecki','POG','2 - 0']] },
-  { league:'UKRAINE PREMIER LEAGUE', flag:'ua', m:[['FC Epitsentr Kamianets Podilskyi','EPI','FC Oleksandriya','OLE','0 - 0'],['Zorya Luhansk','ZOR','Veres Rivne','VER','2 - 1']] },
-  { league:'CROATIA SUPERLIGA', flag:'hr', m:[['HNK Gorica','GOR','Istra 1961 Pula','IST','1 - 2']] },
-  { league:'BELGIUM FIRST DIVISION B PLAYOFF', flag:'be', m:[['RFC de Liege','LIE','Lommel SK','LOM','1 - 0'],['Beerschot VA','BEE','Patro Eisden','PAT','2 - 0']] },
-  { league:'GEORGIA EROVNULI LIGA', flag:'ge', m:[['FC Gagra Tbilisi','GAG','FC Meshakhte Tkibuli','MES','2 - 0'],['FC Dinamo Batumi','DIN','FC Torpedo Kutaisi','TOR','1 - 0']] },
-  { league:'SERBIA SUPERLIGA PLAYOFF', flag:'rs', m:[['IMT Novi Beograd','IMT','Radnicki Nis','RAD','1 - 2'],['TSC Backa Topola','TSC','Mladost Lucani','MLD','3 - 0']] },
-  { league:'AZERBAIJAN PREMIER LEAGUE', flag:'az', m:[['Turan Tovuz','TUR','Zira PFK','ZIR','1 - 1']] },
-  { league:'RUSSIA FIRST LEAGUE', flag:'ru', m:[['Torpedo Moscow','TRM','Fakel Voronezh','FAK','0 - 1']] },
-  { league:'BULGARIA FIRST PROFESSIONAL FOOTBALL LEAGUE PLAYOFF', flag:'bg', m:[['FC Montana','MON','Dobrudzha Dobrich','DOB','1 - 0'],['Lokomotiv Sofia','LOK','PFC Septemvri Sofia','SEP','2 - 1']] },
-  { league:'LATVIA VIRSLIGA', flag:'lv', m:[['BFC Daugavpils','DAU','SK Super Nova','SUP','2 - 0'],['Ogre United','OGR','FS Jelgava','JEL','1 - 1']] },
-  { league:'SWEDEN ETTAN NORTH', flag:'se', m:[['Hammarby TFF','HAM','Vasalunds IF','VAS','2 - 1']] },
-  { league:'GERMANY WOMEN BUNDESLIGA', flag:'de', m:[['TSG Hoffenheim [w]','HOF','Koln [w]','KOL','2 - 0']] },
-  { league:'ARGENTINA LIGA PROFESIONAL', flag:'ar', m:[['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 0'],['Velez Sarsfield','VEL','Union de Santa Fe','UNS','1 - 1'],['CA Huracan','HUR','Argentinos Juniors','ARJ','0 - 0'],['CA Huracan','HUR','Argentinos Juniors','ARJ','2 - 1']] },
-  { league:'BRAZIL SERIE B', flag:'br', m:[['Athletic Club MG','ATH','Nautico PE','NAU','1 - 0']] },
-  { league:'ECUADOR LIGA PRO SERIE A', flag:'ec', m:[['Manta FC','MAN','Universidad Catolica del Ecuador','UCD','0 - 2'],['SD Aucas','AUC','Delfin SC','DEL','2 - 0']] },
-  { league:'BOLIVIA PROFESSIONAL FOOTBALL LEAGUE', flag:'bo', m:[['Club Aurora','AUR','CD San Antonio Bulo Bulo','SAB','2 - 1']] },
-  { league:'PERU LIGA 1', flag:'pe', m:[['AD Tarma','TAR','CD Los Chankas','CHA','1 - 1'],['Deportivo Garcilaso','GAR','FBC Melgar','MEL','0 - 1']] },
-  { league:'URUGUAY PRIMERA DIVISION', flag:'uy', m:[['Defensor Sporting','DEF','CA Progreso','PRO','2 - 0']] },
-  { league:'BRAZIL SERIE C', flag:'br', m:[['S.E.R Caxias','CAX','Ypiranga RS','YPI','1 - 1'],['Ferroviaria SP','FER','Guarani SP','GUA','1 - 0']] },
-  { league:'COLOMBIA PRIMERA B PLAYOFF', flag:'co', m:[['Bogota FC','BOG','Union Magdalena','UMG','0 - 0']] },
-  { league:'PARAGUAY DIVISION INTERMEDIA', flag:'py', m:[['Atletico Tembetary','TEM','3 de Noviembre','3NO','2 - 1'],['Sportivo Carapegua','CAR','Deportivo Santani','SAN','1 - 0']] },
-  { league:'URUGUAY SEGUNDA DIVISION', flag:'uy', m:[['Atenas de San Carlos','ATE','Centro Atletico Fenix','CAF','0 - 0']] },
-  { league:'CHILE PRIMERA B', flag:'cl', m:[['Deportes Iquique','DIQ','Santiago Wanderers','SAW','2 - 1']] }
+  { league:'UEFA CHAMPIONS LEAGUE', flag:'uefa', m:[['Paris Saint Germain','PSG','Bayern Munchen','BAY','2-1']] },
+  { league:'ENGLISH CHAMPIONSHIP', flag:'gb-eng', m:[['Southampton','SOU','Ipswich Town','IPS','1-2']] },
+  { league:'SWEDEN SUPERETTAN', flag:'se', m:[['IFK Norrkoping','NOR','Landskrona BoIS','LAN','2-0']] },
+  { league:'INDONESIA SUPER LEAGUE', flag:'id', m:[['Arema FC','ARE','Persebaya Surabaya','PEB','1-3']] },
+  { league:'ENGLISH LEAGUE ONE', flag:'gb-eng', m:[['Northampton Town','NOR','Barnsley','BAR','0-2'],['Peterborough United','PET','Mansfield Town','MAN','2-2'],['Stockport County','STO','Port Vale','POR','3-1']] },
+  { league:'LIGA PORTUGAL 2', flag:'pt', m:[['Feirense','FEI','SC Uniao Torreense','UNI','0-1']] },
+  { league:'SAUDI ARABIA PRO LEAGUE', flag:'sa', m:[['Al Shabab Riyadh','SHA','Al Fateh Al Hasa','FAT','1-1'],['Neom SC','NEO','Al Hazem','HAZ','2-0'],['Al Hilal Riyadh','HIL','Damac','DAM','4-0'],['Al Khaleej Saihat','KHA','Al Najma Unaizah','NAJ','3-0']] },
+  { league:'UZBEKISTAN SUPER LEAGUE', flag:'uz', m:[['Sogdiana Jizzakh','SOG','FK Termez Surkhon','TER','0-0'],['FK Andijon','AND','Dinamo Samarqand','DIN','1-1'],['Pakhtakor Tashkent','PAK','Nasaf Qarshi','NAS','2-1']] },
+  { league:'LATVIA VIRSLIGA', flag:'lv', m:[['FK Liepaja','LIE','FK Grobina','GRO','3-2'],['Rigas Futbola Skola','RFS','Riga FC','RIG','1-0']] },
+  { league:'ENGLISH NATIONAL LEAGUE PLAYOFF', flag:'gb-eng', m:[['Scunthorpe United','SCU','Southend United','SOU','2-1']] },
+  { league:'ENGLISH NATIONAL LEAGUE NORTH PLAYOFF', flag:'gb-eng', m:[['Buxton','BUX','Scarborough Athletic','SCA','0-1']] },
+  { league:'ENGLISH NATIONAL LEAGUE SOUTH PLAYOFF', flag:'gb-eng', m:[['Hemel Hempstead Town','HEM','Weston Super Mare','WES','1-1']] },
+  { league:'LIGA PORTUGAL 3 PLAYOFF', flag:'pt', m:[['Fafe','FAF','SC Sao Joao de Ver','SJV','1-2']] },
+  { league:'CONCACAF CHAMPIONS CUP', flag:'concacaf', m:[['Nashville SC','NAS','Tigres UANL','TIG','1-1']] },
+  { league:'COPA LIBERTADORES', flag:'conmebol', m:[['Libertad','LIB','Independiente del Valle','IDV','0-0'],['Lanus','LAN','LDU Quito','LDU','1-2'],['Universidad Central de Venezuela FC','UCV','Rosario Central','ROS','0-2'],['Cruzeiro MG','CRU','Boca Juniors','BOJ','2-2'],['Sporting Cristal [n]','SPC','Junior Barranquilla','JUN','2-1'],['Deportes Tolima','TOL','Coquimbo Unido','COQ','3-0']] },
+  { league:'COPA SUDAMERICANA', flag:'conmebol', m:[['Botafogo RJ','BOT','Independiente Petrolero','INP','4-0'],['San Lorenzo','SLO','Santos SP','SAS','1-1'],['CA Barracas Central [n]','BAC','Audax Italiano','AUD','2-1'],['Millonarios','MIL','Sao Paulo SP','SAO','0-1'],['Deportivo Recoleta [n]','REC','Deportivo Cuenca','DCU','1-1'],['O Higgins','OHI','CA Boston River','BOS','2-0']] },
+  { league:'ARGENTINA PRIMERA NACIONAL', flag:'ar', m:[['Ferro Carril Oeste','FCO','Almirante Brown','ALM','0-0']] },
+  { league:'US OPEN CUP', flag:'us', m:[['Charlotte FC [n]','CHA','Atlanta United FC','ATL','2-3'],['San Jose Earthquakes','SJE','Minnesota United FC','MIN','1-2']] }
 ];
 
 function renderSpotlight() {
   var el = document.getElementById('spotlightCards');
   var sp = [
-    { lg:'ENGLISH PREMIER LEAGUE', fl:'gb-eng', h:'Manchester United', ha:'MAN', a:'Brentford', aa:'BRE', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 1' },
-    { lg:'ITALY SERIE A', fl:'it', h:'Cagliari', ha:'CAG', a:'Atalanta', aa:'ATA', dt:'27 April 2026 \u2022 23:30 WIB', hc:'3/4 : 0', sc:'1 - 3' },
-    { lg:'TURKIYE SUPER LIG', fl:'tr', h:'Besiktas', ha:'BES', a:'Fatih Karagumruk', aa:'FAT', dt:'28 April 2026 \u2022 00:00 WIB', hc:'0 : 1 1/2', sc:'3 - 0' },
-    { lg:'SPAIN LA LIGA', fl:'es', h:'RCD Espanyol', ha:'ESP', a:'Levante', aa:'LEV', dt:'28 April 2026 \u2022 02:00 WIB', hc:'0 : 1/2', sc:'2 - 0' }
+    { lg:'UEFA CHAMPIONS LEAGUE', fl:'uefa', h:'Paris Saint Germain', ha:'PSG', a:'Bayern Munchen', aa:'BAY', dt:'29 April 2026 \u2022 02:00 WIB', hc:'0 : 0', sc:'2 - 1' },
+    { lg:'COPA LIBERTADORES', fl:'conmebol', h:'Cruzeiro MG', ha:'CRU', a:'Boca Juniors', aa:'BOJ', dt:'29 April 2026 \u2022 07:30 WIB', hc:'0 : 1/4', sc:'2 - 2' },
+    { lg:'SAUDI ARABIA PRO LEAGUE', fl:'sa', h:'Al Hilal Riyadh', ha:'HIL', a:'Damac', aa:'DAM', dt:'29 April 2026 \u2022 01:00 WIB', hc:'0 : 2 1/4', sc:'4 - 0' },
+    { lg:'COPA SUDAMERICANA', fl:'conmebol', h:'Botafogo RJ', ha:'BOT', a:'Independiente Petrolero', aa:'INP', dt:'29 April 2026 \u2022 05:00 WIB', hc:'0 : 2 1/2', sc:'4 - 0' }
   ];
   var h = '';
   sp.forEach(function (s) {
